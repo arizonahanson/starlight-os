@@ -39,7 +39,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget vim git zsh chromium rofi-unwrapped
+    wget vim git zsh chromium rofi-unwrapped pstree tree
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
