@@ -117,8 +117,9 @@
     description = "Isaac W Hanson";
     extraGroups = [ "wheel" "networkmanager" ];
     shell = "/run/current-system/sw/bin/zsh";
-    hashedPassword = "$6$G3MCDpioTwwrXK$m45RnUCE6CYV7qPFwQzWDYPml90r7edVKRRB3hkZqLc5FRqK6z8m6ctozz/v.F44Zf73/GTYXW4wLkpFdMoFw1";
+    initialHashedPassword = "$6$G3MCDpioTwwrXK$m45RnUCE6CYV7qPFwQzWDYPml90r7edVKRRB3hkZqLc5FRqK6z8m6ctozz/v.F44Zf73/GTYXW4wLkpFdMoFw1";
   };
+  users.mutableUsers = true;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
