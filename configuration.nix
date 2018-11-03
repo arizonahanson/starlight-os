@@ -19,7 +19,7 @@
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
 
-  networking.hostName = "nix"; # Define your hostname.
+  # networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -39,7 +39,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget vim git
+    wget vim git zsh chromium rofi-unwrapped
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -75,14 +75,16 @@
 
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
+  services.xserver.windowManager.i3.enable = true;
   # services.xserver.desktopManager.plasma5.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ihanson = {
     isNormalUser = true;
-    description = "Isaac W Hanson";
     uid = 1000;
+    description = "Isaac W Hanson";
     extraGroups = [ "wheel" "networkmanager" ];
+    shell = "/run/current-system/sw/bin/zsh";
   };
 
   # This value determines the NixOS release with which your system is to be
