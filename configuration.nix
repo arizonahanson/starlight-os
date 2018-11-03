@@ -70,6 +70,17 @@
   fonts.fonts = with pkgs; [
     font-awesome_5
   ];
+  environment.etc.bspwmrc = {
+    text = ''
+bspc config border_width         3 
+bspc config window_gap           0
+bspc config split_ratio          0.50 
+bspc config borderless_monocle   true 
+bspc config gapless_monocle      true
+bspc config single_monocle       true
+bspc config focus_follows_pointer false
+    ''
+  };
   programs.dconf.enable = true;
   services.dbus.packages = [ pkgs.gnome3.dconf ];
   services.gnome3.seahorse.enable = true;
@@ -98,26 +109,31 @@
   hardware.pulseaudio.enable = true;
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
-
-  # Enable touchpad support.
-  services.xserver.libinput.enable = true;
-
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.displayManager.sddm.autoNumlock = true;
-  services.xserver.desktopManager.mate.enable = true;
-  services.xserver.windowManager.bspwm.enable = true;
+  services.xserver = {
+    enable = true;
+    layout = "us";
+    # Enable touchpad support.
+    libinput.enable = true;
+    displayManager.sddm = {
+      enable = true;
+      autoNumlock = true;
+    };
+    desktopManager.mate.enable = true;
+    windowManager.bspwm = {
+      enable = true;
+      configFile = "/etc/bspwmrc";
+    };
+  };
   services.compton.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ihanson = {
+  users.users.admin = {
     isNormalUser = true;
     uid = 1000;
-    description = "Isaac W Hanson";
-    extraGroups = [ "wheel" "networkmanager" ];
+    description = "Administrator";
+    extraGroups = [ "wheel" "networkmanager" "audio"];
     shell = "/run/current-system/sw/bin/zsh";
-    initialHashedPassword = "$6$G3MCDpioTwwrXK$m45RnUCE6CYV7qPFwQzWDYPml90r7edVKRRB3hkZqLc5FRqK6z8m6ctozz/v.F44Zf73/GTYXW4wLkpFdMoFw1";
+    initialHashedPassword = "$6$iv3TYI/TLeb$Fz6sAohGGvc/Jv1tf1kPX36W9WVF2qnI/WPPqQ7kXZCeg4HGhSsXM4usZhX.gWlZEnoYhsv.ptH6.7uP3BN5P0";
   };
   users.mutableUsers = true;
 
