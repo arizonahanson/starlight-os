@@ -1,14 +1,25 @@
 
 ISONIX=iso/iso.nix
+CONFNIX=/mnt/etc/nixos/configuration.nix
+
+default: install
 
 .PHONY: iso
 iso:
 	@nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=$(ISONIX)
 
-.PHONY: install
-install:
-	@sh ./scripts/partition
+.PHONY: partition
+partition:
+	@sh ./scripts/partiton
+
+.PHONY: configure
+configure: $(CONFNIX)
+
+$(CONFNIX):
 	@nixos-generate-config --root /mnt
-	@cp -a config/. /mnt/etc/nixos/
+	@cp -av config/. /mnt/etc/nixos/
+
+.PHONY: install
+install: $(CONFNIX)
 	@nixos-install --root /mnt
 
