@@ -51,6 +51,9 @@
     mate.engrampa
     mate.mate-control-center
   ];
+  fonts.fonts = with pkgs; [
+    font-awesome_5
+  ];
   programs.dconf.enable = true;
   services.gnome3.seahorse.enable = true;
 
