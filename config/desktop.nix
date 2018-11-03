@@ -48,6 +48,7 @@ bspc config focus_follows_pointer false
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  users.users.admin.extraGroups = [ "audio" ];
 
   # Enable the X11 windowing system.
   services.xserver = {
