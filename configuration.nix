@@ -117,7 +117,7 @@
     description = "Isaac W Hanson";
     extraGroups = [ "wheel" "networkmanager" ];
     shell = "/run/current-system/sw/bin/zsh";
-    initialHashedPassword = "$6$G3MCDpioTwwrXK$m45RnUCE6CYV7qPFwQzWDYPml90r7edVKRRB3hkZqLc5FRqK6z8m6ctozz/v.F44Zf73/GTYXW4wLkpFdMoFw1";
+    initialHashedPassword = "$6$ikhOOrtzRA2NJG$YLAZAhI0REoMNMjI9mgE3NGFDnbpTl9yi52QR11p6viuMu.mVEuHmcbU3FFhTvSP4Pro.dvYfSpmKz/1Ngk.P/";
   };
   users.mutableUsers = true;
 
