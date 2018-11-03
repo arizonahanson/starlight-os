@@ -79,7 +79,7 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config single_monocle       true
 bspc config focus_follows_pointer false
-    ''
+    '';
   };
   programs.dconf.enable = true;
   services.dbus.packages = [ pkgs.gnome3.dconf ];
