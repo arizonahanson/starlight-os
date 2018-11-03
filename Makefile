@@ -1,10 +1,10 @@
 
 ISONIX=iso/iso.nix
 
-.PHONY iso:
+.PHONY: iso
 iso:
 	@nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=$(ISONIX)
 
-.PHONY install:
+.PHONY: install
 install:
 	@echo "not implemented"
