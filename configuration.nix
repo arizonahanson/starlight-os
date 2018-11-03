@@ -133,7 +133,7 @@ bspc config focus_follows_pointer false
     description = "Administrator";
     extraGroups = [ "wheel" "networkmanager" "audio"];
     shell = "/run/current-system/sw/bin/zsh";
-    initialHashedPassword = "$6$iv3TYI/TLeb$Fz6sAohGGvc/Jv1tf1kPX36W9WVF2qnI/WPPqQ7kXZCeg4HGhSsXM4usZhX.gWlZEnoYhsv.ptH6.7uP3BN5P0";
+    initialHashedPassword = "$6$ikhOOrtzRA2NJG$YLAZAhI0REoMNMjI9mgE3NGFDnbpTl9yi52QR11p6viuMu.mVEuHmcbU3FFhTvSP4Pro.dvYfSpmKz/1Ngk.P/";
   };
   users.mutableUsers = true;
 
