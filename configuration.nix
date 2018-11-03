@@ -39,22 +39,39 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget vim git zsh chromium rofi-unwrapped pstree tree gnome3.dconf-editor
+    wget vim git zsh chromium rofi-unwrapped pstree tree
     polybar sxhkd
+    dunst
   ];
   environment.mate.excludePackages = with pkgs; [
-    mate.mate-terminal
-    mate.pluma
-    mate.mate-panel
-    mate.caja
-    mate.atril
-    mate.engrampa
-    mate.mate-control-center
+      mate.caja
+      mate.libmateweather
+      mate.marco
+      mate.mate-notification-daemon
+      mate.mate-panel
+      mate.atril
+      mate.caja-extensions
+      mate.engrampa
+      mate.eom
+      mate.mate-applets
+      mate.mate-backgrounds
+      mate.mate-calc
+      mate.mate-indicator-applet
+      mate.mate-netbook
+      mate.mate-screensaver
+      mate.mate-sensors-applet
+      mate.mate-system-monitor
+      mate.mate-terminal
+      mate.mate-user-guide
+      #mate.mate-utils
+      mate.mozo
+      mate.pluma
   ];
   fonts.fonts = with pkgs; [
     font-awesome_5
   ];
   programs.dconf.enable = true;
+  services.dbus.packages = [ pkgs.gnome3.dconf ];
   services.gnome3.seahorse.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -83,19 +100,15 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable touchpad support.
   services.xserver.libinput.enable = true;
 
-  # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.displayManager.sddm.autoNumlock = true;
-  # services.xserver.windowManager.i3.enable = true;
   services.xserver.desktopManager.mate.enable = true;
-  services.compton.enable = true;
   services.xserver.windowManager.bspwm.enable = true;
-  # services.xserver.desktopManager.plasma5.enable = true;
+  services.compton.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ihanson = {
