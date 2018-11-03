@@ -7,4 +7,7 @@
     # doesn't need to run "nix-channel --update" first.
     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
   ];
+  environment.systemPackages = with pkgs; [
+    git
+  ];
 }
