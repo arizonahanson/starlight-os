@@ -7,41 +7,23 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+    ./hardware-configuration.nix
+    ./grub.nix
+    ./networking.nix
+    ./locale.nix
     ];
-
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
-
-  # networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  i18n = {
-    consoleFont = "Lat2-Terminus16";
-    consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
-  };
-
-  # Set your time zone.
-  time.timeZone = "America/New_York";
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget vim git zsh chromium rofi-unwrapped pstree tree
-    polybar sxhkd
-    dunst
+    gnumake git
+    wget
+    vim
+    zsh
+    polybar sxhkd rofi-unwrapped dunst
+    chromium
+    pstree
+    tree
   ];
   environment.mate.excludePackages = with pkgs; [
       mate.caja
@@ -61,9 +43,7 @@
       mate.mate-screensaver
       mate.mate-sensors-applet
       mate.mate-system-monitor
-      mate.mate-terminal
       mate.mate-user-guide
-      #mate.mate-utils
       mate.mozo
       mate.pluma
   ];
