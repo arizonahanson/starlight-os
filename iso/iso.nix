@@ -8,6 +8,6 @@
     <nixpkgs/nixos/modules/installer/cd-dvd/channel.nix>
   ];
   environment.systemPackages = with pkgs; [
-    git
+    git make
   ];
 }
