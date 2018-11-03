@@ -39,8 +39,20 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    wget vim git zsh chromium rofi-unwrapped pstree tree
+    wget vim git zsh chromium rofi-unwrapped pstree tree gnome3.dconf-editor
+    polybar sxhkd
   ];
+  environment.mate.excludePackages = with pkgs; [
+    mate.mate-terminal
+    mate.pluma
+    mate.mate-panel
+    mate.caja
+    mate.atril
+    mate.engrampa
+    mate.mate-control-center
+  ];
+  programs.dconf.enable = true;
+  services.gnome3.seahorse.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -75,7 +87,11 @@
 
   # Enable the KDE Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.windowManager.i3.enable = true;
+  services.xserver.displayManager.sddm.autoNumlock = true;
+  # services.xserver.windowManager.i3.enable = true;
+  services.xserver.desktopManager.mate.enable = true;
+  services.compton.enable = true;
+  services.xserver.windowManager.bspwm.enable = true;
   # services.xserver.desktopManager.plasma5.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
