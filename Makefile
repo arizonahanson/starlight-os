@@ -7,4 +7,8 @@ iso:
 
 .PHONY: install
 install:
-	@echo "not implemented"
+	@source scripts/partition
+	@nixos-generate-config --root /mnt
+	@cp -a config/. /mnt/etc/nixos/
+	@nixos-install --root /mnt
+
