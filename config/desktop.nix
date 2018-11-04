@@ -25,7 +25,7 @@
       mate.mate-netbook
       mate.mate-screensaver
       mate.mate-sensors-applet
-      mate.mate-system-monitor
+      #mate.mate-system-monitor
       mate.mate-user-guide
       mate.mozo
       mate.pluma
@@ -33,8 +33,10 @@
   fonts.fonts = with pkgs; [
     font-awesome_5
   ];
+  # dconf
   programs.dconf.enable = true;
   services.dbus.packages = [ pkgs.gnome3.dconf ];
+  # keyring
   services.gnome3.seahorse.enable = true;
 
   # Enable sound.
