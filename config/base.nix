@@ -17,6 +17,9 @@
     enable = true;
     highlighters = [ "main" "brackets" "cursor" "root" "line" ];
   };
+  programs.zsh.interactiveShellInit = ''
+    shopt -s histappend
+  '';
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
