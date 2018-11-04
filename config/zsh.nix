@@ -43,7 +43,7 @@
     my-autosuggest-accept() {
       zle autosuggest-accept
       zle redisplay
-    #  zle redisplay
+      zle redisplay
     }
     zle -N my-autosuggest-accept
     ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=my-autosuggest-accept
