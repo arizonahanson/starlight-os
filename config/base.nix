@@ -3,6 +3,7 @@
 {
   imports = [
     ./vim.nix
+    ./zsh.nix
   ];
   environment.systemPackages = with pkgs; [
     gnumake git
@@ -15,16 +16,6 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  programs.zsh.enable = true;
-  programs.zsh.syntaxHighlighting = {
-    enable = true;
-    highlighters = [ "main" "brackets" "cursor" "root" "line" ];
-  };
-  programs.zsh.autosuggestions = {
-    enable = true;
-    strategy = "match_prev_cmd";
-    highlightStyle = "fg=0,bold";
-  };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
