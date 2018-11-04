@@ -9,7 +9,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
   users.users.admin.extraGroups = [ "networkmanager" ];
 
-# Enable the OpenSSH daemon.
+  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
   # Open ports in the firewall.

@@ -7,21 +7,15 @@
   ];
   environment.systemPackages = with pkgs; [
     gnumake git
-    wget
+    wget w3m
     pstree
     tree
-    w3m
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  # btrfs auto-scrub
   services.btrfs.autoScrub.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # default user account
   users.users.admin = {
     isNormalUser = true;
     uid = 1000;
