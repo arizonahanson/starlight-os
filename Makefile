@@ -8,10 +8,6 @@ default: install
 iso:
 	@nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=$(ISONIX)
 
-.PHONY: partition
-partition:
-	@sh ./scripts/partiton
-
 .PHONY: configure
 configure: $(CONFNIX)
 
@@ -22,7 +18,7 @@ $(CONFNIX):
 .PHONY: rebuild
 rebuild:
 	@sudo cp -av config/. /etc/nixos/
-	@sudo nixos-rebuild --upgrade switch
+	@sudo nixos-rebuild switch
 
 .PHONY: install
 install: $(CONFNIX)
