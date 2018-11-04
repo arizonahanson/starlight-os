@@ -26,5 +26,5 @@ rebuild:
 
 .PHONY: install
 install: $(CONFNIX)
-	@nixos-install --root /mnt
+	@nixos-install --no-root-passwd --root /mnt
 
