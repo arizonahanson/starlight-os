@@ -40,16 +40,15 @@
     bindkey '^w' vi-forward-word
 
     # better auto-suggest
-    #my-autosuggest-accept() {
-    #  zle autosuggest-accept
-    #  zle redisplay
-    #  zle redisplay
-    #}
-    #zle -N my-autosuggest-accept
-    #ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=my-autosuggest-accept
-    bindkey '^ ' autosuggest-accept
-    #ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=""
+    my-autosuggest-accept() {
+      zle autosuggest-accept
+      zle redisplay
+    }
+    zle -N my-autosuggest-accept
+    bindkey '^ ' my-autosuggest-accept
+    ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=my-autosuggest-accept
     ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=vi-forward-char
+    ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=""
     export ZSH_HIGHLIGHT_STYLES[cursor]='fg=yellow,bold'
     export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
     export ZSH_HIGHLIGHT_STYLES[path]='fg=blue,bold'
