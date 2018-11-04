@@ -14,6 +14,7 @@
   ];
   # keyring
   services.gnome3.seahorse.enable = true;
+  services.gnome3.gnome-keyring.enable = true;
   programs.zsh.interactiveShellInit = ''
     export SSH_ASKPASS="${pkgs.gnome3.seahorse}/lib/seahorse/seahorse-ssh-askpass"
   '';
