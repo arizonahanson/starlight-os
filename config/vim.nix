@@ -15,7 +15,7 @@
       	'';
       	vimrcConfig.packages.vim = with pkgs.vimPlugins; {
       	  # loaded on launch
-      	  start = [ ale fugitive vim-nix ];
+      	  start = [ ale fugitive vim-nix vim-sensible ];
       	  # manually loadable by calling `:packadd $plugin-name`
       	  #opt = [ phpCompletion elm-vim ];
       	  # To automatically load a plugin when opening a filetype, add vimrc lines like:
