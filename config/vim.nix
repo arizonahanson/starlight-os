@@ -19,13 +19,13 @@
         # E.g. set this to "my-vim" and you need to type "my-vim" to open this vim
         # This allows to have multiple vim packages installed (e.g. with a different set of plugins)
         name = "vim-minimal";
-      	vimrcConfig.packages.myVimPackage = with pkgs.vimPlugins; {
+      	vimrcConfig.packages.nix_sensible = with pkgs.vimPlugins; {
       	  # loaded on launch
       	  start = [ vim-nix vim-sensible ];
       	  # manually loadable by calling `:packadd $plugin-name`
-      	  #opt = [ phpCompletion elm-vim ];
+      	  #opt = [ ];
       	  # To automatically load a plugin when opening a filetype, add vimrc lines like:
-      	  # autocmd FileType php :packadd phpCompletion
+      	  # autocmd FileType html :packadd plugin-name
       	};
       }
     )

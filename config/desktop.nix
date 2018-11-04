@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./bspwm.nix
+  ];
   environment.systemPackages = with pkgs; [
     polybar sxhkd rofi-unwrapped dunst
     chromium
@@ -30,17 +33,6 @@
   fonts.fonts = with pkgs; [
     font-awesome_5
   ];
-  environment.etc.bspwmrc = {
-    text = ''
-bspc config border_width         3 
-bspc config window_gap           0
-bspc config split_ratio          0.50 
-bspc config borderless_monocle   true 
-bspc config gapless_monocle      true
-bspc config single_monocle       true
-bspc config focus_follows_pointer false
-    '';
-  };
   programs.dconf.enable = true;
   services.dbus.packages = [ pkgs.gnome3.dconf ];
   services.gnome3.seahorse.enable = true;
@@ -61,10 +53,6 @@ bspc config focus_follows_pointer false
       autoNumlock = true;
     };
     desktopManager.mate.enable = true;
-    windowManager.bspwm = {
-      enable = true;
-      configFile = "/etc/bspwmrc";
-    };
   };
   services.compton.enable = true;
 
