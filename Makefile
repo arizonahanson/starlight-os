@@ -19,6 +19,11 @@ $(CONFNIX):
 	@nixos-generate-config --root /mnt
 	@cp -av config/. /mnt/etc/nixos/
 
+.PHONY: rebuild
+rebuild:
+	@sudo cp -av config/. /etc/nixos/
+	@sudo nixos-rebuild switch
+
 .PHONY: install
 install: $(CONFNIX)
 	@nixos-install --root /mnt
