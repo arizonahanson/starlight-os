@@ -3,7 +3,7 @@
 {
   environment = 
     let
-      my_git = ((pkgs.git.overrideAttrs (oldAttrs: rec { doInstallCheck = false; })).override {
+      git_minimal = ((pkgs.git.overrideAttrs (oldAttrs: rec { doInstallCheck = false; })).override {
         guiSupport = false;
         pythonSupport = false;
         perlSupport = false;
@@ -12,11 +12,11 @@
       });
     in
     {
-      systemPackages = [ (my_git) ];
+      systemPackages = [ (git_minimal) ];
       etc.gitconfig = {
         text = ''
 [credential]
-  helper = ${my_git}/bin/git-credential-libsecret
+  helper = ${git_minimal}/bin/git-credential-libsecret
         '';
       };
     };

@@ -9,7 +9,7 @@
   environment.systemPackages = with pkgs; [
     gnumake
     wget w3m
-    pstree
+    psmisc
     tree
   ];
 

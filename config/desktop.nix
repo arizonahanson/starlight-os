@@ -41,6 +41,5 @@
     };
   };
   services.compton.enable = true;
-
 }
 
