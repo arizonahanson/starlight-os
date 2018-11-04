@@ -36,6 +36,10 @@
     # end
     bindkey -a '\e[4~'  vi-end-of-line
     bindkey '\e[4~'  vi-end-of-line
+    bindkey  "''${terminfo[khome]}" vi-beginning-of-line
+    bindkey -a "''${terminfo[khome]}" vi-beginning-of-line
+    bindkey  "''${terminfo[kend]}" vi-end-of-line
+    bindkey -a "''${terminfo[kend]}" vi-end-of-line
     # complete word
     bindkey '^w' vi-forward-word
 
