@@ -1,9 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  programs.vim.defaultEditor = true;
   environment.systemPackages = with pkgs; [
-    vim (with import <nixpkgs> {};
+    (with import <nixpkgs> {};
       vim_configurable.customize {
         # Specifies the vim binary name.
         # E.g. set this to "my-vim" and you need to type "my-vim" to open this vim

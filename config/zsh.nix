@@ -1,10 +1,6 @@
 { config, pkgs, ... }:
 {
   programs.zsh.enable = true;
-  programs.zsh.syntaxHighlighting = {
-    enable = true;
-    highlighters = [ "main" "brackets" "cursor" "root" "line" ];
-  };
   programs.zsh.autosuggestions = {
     enable = true;
     strategy = "match_prev_cmd";
@@ -17,6 +13,10 @@
       "colored-man-pages"
       "zsh-users/zsh-completions"
     ];
+  };
+  programs.zsh.syntaxHighlighting = {
+    enable = true;
+    highlighters = [ "main" "brackets" "cursor" "root" "line" ];
   };
   programs.zsh.promptInit = ''
     bindkey -v
@@ -74,5 +74,6 @@
     export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=yellow,bold'
     export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan'
     export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan,bold'
+    export EDITOR=vim-minimal
   '';
 }
