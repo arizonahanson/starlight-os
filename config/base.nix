@@ -1,10 +1,12 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./vim.nix
+  ];
   environment.systemPackages = with pkgs; [
     gnumake git
     wget
-    vim
     pstree
     tree
     w3m
@@ -13,7 +15,6 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  programs.vim.defaultEditor = true;
   programs.zsh.enable = true;
   programs.zsh.syntaxHighlighting = {
     enable = true;
@@ -27,6 +28,7 @@
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
+  services.btrfs.autoScrub.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.admin = {
