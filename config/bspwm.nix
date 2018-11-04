@@ -28,6 +28,16 @@ if [ -e "$HOME/.Xresources" ]; then
   xrdb -merge "$HOME/.Xresources"
 fi
 
+# spread desktops      
+desktops=8
+count=$(xrandr -q | grep ' connected' | wc -l)
+i=1
+for m in $(xrandr -q | grep ' connected' | awk '{print $1}'); do
+  sequence=$(seq $(((1+($i-1)*$desktops/$count))) $(($i*$desktops/$count)))
+  bspc monitor $m -d $(echo ''${sequence} | sed 's/10/0/')
+  i=$(($i+1))
+done
+
 # pointer
 xsetroot -cursor_name left_ptr
 
