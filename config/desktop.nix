@@ -4,9 +4,10 @@
   imports = [
     ./bspwm.nix
     ./mate.nix
+    ./polybar.nix
   ];
   environment.systemPackages = with pkgs; [
-    polybar sxhkd rofi-unwrapped dunst
+    sxhkd rofi-unwrapped dunst feh
     chromium
   ];
   fonts.fonts = with pkgs; [

@@ -43,16 +43,16 @@ bspc config single_monocle       true
 bspc config focus_follows_pointer false
 
 # polybar
-#for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-#  MONITOR=$m polybar --reload archi3 &
-#done
+for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+  MONITOR=$m ${pkgs.polybar}/bin/polybar --reload default -c /etc/polybar.conf &
+done
 
 # background image
-#if [ -e "$HOME/.fehbg" ]; then
-#  source "$HOME/.fehbg"
-#else
-#  feh --bg-tile "$HOME/Pictures/basket.png"
-#fi
+if [ -e "$HOME/.fehbg" ]; then
+  source "$HOME/.fehbg"
+else
+  feh --bg-tile "$HOME/Pictures/basket.png"
+fi
       
 if [ -e "$HOME/.config/bspwm/bspwmrc" ]; then
   "$HOME/.config/bspwm/bspwmrc"
