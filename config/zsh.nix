@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 {
   programs.zsh.enable = true;
+  programs.zsh.interactiveShellInit = ''
+    setopt appendhistory extendedglob nomatch
+    unsetopt autocd beep notify
+    bindkey -v
+  '';
   programs.zsh.syntaxHighlighting = {
     enable = true;
     highlighters = [ "main" "brackets" "cursor" "root" "line" ];
