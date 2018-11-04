@@ -17,6 +17,11 @@
     enable = true;
     highlighters = [ "main" "brackets" "cursor" "root" "line" ];
   };
+  programs.zsh.autosuggestions = {
+    enable = true;
+    strategy = "match_prev_cmd";
+    highlightStyle = "fg=0,bold";
+  };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
