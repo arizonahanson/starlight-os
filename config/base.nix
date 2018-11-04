@@ -4,9 +4,10 @@
   imports = [
     ./vim.nix
     ./zsh.nix
+    ./git.nix
   ];
   environment.systemPackages = with pkgs; [
-    gnumake git
+    gnumake
     wget w3m
     pstree
     tree
