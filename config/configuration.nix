@@ -12,7 +12,7 @@
     ./networking.nix
     ./locale.nix
     ./base.nix
-    #./desktop.nix
-    ./server.nix
+    ./desktop.nix
+    #./server.nix
     ];
 }

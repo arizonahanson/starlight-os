@@ -51,8 +51,16 @@
     displayManager.sddm = {
       enable = true;
       autoNumlock = true;
+      autoLogin = {
+        enable = true;
+        user = "admin";
+        relogin = true;
+      };
     };
-    desktopManager.mate.enable = true;
+    desktopManager = {
+      mate.enable = true;
+      default = "mate";
+    };
   };
   services.compton.enable = true;
 
