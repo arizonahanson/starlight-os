@@ -14,6 +14,9 @@
   ];
   # keyring
   services.gnome3.seahorse.enable = true;
+  programs.zsh.interactiveShellInit = ''
+    export SSH_ASKPASS="${pkgs.gnome3.seahorse}/lib/seahorse/seahorse-ssh-askpass"
+  '';
 
   # Enable sound.
   sound.enable = true;
