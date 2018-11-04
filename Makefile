@@ -22,7 +22,7 @@ $(CONFNIX):
 .PHONY: rebuild
 rebuild:
 	@sudo cp -av config/. /etc/nixos/
-	@sudo nixos-rebuild switch
+	@sudo nixos-rebuild --upgrade switch
 
 .PHONY: install
 install: $(CONFNIX)
