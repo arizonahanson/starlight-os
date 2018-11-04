@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./dconf.nix
+  ];
   environment.mate.excludePackages = with pkgs; [
       mate.caja
       mate.libmateweather
@@ -23,9 +26,6 @@
       mate.mozo
       mate.pluma
   ];
-  # dconf
-  programs.dconf.enable = true;
-  services.dbus.packages = [ pkgs.gnome3.dconf ];
 
   # Enable the X11 windowing system.
   services.xserver.desktopManager = {
