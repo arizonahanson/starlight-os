@@ -14,6 +14,8 @@
 
   # btrfs auto-scrub
   services.btrfs.autoScrub.enable = true;
+  # /tmp on tmpfs
+  boot.tmpOnTmpfs = true;
 
   # default user account
   users.users.admin = {
