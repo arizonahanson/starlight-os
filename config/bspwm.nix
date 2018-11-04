@@ -21,6 +21,9 @@ function get_xrdb() {
   xrdb -query | grep "$1" | awk '{print $2}' | tail -n1
 }
       
+if [ -e "/etc/X11/Xresources" ]; then
+  xrdb /etc/X11/Xresources
+fi
 if [ -e "$HOME/.Xresources" ]; then
   xrdb -merge "$HOME/.Xresources"
 fi
