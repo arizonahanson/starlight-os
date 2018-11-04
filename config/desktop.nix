@@ -7,7 +7,7 @@
     ./polybar.nix
   ];
   environment.systemPackages = with pkgs; [
-    sxhkd rofi-unwrapped dunst feh
+    sxhkd rofi-unwrapped libnotify feh
     chromium
   ];
   fonts.fonts = with pkgs; [

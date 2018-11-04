@@ -5,11 +5,6 @@
     ./dconf.nix
   ];
   environment.mate.excludePackages = with pkgs; [
-      mate.caja
-      mate.libmateweather
-      mate.marco
-      mate.mate-notification-daemon
-      mate.mate-panel
       mate.atril
       mate.caja-extensions
       mate.engrampa
@@ -21,8 +16,9 @@
       mate.mate-netbook
       mate.mate-screensaver
       mate.mate-sensors-applet
-      #mate.mate-system-monitor
+      mate.mate-system-monitor
       mate.mate-user-guide
+      mate.mate-utils
       mate.mozo
       mate.pluma
   ];

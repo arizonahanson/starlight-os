@@ -52,6 +52,8 @@ bspc config gapless_monocle      true
 bspc config single_monocle       true
 bspc config focus_follows_pointer false
 
+bspc rule -a Rofi state=floating
+
 # polybar
 for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
   MONITOR=$m ${pkgs.polybar}/bin/polybar --reload default -c /etc/polybar.conf &
