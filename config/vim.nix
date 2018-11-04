@@ -18,7 +18,7 @@
         # Specifies the vim binary name.
         # E.g. set this to "my-vim" and you need to type "my-vim" to open this vim
         # This allows to have multiple vim packages installed (e.g. with a different set of plugins)
-        name = "vim-minimal";
+        name = "vim";
       	vimrcConfig.packages.nix_sensible = with pkgs.vimPlugins; {
       	  # loaded on launch
       	  start = [ vim-nix vim-sensible ];

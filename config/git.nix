@@ -11,7 +11,7 @@
     etc.gitconfig = {
       text = ''
 [credential]
-	helper = ${pkgs.git}/lib/git-core/git-credential-libsecret
+	helper = ${pkgs.git}/bin/git-credential-libsecret
       '';
     };
   };
