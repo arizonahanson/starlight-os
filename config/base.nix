@@ -13,6 +13,10 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
+  programs.zsh.syntaxHighlighting = {
+    enable = true;
+    highlighters = [ "main" "brackets" "cursor" "root" "line" ];
+  };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
