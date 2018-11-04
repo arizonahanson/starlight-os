@@ -1,9 +1,20 @@
 { config, pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    (with import <nixpkgs> {};
-      vim_configurable.customize {
+  environment.systemPackages = 
+    let
+      vim_minimal = pkgs.vim_configurable.override {
+        features = "normal";
+        guiSupport = "no";
+        luaSupport = false;
+        pythonSupport = false;
+        rubySupport = false;
+        multibyteSupport = true;
+        netbeansSupport = false;
+      };
+    in
+    with pkgs; [ (with import <nixpkgs> {}; 
+    vim_minimal.customize {
         # Specifies the vim binary name.
         # E.g. set this to "my-vim" and you need to type "my-vim" to open this vim
         # This allows to have multiple vim packages installed (e.g. with a different set of plugins)
@@ -17,7 +28,7 @@
       	  # autocmd FileType php :packadd phpCompletion
       	};
       }
-    )    
+    )
   ];
 }
 
