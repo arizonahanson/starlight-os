@@ -17,9 +17,6 @@
     enable = true;
     highlighters = [ "main" "brackets" "cursor" "root" "line" ];
   };
-  programs.zsh.interactiveShellInit = ''
-    shopt -s histappend
-  '';
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -32,7 +29,7 @@
     extraGroups = [ "wheel" ];
     initialHashedPassword = "$6$D85LJu3AY7$CSbcP8wY9qNgp6zA.PXAmZo6JMy4nHDldvfUDzom7XglfgRUPW6wnLJ1l0dRUQAy4SReAO85GEISAs6tZE6TV/";
   };
-  users.defaultShell = "/run/current-system/sw/bin/zsh";
+  users.defaultUserShell = "/run/current-system/sw/bin/zsh";
   users.mutableUsers = true;
 
   # This value determines the NixOS release with which your system is to be
