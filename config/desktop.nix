@@ -10,6 +10,7 @@
     sxhkd rofi-unwrapped libnotify feh
     chromium
     networkmanagerapplet
+    xdg-desktop-portal-gtk
     (rxvt_unicode.override {
       unicode3Support = true;
       perlSupport = false;
@@ -40,6 +41,11 @@
   i18n.inputMethod = {
     enabled = "ibus";
     ibus.engines = with pkgs.ibus-engines; [ uniemoji ];
+  };
+  # flatpak
+  services.flatpak = {
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
   };
   # keyring
   services.gnome3.seahorse.enable = true;
