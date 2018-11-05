@@ -16,7 +16,23 @@
   };
   fonts.fonts = with pkgs; [
     font-awesome_5
+    noto-fonts-emoji
   ];
+  fonts.fontconfig.localConf = ''
+<selectfont>
+    <rejectfont>
+        <pattern>
+            <patelt name="family" >
+                <string>Noto Color Emoji</string>
+            </patelt>
+        </pattern>
+    </rejectfont>
+</selectfont>
+  '';
+  i18n.inputMethod = {
+    enabled = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [ uniemoji ];
+  };
   # keyring
   services.gnome3.seahorse.enable = true;
   services.gnome3.gnome-keyring.enable = true;
