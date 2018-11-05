@@ -20,6 +20,14 @@
     TERMINAL = "urxvt";
     BROWSER = "chromium";
   };
+  environment.etc."ld.so.preload" = if config.virtualisation.virtualbox.guest.enable then {
+    text = ''
+      ${pkgs.linuxPackages.virtualboxGuestAdditions}/lib/VBoxOGL.so
+    '';
+  } else {
+    text = "";
+  };
+
   networking.networkmanager = {
     enable = true;
   };
@@ -168,6 +176,7 @@ URxvt*transparent:       false
 URxvt.font: xft:DejaVu Sans Mono:pixelsize=20
 URxvt.boldFont:
 URxvt.letterSpace: 0
+URxvt.internalBorder: 16
     '';
   };
   services.compton.enable = true;
