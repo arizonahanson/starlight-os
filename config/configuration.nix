@@ -14,5 +14,6 @@
     ./base.nix
     ./desktop.nix
     #./server.nix
+    ./docker.nix
     ];
 }
