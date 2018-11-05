@@ -13,12 +13,13 @@
     in
     {
       systemPackages = [ (git_minimal) ];
-      etc.gitconfig = {
+      etc.gitconfig = if config.services.xserver.enable then
+      {
         text = ''
 [credential]
   helper = ${git_minimal}/bin/git-credential-libsecret
         '';
-      };
+      } else { };
     };
 }
 

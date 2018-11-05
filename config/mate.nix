@@ -4,6 +4,9 @@
   imports = [
     ./dconf.nix
   ];
+  environment.systemPackages = with pkgs; [
+    gnome3.dconf-editor
+  ];
   environment.mate.excludePackages = with pkgs; [
       mate.atril
       mate.caja-extensions

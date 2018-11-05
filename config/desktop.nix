@@ -9,7 +9,11 @@
   environment.systemPackages = with pkgs; [
     sxhkd rofi-unwrapped libnotify feh
     chromium
+    networkmanagerapplet
   ];
+  networking.networkmanager = {
+    enable = true;
+  };
   fonts.fonts = with pkgs; [
     font-awesome_5
   ];
@@ -23,7 +27,7 @@
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
-  users.users.admin.extraGroups = [ "audio" ];
+  users.users.admin.extraGroups = [ "audio" "networkmanager" ];
 
   # Enable the X11 windowing system.
   services.xserver = {
