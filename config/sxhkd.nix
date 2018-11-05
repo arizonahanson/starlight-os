@@ -10,7 +10,7 @@ super + space
   rofi -show combi -normal-window
 # terminal
 super + Return
-  mate-terminal
+  exec $TERMINAL &
 # browser
 super + slash
   exec $BROWSER &
@@ -19,7 +19,7 @@ super + equal
   mate-calculator
 # filemanager
 super + backslash
-  mate-terminal -e ranger
+  rofi-sensible-terminal -e ranger
 
 # switch, move window
 super + {_,shift + }{Left,Down,Up,Right}

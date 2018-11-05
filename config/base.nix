@@ -11,6 +11,7 @@
     wget w3m
     psmisc
     tree
+    ranger
   ];
 
   # btrfs auto-scrub

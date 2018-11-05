@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  environment.variables = {
+    EDITOR = "vim";
+  };
   environment.systemPackages = 
     let
       vim_minimal = pkgs.vim_configurable.override {

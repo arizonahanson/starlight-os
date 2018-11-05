@@ -10,7 +10,15 @@
     sxhkd rofi-unwrapped libnotify feh
     chromium
     networkmanagerapplet
+    (rxvt_unicode.override {
+      unicode3Support = true;
+      perlSupport = false;
+    })
   ];
+  environment.variables = {
+    TERMINAL = "urxvt";
+    BROWSER = "chromium";
+  };
   networking.networkmanager = {
     enable = true;
   };
@@ -58,7 +66,7 @@
         autoLogin = {
           enable = true;
           user = "admin";
-          relogin = true;
+          relogin = false;
         };
       };
     };
@@ -148,6 +156,12 @@ rofi.monitor: -1
 *.color7:       #787878
 *.color15:      #c7c7c7
 
+URxvt*scrollBar:         false
+URxvt*scrollBar_right:   false
+URxvt*transparent:       false
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=20
+URxvt.boldFont:
+URxvt.letterSpace: 0
     '';
   };
   services.compton.enable = true;

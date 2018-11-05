@@ -77,6 +77,5 @@
     export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=yellow,bold'
     export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan'
     export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan,bold'
-    export EDITOR=vim
   '';
 }
