@@ -19,7 +19,9 @@
 [credential]
   helper = ${git_minimal}/bin/git-credential-libsecret
         '';
-      } else { };
+      } else {
+        text = "";
+      };
     };
 }
 
