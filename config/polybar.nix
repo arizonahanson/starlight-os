@@ -6,22 +6,28 @@
       text = ''
 [colors]
 background = ''${xrdb:background}
-background-alt = ''${xrdb:color4}
+background-alt = ''${xrdb:color7}
 foreground = ''${xrdb:foreground}
-foreground-alt = ''${xrdb:color12}
-black = ''${xrdb:color0}
-gray = ''${xrdb:color8}
+foreground-alt = ''${xrdb:color10}
+base02 = ''${xrdb:color0}
+base03 = ''${xrdb:color8}
 red = ''${xrdb:color1}
 orange = ''${xrdb:color9}
-dark_green = ''${xrdb:color2}
-green = ''${xrdb:color10}
-yellow = ''${xrdb:color11}
-blue = ''${xrdb:color12}
-purple = ''${xrdb:color13}
-cyan = ''${xrdb:color14}
-primary = ''${colors.blue}
-secondary = ''${xrdb:color4}
-alert = ''${xrdb:color1}
+green = ''${xrdb:color2}
+base01 = ''${xrdb:color10}
+yellow = ''${xrdb:color3}
+base00 = ''${xrdb:color11}
+blue = ''${xrdb:color4}
+base0 = ''${xrdb:color12}
+magenta = ''${xrdb:color5}
+violet = ''${xrdb:color13}
+cyan = ''${xrdb:color6}
+base1 = ''${xrdb:color14}
+base2 = ''${xrdb:color7}
+base3 = ''${xrdb:color15}
+        
+accent = ''${colors.blue}        
+alert = ''${colors.red}
 
 [bar/default]
 monitor = ''${env:MONITOR:VGA-1}
@@ -29,7 +35,7 @@ width = 100%
 height = 44
 offset-x = 0
 offset-y = 0
-radius = 8.0
+;radius = 8.0
 fixed-center = true
 ; Put the bar at the bottom of the screen
 ;bottom = true
@@ -38,7 +44,7 @@ background = ''${colors.background}
 foreground = ''${colors.foreground}
 
 line-size = 3
-line-color = ''${colors.primary}
+line-color = ''${colors.accent}
 
 border-size = 2
 border-color = ''${colors.background-alt}
@@ -84,7 +90,7 @@ format-foreground = ''${colors.foreground-alt}
 type = custom/script
 exec = date '+%a %l:%M %p' | sed 's/  / /'
 interval = 30
-format-foreground = ''${colors.background-alt}
+format-foreground = ''${colors.base1}
 label-font = 5
 
 [module/xwindow]
@@ -93,24 +99,22 @@ label = %title:0:64:…%
 label-foreground = ''${colors.foreground}
 label-font = 4
 label-empty = •
-label-empty-foreground = ''${colors.foreground-alt}
 label-empty-font = 1
 
 [module/bspwm]
 type = internal/bspwm
 
 format = <label-mode><label-state>
-format-foreground = ''${colors.primary}
+format-foreground = ''${colors.foreground}
 
 label-focused = %name%
 label-focused-foreground = ''${colors.foreground}
-;label-focused-background = ''${colors.background-alt}
-label-focused-underline = ''${colors.background-alt}
+label-focused-underline = ''${colors.accent}
 label-focused-padding = 2
 
 label-occupied = %name%
 label-occupied-padding = 2
-label-occupied-foreground = ''${colors.foreground-alt}
+label-occupied-foreground = ''${colors.base1}
 
 label-urgent = %name%
 label-urgent-foreground = ''${colors.alert}
@@ -127,7 +131,8 @@ label-occupied-font = 3
 label-urgent-font = 3
 label-empty-font = 3
 
-label-dimmed-focused-foreground = ''${colors.foreground-alt}
+label-dimmed-focused-foreground = ''${colors.foreground}
+label-dimmed-focused-underline = ''${colors.background-alt}
 
 label-monocle = " "
 label-floating = " "
