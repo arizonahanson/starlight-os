@@ -12,6 +12,7 @@
     psmisc
     tree ag
     ranger
+    unzip
   ];
 
   # btrfs auto-scrub

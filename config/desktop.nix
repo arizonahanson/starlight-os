@@ -11,6 +11,7 @@
     chromium
     networkmanagerapplet
     xdg-desktop-portal-gtk xorg.xkill
+    numix-solarized-gtk-theme
     (rxvt_unicode.override {
       unicode3Support = true;
       perlSupport = false;
