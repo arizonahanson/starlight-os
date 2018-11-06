@@ -39,6 +39,7 @@
   };
   fonts.fonts = with pkgs; [
     font-awesome_5
+    google-fonts
     noto-fonts-emoji
   ];
   fonts.fontconfig.localConf = ''
@@ -103,7 +104,7 @@ Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
 
 ! ROFI
-rofi.font:              DejaVu Sans Mono 18
+rofi.font:              Exo 2 SemiBold 18
 rofi.modi:              window,run,drun,combi
 rofi.width:             38
 rofi.lines:             5
@@ -179,7 +180,7 @@ rofi.monitor: -1
 URxvt*scrollBar:         false
 URxvt*scrollBar_right:   false
 URxvt*transparent:       false
-URxvt.font: xft:DejaVu Sans Mono:pixelsize=20
+URxvt.font: xft:Fira Mono Medium:pixelsize=20
 URxvt.boldFont:
 URxvt.letterSpace: 0
 URxvt.internalBorder: 16

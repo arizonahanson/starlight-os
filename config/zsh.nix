@@ -18,7 +18,7 @@
     enable = true;
     highlighters = [ "main" "brackets" "cursor" "root" "line" ];
   };
-  programs.zsh.promptInit = ''
+  environment.interactiveShellInit = ''
     bindkey -v
     # spellcheck commands
     setopt correct
@@ -42,6 +42,9 @@
     bindkey -a "''${terminfo[kend]}" vi-end-of-line
     # complete word
     bindkey '^w' vi-forward-word
+  '';
+  programs.zsh.promptInit = ''
+    bindkey -v
 
     # better auto-suggest
     my-autosuggest-accept() {
