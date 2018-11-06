@@ -80,5 +80,7 @@
     export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=yellow'
     export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan'
     export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan'
+    # shorter delay on cmd-mode
+    export KEYTIMEOUT=1
   '';
 }

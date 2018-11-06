@@ -42,8 +42,8 @@ done
 xsetroot -cursor_name left_ptr
 
 # border color
-bspc config normal_border_color "$(get_xrdb background)"
-bspc config focused_border_color "$(get_xrdb color12)"
+bspc config normal_border_color "$(get_xrdb color7)"
+bspc config focused_border_color "$(get_xrdb color14)"
 bspc config border_width         3 
 bspc config window_gap           0
 bspc config split_ratio          0.50 
