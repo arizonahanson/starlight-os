@@ -98,12 +98,12 @@ cursor-theme='FlatbedCursors-Black'
 [org/mate/desktop/session]
 auto-save-session=false
 idle-delay=10
-required-components-list=['windowmanager']
+required-components-list=['windowmanager', 'filemanager']
 
 [org/mate/desktop/session/required-components]
-windowmanager='''
+windowmanager='bspwm'
 panel='''
-filemanager='''
+filemanager='caja'
 
 [org/mate/desktop/sound]
 input-feedback-sounds=true
