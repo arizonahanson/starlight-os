@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 sfdisk /dev/sda <<EOF
 ,4194304,S
