@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [ gnome3.dconf ];
   environment.etc.dconf_keyfile = {
-    target = "dconf/db/site.d/system.txt";
+    target = "dconf/db/site.d/keyfile";
     text = ''
 [org/mate/power-manager]
 button-power='interactive'
@@ -181,5 +181,13 @@ use-theme-colors=false
   programs.dconf = {
     enable = true;
   };
+  systemd.services.dconf-update = { 
+     serviceConfig.Type = "oneshot"; 
+     wantedBy = [ "multi-user.target" ]; 
+     path = [ pkgs.gnome3.dconf ]; 
+     script = '' 
+       dconf update 
+     ''; 
+  }; 
   services.dbus.packages = [ pkgs.gnome3.dconf ];
 }
