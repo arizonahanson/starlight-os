@@ -10,7 +10,7 @@
     gnumake
     wget w3m
     psmisc
-    tree
+    tree ag
     ranger
   ];
 
