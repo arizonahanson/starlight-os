@@ -79,7 +79,7 @@ cursor-blink-time=1000
 icon-theme='oomox-starlight'
 monospace-font-name='Fira Code Medium 11'
 accessibility=true
-gtk-theme='oomox-starlight'
+gtk-theme='NumixSolarizedLightBlue'
 
 [org/mate/desktop/applications/browser]
 exec='chromium'

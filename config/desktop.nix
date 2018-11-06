@@ -95,6 +95,23 @@
   };
   environment.etc."X11/Xresources" = {
     text = ''
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
+
 ! XFT
 Xft.antialias: 1
 Xft.autohint: 1
@@ -129,10 +146,10 @@ rofi.fake-transparency: false
 ! "scrolling method. (0: Page, 1: Centered)"
 rofi.scroll-method:     1
 ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
-rofi.color-normal: #081021,#59748f,#081021,#081021,#c7c7c7
-rofi.color-urgent: #081021,#cc6666,#081021,#081021,#8fadcc
-rofi.color-active: #081021,#8fadcc,#081021,#081021,#c7c7c7
-rofi.color-window: #081021,#081021,#081021
+rofi.color-normal: S_base3,S_base00,S_base3,S_base3,S_base1
+rofi.color-urgent: S_base3,S_red,S_base3,S_base3,S_base00
+rofi.color-active: S_base2,S_base1,S_base3,S_base3,S_base1
+rofi.color-window: S_base3,S_base3,S_base3
 rofi.display-drun: 
 rofi.display-run: 
 rofi.display-window: 
@@ -141,43 +158,6 @@ rofi.display-combi: 
 rofi.combi-modi: window,run,drun
 rofi.monitor: -1
 
-! special
-*.foreground:   #c7c7c7
-*.background:   #081021
-*.cursorColor:  #c7c7c7
-
-! black
-*.color0:       #212121
-*.color8:       #404040
-
-! red
-*.color1:       #cc6666
-*.color9:       #de985f
-
-! green
-*.color2:       #638f63
-*.color10:      #85cc85
-
-! yellow
-*.color3:       #8f7542
-*.color11:      #f0c674
-
-! blue
-*.color4:       #59748f
-*.color12:      #8fadcc
-
-! magenta
-*.color5:       #85678f
-*.color13:      #b093ba
-
-! cyan
-*.color6:       #5e8d87
-*.color14:      #8abeb7
-
-! white
-*.color7:       #787878
-*.color15:      #c7c7c7
-
 URxvt*scrollBar:         false
 URxvt*scrollBar_right:   false
 URxvt*transparent:       false
@@ -185,7 +165,59 @@ URxvt.font: xft:Fira Mono Medium:pixelsize=20
 URxvt.boldFont:
 URxvt.letterSpace: 0
 URxvt.internalBorder: 16
+
+*background:            S_base3
+*foreground:            S_base00
+*fading:                40
+*fadeColor:             S_base3
+*cursorColor:           S_base01
+*pointerColorBackground:S_base1
+*pointerColorForeground:S_base01
+
+!! black dark/light
+*color0:                S_base02
+*color8:                S_base03
+
+!! red dark/light
+*color1:                S_red
+*color9:                S_orange
+
+!! green dark/light
+*color2:                S_green
+*color10:               S_base01
+
+!! yellow dark/light
+*color3:                S_yellow
+*color11:               S_base00
+
+!! blue dark/light
+*color4:                S_blue
+*color12:               S_base0
+
+!! magenta dark/light
+*color5:                S_magenta
+*color13:               S_violet
+
+!! cyan dark/light
+*color6:                S_cyan
+*color14:               S_base1
+
+!! white dark/light
+*color7:                S_base2
+*color15:               S_base3
     '';
   };
-  services.compton.enable = true;
+  services.compton = {
+    enable = true;
+    shadow = true;
+    shadowOffsets = [ (-9) (-3) ];
+    shadowExclude = [
+	    "name = 'Polybar tray window'"
+    	"_GTK_FRAME_EXTENTS@:c"
+    ];
+    shadowOpacity = "0.5";
+    extraOptions = ''
+      shadow-radius = 6;
+    '';
+  };
 }
