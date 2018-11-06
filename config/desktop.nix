@@ -20,7 +20,7 @@
     TERMINAL = "urxvt";
     BROWSER = "chromium";
   };
-  environment.etc."ld.so.preload" = if config.virtualisation.virtualbox.guest.enable then {
+  environment.etc."ld-nix.so.preload" = if config.virtualisation.virtualbox.guest.enable then {
     text = ''
       ${pkgs.linuxPackages.virtualboxGuestAdditions}/lib/VBoxOGL.so
     '';
@@ -28,6 +28,12 @@
     text = "";
   };
 
+  xdg = {
+    autostart.enable = true;
+    icons.enable = true;
+    menus.enable = true;
+    mime.enable = true;
+  };
   networking.networkmanager = {
     enable = true;
   };
