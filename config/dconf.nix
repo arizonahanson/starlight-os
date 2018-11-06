@@ -76,10 +76,10 @@ gtk-decoration-layout='menu:close'
 font-name='Exo 2 14'
 gtk-im-module='ibus'
 cursor-blink-time=1000
-icon-theme='oomox-starlight'
 monospace-font-name='Fira Code Medium 11'
 accessibility=true
 gtk-theme='NumixSolarizedLightBlue'
+icon-theme='Paper'
 
 [org/mate/desktop/applications/browser]
 exec='chromium'
@@ -93,7 +93,7 @@ numlock-state='on'
 
 [org/mate/desktop/peripherals/mouse]
 double-click=600
-cursor-theme='FlatbedCursors-Black'
+cursor-theme='mate'
 
 [org/mate/desktop/session]
 auto-save-session=false
@@ -159,6 +159,10 @@ hotkey=['<Control><Shift>e']
 show=0
 show-icon-on-systray=true
 xkb-icon-rgba='#59748F'
+      
+[org/mate/marco/general]
+theme='NumixSolarizedLightBlue'
+
     '';
   };
       
