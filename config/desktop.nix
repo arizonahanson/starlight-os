@@ -7,16 +7,24 @@
     ./polybar.nix
   ];
   environment.systemPackages = with pkgs; [
-    sxhkd rofi-unwrapped libnotify feh
+    sxhkd rofi-unwrapped libnotify feh clipmenu
     chromium
     networkmanagerapplet
     xdg-desktop-portal-gtk xorg.xkill
-    numix-solarized-gtk-theme
+    numix-solarized-gtk-theme capitaine-cursors
     (rxvt_unicode.override {
       unicode3Support = true;
       perlSupport = false;
     })
   ];
+  systemd.services.clipmenud = {
+     serviceConfig.Type = "simple";
+     wantedBy = [ "graphical.target" ];
+     path = [ pkgs.clipmenu ];
+     script = ''
+       clipmenud
+     '';
+  }; 
   environment.variables = {
     TERMINAL = "urxvt";
     BROWSER = "chromium";

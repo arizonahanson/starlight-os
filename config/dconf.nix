@@ -93,7 +93,7 @@ numlock-state='on'
 
 [org/mate/desktop/peripherals/mouse]
 double-click=600
-cursor-theme='mate'
+cursor-theme='capitaine-cursors'
 
 [org/mate/desktop/session]
 auto-save-session=false
