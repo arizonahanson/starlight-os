@@ -10,7 +10,7 @@
     sxhkd rofi-unwrapped libnotify feh clipmenu
     chromium
     networkmanagerapplet
-    xdg-desktop-portal-gtk xorg.xkill
+    xdg-desktop-portal-gtk xorg.xkill xdo
     numix-solarized-gtk-theme capitaine-cursors
     (rxvt_unicode.override {
       unicode3Support = true;

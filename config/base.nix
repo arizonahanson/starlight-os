@@ -13,6 +13,7 @@
     tree ag
     ranger
     unzip
+    python
   ];
 
   # btrfs auto-scrub
