@@ -10,19 +10,22 @@
     sxhkd rofi-unwrapped libnotify feh clipmenu
     chromium
     networkmanagerapplet
-    xdg-desktop-portal-gtk xorg.xkill xdo
+    xdg-desktop-portal-gtk xorg.xkill xdo xsel
     numix-solarized-gtk-theme capitaine-cursors
     (rxvt_unicode.override {
       unicode3Support = true;
       perlSupport = false;
     })
-    (with import <nixpkgs> {};
-      writeShellScriptBin "cliprofi" "rofi -p clipmenu -dmenu -normal-window $@"
-    )
+    (with import <nixpkgs> {}; writeShellScriptBin "cliprofi" ''
+      rofi -p clipmenu -dmenu -normal-window $@
+    '')
   ];
   systemd.user.services.clipmenud = {
      serviceConfig.Type = "simple";
      wantedBy = [ "default.target" ];
+     environment = {
+       DISPLAY = ":0";
+     };
      path = [ pkgs.clipmenu ];
      script = ''
        clipmenud
