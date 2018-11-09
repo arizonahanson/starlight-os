@@ -17,7 +17,7 @@
       perlSupport = false;
     })
     (with import <nixpkgs> {}; writeShellScriptBin "cliprofi" ''
-      rofi -p clipmenu -dmenu -normal-window $@
+      rofi -p  -dmenu -normal-window $@
     '')
   ];
   systemd.user.services.clipmenud = {
