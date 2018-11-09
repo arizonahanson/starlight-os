@@ -10,7 +10,7 @@ super + space
   rofi -show combi -normal-window
 # terminal
 super + Return
-  exec $TERMINAL &
+  ~/.local/bin/termsel &
 # browser
 super + slash
   exec $BROWSER &

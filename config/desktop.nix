@@ -17,9 +17,9 @@
       perlSupport = false;
     })
   ];
-  systemd.services.clipmenud = {
+  systemd.user.services.clipmenud = {
      serviceConfig.Type = "simple";
-     wantedBy = [ "graphical.target" ];
+     wantedBy = [ "default.target" ];
      path = [ pkgs.clipmenu ];
      script = ''
        clipmenud
