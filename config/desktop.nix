@@ -16,6 +16,9 @@
       unicode3Support = true;
       perlSupport = false;
     })
+    (with import <nixpkgs> {};
+      writeShellScriptBin "cliprofi" "rofi -p clipmenu -dmenu -normal-window $@"
+    )
   ];
   systemd.user.services.clipmenud = {
      serviceConfig.Type = "simple";
@@ -28,6 +31,7 @@
   environment.variables = {
     TERMINAL = "urxvt";
     BROWSER = "chromium";
+    CM_LAUNCHER = "cliprofi";
   };
   environment.etc."ld-nix.so.preload" = if config.virtualisation.virtualbox.guest.enable then {
     text = ''
