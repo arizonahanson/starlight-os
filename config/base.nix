@@ -14,6 +14,7 @@
     ranger
     unzip
     python
+    tmux
   ];
 
   # btrfs auto-scrub
