@@ -38,7 +38,7 @@
   environment.etc."termite.conf" = { 
     text = ''
       [options]
-      font = Fira Mono 14
+      font = Fira Mono Medium 14
       allow_bold = false
 
       [colors]
