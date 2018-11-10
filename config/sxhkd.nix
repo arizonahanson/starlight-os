@@ -63,7 +63,7 @@ super + shift + Insert
 
 # reload keybindings
 super + shift + r
-  ~/.local/bin/reload
+  reload-desktop &
 
 # music controls
 XF86AudioRaiseVolume
