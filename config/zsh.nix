@@ -22,7 +22,7 @@
             owner = "isaacwhanson";
             repo = "zsh-starlight-theme";
             rev = "v0.4";
-            sha256 = "110jarh6q4fa92zfq7q4mnm243f9zcs6crrwmjypmj6mv49xr48r";
+            sha256 = "0sv1kfaa4pr3vbzibl7nl6nn0cjd4s8vvllh42dr3ibhafyg62bp";
           };
             
           dontBuild = true;
