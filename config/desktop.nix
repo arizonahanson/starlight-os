@@ -12,9 +12,8 @@
     networkmanagerapplet
     xdg-desktop-portal-gtk xorg.xkill xdo xsel
     numix-solarized-gtk-theme capitaine-cursors
-    (rxvt_unicode.override {
-      unicode3Support = true;
-      perlSupport = false;
+    (termite.override {
+      configFile = "/etc/termite.conf";
     })
     (with import <nixpkgs> {}; writeShellScriptBin "cliprofi" ''
       rofi -p  -dmenu -normal-window $@
@@ -32,9 +31,55 @@
      '';
   }; 
   environment.variables = {
-    TERMINAL = "urxvt";
+    TERMINAL = "termite";
     BROWSER = "chromium";
     CM_LAUNCHER = "cliprofi";
+  };
+  environment.etc."termite.conf" = { 
+    text = ''
+      [options]
+      font = Fira Mono 14
+      allow_bold = false
+
+      [colors]
+      # special
+      foreground      = #657b83
+      foreground_bold = #657b83
+      cursor          = #657b83
+      background      = #fdf6e3
+      
+      # black
+      color0  = #073642
+      color8  = #002b36
+      
+      # red
+      color1  = #dc322f
+      color9  = #cb4b16
+      
+      # green
+      color2  = #859900
+      color10 = #586e75
+      
+      # yellow
+      color3  = #b58900
+      color11 = #657b83
+      
+      # blue
+      color4  = #268bd2
+      color12 = #839496
+    
+      # magenta
+      color5  = #d33682
+      color13 = #6c71c4
+    
+      # cyan
+      color6  = #2aa198
+      color14 = #93a1a1
+      
+      # white
+      color7  = #eee8d5
+      color15 = #fdf6e3
+    '';
   };
   environment.etc."ld-nix.so.preload" = if config.virtualisation.virtualbox.guest.enable then {
     text = ''
@@ -172,14 +217,6 @@ rofi.display-ssh: 
 rofi.display-combi: 
 rofi.combi-modi: window,run,drun
 rofi.monitor: -1
-
-URxvt*scrollBar:         false
-URxvt*scrollBar_right:   false
-URxvt*transparent:       false
-URxvt.font: xft:Fira Mono Medium:pixelsize=20
-URxvt.boldFont:
-URxvt.letterSpace: 0
-URxvt.internalBorder: 16
 
 *background:            S_base3
 *foreground:            S_base00
