@@ -17,6 +17,9 @@
     tmux
   ];
 
+  services.journald.extraConfig = ''
+    Storage=volatile
+  '';
   # btrfs auto-scrub
   services.btrfs.autoScrub.enable = true;
   # /tmp on tmpfs
