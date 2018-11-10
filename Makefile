@@ -21,7 +21,6 @@ rebuild:
 	@sudo cp -a config/. /etc/nixos/
 	@echo "Starting rebuild"
 	@sudo nixos-rebuild switch
-	@sudo nix-collect-garbage
 
 .PHONY: install
 install: $(CONFNIX)
