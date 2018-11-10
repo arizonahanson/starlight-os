@@ -29,13 +29,13 @@
      script = ''
        clipmenud
      '';
-  }; 
+  };
   environment.variables = {
     TERMINAL = "termite";
     BROWSER = "chromium";
     CM_LAUNCHER = "cliprofi";
   };
-  environment.etc."termite.conf" = { 
+  environment.etc."termite.conf" = {
     text = ''
       [options]
       font = Fira Mono Medium 14
@@ -47,35 +47,35 @@
       foreground_bold = #657b83
       cursor          = #657b83
       background      = #fdf6e3
-      
+
       # black
       color0  = #073642
       color8  = #002b36
-      
+
       # red
       color1  = #dc322f
       color9  = #cb4b16
-      
+
       # green
       color2  = #859900
       color10 = #586e75
-      
+
       # yellow
       color3  = #b58900
       color11 = #657b83
-      
+
       # blue
       color4  = #268bd2
       color12 = #839496
-    
+
       # magenta
       color5  = #d33682
       color13 = #6c71c4
-    
+
       # cyan
       color6  = #2aa198
       color14 = #93a1a1
-      
+
       # white
       color7  = #eee8d5
       color15 = #fdf6e3
@@ -104,15 +104,26 @@
     noto-fonts-emoji
   ];
   fonts.fontconfig.localConf = ''
-<selectfont>
-    <rejectfont>
-        <pattern>
-            <patelt name="family" >
-                <string>Noto Color Emoji</string>
-            </patelt>
-        </pattern>
-    </rejectfont>
-</selectfont>
+<fontconfig>
+  <match target="scan">
+    <test name="family">
+      <string>Noto Color Emoji</string>
+    </test>
+    <edit name="scalable" mode="assign">
+      <bool>false</bool>
+    </edit>
+  </match>
+  <match target="pattern">
+    <edit name="family" mode="prepend_first">
+      <string>Noto Emoji</string>
+    </edit>
+  </match>
+  <match target="pattern">
+    <edit name="family" mode="prepend_first">
+      <string>Font Awesome 5 Free Solid</string>
+    </edit>
+  </match>
+</fontconfig>
   '';
   i18n.inputMethod = {
     enabled = "ibus";
