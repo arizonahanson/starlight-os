@@ -38,6 +38,298 @@
     enable = true;
     highlighters = [ "main" "brackets" "cursor" "root" "line" ];
   };
+  environment.etc.dircolors = {
+    text = ''
+TERM Eterm
+TERM ansi
+TERM color-xterm
+TERM con132x25
+TERM con132x30
+TERM con132x43
+TERM con132x60
+TERM con80x25
+TERM con80x28
+TERM con80x30
+TERM con80x43
+TERM con80x50
+TERM con80x60
+TERM cons25
+TERM console
+TERM cygwin
+TERM dtterm
+TERM eterm-color
+TERM gnome
+TERM gnome-256color
+TERM hurd
+TERM jfbterm
+TERM konsole
+TERM kterm
+TERM linux
+TERM linux-c
+TERM mach-color
+TERM mach-gnu-color
+TERM mlterm
+TERM putty
+TERM putty-256color
+TERM rxvt
+TERM rxvt-256color
+TERM rxvt-cygwin
+TERM rxvt-cygwin-native
+TERM rxvt-unicode
+TERM rxvt-unicode-256color
+TERM rxvt-unicode256
+TERM screen
+TERM screen-256color
+TERM screen-256color-bce
+TERM screen-bce
+TERM screen-w
+TERM screen.Eterm
+TERM screen.rxvt
+TERM screen.linux
+TERM screen.xterm
+TERM st
+TERM st-256color
+TERM terminator
+TERM vt100
+TERM xterm
+TERM xterm-16color
+TERM xterm-256color
+TERM xterm-88color
+TERM xterm-color
+TERM xterm-debian
+TERM xterm-termite
+# Below are the color init strings for the basic file types. A color init
+# string consists of one or more of the following numeric codes:
+# Attribute codes:
+# 00=none 01=bold 04=underscore 05=blink 07=reverse 08=concealed
+# Text color codes:
+# 30=black 31=red 32=green 33=yellow 34=blue 35=magenta 36=cyan 37=white
+# Background color codes:
+# 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
+#NORMAL 00 # no color code at all
+#FILE 00 # regular file: use no color at all
+RESET 0 # reset to "normal" color
+DIR 0;34 # directory
+LINK target #0;36 # symbolic link. (If you set this to 'target' instead of a
+ # numerical value, the color is as for the file pointed to.)
+MULTIHARDLINK 00 # regular file with more than one link
+FIFO 00;33 # pipe
+SOCK 0;35 # socket
+DOOR 0;35 # door
+BLK 0;33 # block device driver
+CHR 0;33 # character device driver
+ORPHAN 00;31 # symlink to nonexistent file, or non-stat'able file ...
+MISSING 0;30 # ... and the files they point to
+SETUID 4;31 # file that is setuid (u+s)
+SETGID 4;0;33 # file that is setgid (g+s)
+CAPABILITY 4;0;35 # file with capability
+STICKY_OTHER_WRITABLE 0;7;4;32 # dir that is sticky and other-writable (+t,o+w)
+OTHER_WRITABLE 0;7;32 # dir that is other-writable (o+w) and not sticky
+STICKY 0;4;31 # dir with the sticky bit set (+t) and not other-writable
+# This is for files with execute permission:
+EXEC 0;32
+# List any file extensions like '.gz' or '.tar' that you would like ls
+# to colorize below. Put the extension, a space, and the color init string.
+# (and any comments you want to add after a '#')
+# If you use DOS-style suffixes, you may want to uncomment the following:
+.cmd 0;32 # executables (bright green)
+.exe 0;32
+.com 0;32
+.btm 0;32
+.bat 0;32
+# Or if you want to colorize scripts even if they do not have the
+# executable bit actually set.
+.sh 00;32
+.csh 00;32
+.tcsh 00;32
+
+ # archives or compressed (bright red)
+.tar 1;31
+.tgz 1;31
+.arc 1;31
+.arj 1;31
+.taz 1;31
+.lha 1;31
+.lz4 1;31
+.lzh 1;31
+.lzma 1;31
+.tlz 1;31
+.txz 1;31
+.tzo 1;31
+.t7z 1;31
+.zip 1;31
+.z 1;31
+.Z 1;31
+.dz 1;31
+.gz 1;31
+.lrz 1;31
+.lz 1;31
+.lzo 1;31
+.xz 1;31
+.bz2 1;31
+.bz 1;31
+.tbz 1;31
+.tbz2 1;31
+.tz 1;31
+.deb 1;31
+.rpm 1;31
+.jar 1;31
+.war 1;31
+.ear 1;31
+.sar 1;31
+.rar 1;31
+.alz 1;31
+.ace 1;31
+.zoo 1;31
+.cpio 1;31
+.7z 1;31
+.rz 1;31
+.cab 1;31
+# image formats
+.jpg 0;35
+.jpeg 0;35
+.gif 0;35
+.bmp 0;35
+.pbm 0;35
+.pgm 0;35
+.ppm 0;35
+.tga 0;35
+.xbm 0;35
+.xpm 0;35
+.tif 0;35
+.tiff 0;35
+.png 0;35
+.svg 0;35
+.svgz 0;35
+.mng 0;35
+.pcx 0;35
+.mov 0;35
+.mpg 0;35
+.mpeg 0;35
+.m2v 0;35
+.mkv 0;35
+.webm 0;35
+.ogm 0;35
+.mp4 0;35
+.m4v 0;35
+.mp4v 0;35
+.vob 0;35
+.qt 0;35
+.nuv 0;35
+.wmv 0;35
+.asf 0;35
+.rm 0;35
+.rmvb 0;35
+.flc 0;35
+.avi 0;35
+.fli 0;35
+.flv 0;35
+.gl 0;35
+.dl 0;35
+.xcf 0;35
+.xwd 0;35
+.yuv 0;35
+.cgm 0;35
+.emf 0;35
+# http://wiki.xiph.org/index.php/MIME_Types_and_File_Extensions
+.ogv 0;35
+.ogx 0;35
+# audio formats
+.aac 00;36
+.au 00;36
+.flac 00;36
+.m4a 00;36
+.mid 00;36
+.midi 00;36
+.mka 00;36
+.mp3 00;36
+.mpc 00;36
+.ogg 00;36
+.ra 00;36
+.wav 00;36
+# http://wiki.xiph.org/index.php/MIME_Types_and_File_Extensions
+.oga 00;36
+.opus 00;36
+.spx 00;36
+.xspf 00;36
+
+# encrypted/key formats
+.gpg  0;33
+.pgp  0;33
+.pub  0;33
+.crt  0;33
+.pem  0;33
+.asc  0;33
+.3des 0;33
+.aes  0;33
+.enc  0;33
+.sig  0;33
+*key  0;33
+
+# documents
+.pdf   0;35
+.doc   0;35
+.docx  0;35
+.xps   0;35
+.xpsx  0;35
+.odg   0;35
+.odt   0;35
+.odf   0;35
+.xls   0;35
+.xlsx  0;35
+.dia   0;35
+.rtf   0;35
+.dot   0;35
+.dotx  0;35
+.ppt   0;35
+.pptx  0;35
+.fla   0;35
+.psd   0;35
+
+# source code files
+.c    0;32
+.h    0;32
+.java 0;32
+.js   0;32
+.vim  0;32
+.py   0;32
+
+# data files
+.json         0;33
+.xml          0;33
+.iml          0;33
+.properties   0;33
+.yml          0;33
+
+# txt files
+.txt     1;36
+.TXT     1;36
+.log     1;36
+
+# readme, etc
+.md        0;30
+*README    0;30
+*README.TXT 0;30
+*README.txt 0;30
+
+# html
+.html   0;35
+.htm    0;35
+.css    0;35
+.less   0;35
+
+# other
+*.pid         0;37
+*desktop.ini  0;37
+*Desktop.ini  0;37
+*~            0;37
+.ICEauthority 0;37
+.Xauthority   0;37
+.xsession-errors 0;37
+.old          0;37
+.hidden       0;37
+    '';
+  };
   environment.interactiveShellInit = ''
     bindkey -v
     # spellcheck commands
@@ -102,5 +394,6 @@
     export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan'
     # shorter delay on cmd-mode
     export KEYTIMEOUT=1
+    eval `dircolors -b /etc/dircolors`
   '';
 }
