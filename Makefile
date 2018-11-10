@@ -17,10 +17,15 @@ $(CONFNIX):
 
 .PHONY: rebuild
 rebuild:
-	@echo "Copying Nix configs"
+	@echo "copying Nix configs..."
 	@sudo cp -a config/. /etc/nixos/
-	@echo "Starting rebuild"
+	@echo "starting rebuild..."
 	@sudo nixos-rebuild switch
+
+.PHONY: gc
+gc:
+	@sudo nix-collect-garbage
+	@sudo nix-store --optimize
 
 .PHONY: install
 install: $(CONFNIX)
