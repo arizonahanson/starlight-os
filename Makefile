@@ -17,8 +17,11 @@ $(CONFNIX):
 
 .PHONY: rebuild
 rebuild:
-	@sudo cp -av config/. /etc/nixos/
+	@echo "Copying Nix configs"
+	@sudo cp -a config/. /etc/nixos/
+	@echo "Starting rebuild"
 	@sudo nixos-rebuild switch
+	@sudo nix-collect-garbage
 
 .PHONY: install
 install: $(CONFNIX)

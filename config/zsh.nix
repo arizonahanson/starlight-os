@@ -13,6 +13,26 @@
       "colored-man-pages"
       "zsh-users/zsh-completions"
     ];
+    theme = "starlight";
+    customPkgs = 
+      let
+        zsh-starlight-theme = with pkgs; stdenv.mkDerivation rec {
+          name = "zsh-starlight-theme-v0.2";
+          src = fetchFromGitHub {
+            owner = "isaacwhanson";
+            repo = "zsh-starlight-theme";
+            rev = "v0.2";
+            sha256 = "1l5r44ak3z7fbwdxirhgjb2xi73y6h7y7pd8na7jd69p13gckpgb";
+          };
+            
+          dontBuild = true;
+          installPhase = ''
+            mkdir -p $out/share/zsh/themes
+            cp themes/starlight.zsh-theme $out/share/zsh/themes/
+          '';
+        };
+      in
+      [ pkgs.nix-zsh-completions (zsh-starlight-theme) ];
   };
   programs.zsh.syntaxHighlighting = {
     enable = true;
