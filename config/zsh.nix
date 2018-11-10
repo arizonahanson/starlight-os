@@ -355,6 +355,9 @@ EXEC 0;32
     # complete word
     bindkey '^w' vi-forward-word
   '';
+  programs.zsh.loginShellInit = ''
+    eval `dircolors -b /etc/dircolors`
+  '';
   programs.zsh.promptInit = ''
     bindkey -v
 
@@ -394,6 +397,5 @@ EXEC 0;32
     export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan'
     # shorter delay on cmd-mode
     export KEYTIMEOUT=1
-    eval `dircolors -b /etc/dircolors`
   '';
 }

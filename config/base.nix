@@ -15,6 +15,9 @@
     unzip
     python
     tmux
+    (with import <nixpkgs> {}; writeShellScriptBin "tmux-session" ''
+      tmux -2 new-session -A -s "$1"
+    '')
   ];
 
   services.journald.extraConfig = ''

@@ -18,6 +18,22 @@
     (with import <nixpkgs> {}; writeShellScriptBin "cliprofi" ''
       rofi -p  -dmenu -normal-window $@
     '')
+    (with import <nixpkgs> {}; writeShellScriptBin "terminal" ''
+      CLASS_NAME="terminal"
+      SESSION_NAME=""
+      # does term with CLASS_NAME exist?
+      if xdo id -N "$CLASS_NAME">/dev/null; then
+        # focus, move to current desktop the existing term with CLASS_NAME
+        for NODE_ID in $(xdo id -N ''${CLASS_NAME}); do
+          bspc node $NODE_ID -d focused -m focused
+          bspc node -f $NODE_ID
+        done
+      else
+        # create new term with CLASS_NAME
+        # create new tmux session, or attach if exists
+        termite -e "tmux-session ''${SESSION_NAME}" --class="''${CLASS_NAME}"
+      fi
+    '')
   ];
   systemd.user.services.clipmenud = {
      serviceConfig.Type = "simple";
