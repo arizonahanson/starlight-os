@@ -304,4 +304,7 @@ rofi.monitor: -1
       shadow-radius = 6;
     '';
   };
+  boot.plymouth = {
+    enable = true;
+  };
 }
