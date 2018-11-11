@@ -124,14 +124,12 @@
     google-fonts
     noto-fonts-emoji
   ];
-  fonts.fontconfig.localConf = ''
+  fonts.fontconfig = {
+      localConf = ''
 <fontconfig>
-  <match target="scan">
-    <test name="family">
-      <string>Noto Color Emoji</string>
-    </test>
-    <edit name="scalable" mode="assign">
-      <bool>false</bool>
+  <match target="pattern">
+    <edit name="family" mode="prepend_first">
+      <string>Font Awesome 5 Free Solid</string>
     </edit>
   </match>
   <match target="pattern">
@@ -139,13 +137,10 @@
       <string>Noto Emoji</string>
     </edit>
   </match>
-  <match target="pattern">
-    <edit name="family" mode="prepend_first">
-      <string>Font Awesome 5 Free Solid</string>
-    </edit>
-  </match>
 </fontconfig>
-  '';
+    '';
+    useEmbeddedBitmaps = true;
+  };
   i18n.inputMethod = {
     enabled = "ibus";
     ibus.engines = with pkgs.ibus-engines; [ uniemoji ];
