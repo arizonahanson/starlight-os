@@ -307,10 +307,10 @@ EXEC 0;32
 .log     1;36
 
 # readme, etc
-.md        0;30
-*README    0;30
-*README.TXT 0;30
-*README.txt 0;30
+.md        1;32
+*README    1;32
+*README.TXT 1;32
+*README.txt 1;32
 
 # html
 .html   0;35
