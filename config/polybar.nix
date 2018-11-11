@@ -3,6 +3,7 @@
   environment = {
     systemPackages = with pkgs; [ polybar ];
     etc."polybar.conf" = {
+      mode = "0644";
       text = ''
 [colors]
 background = ''${xrdb:background}
@@ -98,7 +99,7 @@ type = internal/xwindow
 label = %title:0:64:…%
 label-foreground = ''${colors.foreground}
 label-font = 4
-label-empty = •
+label-empty = 
 label-empty-font = 1
 
 [module/bspwm]
