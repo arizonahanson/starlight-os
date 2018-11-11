@@ -4,6 +4,9 @@
   imports = [
     ./dconf.nix
   ];
+  environment.variables = {
+    XDG_CURRENT_DESKTOP = "MATE";
+  };
   environment.systemPackages = with pkgs; [
     gnome3.dconf-editor
   ];
