@@ -21,10 +21,10 @@
       setw -g window-status-separator ""
       setw -g window-status-current-format " #I #W "
       setw -g window-status-format " #I #W "
-      set-option -g status-bg white #base2
+      set-option -g status-bg default
       set-option -g status-fg yellow #yellow
       set-option -g status-attr default
-      set-window-option -g window-status-fg brightyellow #base00
+      set-window-option -g window-status-fg white
       set-window-option -g window-status-bg default
       set-window-option -g window-status-attr dim
       set-window-option -g window-status-current-fg blue
