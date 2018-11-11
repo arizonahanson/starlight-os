@@ -2,6 +2,9 @@
 
 {
   services.xserver.windowManager.bspwm.sxhkd.configFile = "/etc/sxhkdrc";
+  environment.systemPackages = with pkgs; [
+    scrot
+  ];
   environment.etc.sxhkdrc = {
     mode = "0644";
     text = ''
@@ -11,12 +14,6 @@ super + space
 # terminal
 super + Return
   terminal &
-# browser
-super + slash
-  exec $BROWSER &
-# calculator
-super + equal
-  mate-calculator
 # filemanager
 super + backslash
   rofi-sensible-terminal -e ranger
