@@ -78,8 +78,8 @@ gtk-im-module='ibus'
 cursor-blink-time=1000
 monospace-font-name='Fira Code Medium 11'
 accessibility=true
-gtk-theme='NumixSolarizedLightBlue'
-icon-theme='Paper'
+gtk-theme='starlight'
+icon-theme='starlight'
 
 [org/mate/desktop/applications/browser]
 exec='chromium'
@@ -161,7 +161,7 @@ show-icon-on-systray=true
 xkb-icon-rgba='#657b83'
       
 [org/mate/marco/general]
-theme='NumixSolarizedLightBlue'
+theme='starlight'
 
     '';
   };
