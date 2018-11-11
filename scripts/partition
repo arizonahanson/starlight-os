@@ -4,20 +4,17 @@ sfdisk /dev/sda <<EOF
 ,4194304,S
 ;
 EOF
-mkfs.btrfs -f -L system /dev/sda2
+mkfs.btrfs -f -L storage /dev/sda2
 mkswap -L swap /dev/sda1
-#   Mount the file system on the root partition to /mnt, for example:
+
 mount -o compress=lzo,noatime,nodiratime,space_cache /dev/sda2 /mnt
 cd /mnt
-btrfs subvolume create root
+btrfs subvolume create system
 btrfs subvolume create home
 cd ~
 umount /mnt
-#
-#   Create mount points for any remaining partitions and mount them
-#   accordingly, for example:
-## mount /dev/sda2 /mnt/boot
-mount -o compress=lzo,noatime,nodiratime,space_cache,subvol=root /dev/sda2 /mnt
+
+mount -o compress=lzo,noatime,nodiratime,space_cache,subvol=system /dev/sda2 /mnt
 mkdir /mnt/home
 mount -o compress=lzo,noatime,nodiratime,space_cache,subvol=home /dev/sda2 /mnt/home
 swapon -o discard=once /dev/sda1
