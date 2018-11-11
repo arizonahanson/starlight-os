@@ -7,6 +7,7 @@
     ./git.nix
     ./tmux.nix
   ];
+  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     gnumake
     wget w3m
