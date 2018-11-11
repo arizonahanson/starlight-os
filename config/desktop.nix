@@ -150,6 +150,12 @@
     enabled = "ibus";
     ibus.engines = with pkgs.ibus-engines; [ uniemoji ];
   };
+  programs.chromium = {
+    enable = true;
+    extraOpts = {
+      DiskCacheDir = "/tmp/.chromium-\${user_name}";
+    };
+  };
   # flatpak
   services.flatpak = {
     enable = true;
