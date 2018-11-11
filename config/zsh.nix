@@ -319,15 +319,15 @@ EXEC 0;32
 .less   0;35
 
 # other
-*.pid         0;37
-*desktop.ini  0;37
-*Desktop.ini  0;37
-*~            0;37
-.ICEauthority 0;37
-.Xauthority   0;37
-.xsession-errors 0;37
-.old          0;37
-.hidden       0;37
+*.pid         1;36
+*desktop.ini  1;36
+*Desktop.ini  1;36
+*~            1;36
+.ICEauthority 1;36
+.Xauthority   1;36
+.xsession-errors 1;36
+.old          1;36
+.hidden       1;36
     '';
   };
   environment.interactiveShellInit = ''
