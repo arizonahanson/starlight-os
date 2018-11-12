@@ -55,6 +55,7 @@
     TERMINAL = "termite";
     BROWSER = "chromium";
     CM_LAUNCHER = "cliprofi";
+    SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
   };
   environment.etc."termite.conf" = {
     text = ''
