@@ -9,7 +9,7 @@
           owner = "isaacwhanson";
           repo = "starlight-gtk-theme";
           rev = "v0.2";
-          sha256 = "1vp98gjn5nmxwn6njmjb06pfqi89d6cnkfdwxyd382w54wvpm8kv";
+          sha256 = "06di96x5maxmwn0f2ja3fbap8gnqrk4da5yb2aa0lc44j82axs10";
         };
             
         dontBuild = true;
