@@ -5,7 +5,8 @@
     wine
   ];
   boot.binfmtMiscRegistrations.DOSWin = {
-    interpreter = "{pkgs.wine}/bin/wine";
+    interpreter = "${pkgs.wine}/bin/wine";
     magicOrExtension = "MZ";
   };
+  hardware.opengl.driSupport32Bit = true;
 }
