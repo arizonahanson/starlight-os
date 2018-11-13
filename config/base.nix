@@ -8,6 +8,7 @@
     ./tmux.nix
   ];
   nixpkgs.config.allowUnfree = true;
+  nix.autoOptimiseStore = true;
   environment.systemPackages = with pkgs; [
     gnumake
     wget w3m

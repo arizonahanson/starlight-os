@@ -25,7 +25,6 @@ rebuild:
 .PHONY: gc
 gc:
 	@sudo nix-collect-garbage
-	@sudo nix-store --optimize
 
 .PHONY: install
 install: $(CONFNIX)

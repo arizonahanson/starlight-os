@@ -11,6 +11,6 @@
     ./desktop.nix
     #./server.nix
     #./docker.nix
-    #./wine.nix
+    ./wine.nix
     ];
 }
