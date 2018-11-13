@@ -33,7 +33,7 @@ alert = ''${colors.red}
 [bar/default]
 monitor = ''${env:MONITOR:VGA-1}
 width = 100%
-height = 44
+height = 36
 offset-x = 0
 offset-y = 0
 ;radius = 8.0

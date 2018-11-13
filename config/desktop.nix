@@ -58,6 +58,7 @@
     SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
   };
   environment.etc."termite.conf" = {
+    mode = "0644";
     text = ''
       [options]
       font = Fira Mono Medium 14
