@@ -219,7 +219,7 @@ Xft.rgba: rgb
 ! ROFI
 rofi.font:              Exo 2 SemiBold 18
 rofi.modi:              window,run,drun,combi
-rofi.width:             38
+rofi.width:             28
 rofi.lines:             5
 rofi.columns:           1
 ! "border width"
