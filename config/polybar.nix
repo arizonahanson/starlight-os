@@ -9,7 +9,7 @@
 background = ''${xrdb:background}
 background-alt = ''${xrdb:color7}
 foreground = ''${xrdb:foreground}
-foreground-alt = ''${xrdb:color10}
+foreground-alt = ''${xrdb:color14}
 base02 = ''${xrdb:color0}
 base03 = ''${xrdb:color8}
 red = ''${xrdb:color1}
@@ -110,12 +110,12 @@ format-foreground = ''${colors.base1}
 
 label-focused = %name%
 label-focused-foreground = ''${colors.foreground}
-label-focused-underline = ''${colors.accent}
+label-focused-underline = ''${colors.foreground}
 label-focused-padding = 2
 
 label-occupied = %name%
 label-occupied-padding = 2
-label-occupied-foreground = ''${colors.base1}
+label-occupied-foreground = ''${colors.foreground-alt}
 
 label-urgent = %name%
 label-urgent-foreground = ''${colors.alert}
