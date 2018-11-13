@@ -56,11 +56,11 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Font Awesome 5 Free Solid:size=17;5
-font-1 = Font Awesome 5 Brands:size=17;5
-font-2 = Exo 2:style=Extra Bold:size=19;4
-font-3 = Exo 2:style=Bold:size=16;4
-font-4 = Exo 2:style=Bold:size=14;4
+font-0 = Font Awesome 5 Free Solid:size=16;4
+font-1 = Exo 2:style=Extra Bold:size=18;3
+font-2 = Exo 2:style=Bold:size=16;4
+font-3 = Exo 2:style=Bold:size=14;4
+font-4 = Exo 2:style=Bold:size=12;3
 
 modules-left = xwindow
 modules-center =
@@ -98,7 +98,7 @@ label-font = 5
 type = internal/xwindow
 label = %title:0:64:…%
 label-foreground = ''${colors.foreground}
-label-font = 4
+label-font = 3
 label-empty = 
 label-empty-font = 1
 
@@ -127,10 +127,10 @@ label-empty = %name%
 label-empty-foreground = ''${colors.background-alt}
 label-empty-padding = 2
 
-label-focused-font = 3
-label-occupied-font = 3
-label-urgent-font = 3
-label-empty-font = 3
+label-focused-font = 2
+label-occupied-font = 2
+label-urgent-font = 2
+label-empty-font = 2
 
 label-dimmed-focused-foreground = ''${colors.foreground}
 label-dimmed-focused-underline = ''${colors.background-alt}
@@ -148,10 +148,10 @@ format-underline =
 format-warn = <ramp> <label-warn>
 
 label = %temperature-c%
-label-font = 4
+label-font = 3
 label-warn = %temperature-c%
 label-warn-foreground = ''${colors.orange}
-label-warn-font = 4
+label-warn-font = 3
 
 ramp-0 = 
 ramp-1 = 
@@ -169,7 +169,6 @@ compositing-border = source
 [global/wm]
 margin-top = 0
 margin-bottom = 0
-
       '';
     };
   };
