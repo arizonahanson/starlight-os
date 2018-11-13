@@ -4,12 +4,12 @@
   environment.systemPackages = 
     let
       starlight-gtk-theme = with pkgs; stdenv.mkDerivation rec {
-        name = "starlight-gtk-theme-v0.1";
+        name = "starlight-gtk-theme-v0.2";
         src = fetchFromGitHub {
           owner = "isaacwhanson";
           repo = "starlight-gtk-theme";
-          rev = "v0.1";
-          sha256 = "1hrif2q3ymblbsj4yz9g1rkn5mx76zc7illyb5flm524f6mdh4k0";
+          rev = "v0.2";
+          sha256 = "1vp98gjn5nmxwn6njmjb06pfqi89d6cnkfdwxyd382w54wvpm8kv";
         };
             
         dontBuild = true;
