@@ -91,7 +91,7 @@ format-foreground = ''${colors.foreground-alt}
 type = custom/script
 exec = date '+%a %l:%M %p' | sed 's/  / /'
 interval = 30
-format-foreground = ''${colors.base1}
+format-foreground = ''${colors.foreground-alt}
 label-font = 5
 
 [module/xwindow]
@@ -106,7 +106,7 @@ label-empty-font = 1
 type = internal/bspwm
 
 format = <label-mode><label-state>
-format-foreground = ''${colors.base1}
+format-foreground = ''${colors.foreground-alt}
 
 label-focused = %name%
 label-focused-foreground = ''${colors.foreground}
