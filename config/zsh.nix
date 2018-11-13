@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 {
+  environment.systemPackages = with pkgs; [
+    fzf
+  ];
   programs.zsh.enable = true;
   programs.zsh.autosuggestions = {
     enable = true;
@@ -397,5 +400,12 @@ EXEC 0;32
     export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan'
     # shorter delay on cmd-mode
     export KEYTIMEOUT=1
+    export FZF_TMUX=1
+    export FZF_DEFAULT_COMMAND='ag -f -g "" --hidden --depth 16 --ignore dosdevices'
+    export FZF_DEFAULT_OPTS='-m --ansi --color=16,bg:-1,bg+:-1 --tac'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND="find -L . -maxdepth 16 -type d 2>/dev/null"
+    source ${pkgs.fzf}/share/fzf/key-bindings.zsh
+    source ${pkgs.fzf}/share/fzf/completion.zsh
   '';
 }
