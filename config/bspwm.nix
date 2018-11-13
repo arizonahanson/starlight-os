@@ -68,8 +68,6 @@ done
 # background image
 if [ -e "$HOME/.fehbg" ]; then
   source "$HOME/.fehbg"
-else
-  feh --bg-tile "$HOME/Pictures/basket.png"
 fi
       
 if [ -e "$HOME/.config/bspwm/bspwmrc" ]; then
