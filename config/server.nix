@@ -5,7 +5,6 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-
   services.nixosManual.enable = true;
   services.nixosManual.showManual = true;
 }

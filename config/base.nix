@@ -25,6 +25,7 @@
   services.btrfs.autoScrub.enable = true;
   # /tmp on tmpfs
   boot.tmpOnTmpfs = true;
+  boot.loader.grub.useOSProber = true;
 
   # default user account
   users.users.admin = {
