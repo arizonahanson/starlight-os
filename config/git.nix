@@ -10,14 +10,7 @@
         withManual = false;
         withLibsecret = true;
       });
-    in
-    {
-      systemPackages = [ (git_minimal) ];
-      etc.gitconfig = if config.services.xserver.enable then
-      {
-        text = ''
-[credential]
-  helper = ${git_minimal}/bin/git-credential-libsecret
+      git_config = ''
 [core]
   filemode = true
   autocrlf = false
@@ -55,10 +48,19 @@
   untracked = red
   header = cyan bold
   branch = yellow
-
+      '';
+    in
+    {
+      systemPackages = [ (git_minimal) ];
+      etc.gitconfig = if config.services.xserver.enable then
+      {
+        text = ''
+          [credential]
+            helper = ${git_minimal}/bin/git-credential-libsecret
+          ${git_config}
         '';
       } else {
-        text = "";
+        text = "${git_config}";
       };
     };
 }
