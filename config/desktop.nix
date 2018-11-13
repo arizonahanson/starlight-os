@@ -16,12 +16,12 @@
       configFile = "/etc/termite.conf";
     })
     (with import <nixpkgs> {}; writeShellScriptBin "cliprofi" ''
-      rofi -p  -dmenu -normal-window $@
+      ${rofi-unwrapped}/bin/rofi -p  -dmenu -normal-window $@
     '')
     (with import <nixpkgs> {}; writeShellScriptBin "reload-desktop" ''
       pkill -USR1 -x sxhkd
       pkill -USR1 -x polybar
-      notify-send -i keyboard 'Reloaded desktop' 'desktop bar and key-bindings reloaded'
+      ${libnotify}/bin/notify-send -i keyboard 'Reloaded desktop' 'desktop bar and key-bindings reloaded'
     '')
     (with import <nixpkgs> {}; writeShellScriptBin "terminal" ''
       CLASS_NAME="terminal"
@@ -48,7 +48,7 @@
      };
      path = [ pkgs.clipmenu ];
      script = ''
-       clipmenud
+       ${pkgs.clipmenu}/bin/clipmenud
      '';
   };
   environment.variables = {
