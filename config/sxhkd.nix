@@ -64,13 +64,13 @@ super + shift + r
 
 # music controls
 XF86AudioRaiseVolume
-  pactl set-sink-volume 0 '+10%'
+  pactl set-sink-volume 1 '+10%'
 
 XF86AudioLowerVolume
-  pactl set-sink-volume 0 '-10%'
+  pactl set-sink-volume 1 '-10%'
 
 XF86AudioMute
-  pactl set-sink-mute 0 toggle
+  pactl set-sink-mute 1 toggle
 
 XF86AudioPrev
   playerctl previous

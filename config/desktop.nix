@@ -9,7 +9,7 @@
   ];
   environment.systemPackages = with pkgs; [
     sxhkd rofi-unwrapped libnotify feh clipmenu
-    chromium
+    chromium playerctl
     networkmanagerapplet
     xdg-desktop-portal-gtk xorg.xkill xdo xsel
     (termite.override {
