@@ -111,21 +111,21 @@ format-foreground = ''${colors.foreground-alt}
 label-focused = %name%
 label-focused-foreground = ''${colors.foreground}
 label-focused-underline = ''${colors.foreground}
-label-focused-padding = 2
+label-focused-padding = 1
 
 label-occupied = %name%
-label-occupied-padding = 2
+label-occupied-padding = 1
 label-occupied-foreground = ''${colors.foreground-alt}
 
 label-urgent = %name%
 label-urgent-foreground = ''${colors.alert}
-label-urgent-padding = 2
+label-urgent-padding = 1
 label-urgent-overline = ''${colors.alert}
 label-urgent-underline = ''${colors.alert}
 
 label-empty = %name%
 label-empty-foreground = ''${colors.background-alt}
-label-empty-padding = 2
+label-empty-padding = 1
 
 label-focused-font = 2
 label-occupied-font = 2

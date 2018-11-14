@@ -29,7 +29,7 @@ if [ -e "$HOME/.Xresources" ]; then
 fi
 
 # spread desktops      
-desktops=8
+desktops=10
 count=$(xrandr -q | grep ' connected' | wc -l)
 i=1
 for m in $(xrandr -q | grep ' connected' | awk '{print $1}'); do
