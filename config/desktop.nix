@@ -307,6 +307,8 @@ rofi.monitor: -1
       shadow-radius = 6;
     '';
   };
+  hardware.pulseaudio.support32Bit = true;
+  hardware.opengl.driSupport32Bit = true;
   boot.plymouth = {
     enable = true;
   };
