@@ -98,7 +98,7 @@ color13 = #6c71c4
 
 # cyan
 color6  = #2aa198
-color14 = #2aa198
+color14 = #a1a1a1
 
 # white
 color7  = #eeeeee
@@ -267,7 +267,7 @@ rofi.monitor: -1
 
 ! cyan
 *.color6:       #2aa198
-*.color14:      #2aa198
+*.color14:      #a1a1a1
 
 ! white
 *.color7:       #eeeeee
