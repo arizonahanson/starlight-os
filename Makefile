@@ -26,6 +26,10 @@ rebuild:
 gc:
 	@sudo nix-collect-garbage
 
+.PHONY: drop
+drop:
+	@sudo nix-collect-garbage -d
+
 .PHONY: install
 install: $(CONFNIX)
 	@nixos-install --no-root-passwd --root /mnt
