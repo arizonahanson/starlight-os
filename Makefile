@@ -30,6 +30,11 @@ gc:
 drop:
 	@sudo nix-collect-garbage -d
 
+.PHONY: upgrade
+upgrade:
+	@sudo nixos-rebuild --upgrade switch
+	@sudo nix-collect-garbage
+
 .PHONY: install
 install: $(CONFNIX)
 	@nixos-install --no-root-passwd --root /mnt
