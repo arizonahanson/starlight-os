@@ -60,48 +60,49 @@
   environment.etc."termite.conf" = {
     mode = "0644";
     text = ''
-      [options]
-      font = Fira Mono Medium 14
-      allow_bold = false
+[options]
+font = Fira Mono Medium 14
+allow_bold = false
 
-      [colors]
-      # special
-      foreground      = #657b83
-      foreground_bold = #657b83
-      cursor          = #657b83
-      background      = #fdf6e3
+[colors]
 
-      # black
-      color0  = #073642
-      color8  = #002b36
+# special
+foreground      = #969696
+foreground_bold = #969696
+cursor          = #969696
+background      = #363636
 
-      # red
-      color1  = #dc322f
-      color9  = #cb4b16
+# black
+color0  = #363636
+color8  = #424242
 
-      # green
-      color2  = #859900
-      color10 = #586e75
+# red
+color1  = #dc322f
+color9  = #cb4b16
 
-      # yellow
-      color3  = #b58900
-      color11 = #657b83
+# green
+color2  = #859900
+color10 = #859900
 
-      # blue
-      color4  = #268bd2
-      color12 = #839496
+# yellow
+color3  = #b58900
+color11 = #b58900
 
-      # magenta
-      color5  = #d33682
-      color13 = #6c71c4
+# blue
+color4  = #268bd2
+color12 = #268bd2
 
-      # cyan
-      color6  = #2aa198
-      color14 = #93a1a1
+# magenta
+color5  = #d33682
+color13 = #6c71c4
 
-      # white
-      color7  = #eee8d5
-      color15 = #fdf6e3
+# cyan
+color6  = #2aa198
+color14 = #2aa198
+
+# white
+color7  = #eeeeee
+color15 = #fdfdfd
     '';
   };
   environment.etc."ld-nix.so.preload" = if config.virtualisation.virtualbox.guest.enable then {
@@ -190,23 +191,6 @@
   };
   environment.etc."X11/Xresources" = {
     text = ''
-#define S_base03        #002b36
-#define S_base02        #073642
-#define S_base01        #586e75
-#define S_base00        #657b83
-#define S_base0         #839496
-#define S_base1         #93a1a1
-#define S_base2         #eee8d5
-#define S_base3         #fdf6e3
-#define S_yellow        #b58900
-#define S_orange        #cb4b16
-#define S_red           #dc322f
-#define S_magenta       #d33682
-#define S_violet        #6c71c4
-#define S_blue          #268bd2
-#define S_cyan          #2aa198
-#define S_green         #859900
-
 ! XFT
 Xft.antialias: 1
 Xft.autohint: 1
@@ -241,10 +225,10 @@ rofi.fake-transparency: false
 ! "scrolling method. (0: Page, 1: Centered)"
 rofi.scroll-method:     1
 ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
-rofi.color-normal: S_base3,S_base00,S_base3,S_base2,S_base00
-rofi.color-urgent: S_base3,S_red,S_base3,S_base3,S_red
-rofi.color-active: S_base3,S_base01,S_base3,S_base2,S_base01
-rofi.color-window: S_base3,S_base3,S_base3
+rofi.color-normal: #363636,#969696,#363636,#424242,#969696
+rofi.color-urgent: #363636,#dc322f,#363636,#424242,#dc322f
+rofi.color-active: #363636,#eeeeee,#363636,#424242,#eeeeee
+rofi.color-window: #363636,#363636,#363636
 rofi.display-drun: 
 rofi.display-run: 
 rofi.display-window: 
@@ -252,46 +236,42 @@ rofi.display-ssh: 
 rofi.display-combi: 
 rofi.combi-modi: window,run,drun
 rofi.monitor: -1
+! special
+*.foreground:   #969696
+*.background:   #363636
+*.cursorColor:  #969696
 
-*background:            S_base3
-*foreground:            S_base00
-*fading:                40
-*fadeColor:             S_base3
-*cursorColor:           S_base01
-*pointerColorBackground:S_base1
-*pointerColorForeground:S_base01
+! black
+*.color0:       #363636
+*.color8:       #424242
 
-!! black dark/light
-*color0:                S_base02
-*color8:                S_base03
+! red
+*.color1:       #dc322f
+*.color9:       #cb4b16
 
-!! red dark/light
-*color1:                S_red
-*color9:                S_orange
+! green
+*.color2:       #859900
+*.color10:      #859900
 
-!! green dark/light
-*color2:                S_green
-*color10:               S_base01
+! yellow
+*.color3:       #b58900
+*.color11:      #b58900
 
-!! yellow dark/light
-*color3:                S_yellow
-*color11:               S_base00
+! blue
+*.color4:       #268bd2
+*.color12:      #268bd2
 
-!! blue dark/light
-*color4:                S_blue
-*color12:               S_base0
+! magenta
+*.color5:       #d33682
+*.color13:      #6c71c4
 
-!! magenta dark/light
-*color5:                S_magenta
-*color13:               S_violet
+! cyan
+*.color6:       #2aa198
+*.color14:      #2aa198
 
-!! cyan dark/light
-*color6:                S_cyan
-*color14:               S_base1
-
-!! white dark/light
-*color7:                S_base2
-*color15:               S_base3
+! white
+*.color7:       #eeeeee
+*.color15:      #fdfdfd
     '';
   };
   services.compton = {

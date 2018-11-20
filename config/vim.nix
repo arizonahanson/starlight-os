@@ -24,7 +24,7 @@
               opt = [ vim-nix ];
             };
             customRC = ''
-              set background=light
+              set background=dark
               colorscheme solarized
               autocmd FileType nix :packadd vim-nix
             '';

@@ -7,25 +7,17 @@
       text = ''
 [colors]
 background = ''${xrdb:background}
-background-alt = ''${xrdb:color7}
-foreground = ''${xrdb:foreground}
-foreground-alt = ''${xrdb:color14}
-base02 = ''${xrdb:color0}
-base03 = ''${xrdb:color8}
+background-alt = ''${xrdb:color8}
+foreground = ''${xrdb:color7}
+foreground-alt = ''${xrdb:foreground}
 red = ''${xrdb:color1}
 orange = ''${xrdb:color9}
 green = ''${xrdb:color2}
-base01 = ''${xrdb:color10}
 yellow = ''${xrdb:color3}
-base00 = ''${xrdb:color11}
 blue = ''${xrdb:color4}
-base0 = ''${xrdb:color12}
 magenta = ''${xrdb:color5}
-violet = ''${xrdb:color13}
+purple = ''${xrdb:color13}
 cyan = ''${xrdb:color6}
-base1 = ''${xrdb:color14}
-base2 = ''${xrdb:color7}
-base3 = ''${xrdb:color15}
         
 accent = ''${colors.blue}        
 alert = ''${colors.red}

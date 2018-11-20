@@ -34,7 +34,7 @@
   linenumber = magenta
 [color "diff"]
   commit = magenta
-  meta = cyan bold
+  meta = black bold
   frag = magenta bold
   old = red
   new = green
@@ -46,7 +46,7 @@
   added = yellow
   changed = red bold
   untracked = red
-  header = cyan bold
+  header = black bold
   branch = yellow
       '';
     in

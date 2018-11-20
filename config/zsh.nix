@@ -7,7 +7,7 @@
   programs.zsh.autosuggestions = {
     enable = true;
     strategy = "match_prev_cmd";
-    highlightStyle = "fg=14";
+    highlightStyle = "fg=8";
   };
   programs.zsh.ohMyZsh = {
     enable = true;
