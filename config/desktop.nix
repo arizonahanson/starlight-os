@@ -10,7 +10,7 @@
   environment.systemPackages = with pkgs; [
     sxhkd rofi-unwrapped libnotify feh clipmenu
     chromium playerctl
-    networkmanagerapplet
+    networkmanagerapplet sound-theme-freedesktop
     xdg-desktop-portal-gtk xorg.xkill xdo xsel
     (termite.override {
       configFile = "/etc/termite.conf";
