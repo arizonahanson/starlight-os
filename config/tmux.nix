@@ -32,12 +32,13 @@ set-option -g status-fg yellow #yellow
 set-option -g status-attr default
 
 # default window title colors
-set-window-option -g window-status-fg brightblue #base0
+set-window-option -g window-status-fg brightblack #base0
 set-window-option -g window-status-bg default
 #set-window-option -g window-status-attr dim
 
 # active window title colors
-set-window-option -g window-status-current-fg brightred #orange
+#set-window-option -g window-status-current-fg brightred #orange
+set-window-option -g window-status-current-fg brightblue
 set-window-option -g window-status-current-bg default
 #set-window-option -g window-status-current-attr bright
 
