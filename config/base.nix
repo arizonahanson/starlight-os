@@ -27,6 +27,9 @@
   # /tmp on tmpfs
   boot.tmpOnTmpfs = true;
   boot.loader.grub.useOSProber = true;
+  boot.kernel.sysctl = {
+    "vm.max_map_count" = 262144;
+  };
 
   # default user account
   users.users.admin = {

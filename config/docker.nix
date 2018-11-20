@@ -6,7 +6,7 @@
     enableOnBoot = false;
     autoPrune.enable = true;
     storageDriver = "btrfs";
-    logDriver = "syslog";
+    logDriver = "json-file";
   };
   users.users.admin.extraGroups = [ "docker" ];
 }
