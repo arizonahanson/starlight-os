@@ -14,7 +14,7 @@
     wget w3m
     psmisc
     tree ag
-    ranger
+    ranger highlight
     unzip
     python
   ];
