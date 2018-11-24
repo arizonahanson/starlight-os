@@ -9,7 +9,7 @@
   ];
   environment.systemPackages = with pkgs; [
     sxhkd rofi-unwrapped libnotify feh clipmenu
-    chromium playerctl
+    chromium playerctl jack2
     networkmanagerapplet sound-theme-freedesktop
     xdg-desktop-portal-gtk xorg.xkill xdo xsel
     (termite.override {
@@ -168,7 +168,11 @@ color15 = #fdfdfd
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  boot.kernelModules = [ "snd-seq" "snd-rawmidi" ];
+  hardware.pulseaudio = {
+    package = (pkgs.pulseaudio.override { jackaudioSupport = true; });
+    enable = true;
+  };
   users.users.admin.extraGroups = [ "audio" "networkmanager" ];
 
   # Enable the X11 windowing system.
