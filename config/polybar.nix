@@ -8,15 +8,14 @@
 [colors]
 background = ''${xrdb:background}
 background-alt = ''${xrdb:color8}
-foreground = ''${xrdb:color7}
-foreground-alt = ''${xrdb:foreground}
+foreground = ''${xrdb:foreground}
+foreground-alt = ''${xrdb:color7}
 red = ''${xrdb:color1}
 orange = ''${xrdb:color9}
 green = ''${xrdb:color2}
-yellow = ''${xrdb:color3}
+yellow = ''${xrdb:color11}
 blue = ''${xrdb:color4}
-magenta = ''${xrdb:color5}
-purple = ''${xrdb:color13}
+purple = ''${xrdb:color5}
 cyan = ''${xrdb:color6}
         
 accent = ''${colors.blue}        
