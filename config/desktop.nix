@@ -210,7 +210,7 @@ rofi.columns:           1
 rofi.bw:                2
 rofi.location:          1
 rofi.padding:           12
-rofi.yoffset:           52
+rofi.yoffset:           44
 rofi.xoffset:           4
 rofi.fixed-num-lines:   true
 rofi.terminal:          termite
@@ -225,7 +225,7 @@ rofi.fake-transparency: false
 ! "scrolling method. (0: Page, 1: Centered)"
 rofi.scroll-method:     1
 ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
-rofi.color-normal: #212121,#59748f,#212121,#212121,#c7c7c7
+rofi.color-normal: #212121,#404040,#212121,#212121,#c7c7c7
 rofi.color-urgent: #212121,#cc6666,#212121,#212121,#8fadcc
 rofi.color-active: #212121,#8fadcc,#212121,#212121,#c7c7c7
 rofi.color-window: #212121,#212121,#212121
