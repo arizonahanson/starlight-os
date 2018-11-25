@@ -158,7 +158,7 @@ hotkey=['<Control><Shift>e']
 [desktop/ibus/panel]
 show=0
 show-icon-on-systray=true
-xkb-icon-rgba='#93A1A1'
+xkb-icon-rgba='#787878'
       
 [org/mate/marco/general]
 theme='starlight'
