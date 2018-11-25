@@ -15,7 +15,7 @@ click-type-window-visible=true
 
 [org/mate/notification-daemon]
 popup-location='top_right'
-theme='standard'
+theme='slider'
 
 [org/mate/settings-daemon/plugins/keyboard]
 active=false
@@ -152,7 +152,7 @@ triggers=['<Super>K']
 partial-match-condition=2
 has-partial-match=true
 lang='en'
-font='Noto Color Emoji 18'
+font='Noto Emoji 18'
 hotkey=['<Control><Shift>e']
 
 [desktop/ibus/panel]
