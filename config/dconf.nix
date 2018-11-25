@@ -73,7 +73,7 @@ sleep-display-ac=0
 [org/mate/desktop/interface]
 menus-have-icons=true
 gtk-decoration-layout='menu:close'
-font-name='Work Sans 14'
+font-name='Exo 2 14'
 gtk-im-module='ibus'
 cursor-blink-time=1000
 monospace-font-name='Fira Mono 11'
