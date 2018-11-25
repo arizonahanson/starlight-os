@@ -138,8 +138,8 @@ show-desktop-icons=false
 background-fade=false
 
 [org/mate/desktop/font-rendering]
-antialiasing='grayscale'
-hinting='medium'
+antialiasing='rgba'
+hinting='slight'
 
 [apps/seahorse]
 server-auto-retrieve=false
