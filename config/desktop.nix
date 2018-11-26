@@ -61,7 +61,7 @@
     mode = "0644";
     text = ''
 [options]
-font = Fira Mono Medium 14
+font = Input 14
 allow_bold = false
 
 [colors]
