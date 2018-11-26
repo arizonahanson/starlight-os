@@ -90,7 +90,7 @@ type = internal/xwindow
 label = %title:0:64:…%
 label-foreground = ''${colors.foreground}
 label-font = 3
-label-empty = 
+label-empty = 
 label-empty-font = 1
 
 [module/bspwm]
