@@ -43,11 +43,11 @@
   current = yellow
   local = red bold
 [color "status"]
-  added = yellow
+  added = yellow bold
   changed = red bold
   untracked = red
   header = black bold
-  branch = yellow
+  branch = yellow bold
       '';
     in
     {
