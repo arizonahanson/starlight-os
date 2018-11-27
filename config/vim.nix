@@ -19,13 +19,11 @@
           vimrcConfig = {
             packages.nix_sensible = with pkgs.vimPlugins; {
         	    # loaded on launch
-              start = [ vim-sensible vim-colors-solarized ];
+              start = [ vim-sensible ];
               # manually loadable by calling `:packadd plugin-name`
               opt = [ vim-nix ];
             };
             customRC = ''
-              set background=dark
-              colorscheme solarized
               autocmd FileType nix :packadd vim-nix
             '';
           };

@@ -15,7 +15,7 @@ click-type-window-visible=true
 
 [org/mate/notification-daemon]
 popup-location='top_right'
-theme='standard'
+theme='slider'
 
 [org/mate/settings-daemon/plugins/keyboard]
 active=false
@@ -73,7 +73,7 @@ sleep-display-ac=0
 [org/mate/desktop/interface]
 menus-have-icons=true
 gtk-decoration-layout='menu:close'
-font-name='Work Sans 14'
+font-name='Exo 2 14'
 gtk-im-module='ibus'
 cursor-blink-time=1000
 monospace-font-name='Fira Mono 11'
@@ -138,8 +138,8 @@ show-desktop-icons=false
 background-fade=false
 
 [org/mate/desktop/font-rendering]
-antialiasing='grayscale'
-hinting='medium'
+antialiasing='rgba'
+hinting='slight'
 
 [apps/seahorse]
 server-auto-retrieve=false
@@ -152,13 +152,13 @@ triggers=['<Super>K']
 partial-match-condition=2
 has-partial-match=true
 lang='en'
-font='Noto Color Emoji 18'
+font='Noto Emoji 18'
 hotkey=['<Control><Shift>e']
 
 [desktop/ibus/panel]
 show=0
 show-icon-on-systray=true
-xkb-icon-rgba='#93A1A1'
+xkb-icon-rgba='#787878'
       
 [org/mate/marco/general]
 theme='starlight'

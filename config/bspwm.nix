@@ -20,7 +20,7 @@
 function get_xrdb() {
   xrdb -query | grep "$1" | awk '{print $2}' | tail -n1
 }
-      
+
 if [ -e "/etc/X11/Xresources" ]; then
   xrdb /etc/X11/Xresources
 fi
@@ -28,7 +28,7 @@ if [ -e "$HOME/.Xresources" ]; then
   xrdb -merge "$HOME/.Xresources"
 fi
 
-# spread desktops      
+# spread desktops
 desktops=10
 count=$(xrandr -q | grep ' connected' | wc -l)
 i=1
@@ -44,18 +44,18 @@ xsetroot -cursor_name left_ptr
 # border color
 bspc config normal_border_color "$(get_xrdb color8)"
 bspc config focused_border_color "$(get_xrdb foreground)"
-bspc config border_width         3 
+bspc config border_width         1
 bspc config window_gap           0
-bspc config split_ratio          0.50 
-bspc config borderless_monocle   true 
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config single_monocle       true
 bspc config focus_follows_pointer false
 
 bspc rule -a Rofi state=floating
-bspc rule -a Gimp state=floating 
-bspc rule -a Dia state=floating 
-bspc rule -a Ibus-ui-gtk3 state=floating 
+bspc rule -a Gimp state=floating
+bspc rule -a Dia state=floating
+bspc rule -a Ibus-ui-gtk3 state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Nm-connection-editor state=floating
 bspc rule -a "-c" state=floating
@@ -69,7 +69,7 @@ done
 if [ -e "$HOME/.fehbg" ]; then
   source "$HOME/.fehbg"
 fi
-      
+
 if [ -e "$HOME/.config/bspwm/bspwmrc" ]; then
   "$HOME/.config/bspwm/bspwmrc"
 fi

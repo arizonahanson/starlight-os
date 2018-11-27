@@ -6,17 +6,16 @@
       mode = "0644";
       text = ''
 [colors]
-background = ''${xrdb:background}
+background = ''${xrdb:color0}
 background-alt = ''${xrdb:color8}
-foreground = ''${xrdb:color7}
-foreground-alt = ''${xrdb:foreground}
+foreground = ''${xrdb:color15}
+foreground-alt = ''${xrdb:color7}
 red = ''${xrdb:color1}
 orange = ''${xrdb:color9}
 green = ''${xrdb:color2}
-yellow = ''${xrdb:color3}
+yellow = ''${xrdb:color11}
 blue = ''${xrdb:color4}
-magenta = ''${xrdb:color5}
-purple = ''${xrdb:color13}
+purple = ''${xrdb:color5}
 cyan = ''${xrdb:color6}
         
 accent = ''${colors.blue}        
@@ -25,7 +24,7 @@ alert = ''${colors.red}
 [bar/default]
 monitor = ''${env:MONITOR:VGA-1}
 width = 100%
-height = 36
+height = 38
 offset-x = 0
 offset-y = 0
 ;radius = 8.0
@@ -39,7 +38,7 @@ foreground = ''${colors.foreground}
 line-size = 3
 line-color = ''${colors.accent}
 
-border-size = 2
+border-size = 1
 border-color = ''${colors.background-alt}
 
 padding-left = 2
@@ -91,7 +90,7 @@ type = internal/xwindow
 label = %title:0:64:…%
 label-foreground = ''${colors.foreground}
 label-font = 3
-label-empty = 
+label-empty = 
 label-empty-font = 1
 
 [module/bspwm]

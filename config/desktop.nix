@@ -67,42 +67,42 @@ allow_bold = false
 [colors]
 
 # special
-foreground      = #969696
-foreground_bold = #969696
-cursor          = #969696
-background      = #363636
+foreground      = #c7c7c7
+foreground_bold = #c7c7c7
+cursor          = #c7c7c7
+background      = #212121
 
 # black
-color0  = #363636
-color8  = #424242
+color0  = #212121
+color8  = #404040
 
 # red
-color1  = #dc322f
-color9  = #cb4b16
+color1  = #cc6666
+color9  = #de985f
 
 # green
-color2  = #859900
-color10 = #859900
+color2  = #638f63
+color10 = #85cc85
 
 # yellow
-color3  = #b58900
-color11 = #b58900
+color3  = #8f7542
+color11 = #f0c674
 
 # blue
-color4  = #268bd2
-color12 = #268bd2
+color4  = #59748f
+color12 = #8fadcc
 
 # magenta
-color5  = #d33682
-color13 = #6c71c4
+color5  = #85678f
+color13 = #b093ba
 
 # cyan
-color6  = #2aa198
-color14 = #a1a1a1
+color6  = #5e8d87
+color14 = #8abeb7
 
 # white
-color7  = #eeeeee
-color15 = #fdfdfd
+color7  = #787878
+color15 = #c7c7c7
     '';
   };
   environment.etc."ld-nix.so.preload" = if config.virtualisation.virtualbox.guest.enable then {
@@ -207,7 +207,7 @@ Xft.rgba: rgb
 ! ROFI
 rofi.font:              Exo 2 SemiBold 18
 rofi.modi:              window,run,drun,combi
-rofi.width:             28
+rofi.width:             38
 rofi.lines:             5
 rofi.columns:           1
 ! "border width"
@@ -229,10 +229,10 @@ rofi.fake-transparency: false
 ! "scrolling method. (0: Page, 1: Centered)"
 rofi.scroll-method:     1
 ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
-rofi.color-normal: #363636,#969696,#363636,#424242,#969696
-rofi.color-urgent: #363636,#dc322f,#363636,#424242,#dc322f
-rofi.color-active: #363636,#eeeeee,#363636,#424242,#eeeeee
-rofi.color-window: #363636,#363636,#363636
+rofi.color-normal: #212121,#404040,#212121,#212121,#c7c7c7
+rofi.color-urgent: #212121,#cc6666,#212121,#212121,#8fadcc
+rofi.color-active: #212121,#8fadcc,#212121,#212121,#c7c7c7
+rofi.color-window: #212121,#212121,#212121
 rofi.display-drun: 
 rofi.display-run: 
 rofi.display-window: 
@@ -240,42 +240,43 @@ rofi.display-ssh: 
 rofi.display-combi: 
 rofi.combi-modi: window,run,drun
 rofi.monitor: -1
+
 ! special
-*.foreground:   #969696
-*.background:   #363636
-*.cursorColor:  #969696
+*.foreground:   #c7c7c7
+*.background:   #212121
+*.cursorColor:  #c7c7c7
 
 ! black
-*.color0:       #363636
-*.color8:       #424242
+*.color0:       #212121
+*.color8:       #404040
 
 ! red
-*.color1:       #dc322f
-*.color9:       #cb4b16
+*.color1:       #cc6666
+*.color9:       #de985f
 
 ! green
-*.color2:       #859900
-*.color10:      #859900
+*.color2:       #638f63
+*.color10:      #85cc85
 
 ! yellow
-*.color3:       #b58900
-*.color11:      #b58900
+*.color3:       #8f7542
+*.color11:      #f0c674
 
 ! blue
-*.color4:       #268bd2
-*.color12:      #268bd2
+*.color4:       #59748f
+*.color12:      #8fadcc
 
 ! magenta
-*.color5:       #d33682
-*.color13:      #6c71c4
+*.color5:       #85678f
+*.color13:      #b093ba
 
 ! cyan
-*.color6:       #2aa198
-*.color14:      #a1a1a1
+*.color6:       #5e8d87
+*.color14:      #8abeb7
 
 ! white
-*.color7:       #eeeeee
-*.color15:      #fdfdfd
+*.color7:       #787878
+*.color15:      #c7c7c7
     '';
   };
   services.compton = {
