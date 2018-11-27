@@ -6,11 +6,11 @@
     ./mate.nix
     ./polybar.nix
     ./theme.nix
+    ./audio.nix
   ];
   environment.systemPackages = with pkgs; [
     sxhkd rofi-unwrapped libnotify feh clipmenu
-    chromium playerctl jack2
-    networkmanagerapplet sound-theme-freedesktop
+    chromium networkmanagerapplet
     xdg-desktop-portal-gtk xorg.xkill xdo xsel
     (termite.override {
       configFile = "/etc/termite.conf";
@@ -166,14 +166,7 @@ color15 = #c7c7c7
     export SSH_ASKPASS="${pkgs.gnome3.seahorse}/lib/seahorse/seahorse-ssh-askpass"
   '';
 
-  # Enable sound.
-  sound.enable = true;
-  boot.kernelModules = [ "snd-seq" "snd-rawmidi" ];
-  hardware.pulseaudio = {
-    package = (pkgs.pulseaudio.override { jackaudioSupport = true; });
-    enable = true;
-  };
-  users.users.admin.extraGroups = [ "audio" "networkmanager" ];
+  users.users.admin.extraGroups = [ "networkmanager" ];
 
   # Enable the X11 windowing system.
   services.xserver = {
