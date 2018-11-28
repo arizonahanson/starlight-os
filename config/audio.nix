@@ -2,8 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    playerctl jack2
-    sound-theme-freedesktop
+    playerctl sound-theme-freedesktop
   ];
 
   # Enable sound.
@@ -16,5 +15,5 @@
     });
     enable = true;
   };
-  users.users.admin.extraGroups = [ "networkmanager" ];
+  users.users.admin.extraGroups = [ "audio" ];
 }
