@@ -133,6 +133,7 @@ label-floating = " "
 type = internal/temperature
 thermal-zone = 2
 warn-temperature = 75
+interval = 5
 
 format =
 format-underline =
