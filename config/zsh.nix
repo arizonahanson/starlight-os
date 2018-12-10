@@ -310,10 +310,10 @@ EXEC 0;32
 .log     1;36
 
 # readme, etc
-.md        1;32
-*README    1;32
-*README.TXT 1;32
-*README.txt 1;32
+.md        1;37
+*README    1;37
+*README.TXT 1;37
+*README.txt 1;37
 
 # html
 .html   0;35
