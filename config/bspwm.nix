@@ -53,8 +53,6 @@ bspc config single_monocle       true
 bspc config focus_follows_pointer false
 
 bspc rule -a Rofi state=floating
-bspc rule -a Gimp state=floating
-bspc rule -a Dia state=floating
 bspc rule -a Ibus-ui-gtk3 state=floating
 bspc rule -a Pavucontrol state=floating
 bspc rule -a Nm-connection-editor state=floating
