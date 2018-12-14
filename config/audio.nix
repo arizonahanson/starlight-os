@@ -9,10 +9,7 @@
   sound.enable = true;
   boot.kernelModules = [ "snd-seq" "snd-rawmidi" ];
   hardware.pulseaudio = {
-    package = (pkgs.pulseaudio.override {
-      jackaudioSupport = true;
-      x11Support = true;
-    });
+    package = pkgs.pulseaudioFull;
     enable = true;
   };
   users.users.admin.extraGroups = [ "audio" ];
