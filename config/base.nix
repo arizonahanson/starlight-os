@@ -19,6 +19,7 @@
     python
   ];
 
+  services.openssh.enable = true;
   services.journald.extraConfig = ''
     Storage=volatile
   '';
