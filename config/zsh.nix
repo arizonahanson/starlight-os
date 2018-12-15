@@ -20,12 +20,12 @@
     customPkgs = 
       let
         zsh-starlight-theme = with pkgs; stdenv.mkDerivation rec {
-          name = "zsh-starlight-theme-v1.0";
+          name = "zsh-starlight-theme-v1.1";
           src = fetchFromGitHub {
             owner = "isaacwhanson";
             repo = "zsh-starlight-theme";
-            rev = "v1.0";
-            sha256 = "1dfanap23rpc3x96h5fqqb8mxrnnn26vfiywp7zvmqhwp37swaii";
+            rev = "v1.1";
+            sha256 = "19hzyh7pcfc4s3si2xqxnz54ak1kv4cr90snn602p9b8fxcdjgjh";
           };
             
           dontBuild = true;
@@ -363,6 +363,28 @@ EXEC 0;32
   '';
   programs.zsh.promptInit = ''
     bindkey -v
+    # shorter delay on cmd-mode
+    export KEYTIMEOUT=1
+    zle-line-init() {
+      typeset -g __prompt_status="$?"
+    }
+    zle-keymap-select () {
+      if [ ! "$TERM" = "linux" ]; then
+        if [ $KEYMAP = vicmd ]; then
+          echo -ne "\e[1 q"
+        else
+          echo -ne "\e[3 q"
+        fi
+      fi
+      () { return $__prompt_status }
+      zle reset-prompt
+    }
+    zle -N zle-keymap-select
+    zle -N zle-line-init
+
+    autoload -Uz run-help
+    unalias run-help
+    alias help=run-help
 
     # better auto-suggest
     my-autosuggest-accept() {
@@ -374,6 +396,7 @@ EXEC 0;32
     ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=my-autosuggest-accept
     ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=vi-forward-char
     ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=""
+
     export ZSH_HIGHLIGHT_STYLES[cursor]='fg=yellow'
     export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
     export ZSH_HIGHLIGHT_STYLES[path]='fg=blue'
@@ -398,8 +421,8 @@ EXEC 0;32
     export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=yellow'
     export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan'
     export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan'
-    # shorter delay on cmd-mode
-    export KEYTIMEOUT=1
+    
+    # fzf with tmux
     export FZF_TMUX=1
     export FZF_DEFAULT_COMMAND='ag -f -g "" --hidden --depth 16 --ignore dosdevices'
     export FZF_DEFAULT_OPTS='-m --ansi --color=16,bg:-1,bg+:-1 --tac'
