@@ -12,7 +12,7 @@
   environment.systemPackages = with pkgs; [
     gnumake
     wget w3m
-    psmisc
+    psmisc pciutils
     tree ag
     ranger highlight
     unzip
