@@ -1,7 +1,4 @@
-* improve git prompt
-* font-awesome brands
 * bar system-tray issues
-* ranger theme (preview)
 * fix some utf symbols in terminal
 * allow utf symbols in bar other than fa
 * better termite font (input not redistributable)
