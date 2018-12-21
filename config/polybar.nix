@@ -126,9 +126,9 @@ label-empty-font = 2
 label-dimmed-focused-foreground = ''${colors.foreground}
 label-dimmed-focused-underline = ''${colors.background-alt}
 
-label-monocle = " "
+label-monocle = " "
 label-floating = " "
-label-pseudotiled = " "
+label-pseudotiled = " "
 
 [module/temperature]
 type = internal/temperature
