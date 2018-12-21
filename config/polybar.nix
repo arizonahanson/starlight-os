@@ -90,7 +90,7 @@ type = internal/xwindow
 label = %title:0:64:…%
 label-foreground = ''${colors.foreground}
 label-font = 3
-label-empty = 
+label-empty = 
 label-empty-font = 1
 
 [module/bspwm]
@@ -126,8 +126,8 @@ label-empty-font = 2
 label-dimmed-focused-foreground = ''${colors.foreground}
 label-dimmed-focused-underline = ''${colors.background-alt}
 
-label-monocle = " "
-label-floating = " "
+label-monocle = " "
+label-floating = " "
 
 [module/temperature]
 type = internal/temperature
