@@ -10,7 +10,7 @@
     text = ''
 # rofi applications menu
 super + space
-  rofi -show combi -normal-window
+  rofi -show combi -normal-window -show-icons -drun-icon-theme starlight
 # terminal
 super + Return
   terminal &
