@@ -17,7 +17,7 @@ set -g monitor-activity on
 set -g status "on"
 set -g status-left-length "100"
 set -g status-right-length "100"
-set -g status-right "#[fg=colour4]#S  "
+set -g status-right "#[fg=colour7]#S  "
 set -g status-left ""
 setw -g window-status-separator ""
 setw -g window-status-current-format " #I #W "
