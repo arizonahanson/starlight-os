@@ -431,5 +431,6 @@ EXEC 0;32
     export FZF_ALT_C_COMMAND="find -L . -maxdepth 16 -type d 2>/dev/null"
     source ${pkgs.fzf}/share/fzf/key-bindings.zsh
     source ${pkgs.fzf}/share/fzf/completion.zsh
-  '';
+    export LESS="-erFX"
+    '';
 }
