@@ -223,8 +223,8 @@ rofi.fake-transparency: false
 rofi.scroll-method:     1
 ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
 rofi.color-normal: #212121,#404040,#212121,#212121,#c7c7c7
-rofi.color-urgent: #212121,#cc6666,#212121,#212121,#8fadcc
-rofi.color-active: #212121,#8fadcc,#212121,#212121,#c7c7c7
+rofi.color-urgent: #212121,#cc6666,#212121,#212121,#787878
+rofi.color-active: #212121,#787878,#212121,#212121,#c7c7c7
 rofi.color-window: #212121,#212121,#212121
 rofi.display-drun: 
 rofi.display-run: 
