@@ -48,10 +48,10 @@ module-margin-left = 1
 module-margin-right = 1
 
 font-0 = Font Awesome 5 Free Solid:size=16;4
-font-1 = Exo 2:style=Extra Bold:size=18;3
-font-2 = Exo 2:style=Bold:size=16;4
-font-3 = Exo 2:style=Bold:size=14;4
-font-4 = Exo 2:style=Bold:size=12;3
+font-1 = Montserrat:style=Bold:size=16;3
+font-2 = Montserrat:style=Bold:size=14;4
+font-3 = Montserrat:style=Bold:size=12;4
+font-4 = Montserrat:style=Bold:size=12;3
 
 modules-left = xwindow
 modules-center =
