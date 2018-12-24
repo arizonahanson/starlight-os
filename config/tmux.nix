@@ -38,7 +38,7 @@ set-window-option -g window-status-bg default
 
 # active window title colors
 #set-window-option -g window-status-current-fg brightred #orange
-set-window-option -g window-status-current-fg brightblue
+set-window-option -g window-status-current-fg white
 set-window-option -g window-status-current-bg default
 #set-window-option -g window-status-current-attr bright
 
