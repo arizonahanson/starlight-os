@@ -14,9 +14,6 @@ super + space
 # terminal
 super + Return
   terminal &
-# filemanager
-super + backslash
-  rofi-sensible-terminal -e ranger
 
 # switch, move window
 super + {_,shift + }{Left,Down,Up,Right}
@@ -59,7 +56,7 @@ super + shift + Insert
   clipdel -d '.*'
 
 # reload keybindings
-super + shift + r
+super + shift + BackSpace
   reload-desktop &
 
 # music controls
