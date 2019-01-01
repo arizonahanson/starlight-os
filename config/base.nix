@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./vim.nix
     ./zsh.nix
     ./git.nix
     ./tmux.nix
@@ -10,7 +9,7 @@
   nixpkgs.config.allowUnfree = true;
   nix.autoOptimiseStore = true;
   environment.systemPackages = with pkgs; [
-    gnumake bc
+    gnumake bc nvi
     wget w3m
     psmisc pciutils
     tree ag
@@ -19,6 +18,9 @@
     python
     duperemove
   ];
+  environment.variables = {
+      EDITOR = "vi";
+  };
 
   services.openssh.enable = true;
   services.journald.extraConfig = ''
