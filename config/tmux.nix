@@ -14,6 +14,7 @@ set -g default-terminal "screen-256color"
 set -g set-titles on
 set -g set-titles-string "#W"
 set -g monitor-activity on
+set -g escape-time 0
 set -g status "on"
 set -g status-left-length "100"
 set -g status-right-length "100"
