@@ -90,7 +90,7 @@ label-font = 5
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:64:…%
-label-font = 7
+label-font = 3
 label-empty = 🐧
 label-empty-font = 1
 label-empty-foreground = ''${colors.foreground-alt}
