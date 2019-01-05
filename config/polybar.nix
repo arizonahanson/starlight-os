@@ -104,11 +104,11 @@ format-foreground = ''${colors.foreground-alt}
 ;label-focused = %name%
 label-focused = ●
 label-focused-foreground = ''${colors.foreground}
-label-focused-underline = ''${colors.foreground}
+;label-focused-underline = ''${colors.foreground}
 label-focused-padding = 1
 
 ;label-occupied = %name%
-label-occupied = ◉
+label-occupied = ◎
 label-occupied-padding = 1
 label-occupied-foreground = ''${colors.foreground-alt}
 
@@ -117,7 +117,7 @@ label-urgent = ●
 label-urgent-foreground = ''${colors.alert}
 label-urgent-padding = 1
 label-urgent-overline = ''${colors.alert}
-label-urgent-underline = ''${colors.alert}
+;label-urgent-underline = ''${colors.alert}
 
 label-empty = ○
 label-empty-foreground = ''${colors.background-alt}
@@ -129,7 +129,7 @@ label-urgent-font = 2
 label-empty-font = 2
 
 label-dimmed-focused-foreground = ''${colors.foreground}
-label-dimmed-focused-underline = ''${colors.background-alt}
+;label-dimmed-focused-underline = ''${colors.background-alt}
 
 label-monocle = " "
 label-floating = " "
