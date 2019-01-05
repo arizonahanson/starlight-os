@@ -112,7 +112,6 @@ label-occupied-foreground = ''${colors.foreground-alt}
 label-urgent = "▩ "
 label-urgent-foreground = ''${colors.alert}
 label-urgent-padding = 0
-label-urgent-overline = ''${colors.alert}
 
 label-empty = "▢ "
 label-empty-foreground = ''${colors.background-alt}
