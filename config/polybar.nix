@@ -90,7 +90,7 @@ label-font = 5
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:64:…%
-label-font = 3
+label-font = 7
 label-empty = 🐧
 label-empty-font = 1
 label-empty-foreground = ''${colors.foreground-alt}
@@ -101,32 +101,27 @@ type = internal/bspwm
 format = <label-mode><label-state>
 format-foreground = ''${colors.foreground-alt}
 
-;label-focused = %name%
-label-focused = ●
+label-focused = "● "
 label-focused-foreground = ''${colors.foreground}
-;label-focused-underline = ''${colors.foreground}
-label-focused-padding = 1
+label-focused-padding = 0
 
-;label-occupied = %name%
-label-occupied = ◎
-label-occupied-padding = 1
+label-occupied = "◎ "
+label-occupied-padding = 0
 label-occupied-foreground = ''${colors.foreground-alt}
 
-;label-urgent = %name%
-label-urgent = ●
+label-urgent = "● "
 label-urgent-foreground = ''${colors.alert}
-label-urgent-padding = 1
+label-urgent-padding = 0
 label-urgent-overline = ''${colors.alert}
-;label-urgent-underline = ''${colors.alert}
 
-label-empty = ○
+label-empty = "○ "
 label-empty-foreground = ''${colors.background-alt}
-label-empty-padding = 1
+label-empty-padding = 0
 
-label-focused-font = 2
-label-occupied-font = 2
-label-urgent-font = 2
-label-empty-font = 2
+label-focused-font = 6
+label-occupied-font = 6
+label-urgent-font = 6
+label-empty-font = 6
 
 label-dimmed-focused-foreground = ''${colors.foreground}
 ;label-dimmed-focused-underline = ''${colors.background-alt}
