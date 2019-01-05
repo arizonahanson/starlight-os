@@ -52,6 +52,8 @@ font-1 = Montserrat:style=Bold:size=16;3
 font-2 = Montserrat:style=Bold:size=14;4
 font-3 = Montserrat:style=Bold:size=12;4
 font-4 = Montserrat:style=Bold:size=12;3
+font-5 = DejaVu Sans:size=14;2
+font-6 = Noto Emoji:size=14;3
 
 modules-left = xwindow
 modules-center =
@@ -99,22 +101,25 @@ type = internal/bspwm
 format = <label-mode><label-state>
 format-foreground = ''${colors.foreground-alt}
 
-label-focused = %name%
+;label-focused = %name%
+label-focused = ●
 label-focused-foreground = ''${colors.foreground}
 label-focused-underline = ''${colors.foreground}
 label-focused-padding = 1
 
-label-occupied = %name%
+;label-occupied = %name%
+label-occupied = ◉
 label-occupied-padding = 1
 label-occupied-foreground = ''${colors.foreground-alt}
 
-label-urgent = %name%
+;label-urgent = %name%
+label-urgent = ●
 label-urgent-foreground = ''${colors.alert}
 label-urgent-padding = 1
 label-urgent-overline = ''${colors.alert}
 label-urgent-underline = ''${colors.alert}
 
-label-empty = %name%
+label-empty = ○
 label-empty-foreground = ''${colors.background-alt}
 label-empty-padding = 1
 

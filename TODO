@@ -1,4 +1,2 @@
 * bar system-tray issues
 * fix some utf symbols in terminal
-* allow utf symbols in bar other than fa
-* better termite font (input not redistributable)
