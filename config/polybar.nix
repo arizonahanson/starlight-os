@@ -41,19 +41,17 @@ line-color = ''${colors.accent}
 border-size = 1
 border-color = ''${colors.background-alt}
 
-padding-left = 2
-padding-right = 0
+padding-left = 3
+padding-right = 1
 
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Font Awesome 5 Free Solid:size=14;4
-font-1 = Montserrat:style=Bold:size=16;3
-font-2 = Montserrat:style=Bold:size=14;4
-font-3 = Montserrat:style=Bold:size=12;4
-font-4 = Montserrat:style=Bold:size=12;3
-font-5 = DejaVu Sans:size=14;2
-font-6 = Noto Emoji:size=14;3
+font-0 = Montserrat:style=SemiBold:size=12;4
+font-1 = Montserrat:style=SemiBold:size=14;4
+font-2 = Font Awesome 5 Free Solid:size=14;4
+font-3 = Noto Emoji:size=14;4
+font-4 = DejaVu Sans:size=14;3
 
 modules-left = xwindow
 modules-center =
@@ -85,14 +83,14 @@ type = custom/script
 exec = date '+%a %l:%M %p' | sed 's/  / /'
 interval = 30
 format-foreground = ''${colors.foreground-alt}
-label-font = 5
+label-font = 1
 
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:64:…%
-label-font = 3
+label-font = 2
 label-empty = 🐧
-label-empty-font = 1
+label-empty-font = 4
 label-empty-foreground = ''${colors.foreground-alt}
 
 [module/bspwm]
@@ -117,16 +115,16 @@ label-empty = "▢ "
 label-empty-foreground = ''${colors.background-alt}
 label-empty-padding = 0
 
-label-focused-font = 6
-label-occupied-font = 6
-label-urgent-font = 6
-label-empty-font = 6
+label-focused-font = 5
+label-occupied-font = 5
+label-urgent-font = 5
+label-empty-font = 5
 
 label-dimmed-focused-foreground = ''${colors.foreground}
 
-label-monocle = " "
-label-floating = " "
-label-pseudotiled = " "
+label-monocle = "  "
+label-floating = "  "
+label-pseudotiled = "  "
 
 [module/temperature]
 type = internal/temperature
@@ -139,10 +137,10 @@ format-underline =
 format-warn = <ramp> <label-warn>
 
 label = %temperature-c%
-label-font = 3
+label-font = 1
 label-warn = %temperature-c%
 label-warn-foreground = ''${colors.orange}
-label-warn-font = 3
+label-warn-font = 1
 
 ramp-0 = 
 ramp-1 = 
