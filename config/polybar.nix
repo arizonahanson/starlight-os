@@ -99,7 +99,7 @@ label-empty-foreground = ''${colors.foreground-alt}
 type = internal/bspwm
 
 format = <label-mode><label-state>
-format-foreground = ''${colors.foreground-alt}
+format-foreground = ''${colors.foreground}
 
 label-focused = "▣ "
 label-focused-foreground = ''${colors.foreground}
@@ -123,11 +123,10 @@ label-urgent-font = 6
 label-empty-font = 6
 
 label-dimmed-focused-foreground = ''${colors.foreground}
-;label-dimmed-focused-underline = ''${colors.background-alt}
 
-label-monocle = "  "
-label-floating = "  "
-label-pseudotiled = "  "
+label-monocle = " "
+label-floating = " "
+label-pseudotiled = " "
 
 [module/temperature]
 type = internal/temperature
