@@ -132,12 +132,17 @@ color15 = #c7c7c7
 <fontconfig>
   <match target="pattern">
     <edit name="family" mode="prepend_first">
-      <string>Font Awesome 5 Free Solid</string>
+      <string>Noto Emoji</string>
     </edit>
   </match>
   <match target="pattern">
     <edit name="family" mode="prepend_first">
-      <string>Noto Emoji</string>
+      <string>DejaVu Sans</string>
+    </edit>
+  </match>
+  <match target="pattern">
+    <edit name="family" mode="prepend_first">
+      <string>Font Awesome 5 Free Solid</string>
     </edit>
   </match>
 </fontconfig>

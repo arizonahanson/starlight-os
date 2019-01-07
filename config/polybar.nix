@@ -47,7 +47,7 @@ padding-right = 0
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Font Awesome 5 Free Solid:size=16;4
+font-0 = Font Awesome 5 Free Solid:size=14;4
 font-1 = Montserrat:style=Bold:size=16;3
 font-2 = Montserrat:style=Bold:size=14;4
 font-3 = Montserrat:style=Bold:size=12;4
