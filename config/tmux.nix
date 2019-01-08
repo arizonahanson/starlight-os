@@ -44,11 +44,11 @@
 
       # inactive window activity colors
       setw -g window-status-activity-attr none
+      set-window-option -g window-status-activity-fg white
+      set-window-option -g window-status-activity-bg default
       setw -g window-status-bell-attr none
-      set-window-option -g window-status-activity-fg red
       set-window-option -g window-status-bell-fg red
       set-window-option -g window-status-bell-bg default
-      set-window-option -g window-status-activity-bg default
 
       # pane border
       set-option -g pane-border-fg black
