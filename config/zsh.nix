@@ -20,12 +20,12 @@
     customPkgs = 
       let
         zsh-starlight-theme = with pkgs; stdenv.mkDerivation rec {
-          name = "zsh-starlight-theme-v1.6";
+          name = "zsh-starlight-theme-v1.7";
           src = fetchFromGitHub {
             owner = "isaacwhanson";
             repo = "zsh-starlight-theme";
-            rev = "v1.6";
-            sha256 = "08dg3kjl6q53x64bzghd73f7cwsb5bwl9pai1d8kqrn35ajrbn2l";
+            rev = "v1.7";
+            sha256 = "031a7csr3dqdkj1spx3aq60a71acwv72mxdl8p3gf0z0ns0lmwhw";
           };
             
           dontBuild = true;
