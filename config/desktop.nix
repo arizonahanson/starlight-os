@@ -25,7 +25,7 @@
     '')
     (with import <nixpkgs> {}; writeShellScriptBin "terminal" ''
       CLASS_NAME="terminal"
-      SESSION_NAME=""
+      SESSION_NAME="0"
       # does term with CLASS_NAME exist?
       if xdo id -N "$CLASS_NAME">/dev/null; then
         # focus, move to current desktop the existing term with CLASS_NAME
