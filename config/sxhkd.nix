@@ -22,8 +22,8 @@
       super + {_,shift + }{1-9,0}
         bspc {desktop -f,node -d} '^{1-9,10}'
       # move next/prev ws
-      super + bracket{left,right}
-        bspc desktop -f {prev,next}.local
+      super + {_,shift + }bracket{left,right}
+        bspc {desktop -f,node -d} {prev,next}.local
       # close window
       super + q
         bspc node -c
