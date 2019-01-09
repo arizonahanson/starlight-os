@@ -11,43 +11,43 @@
         withLibsecret = true;
       });
       git_config = ''
-[core]
-  filemode = true
-  autocrlf = false
-[push]
-  default = current
-[help]
-  autocorrect = 30
-[merge]
-  tool = vimdiff
-  conflictstyle = diff3
-[mergetool]
-  prompt = false
-  keepBackup = false
-[difftool]
-  prompt = false
-[color]
-  ui = auto
-[color "grep"]
-  separator = green
-  filename = magenta bold
-  linenumber = magenta
-[color "diff"]
-  commit = magenta
-  meta = black bold
-  frag = magenta bold
-  old = red
-  new = green
-[color "branch"]
-  remote = red
-  current = yellow
-  local = red bold
-[color "status"]
-  added = yellow bold
-  changed = red bold
-  untracked = red
-  header = black bold
-  branch = yellow bold
+        [core]
+          filemode = true
+          autocrlf = false
+        [push]
+          default = current
+        [help]
+          autocorrect = 30
+        [merge]
+          tool = vimdiff
+          conflictstyle = diff3
+        [mergetool]
+          prompt = false
+          keepBackup = false
+        [difftool]
+          prompt = false
+        [color]
+          ui = auto
+        [color "grep"]
+          separator = green
+          filename = magenta bold
+          linenumber = magenta
+        [color "diff"]
+          commit = magenta
+          meta = black bold
+          frag = magenta bold
+          old = red
+          new = green
+        [color "branch"]
+          remote = red
+          current = yellow
+          local = red bold
+        [color "status"]
+          added = yellow bold
+          changed = red bold
+          untracked = red
+          header = black bold
+          branch = yellow bold
       '';
     in
     {
