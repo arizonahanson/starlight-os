@@ -60,49 +60,49 @@
   environment.etc."termite.conf" = {
     mode = "0644";
     text = ''
-[options]
-font = Fira Mono Medium 14
-allow_bold = false
+      [options]
+      font = Fira Mono Medium 14
+      allow_bold = false
 
-[colors]
+      [colors]
 
-# special
-foreground      = #c7c7c7
-foreground_bold = #c7c7c7
-cursor          = #c7c7c7
-background      = #212121
+      # special
+      foreground      = #c7c7c7
+      foreground_bold = #c7c7c7
+      cursor          = #c7c7c7
+      background      = #212121
 
-# black
-color0  = #212121
-color8  = #404040
+      # black
+      color0  = #212121
+      color8  = #404040
 
-# red
-color1  = #cc6666
-color9  = #de985f
+      # red
+      color1  = #cc6666
+      color9  = #de985f
 
-# green
-color2  = #638f63
-color10 = #85cc85
+      # green
+      color2  = #638f63
+      color10 = #85cc85
 
-# yellow
-color3  = #8f7542
-color11 = #f0c674
+      # yellow
+      color3  = #8f7542
+      color11 = #f0c674
 
-# blue
-color4  = #59748f
-color12 = #8fadcc
+      # blue
+      color4  = #59748f
+      color12 = #8fadcc
 
-# magenta
-color5  = #85678f
-color13 = #b093ba
+      # magenta
+      color5  = #85678f
+      color13 = #b093ba
 
-# cyan
-color6  = #5e8d87
-color14 = #8abeb7
+      # cyan
+      color6  = #5e8d87
+      color14 = #8abeb7
 
-# white
-color7  = #787878
-color15 = #c7c7c7
+      # white
+      color7  = #787878
+      color15 = #c7c7c7
     '';
   };
   environment.etc."ld-nix.so.preload" = if config.virtualisation.virtualbox.guest.enable then {
@@ -128,24 +128,24 @@ color15 = #c7c7c7
     noto-fonts-emoji
   ];
   fonts.fontconfig = {
-      localConf = ''
-<fontconfig>
-  <match target="pattern">
-    <edit name="family" mode="prepend_first">
-      <string>Noto Emoji</string>
-    </edit>
-  </match>
-  <match target="pattern">
-    <edit name="family" mode="prepend_first">
-      <string>DejaVu Sans</string>
-    </edit>
-  </match>
-  <match target="pattern">
-    <edit name="family" mode="prepend_first">
-      <string>Font Awesome 5 Free Solid</string>
-    </edit>
-  </match>
-</fontconfig>
+    localConf = ''
+      <fontconfig>
+        <match target="pattern">
+            <edit name="family" mode="prepend_first">
+                  <string>Noto Emoji</string>
+            </edit>
+        </match>
+        <match target="pattern">
+            <edit name="family" mode="prepend_first">
+                  <string>DejaVu Sans</string>
+            </edit>
+        </match>
+        <match target="pattern">
+            <edit name="family" mode="prepend_first">
+                  <string>Font Awesome 5 Free Solid</string>
+            </edit>
+        </match>
+      </fontconfig>
     '';
     useEmbeddedBitmaps = true;
   };
@@ -193,88 +193,88 @@ color15 = #c7c7c7
   };
   environment.etc."X11/Xresources" = {
     text = ''
-! XFT
-Xft.antialias: 1
-Xft.autohint: 1
-Xft.dpi: 96
-Xft.hinting: 1
-Xft.hintstyle: hintslight
-Xft.lcdfilter: lcddefault
-Xft.rgba: rgb
+      ! XFT
+      Xft.antialias: 1
+      Xft.autohint: 1
+      Xft.dpi: 96
+      Xft.hinting: 1
+      Xft.hintstyle: hintslight
+      Xft.lcdfilter: lcddefault
+      Xft.rgba: rgb
 
-! ROFI
-rofi.font:              Work Sans SemiBold 18
-rofi.modi:              window,run,drun,combi
-rofi.width:             38
-rofi.lines:             5
-rofi.columns:           1
-! "border width"
-rofi.bw:                2
-rofi.location:          1
-rofi.padding:           12
-rofi.yoffset:           44
-rofi.xoffset:           4
-rofi.fixed-num-lines:   true
-rofi.terminal:          termite
-rofi.run-shell-command:  {terminal} -e '{cmd}'
-! "margin between rows"
-rofi.line-margin:       2
-! "separator style (none, dash, solid)"
-rofi.separator-style:   none
-rofi.hide-scrollbar:    true
-rofi.fullscreen:        false
-rofi.fake-transparency: false
-! "scrolling method. (0: Page, 1: Centered)"
-rofi.scroll-method:     1
-! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
-rofi.color-normal: #212121,#404040,#212121,#212121,#c7c7c7
-rofi.color-urgent: #212121,#cc6666,#212121,#212121,#cc6666
-rofi.color-active: #212121,#787878,#212121,#212121,#c7c7c7
-rofi.color-window: #212121,#212121,#212121
-rofi.display-drun: 
-rofi.display-run: 
-rofi.display-window: 
-rofi.display-ssh: 
-rofi.display-combi: 
-rofi.combi-modi: window,run,drun
-rofi.monitor: -1
+      ! ROFI
+      rofi.font:              Work Sans SemiBold 18
+      rofi.modi:              window,run,drun,combi
+      rofi.width:             38
+      rofi.lines:             5
+      rofi.columns:           1
+      ! "border width"
+      rofi.bw:                2
+      rofi.location:          1
+      rofi.padding:           12
+      rofi.yoffset:           44
+      rofi.xoffset:           4
+      rofi.fixed-num-lines:   true
+      rofi.terminal:          termite
+      rofi.run-shell-command:  {terminal} -e '{cmd}'
+      ! "margin between rows"
+      rofi.line-margin:       2
+      ! "separator style (none, dash, solid)"
+      rofi.separator-style:   none
+      rofi.hide-scrollbar:    true
+      rofi.fullscreen:        false
+      rofi.fake-transparency: false
+      ! "scrolling method. (0: Page, 1: Centered)"
+      rofi.scroll-method:     1
+      ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
+      rofi.color-normal: #212121,#404040,#212121,#212121,#c7c7c7
+      rofi.color-urgent: #212121,#cc6666,#212121,#212121,#cc6666
+      rofi.color-active: #212121,#787878,#212121,#212121,#c7c7c7
+      rofi.color-window: #212121,#212121,#212121
+      rofi.display-drun: 
+      rofi.display-run: 
+      rofi.display-window: 
+      rofi.display-ssh: 
+      rofi.display-combi: 
+      rofi.combi-modi: window,run,drun
+      rofi.monitor: -1
 
-! special
-*.foreground:   #c7c7c7
-*.background:   #212121
-*.cursorColor:  #c7c7c7
+      ! special
+      *.foreground:   #c7c7c7
+      *.background:   #212121
+      *.cursorColor:  #c7c7c7
 
-! black
-*.color0:       #212121
-*.color8:       #404040
+      ! black
+      *.color0:       #212121
+      *.color8:       #404040
 
-! red
-*.color1:       #cc6666
-*.color9:       #de985f
+      ! red
+      *.color1:       #cc6666
+      *.color9:       #de985f
 
-! green
-*.color2:       #638f63
-*.color10:      #85cc85
+      ! green
+      *.color2:       #638f63
+      *.color10:      #85cc85
 
-! yellow
-*.color3:       #8f7542
-*.color11:      #f0c674
+      ! yellow
+      *.color3:       #8f7542
+      *.color11:      #f0c674
 
-! blue
-*.color4:       #59748f
-*.color12:      #8fadcc
+      ! blue
+      *.color4:       #59748f
+      *.color12:      #8fadcc
 
-! magenta
-*.color5:       #85678f
-*.color13:      #b093ba
+      ! magenta
+      *.color5:       #85678f
+      *.color13:      #b093ba
 
-! cyan
-*.color6:       #5e8d87
-*.color14:      #8abeb7
+      ! cyan
+      *.color6:       #5e8d87
+      *.color14:      #8abeb7
 
-! white
-*.color7:       #787878
-*.color15:      #c7c7c7
+      ! white
+      *.color7:       #787878
+      *.color15:      #c7c7c7
     '';
   };
   services.compton = {
