@@ -119,7 +119,7 @@
         label-urgent-font = 5
         label-empty-font = 5
 
-        label-dimmed-focused-foreground = ''${colors.foreground}
+        label-dimmed-focused-foreground = ''${colors.foreground-alt}
 
         label-monocle = "  "
         label-floating = "  "
