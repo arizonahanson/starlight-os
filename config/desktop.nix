@@ -132,12 +132,12 @@
       <fontconfig>
         <match target="pattern">
             <edit name="family" mode="prepend_first">
-                  <string>Noto Emoji</string>
+                  <string>DejaVu Sans</string>
             </edit>
         </match>
         <match target="pattern">
             <edit name="family" mode="prepend_first">
-                  <string>DejaVu Sans</string>
+                  <string>Noto Emoji</string>
             </edit>
         </match>
         <match target="pattern">
@@ -147,7 +147,7 @@
         </match>
       </fontconfig>
     '';
-    useEmbeddedBitmaps = true;
+    useEmbeddedBitmaps = false;
   };
   i18n.inputMethod = {
     enabled = "ibus";
