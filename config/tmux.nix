@@ -52,7 +52,7 @@
 
       # pane border
       set-option -g pane-border-fg brightblack
-      set-option -g pane-active-border-fg brightwhite
+      set-option -g pane-active-border-fg white
 
       # message text
       set-option -g message-bg black
