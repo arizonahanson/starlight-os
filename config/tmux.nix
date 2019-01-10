@@ -51,12 +51,12 @@
       set-window-option -g window-status-bell-bg default
 
       # pane border
-      set-option -g pane-border-fg black
-      set-option -g pane-active-border-fg brightgreen
+      set-option -g pane-border-fg brightblack
+      set-option -g pane-active-border-fg brightwhite
 
       # message text
       set-option -g message-bg black
-      set-option -g message-fg brightred #orange
+      set-option -g message-fg brightwhite
 
       # pane number display
       set-option -g display-panes-active-colour blue
