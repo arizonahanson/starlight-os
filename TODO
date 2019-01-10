@@ -1,3 +1,25 @@
 * bar system-tray issues
 * nvim/vim integration
 
+restructure {proper modules}:
+
+configuration:
+  root:
+    headless?
+      desktop
+        sddm
+        bspwm
+        mate
+          theme
+        polybar
+        rofi
+        audio
+          pulse
+          jack
+    shell
+      zsh
+      git
+      tmux
+      vim
+    docker
+hardware
