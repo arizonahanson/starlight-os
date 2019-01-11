@@ -67,7 +67,7 @@
         scroll-down = bspwm-deskprev
 
         cursor-click = default
-        cursor-scroll = ns-resize
+        cursor-scroll = default
 
         [module/onboard]
         type = custom/script
