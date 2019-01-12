@@ -46,8 +46,8 @@
         module-margin-left = 1
         module-margin-right = 1
 
-        font-0 = Work Sans:style=SemiBold:size=12;2
-        font-1 = Work Sans:style=SemiBold:size=14;3
+        font-0 = Exo 2:style=Bold:size=12;2
+        font-1 = Exo 2:style=Bold:size=14;3
         font-2 = Font Awesome 5 Free Solid:size=14;4
         font-3 = Noto Emoji:size=14;4
         font-4 = DejaVu Sans:size=14;2
