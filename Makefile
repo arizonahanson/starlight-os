@@ -21,9 +21,6 @@ rebuild:
 	@sudo cp -a config/. /etc/nixos/
 	@echo "starting rebuild..."
 	@sudo nixos-rebuild switch
-
-.PHONY: gc
-gc:
 	@sudo nix-collect-garbage
 
 .PHONY: drop
