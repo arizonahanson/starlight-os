@@ -44,7 +44,7 @@
       # border color
       bspc config normal_border_color "$(get_xrdb color8)"
       bspc config focused_border_color "$(get_xrdb color7)"
-      bspc config border_width         1
+      bspc config border_width         2
       bspc config window_gap           0
       bspc config split_ratio          0.50
       bspc config borderless_monocle   true
