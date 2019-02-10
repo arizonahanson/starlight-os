@@ -6,10 +6,12 @@ INSTCMD=os-install
 
 default: iso
 
+# WARNING: WILL PARTITION YOUR DISK DRIVE!!!
 .PHONY: configure
 configure: $(CONFNIX)
 
 $(CONFNIX):
+	@bash ./scripts/partition
 	@nixos-generate-config --root /mnt
 	@cp -av template/. /mnt/etc/nixos/
 	@cp -av config/. /mnt/etc/nixos/
