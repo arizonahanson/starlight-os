@@ -1,12 +1,30 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
-{
-  virtualisation.docker = {
-    enable = true;
-    enableOnBoot = false;
-    autoPrune.enable = true;
-    storageDriver = "btrfs";
-    logDriver = "json-file";
+with lib;
+
+let
+  cfg = config.starlight;
+in {
+  # imports...
+  # options...
+  options.starlight = {
+    docker = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        If enabled, will use docker
+      '';
+    };
   };
-  users.users.admin.extraGroups = [ "docker" ];
+  # config...
+  config = mkIf cfg.docker {
+    virtualisation.docker = {
+      enable = true;
+      enableOnBoot = false;
+      autoPrune.enable = true;
+      storageDriver = "btrfs";
+      logDriver = "json-file";
+    };
+    users.users.admin.extraGroups = [ "docker" ];
+  };
 }

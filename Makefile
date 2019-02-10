@@ -13,7 +13,7 @@ configure: $(CONFNIX)
 $(CONFNIX):
 	@bash ./scripts/partition
 	@nixos-generate-config --root /mnt
-	@cp -av template/. /mnt/etc/nixos/
+	@cp -av init/. /mnt/etc/nixos/
 	@cp -av config/. /mnt/etc/nixos/
 	@echo "Edit the file '$(ENVNIX)' then run '$(INSTCMD)'."
 
