@@ -3,8 +3,6 @@
 {
   environment.systemPackages = with pkgs; [
     (with import <nixpkgs> {}; writeShellScriptBin "os-update" ''
-      #!/usr/bin/env bash
-      
       cd /tmp
       git clone --depth 1 https://github.com/isaacwhanson/starlight-os.git starlight-os
       cd starlight-os
@@ -14,8 +12,6 @@
       flatpak update -y
     '')
     (with import <nixpkgs> {}; writeShellScriptBin "os-drop" ''
-      #!/usr/bin/env bash
- 
       sudo nix-collect-garbage -d
     '')
   ];
