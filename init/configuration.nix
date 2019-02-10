@@ -3,9 +3,11 @@
 {
   imports = [ ./os.nix ];
 
-  networking.hostName = "myhost";
-
-  config.starlight.server = false;
-  config.starlight.docker = false;
-  config.starlight.desktop = true;
+  config = {
+    networking.hostName = "myhost";
+    
+    starlight.server = false;
+    starlight.docker = false;
+    starlight.desktop = true;
+  };
 }
