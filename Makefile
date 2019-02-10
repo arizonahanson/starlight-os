@@ -31,3 +31,10 @@ rebuild:
 	@echo "starting rebuild..."
 	@sudo nixos-rebuild switch
 	@sudo nix-collect-garbage
+
+.PHONY: upgrade
+upgrade:
+	@sudo cp -a config/. /etc/nixos/
+	@sudo nixos-rebuild --upgrade switch
+	@sudo nix-collect-garbage
+	@flatpak update -y

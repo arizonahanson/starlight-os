@@ -17,10 +17,7 @@
       gitdir="$(mktemp -d --tmpdir starlight-os_XXXXXX)"
       git clone --depth 1 https://github.com/isaacwhanson/starlight-os.git $gitdir
       cd $gitdir
-	    sudo cp -a config/. /etc/nixos/
-      sudo nixos-rebuild --upgrade switch
-      sudo nix-collect-garbage
-      flatpak update -y
+      make upgrade
       cd
       rm $gitdir -rf
     '')
