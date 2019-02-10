@@ -1,5 +1,5 @@
 * bar system-tray issues
-* nvim/vim integration
+* better nvim/vim/nvi integration
 
 restructure {proper modules}:
 
@@ -23,3 +23,18 @@ configuration:
       vim
     docker
 hardware
+networking
+
+lifecycle:
+  iso: install -> system: make-iso, update, drop, (auto-gc)
+  repo: upgrade
+
+vars:
+  server?
+  desktop?
+    proaudio?
+    touchscreen?
+  docker?
+  hostname
+  username
+
