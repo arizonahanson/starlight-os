@@ -1,7 +1,6 @@
 
 ISONIX=iso/iso.nix
 CONFNIX=/mnt/etc/nixos/configuration.nix
-ENVNIX=/mnt/etc/nixos/environment.nix
 INSTCMD=os-install
 
 default: iso
@@ -15,7 +14,7 @@ $(CONFNIX):
 	@nixos-generate-config --root /mnt
 	@cp -av init/. /mnt/etc/nixos/
 	@cp -av config/. /mnt/etc/nixos/
-	@echo "Edit the file '$(ENVNIX)' then run '$(INSTCMD)'."
+	@echo "Edit the file '$(CONFNIX)' then run '$(INSTCMD)'."
 
 .PHONY: install
 install: $(CONFNIX)
