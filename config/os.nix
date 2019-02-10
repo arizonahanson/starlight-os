@@ -9,7 +9,7 @@
           owner = "isaacwhanson";
           repo = "starlight-os";
           rev = "v0.1";
-          sha256 = "0jx6w251akc5q9m23hh8v1nykq7w84ryggybjp1lzkk77cf7806x";
+          sha256 = "1kx8rz0hiwc2xg2azfwqjhf0xwaxc680zxcllcg5m5g66cw8zjzi";
         };
             
         dontBuild = true;
