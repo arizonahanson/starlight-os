@@ -186,6 +186,10 @@ with lib;
     users.users.admin.extraGroups = [ "networkmanager" ];
   
     # Enable the X11 windowing system.
+    hardware.opengl.driSupport32Bit = true;
+    boot.plymouth = {
+      enable = true;
+    };
     services.xserver = {
       enable = true;
       layout = "us";
@@ -202,6 +206,19 @@ with lib;
           };
         };
       };
+    };
+    services.compton = {
+      enable = true;
+      shadow = true;
+      shadowOffsets = [ (-9) (-3) ];
+      shadowExclude = [
+  	    "name = 'Polybar tray window'"
+      	"_GTK_FRAME_EXTENTS@:c"
+        ];
+      shadowOpacity = "0.5";
+      extraOptions = ''
+        shadow-radius = 6;
+      '';
     };
     environment.etc."X11/Xresources" = {
       text = ''
@@ -288,24 +305,6 @@ with lib;
         *.color7:       #787878
         *.color15:      #c7c7c7
       '';
-    };
-    services.compton = {
-      enable = true;
-      shadow = true;
-      shadowOffsets = [ (-9) (-3) ];
-      shadowExclude = [
-  	    "name = 'Polybar tray window'"
-      	"_GTK_FRAME_EXTENTS@:c"
-        ];
-      shadowOpacity = "0.5";
-      extraOptions = ''
-        shadow-radius = 6;
-      '';
-    };
-    hardware.pulseaudio.support32Bit = true;
-    hardware.opengl.driSupport32Bit = true;
-    boot.plymouth = {
-      enable = true;
     };
   };
 }

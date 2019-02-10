@@ -14,17 +14,17 @@ with lib;
   };
     
   config = {
-    environment.systemPackages = with pkgs; [
-      playerctl sound-theme-freedesktop
-    ];
-
     # Enable sound.
     sound.enable = true;
     boot.kernelModules = [ "snd-seq" "snd-rawmidi" ];
+    users.users.admin.extraGroups = [ "audio" ];
     hardware.pulseaudio = {
+      support32Bit = true;
       package = pkgs.pulseaudioFull;
       enable = true;
     };
-    users.users.admin.extraGroups = [ "audio" ];
+    environment.systemPackages = with pkgs; [
+      playerctl sound-theme-freedesktop
+    ];
   };
 }
