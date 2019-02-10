@@ -1,16 +1,30 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
+
+with lib;
 
 {
-  environment.systemPackages = with pkgs; [
-    playerctl sound-theme-freedesktop
-  ];
-
-  # Enable sound.
-  sound.enable = true;
-  boot.kernelModules = [ "snd-seq" "snd-rawmidi" ];
-  hardware.pulseaudio = {
-    package = pkgs.pulseaudioFull;
-    enable = true;
+  options.starlight = {
+    proaudio = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        If enabled, will use jack proaudio setup
+      '';
+    };
   };
-  users.users.admin.extraGroups = [ "audio" ];
+    
+  config = {
+    environment.systemPackages = with pkgs; [
+      playerctl sound-theme-freedesktop
+    ];
+
+    # Enable sound.
+    sound.enable = true;
+    boot.kernelModules = [ "snd-seq" "snd-rawmidi" ];
+    hardware.pulseaudio = {
+      package = pkgs.pulseaudioFull;
+      enable = true;
+    };
+    users.users.admin.extraGroups = [ "audio" ];
+  };
 }

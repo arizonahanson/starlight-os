@@ -9,5 +9,6 @@
     starlight.server = false;
     starlight.docker = false;
     starlight.desktop = true;
+    starlight.proaudio = false;
   };
 }
