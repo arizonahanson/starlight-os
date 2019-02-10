@@ -7,7 +7,7 @@
     ./grub.nix
     ./base.nix
     ./locale.nix
-    ./networking.nix
+
     ./server.nix
     ./desktop.nix
     ./docker.nix

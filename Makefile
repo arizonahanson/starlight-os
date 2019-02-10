@@ -37,4 +37,3 @@ upgrade:
 	@sudo cp -a config/. /etc/nixos/
 	@sudo nixos-rebuild --upgrade switch
 	@sudo nix-collect-garbage
-	@flatpak update -y
