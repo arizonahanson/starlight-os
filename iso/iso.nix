@@ -11,16 +11,12 @@
   environment.systemPackages = with pkgs; [
     gnumake
     (with import <nixpkgs> {}; writeShellScriptBin "os-config" ''
-      #!/usr/bin/env bash
-
       cd ~
       git clone --depth 1 'https://github.com/isaacwhanson/starlight-os.git' starlight-os
       cd starlight-os
       make configure
     '')
     (with import <nixpkgs> {}; writeShellScriptBin "os-install" ''
-      #!/usr/bin/env bash
-
       cd ~/starlight-os
       make install
     '')
