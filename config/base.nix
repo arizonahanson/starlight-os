@@ -14,7 +14,7 @@
     psmisc pciutils
     tree ag
     ranger highlight
-    unzip
+    zip unzip
     python
     duperemove
   ];
