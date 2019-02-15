@@ -6,9 +6,9 @@
   config = {
     networking.hostName = "myhost";
     
-    starlight.server = false;
-    starlight.docker = false;
     starlight.desktop = true;
+    starlight.docker = false;
     starlight.proaudio = false;
+    starlight.server = false;
   };
 }
