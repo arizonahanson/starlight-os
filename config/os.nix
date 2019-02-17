@@ -1,8 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [
     ./hardware-configuration.nix
     ./grub.nix
     ./base.nix
