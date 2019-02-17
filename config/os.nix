@@ -12,8 +12,9 @@
   ];
   config.environment.systemPackages = with pkgs; [
     (with import <nixpkgs> {}; writeShellScriptBin "os-update" ''
+      echo -e "\e[0;34mFetching configuration...\e[0m"
       gitdir="$(mktemp -d --tmpdir starlight-os_XXXXXX)"
-      git clone --depth 1 https://github.com/isaacwhanson/starlight-os.git $gitdir
+      git clone -q --depth 1 https://github.com/isaacwhanson/starlight-os.git $gitdir
       cd $gitdir
       make upgrade
       cd

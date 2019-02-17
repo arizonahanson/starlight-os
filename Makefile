@@ -34,6 +34,7 @@ rebuild:
 
 .PHONY: upgrade
 upgrade:
+	@echo -e "\e[0;34mUpdating system...\e[0m"
 	@sudo cp -a config/. /etc/nixos/
 	@sudo nixos-rebuild --upgrade switch
 	@sudo nix-collect-garbage
