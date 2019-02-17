@@ -13,7 +13,7 @@ with lib;
   options.starlight = {
     desktop = mkOption {
       type = types.bool;
-      default = false;
+      default = true;
       description = ''
         If enabled, will treat as desktop machine
       '';
