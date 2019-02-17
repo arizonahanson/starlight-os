@@ -31,7 +31,7 @@ with lib;
     (mkIf config.starlight.proaudio {
       # proaudio extension enabled!
       environment.systemPackages = with pkgs; [
-        cadence
+        jack2 cadence
       ];
     })
   ];
