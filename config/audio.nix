@@ -31,7 +31,7 @@ with lib;
       # proaudio extension enabled!
       boot.kernelModules = [ "snd-seq" "snd-rawmidi" ];
       environment.systemPackages = with pkgs; [
-        jack2 a2jmidid
+        jack2 a2jmidid patchage
         (cadence.overrideAttrs (oldAttrs: {
           propagatedBuildInputs = [
             (python37Packages.pyqt5.overrideAttrs (oldAttrs: {
