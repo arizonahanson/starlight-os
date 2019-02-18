@@ -33,7 +33,7 @@ with lib;
       environment.systemPackages = with pkgs; [
         jack2 a2jmidid patchage qjackctl
         # cadence works, but not claudia (no ladish)
-        (cadence.overrideAttrs (oldAttrs: {
+        /*(cadence.overrideAttrs (oldAttrs: {
           propagatedBuildInputs = [
             (python37Packages.pyqt5.overrideAttrs (oldAttrs: {
               configurePhase = ''
@@ -57,7 +57,7 @@ with lib;
               '';
             }))
           ];
-        }))
+        }))*/
       ];
     })
   ];
