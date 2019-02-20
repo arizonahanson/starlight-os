@@ -37,4 +37,5 @@ upgrade:
 	@echo -e "Updating system..."
 	@sudo cp -a config/. /etc/nixos/
 	@sudo nixos-rebuild --upgrade switch
+	@nix-env -u
 	@sudo nix-collect-garbage
