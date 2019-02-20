@@ -56,6 +56,7 @@
       bspc rule -a Pavucontrol state=floating
       bspc rule -a Nm-connection-editor state=floating
       bspc rule -a "-c" state=floating
+      bspc rule -a qjackctl state=floating
 
       # polybar
       for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do

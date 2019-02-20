@@ -54,7 +54,7 @@
 
         modules-left = xwindow
         modules-center =
-        modules-right = cal temperature bspwm
+        modules-right = temperature cal bspwm
 
         tray-position = center
         tray-padding = 2
