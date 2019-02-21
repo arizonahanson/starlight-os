@@ -432,5 +432,12 @@
     source ${pkgs.fzf}/share/fzf/key-bindings.zsh
     source ${pkgs.fzf}/share/fzf/completion.zsh
     export LESS="-erFX"
+
+    # some aliases
+    l='ls -hF'
+    la='ls -AhF'
+    ll='ls -l'
+    cp='cp --reflink=auto'
+    xz='xz --threads=0'
     '';
 }

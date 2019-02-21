@@ -88,7 +88,7 @@
         type = internal/xwindow
         label = %title:0:64:…%
         label-font = 2
-        label-empty = 🐧
+        label-empty = 
         label-empty-font = 4
         label-empty-foreground = ''${colors.foreground-alt}
 
