@@ -39,6 +39,7 @@
       } // config.networking.proxy.envVars;
       path = with pkgs; [ (osupdate) gnumake gitMinimal utillinux sudo nix gnutar xz.bin config.nix.package.out config.system.build.nixos-rebuild ];
       restartIfChanged = false;
+      enable = false;
       script = ''
         os-update
       ''; 
