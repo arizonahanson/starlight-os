@@ -434,10 +434,10 @@
     export LESS="-erFX"
 
     # some aliases
-    l='ls -hF'
-    la='ls -AhF'
-    ll='ls -l'
-    cp='cp --reflink=auto'
-    xz='xz --threads=0'
+    alias l='ls -hF'
+    alias la='ls -AhF'
+    alias ll='ls -l'
+    alias cp='cp --reflink=auto'
+    alias xz='xz --threads=0'
     '';
 }
