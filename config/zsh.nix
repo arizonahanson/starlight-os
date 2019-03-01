@@ -122,7 +122,7 @@
       BLK 0;33 # block device driver
       CHR 0;33 # character device driver
       ORPHAN 00;31 # symlink to nonexistent file, or non-stat'able file ...
-      MISSING 0;30 # ... and the files they point to
+      MISSING 1;30 # ... and the files they point to
       SETUID 4;31 # file that is setuid (u+s)
       SETGID 4;0;33 # file that is setgid (g+s)
       CAPABILITY 4;0;35 # file with capability
