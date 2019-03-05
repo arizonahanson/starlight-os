@@ -205,6 +205,10 @@ with lib;
             relogin = false;
           };
         };
+        setupCommands = ''
+          xset -dpms
+          xset s off
+        '';
       };
     };
     services.compton = {
