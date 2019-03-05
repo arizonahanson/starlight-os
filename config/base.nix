@@ -6,6 +6,8 @@
     ./git.nix
     ./tmux.nix
   ];
+  # latest kernel
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   nixpkgs.config.allowUnfree = true;
   nix.autoOptimiseStore = true;
   environment.systemPackages = with pkgs; [
