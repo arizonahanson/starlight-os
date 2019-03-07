@@ -90,7 +90,7 @@
         label-font = 2
         label-empty = •
         label-empty-font = 4
-        label-empty-foreground = ''${colors.foreground-alt}
+        label-empty-foreground = ''${colors.foreground}
 
         [module/bspwm]
         type = internal/bspwm
