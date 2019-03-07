@@ -1,6 +1,8 @@
 # starlight-os
 nixos based linux operating system for software development
 
+WARNING!!! The partition script in this repository could ERASE ALL OF YOUR DATA!!!
+
 principles:
   be vi-like
   be minimal
