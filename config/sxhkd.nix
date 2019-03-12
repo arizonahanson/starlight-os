@@ -24,15 +24,16 @@
       # move next/prev ws
       super + {_,shift + }bracket{left,right}
         bspc {desktop -f,node -d} {prev,next}.local
+      # rotate (PgUp/PgDn)
+      super + {Prior,Next}
+        bspc node @/ --rotate {-90,90}
+
       # close window
       super + q
         bspc node -c
       # logout, shutdown
       super + {shift,ctrl} + q
         mate-session-save --{logout,shutdown}-dialog
-      # rotate 180
-      super + h
-        bspc node @/ --rotate 180
       
       # monocle toggle
       super + m
