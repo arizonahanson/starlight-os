@@ -36,6 +36,10 @@
   boot.kernel.sysctl = {
     "vm.max_map_count" = 262144;
   };
+  fileSystems = {
+    "/".options = [ "compress=lzo" ];
+    "/home".options = [ "compress=lzo" ];
+  };
 
   # default user account
   users.users.admin = {
