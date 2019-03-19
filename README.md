@@ -29,10 +29,8 @@ principles:
  	super + control + q:
  		shutdown...
 
- 	super + h:
- 		flip 180
+ 	super + pageup/pagedown:
+ 		rotate 90 deg
  	super + shift + backspace:
- 		reload bar/keybindings
- 	super + backslash:
- 		ranger
+ 		reload bar and keybindings
 
