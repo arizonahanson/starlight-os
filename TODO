@@ -3,4 +3,5 @@
 * needs:
 	sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixos
 	sudo nix-channel --update
+* setup flatpack channel too
 
