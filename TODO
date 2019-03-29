@@ -1,8 +1,11 @@
 * better nvim/vim/nvi integration
 * default desktop image
 * needs:
-	sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixos
-	sudo nix-channel --update
+ sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixos
+ sudo nix-channel --update
 * setup flatpack channel too:
-	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+* proaudio module
+ auto-start jack/pulse setup
+ patchbay, renoise, musescore, helm, etc.
 
