@@ -58,6 +58,32 @@ with lib;
         };
         cron.enable =false;
       };
+      systemd.user.services.pulseaudio.environment.DISPLAY = ":0";
+      systemd.user.services.autojack = {
+        serviceConfig.Type = "simple";
+        wantedBy = [ "default.target" ];
+        path = [ pkgs.jack2 pkgs.a2jmidid pkgs.pulseaudioFull ];
+        environment = {
+          DISPLAY = ":0";
+        };
+        after = [ "pulseaudio.service" ];
+        enable = true;
+        script = ''
+          sleep 5
+          jack_control start
+          jack_control ds alsa
+          jack_control dps device 'hw:DAC'
+          jack_control dps capture 'hw:DAC'
+          jack_control dps playback 'hw:DAC'
+          jack_control dps rate 44100
+          jack_control dps nperiods 3
+          jack_control dps period 1024
+          a2jmidid -e
+        '';
+        preStop = ''
+          jack_control exit
+        '';
+      };
       environment.interactiveShellInit = ''
         export VST_PATH=/nix/var/nix/profiles/default/lib/vst:/var/run/current-system/sw/lib/vst:~/.vst
         export LXVST_PATH=/nix/var/nix/profiles/default/lib/lxvst:/var/run/current-system/sw/lib/lxvst:~/.lxvst
@@ -66,33 +92,7 @@ with lib;
         export DSSI_PATH=/nix/var/nix/profiles/default/lib/dssi:/var/run/current-system/sw/lib/dssi:~/.dssi
       '';
       environment.systemPackages = with pkgs; [
-        jack2 a2jmidid patchage qjackctl
-        # cadence works, but not claudia (no ladish)
-        /*(cadence.overrideAttrs (oldAttrs: {
-          propagatedBuildInputs = [
-            (python37Packages.pyqt5.overrideAttrs (oldAttrs: {
-              configurePhase = ''
-                runHook preConfigure
-                mkdir -p $out
-                lndir ${dbus.dev} $out
-                lndir ${dbus.lib}/lib/dbus-1.0/include $out/include/dbus-1.0
-                lndir ${python37Packages.dbus-python} $out
-                rm -rf "$out/nix-support"
-                export PYTHONPATH=$PYTHONPATH:$out/${pkgs.python37.sitePackages}
-                ${pkgs.python37.executable} configure.py  -w \
-                  --confirm-license \
-                  --dbus=$out/include/dbus-1.0 \
-                  --no-qml-plugin \
-                  --bindir=$out/bin \
-                  --destdir=$out/${pkgs.python37.sitePackages} \
-                  --stubsdir=$out/${pkgs.python37.sitePackages}/PyQt5 \
-                  --sipdir=$out/share/sip/PyQt5 \
-                  --designer-plugindir=$out/plugins/designer
-                runHook postConfigure
-              '';
-            }))
-          ];
-        }))*/
+        jack2 a2jmidid
       ];
     })
   ];

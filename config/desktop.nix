@@ -195,6 +195,7 @@ with lib;
       layout = "us";
       # Enable touchpad support.
       libinput.enable = true;
+      updateDbusEnvironment = true;
       displayManager = {
         sddm = {
           enable = true;
