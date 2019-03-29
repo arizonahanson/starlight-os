@@ -11,7 +11,6 @@
     gnome3.dconf-editor
   ];
   environment.mate.excludePackages = with pkgs; [
-      mate.atril
       mate.engrampa
       mate.eom
       mate.mate-applets

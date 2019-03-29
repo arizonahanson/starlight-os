@@ -34,29 +34,15 @@ with lib;
         kernelModules = [ "snd-seq" "snd-rawmidi" ];
         kernel.sysctl = { "vm.swappiness" = 10; "fs.inotify.max_user_watches" = 524288; };
         kernelParams = [ "threadirq" ];
-        /*kernelPackages = let rtKernel = pkgs.linuxPackagesFor (pkgs.linux.override {
-          extraConfig = ''
-            PREEMPT_RT_FULL? y
-            PREEMPT y
-            IOSCHED_DEADLINE y
-            DEFAULT_DEADLINE y
-            DEFAULT_IOSCHED "deadline"
-            HPET_TIMER y
-            CPU_FREQ n
-            TREE_RCU_TRACE n
-          '';
-          }) pkgs.linuxPackages;
-        in rtKernel;
-
         postBootCommands = ''
           echo 2048 > /sys/class/rtc/rtc0/max_user_freq
           echo 2048 > /proc/sys/dev/hpet/max-user-freq
           setpci -v -d *:* latency_timer=b0
           setpci -v -s ''$(lspci | grep -i audio | awk '{print ''$1}') latency_timer=ff
-        '';*/
+        '';
       };
       powerManagement.cpuFreqGovernor = "performance";
-      #fileSystems."/" = { options = "noatime errors=remount-ro"; };
+      fileSystems."/" = { options = [ "noatime" ]; };
       security.pam.loginLimits = [
         { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
         { domain = "@audio"; item = "rtprio"; type = "-"; value = "99"; }
