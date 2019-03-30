@@ -1,21 +1,32 @@
 # starlight-os
-nixos based linux operating system for software development
+NixOS based Linux operating system for software development
 
 WARNING!!! The partition script in this repository could ERASE ALL OF YOUR DATA!!!
 
 principles:
   be vi-like
   be minimal
+  for development
+  for pro-audio
+  do auto-completion
 
- keybindings:
+ key-bindings:
  	super + arrow:
  		change focus
  	super + number:
  		change desktop
+  super + [:
+    previous desktop
+  super + ]:
+    next desktop
  	super + shift + arrow:
  		move window
  	super + shift + number:
  		move window to desktop
+  super + shift + [:
+    move window to previous desktop
+  super + shift + ]:
+    move window to next desktop
 
  	super + space:
  		menu
@@ -29,8 +40,19 @@ principles:
  	super + control + q:
  		shutdown...
 
- 	super + pageup/pagedown:
+ 	super + page-up/page-down:
  		rotate 90 deg
  	super + shift + backspace:
- 		reload bar and keybindings
+ 		reload bar and key-bindings
+
+  super + f:
+    float window
+  super + shift + f:
+    full-screen window
+  super + t:
+    tile window
+  super + shift + t:
+    anchor window (pseudo-tile)
+  super + m:
+    monocle mode toggle
 
