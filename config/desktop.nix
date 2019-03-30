@@ -52,7 +52,8 @@ with lib;
         fi
       '')
     ];
-    systemd.user.services.clipmenud = {
+    systemd.user.services = {
+      clipmenud = {
        serviceConfig.Type = "simple";
        wantedBy = [ "default.target" ];
        environment = {
@@ -62,6 +63,15 @@ with lib;
        script = ''
          ${pkgs.clipmenu}/bin/clipmenud
        '';
+      };
+      flatpakrepo = {
+        serviceConfig.Type = "oneshot";
+        wantedBy = [ "default.target" ];
+        path = [ pkgs.flatpak ];
+        script = ''
+          flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+        '';
+      };
     };
     environment.variables = {
       TERMINAL = "termite";
