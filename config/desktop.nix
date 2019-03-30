@@ -24,6 +24,7 @@ with lib;
       sxhkd rofi-unwrapped libnotify feh clipmenu
       chromium networkmanagerapplet
       xdg-desktop-portal-gtk xorg.xkill xdo xsel
+      xorg.xf86inputevdev xorg.xf86inputkeyboard xorg.xf86inputmouse
       (termite.override {
         configFile = "/etc/termite.conf";
       })
