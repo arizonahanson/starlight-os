@@ -63,7 +63,10 @@ with lib;
       hardware.pulseaudio = {
         enable = true;
         package = pkgs.pulseaudioFull;
-        support32Bit = true;
+        daemon.config = {
+          default-sample-format = "float32le";
+          default-sample-rate = "44100";
+        };
       };
       environment.systemPackages = with pkgs; [
         playerctl sound-theme-freedesktop
