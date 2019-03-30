@@ -68,6 +68,7 @@ with lib;
         serviceConfig.Type = "oneshot";
         wantedBy = [ "default.target" ];
         path = [ pkgs.flatpak ];
+        enable = false;
         script = ''
           flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
         '';
