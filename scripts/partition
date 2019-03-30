@@ -1,20 +1,20 @@
 #!/usr/bin/env bash
 
 sfdisk /dev/sda <<EOF
-,4194304,S
-;
+,,L,*
+,4194304,S;
 EOF
-mkfs.btrfs -f -L storage /dev/sda2
-mkswap -L swap /dev/sda1
+mkfs.btrfs -f -L storage /dev/sda1
+mkswap -L swap /dev/sda2
 
-mount -o compress=lzo,noatime,nodiratime,space_cache /dev/sda2 /mnt
+mount -o compress=lzo,noatime,nodiratime,space_cache /dev/sda1 /mnt
 cd /mnt
 btrfs subvolume create system
 btrfs subvolume create home
 cd ~
 umount /mnt
 
-mount -o compress=lzo,noatime,nodiratime,space_cache,subvol=system /dev/sda2 /mnt
+mount -o compress=lzo,noatime,nodiratime,space_cache,subvol=system /dev/sda1 /mnt
 mkdir /mnt/home
-mount -o compress=lzo,noatime,nodiratime,space_cache,subvol=home /dev/sda2 /mnt/home
-swapon -o discard=once /dev/sda1
+mount -o compress=lzo,noatime,nodiratime,space_cache,subvol=home /dev/sda1 /mnt/home
+swapon -o discard=once /dev/sda2
