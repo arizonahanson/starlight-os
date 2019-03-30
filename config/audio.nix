@@ -3,12 +3,54 @@
 with lib;
 
 {
-  options.starlight = {
-    proaudio = mkOption {
+  options.starlight.proaudio = {
+    enable = mkOption {
       type = types.bool;
       default = false;
       description = ''
         If enabled, will use jack proaudio setup
+      '';
+    };
+    device = mkOption {
+      type = types.str;
+      default = "hw:0";
+      description = ''
+        ALSA device
+      '';
+    };
+    capture = mkOption {
+      type = types.str;
+      default = "hw:0";
+      description = ''
+        ALSA capture device
+      '';
+    };
+    playback = mkOption {
+      type = types.str;
+      default = "hw:0";
+      description = ''
+        ALSA playback device
+      '';
+    };
+    rate = mkOption {
+      type = types.int;
+      default = 44100;
+      description = ''
+        sample rate (44100)
+      '';
+    };
+    periods = mkOption {
+      type = types.int;
+      default = 3;
+      description = ''
+        number of periods (3)
+      '';
+    };
+    frames = mkOption {
+      type = types.int;
+      default = 1024;
+      description = ''
+        frames (1024)
       '';
     };
   };
@@ -27,7 +69,7 @@ with lib;
         playerctl sound-theme-freedesktop
       ];
     }
-    (mkIf config.starlight.proaudio {
+    (mkIf config.starlight.proaudio.enable {
       # proaudio extension enabled!
       security.rtkit.enable = true;
       boot = {
@@ -59,7 +101,7 @@ with lib;
         cron.enable =false;
       };
       systemd.user.services.pulseaudio.environment.DISPLAY = ":0";
-      systemd.user.services.autojack = {
+      systemd.user.services.autojack = let cfg = config.starlight.proaudio; in {
         serviceConfig.Type = "simple";
         wantedBy = [ "default.target" ];
         path = [ pkgs.jack2 pkgs.a2jmidid pkgs.pulseaudioFull ];
@@ -72,12 +114,12 @@ with lib;
           sleep 5
           jack_control start
           jack_control ds alsa
-          jack_control dps device 'hw:DAC'
-          jack_control dps capture 'hw:DAC'
-          jack_control dps playback 'hw:DAC'
-          jack_control dps rate 44100
-          jack_control dps nperiods 3
-          jack_control dps period 1024
+          jack_control dps device '${cfg.device}'
+          jack_control dps capture '${cfg.capture}'
+          jack_control dps playback '${cfg.playback}'
+          jack_control dps rate ${toString cfg.rate}
+          jack_control dps nperiods ${toString cfg.periods}
+          jack_control dps period ${toString cfg.frames}
           a2jmidid -e
         '';
         preStop = ''
