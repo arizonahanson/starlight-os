@@ -137,7 +137,7 @@ with lib;
         export DSSI_PATH=/nix/var/nix/profiles/default/lib/dssi:/var/run/current-system/sw/lib/dssi:~/.dssi
       '';
       environment.systemPackages = with pkgs; [
-        jack2 a2jmidid
+        jack2 a2jmidid patchage
       ];
     })
   ];
