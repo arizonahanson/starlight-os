@@ -64,7 +64,7 @@ with lib;
         enable = true;
         package = pkgs.pulseaudioFull;
         daemon.config = {
-          default-sample-format = "float32le";
+          default-sample-format = "s32le";
           default-sample-rate = "44100";
         };
       };
