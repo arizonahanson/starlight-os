@@ -115,7 +115,6 @@ with lib;
         enable = true;
         script = ''
           sleep 5
-          jack_control start
           jack_control ds alsa
           jack_control dps device '${cfg.device}'
           jack_control dps capture '${cfg.capture}'
@@ -123,9 +122,12 @@ with lib;
           jack_control dps rate ${toString cfg.rate}
           jack_control dps nperiods ${toString cfg.periods}
           jack_control dps period ${toString cfg.frames}
-          a2jmidid -e
+          jack_control start
+          a2j_control ehw
+          a2j_control start
         '';
         preStop = ''
+          a2j_control exit
           jack_control exit
         '';
       };
