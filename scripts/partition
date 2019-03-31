@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 sfdisk /dev/sda <<EOF
-,,L,*
-,4194304,S;
+,$(($(blockdev --getsz /dev/sda)-4194304)),L,*
+,,S;
 EOF
 mkfs.btrfs -f -L storage /dev/sda1
 mkswap -L swap /dev/sda2
