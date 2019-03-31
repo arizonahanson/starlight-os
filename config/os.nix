@@ -18,7 +18,7 @@
     cd $gitdir
     make upgrade
     cd /tmp
-    #rm $gitdir -rf
+    rm $gitdir -rf
   '');
   in
   {
