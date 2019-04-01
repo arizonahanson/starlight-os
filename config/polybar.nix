@@ -79,9 +79,9 @@
 
         [module/cal]
         type = custom/script
-        exec = date '+%a %l:%M %p' | sed 's/  / /'
+        exec = date '+%a %l:%M %p ' | sed 's/  / /'
         interval = 30
-        format-foreground = ''${colors.foreground-alt}
+        format-foreground = ''${colors.foreground}
         label-font = 1
 
         [module/xwindow]

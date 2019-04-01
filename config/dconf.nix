@@ -159,7 +159,7 @@
       [desktop/ibus/panel]
       show=0
       show-icon-on-systray=true
-      xkb-icon-rgba='#787878'
+      xkb-icon-rgba='#c7c7c7'
 
       [org/mate/marco/general]
       theme='starlight'
