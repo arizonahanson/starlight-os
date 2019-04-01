@@ -19,12 +19,12 @@
         '';
       };
       starlight-icon-theme = with pkgs; stdenv.mkDerivation rec {
-        name = "starlight-icon-theme-v0.4";
+        name = "starlight-icon-theme-v0.5";
         src = fetchFromGitHub {
           owner = "isaacwhanson";
           repo = "starlight-icon-theme";
-          rev = "v0.4";
-          sha256 = "0bhgv3qwyky1rp2anp6j3xsjlwxgk3lvmfr803w2njgs07546aw5";
+          rev = "v0.5";
+          sha256 = "03qjxhhpxw77diyg6lj5bw6lyp2n69qgdvhwn157x43wz89rdq4i";
         };
             
         dontBuild = true;
