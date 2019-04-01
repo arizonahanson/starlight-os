@@ -66,6 +66,8 @@
       # background image
       if [ -e "$HOME/.fehbg" ]; then
         source "$HOME/.fehbg"
+      else
+        feh --bg-scale /etc/nixos/wallpaper.png
       fi
 
       if [ -e "$HOME/.config/bspwm/bspwmrc" ]; then
