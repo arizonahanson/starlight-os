@@ -40,6 +40,10 @@
 
       # pointer
       xsetroot -cursor_name left_ptr
+      # turn off blanking
+      xset -dpms
+      xset s off
+      xset s noblank
 
       # border color
       bspc config normal_border_color "$(get_xrdb color8)"
@@ -56,7 +60,6 @@
       bspc rule -a Pavucontrol state=floating
       bspc rule -a Nm-connection-editor state=floating
       bspc rule -a "-c" state=floating
-      bspc rule -a qjackctl state=floating
 
       # polybar
       for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
@@ -68,10 +71,6 @@
         source "$HOME/.fehbg"
       else
         feh --bg-scale /etc/nixos/wallpaper.png
-      fi
-
-      if [ -e "$HOME/.config/bspwm/bspwmrc" ]; then
-        "$HOME/.config/bspwm/bspwmrc"
       fi
     '';
   };

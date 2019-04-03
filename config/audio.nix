@@ -125,6 +125,7 @@ with lib;
           jack_control start
           a2j_control ehw
           a2j_control start
+          sleep infinity
         '';
         preStop = ''
           a2j_control exit
