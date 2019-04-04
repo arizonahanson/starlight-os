@@ -1,5 +1,4 @@
 * better nvim/vim/nvi integration
-* default desktop image
 * needs:
  sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixos
  sudo nix-channel --update
