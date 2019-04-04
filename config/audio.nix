@@ -139,10 +139,10 @@ with lib;
         export LV2_PATH=/nix/var/nix/profiles/default/lib/lv2:/var/run/current-system/sw/lib/lv2:~/.lv2
         export DSSI_PATH=/nix/var/nix/profiles/default/lib/dssi:/var/run/current-system/sw/lib/dssi:~/.dssi
       '';
+      programs.zsh.shellAliases = with pkgs; {
+        fluidsynth = "${fluidsynth}/bin/fluidsynth ${soundfont-fluid}/share/soundfonts/FluidR3_GM2-2.sf2";
+      };
       environment.systemPackages = with pkgs; [
-        (with import <nixpkgs> {}; writeShellScriptBin "synth" ''
-          ${fluidsynth}/bin/fluidsynth ${soundfont-fluid}/share/soundfonts/FluidR3_GM2-2.sf2
-        '')
         jack2 a2jmidid patchage fluidsynth soundfont-fluid
       ];
     })
