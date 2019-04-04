@@ -140,7 +140,10 @@ with lib;
         export DSSI_PATH=/nix/var/nix/profiles/default/lib/dssi:/var/run/current-system/sw/lib/dssi:~/.dssi
       '';
       environment.systemPackages = with pkgs; [
-        jack2 a2jmidid patchage
+        (with import <nixpkgs> {}; writeShellScriptBin "synth" ''
+          ${fluidsynth}/bin/fluidsynth ${soundfont-fluid}/share/soundfonts/FluidR3_GM2-2.sf2
+        '')
+        jack2 a2jmidid patchage fluidsynth soundfont-fluid
       ];
     })
   ];
