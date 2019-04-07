@@ -59,6 +59,8 @@
       bspc rule -a Ibus-ui-gtk3 state=floating
       bspc rule -a Pavucontrol state=floating
       bspc rule -a Nm-connection-editor state=floating
+      bspc rule -a Calfjackhost state=floating
+      bspc rule -a calfjackhost state=floating
       bspc rule -a "-c" state=floating
 
       # polybar

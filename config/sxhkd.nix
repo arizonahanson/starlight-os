@@ -47,7 +47,7 @@
       
       # screen/window/selection shot
       super + {_,shift +,ctrl +} + @Print
-        scrot {_,-u,-s} -e "notify-send -i image 'scrot' 'image saved as \n\$f'"
+        mate-screenshot {_,-wB -e shadow,-a}
       
       # clipboard select
       super + Insert
