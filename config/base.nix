@@ -5,6 +5,7 @@
     ./zsh.nix
     ./git.nix
     ./tmux.nix
+    ./vim.nix
   ];
   # latest kernel
   nixpkgs.config.allowUnfree = true;
@@ -18,7 +19,7 @@
     nox
   ];
   environment.variables = {
-      EDITOR = "vi";
+      EDITOR = "vim";
   };
 
   services.openssh.enable = true;
@@ -27,11 +28,15 @@
   '';
   # btrfs auto-scrub
   services.btrfs.autoScrub.enable = true;
-  # /tmp on tmpfs
-  boot.tmpOnTmpfs = true;
-  boot.loader.grub.useOSProber = true;
-  boot.kernel.sysctl = {
-    "vm.max_map_count" = 262144;
+  boot = {
+    # /tmp on tmpfs
+    tmpOnTmpfs = true;
+    kernelParams = [ "quiet" ];
+    consoleLogLevel = 0;
+    loader.grub.useOSProber = true;
+    kernel.sysctl = {
+      "vm.max_map_count" = 262144;
+    };
   };
   fileSystems = {
     "/".options = [ "compress=lzo" ];
