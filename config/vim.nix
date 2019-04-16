@@ -1,11 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  environment = 
+  environment =
   let system_vim = (pkgs.neovim.override {
     vimAlias = true;
     configure = {
       customRC = ''
+        let g:deoplete#enable_at_startup = 1
         " no startup message
         set shortmess+=I
         " visual theme
@@ -71,10 +72,9 @@
         autocmd FileType markdown set spell spelllang=en_us
         " vimdiff layout
         set diffopt=filler,vertical
-
       '';
       plug.plugins = with pkgs.vimPlugins; [
-        vim-sensible editorconfig-vim fugitive gitgutter ale vim-nix vim-colorschemes
+        vim-sensible editorconfig-vim fugitive gitgutter ale vim-nix vim-colorschemes deoplete-nvim
       ];
     };
   });
