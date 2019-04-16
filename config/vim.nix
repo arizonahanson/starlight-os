@@ -9,14 +9,17 @@
         " no startup message
         set shortmess+=I
         " visual theme
+        let g:gitgutter_override_sign_column_highlight=0
+        let g:gitgutter_sign_modified='*'
+        set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
+        set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
+        " colors
         set background=dark
         colorscheme base16-default-dark
         hi LineNr         ctermfg=8     ctermbg=NONE
         hi CursorLineNr   ctermfg=7     ctermbg=NONE
-        hi CursorLine     ctermbg=NONE  
-        let g:gitgutter_sign_modified='*'
-        set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
-        set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
+        hi CursorLine     ctermbg=NONE
+        hi SignColumn     ctermbg=NONE
         " turn backup off
         set nobackup
         set nowb
