@@ -14,6 +14,12 @@
         colorscheme nord
         hi CursorLineNr ctermfg=7
         hi Visual ctermfg=7 ctermbg=8
+        hi Keyword ctermfg=13
+        hi Operator ctermfg=5
+        hi Statement ctermfg=13
+        hi Function ctermfg=5
+        hi Boolean ctermfg=13
+        hi Conditional ctermfg=5
         set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
         let g:gitgutter_sign_modified='*'
