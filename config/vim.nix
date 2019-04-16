@@ -6,23 +6,17 @@
     vimAlias = true;
     configure = {
       customRC = ''
-        let g:deoplete#enable_at_startup = 1
         " no startup message
         set shortmess+=I
         " visual theme
         set background=dark
-        colorscheme nord
-        hi CursorLineNr ctermfg=7
-        hi Visual ctermfg=7 ctermbg=8
-        hi Keyword ctermfg=13
-        hi Operator ctermfg=5
-        hi Statement ctermfg=13
-        hi Function ctermfg=5
-        hi Boolean ctermfg=13
-        hi Conditional ctermfg=5
+        colorscheme base16-default-dark
+        hi LineNr         ctermfg=8     ctermbg=NONE
+        hi CursorLineNr   ctermfg=7     ctermbg=NONE
+        hi CursorLine     ctermbg=NONE  
+        let g:gitgutter_sign_modified='*'
         set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
-        let g:gitgutter_sign_modified='*'
         " turn backup off
         set nobackup
         set nowb
@@ -56,6 +50,7 @@
         " turn on syntax completion
         set omnifunc=syntaxcomplete#Complete
         set completeopt=menuone,noinsert
+        let g:deoplete#enable_at_startup = 1
         " shut off completion messages
         set shortmess+=c
         " no beeps during completion
@@ -80,7 +75,7 @@
         set diffopt=filler,vertical
       '';
       plug.plugins = with pkgs.vimPlugins; [
-        vim-sensible editorconfig-vim fugitive gitgutter ale vim-nix vim-colorschemes deoplete-nvim
+        vim-sensible editorconfig-vim fugitive gitgutter ale vim-nix base16-vim deoplete-nvim
       ];
     };
   });
