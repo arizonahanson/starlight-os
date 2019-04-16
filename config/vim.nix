@@ -26,7 +26,7 @@
         hi GitGutterDelete  ctermbg=NONE  ctermfg=1
         hi TabLine          ctermbg=NONE
         hi TabLineFill      ctermbg=NONE
-        hi TabLineSel       ctermbg=NONE  ctermfg=12
+        hi TabLineSel       ctermbg=8     ctermfg=15
         hi StatusLine       ctermbg=NONE
         hi StatusLineNC     ctermbg=NONE  ctermfg=8
         hi Pmenu            ctermbg=8     ctermfg=7
