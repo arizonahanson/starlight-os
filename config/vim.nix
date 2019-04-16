@@ -21,12 +21,12 @@
         hi CursorLineNr     ctermfg=7     ctermbg=NONE
         hi CursorLine       ctermbg=NONE
         hi SignColumn       ctermbg=NONE
-        hi GitGutterAdd     ctermbg=NONE  ctermfg=10
+        hi GitGutterAdd     ctermbg=NONE  ctermfg=11
         hi GitGutterChange  ctermbg=NONE  ctermfg=9
         hi GitGutterDelete  ctermbg=NONE  ctermfg=1
         hi TabLine          ctermbg=NONE
         hi TabLineFill      ctermbg=NONE
-        hi TabLineSel       ctermbg=NONE
+        hi TabLineSel       ctermbg=NONE  ctermfg=12
         hi StatusLine       ctermbg=NONE
         hi StatusLineNC     ctermbg=NONE  ctermfg=8
         hi Pmenu            ctermbg=8     ctermfg=7
@@ -79,6 +79,8 @@
           set stal=2
         catch
         endtry
+        " show tabline when tabs >1
+        set showtabline=1
         " return to last edit position when opening files
         autocmd BufReadPost *
           \ if line("'\"") > 0 && line("'\"") <= line("$") |
