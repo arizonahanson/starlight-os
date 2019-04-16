@@ -38,7 +38,7 @@
         " minimum column width
         set numberwidth=1
         " highlight current line
-        "set cursorline
+        set cursorline
         " show matching brackets
         set showmatch
         " ignore files in menu
