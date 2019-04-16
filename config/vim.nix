@@ -11,6 +11,8 @@
         " visual theme
         set background=dark
         colorscheme nord
+        hi CursorLineNr ctermfg=7
+        hi Visual ctermbg=8
         set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
         let g:gitgutter_sign_modified='*'
