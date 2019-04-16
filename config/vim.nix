@@ -28,6 +28,9 @@
         hi TabLineFill      ctermbg=NONE
         hi TabLineSel       ctermbg=NONE
         hi StatusLine       ctermbg=8
+        hi StatusLineNC     ctermbg=NONE ctermfg=8
+        hi Pmenu            ctermbg=8 ctermfg=7
+        hi PmenuSel         ctermbg=8 ctermfg=15
         " turn backup off
         set nobackup
         set nowb
