@@ -2,7 +2,7 @@
 
 {
   environment = 
-  let vim_custom = (pkgs.neovim.override {
+  let system_vim = (pkgs.neovim.override {
     vimAlias = true;
     configure = {
       customRC = ''
@@ -12,7 +12,7 @@
         set background=dark
         colorscheme nord
         hi CursorLineNr ctermfg=7
-        hi Visual ctermbg=8
+        hi Visual ctermfg=7 ctermbg=8
         set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
         let g:gitgutter_sign_modified='*'
@@ -80,7 +80,7 @@
   });
   in
   {
-    systemPackages = [ (vim_custom) ];
+    systemPackages = [ (system_vim) ];
   };
 }
 
