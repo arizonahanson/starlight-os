@@ -10,6 +10,7 @@
         set shortmess+=I
         " visual theme
         set background=dark
+        colorscheme nord
         set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
         let g:gitgutter_sign_modified='*'
@@ -34,7 +35,7 @@
         set smartcase
         " highlight search
         set hlsearch
-        " min number column width
+        " minimum column width
         set numberwidth=1
         " highlight current line
         "set cursorline
@@ -71,7 +72,7 @@
 
       '';
       plug.plugins = with pkgs.vimPlugins; [
-        vim-sensible editorconfig-vim fugitive gitgutter ale vim-nix
+        vim-sensible editorconfig-vim fugitive gitgutter ale vim-nix vim-colorschemes
       ];
     };
   });
