@@ -16,17 +16,18 @@
         " colorscheme
         set background=dark
         colorscheme base16-default-dark
-        hi LineNr          ctermfg=8     ctermbg=NONE
-        hi CursorLineNr    ctermfg=7     ctermbg=NONE
-        hi CursorLine      ctermbg=NONE
-        hi SignColumn      ctermbg=NONE
-        hi GitGutterAdd    ctermbg=NONE ctermfg=10
-        hi GitGutterChange ctermbg=NONE ctermfg=9
-        hi GitGutterDelete ctermbg=NONE ctermfg=1
-        hi TabLine ctermbg=NONE
-        hi TabLineFill ctermbg=NONE
-        hi TabLineSel ctermbg=NONE
-        hi StatusLine ctermbg=8
+        hi Normal           ctermfg=15
+        hi LineNr           ctermfg=8     ctermbg=NONE
+        hi CursorLineNr     ctermfg=7     ctermbg=NONE
+        hi CursorLine       ctermbg=NONE
+        hi SignColumn       ctermbg=NONE
+        hi GitGutterAdd     ctermbg=NONE  ctermfg=10
+        hi GitGutterChange  ctermbg=NONE  ctermfg=9
+        hi GitGutterDelete  ctermbg=NONE  ctermfg=1
+        hi TabLine          ctermbg=NONE
+        hi TabLineFill      ctermbg=NONE
+        hi TabLineSel       ctermbg=NONE
+        hi StatusLine       ctermbg=8
         " turn backup off
         set nobackup
         set nowb
