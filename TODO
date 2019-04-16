@@ -1,7 +1,5 @@
 * vim integration with home .vimrc?
-* vim completion
 * needs:
  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
  sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixos
  sudo nix-channel --update
-* make vim/zsh/git/tmux etc color schemes consistent
