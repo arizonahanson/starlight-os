@@ -82,6 +82,8 @@
         " activate spell check for some types
         autocmd FileType gitcommit set spell spelllang=en_us
         autocmd FileType markdown set spell spelllang=en_us
+        " turn on line numbers
+        autocmd FileType nix set number
         " vimdiff layout
         set diffopt=filler,vertical
       '';
