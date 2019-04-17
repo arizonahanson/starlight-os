@@ -103,7 +103,7 @@
   });
   in
   {
-    systemPackages = [ (system_vim) ];
+    systemPackages = [ (system_vim) nvi ];
   };
 }
 
