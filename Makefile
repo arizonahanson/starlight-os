@@ -1,4 +1,3 @@
-
 ISONIX=iso/iso.nix
 CONFNIX=/mnt/etc/nixos/configuration.nix
 INSTCMD=os-install
