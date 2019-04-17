@@ -35,9 +35,13 @@
         hi Search           ctermbg=8     ctermfg=NONE
         hi Visual           ctermbg=8     ctermfg=15
         hi WildMenu         ctermbg=8     ctermfg=15
-        hi Repeat           ctermfg=13
+        hi Repeat           ctermfg=5
         hi Type             ctermfg=12
-        hi Identifier       ctermfg=13
+        hi Identifier       ctermfg=2
+        hi String           ctermfg=3
+        hi Boolean          ctermfg=13
+        hi Statement        ctermfg=5
+        hi Operator         ctermfg=5
         " turn backup off
         set nobackup
         set nowb
