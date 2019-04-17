@@ -68,6 +68,7 @@
         set wildignore=*.o,*~,*.pyc,*.so,*.class,.DS_Store
         set wildmode=longest:full,full
         " turn on syntax completion
+        let g:ale_completion_enabled = 1
         set omnifunc=syntaxcomplete#Complete
         set completeopt=menuone,noinsert
         let g:deoplete#enable_at_startup = 1
@@ -108,7 +109,7 @@
         set novisualbell
       '';
       plug.plugins = with pkgs.vimPlugins; [
-        vim-sensible editorconfig-vim fugitive gitgutter ale vim-nix base16-vim deoplete-nvim
+        vim-sensible editorconfig-vim fugitive gitgutter ale vim-nix base16-vim deoplete-nvim vim-polyglot
       ];
     };
   });
