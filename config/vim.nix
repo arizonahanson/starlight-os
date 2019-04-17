@@ -20,6 +20,7 @@
         hi CursorLineNr   ctermfg=7     ctermbg=NONE
         hi CursorLine     ctermbg=NONE
         hi SignColumn     ctermbg=NONE
+        hi Repeat         ctermfg=13
         " turn backup off
         set nobackup
         set nowb
