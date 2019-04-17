@@ -31,7 +31,7 @@
         hi StatusLineNC     ctermbg=NONE  ctermfg=8
         hi Pmenu            ctermbg=8     ctermfg=7
         hi PmenuSel         ctermbg=8     ctermfg=15
-        hi IncSearch        ctermbg=7     ctermfg=NONE
+        hi IncSearch        ctermbg=8     ctermfg=15
         hi Search           ctermbg=8     ctermfg=NONE
         hi Visual           ctermbg=8     ctermfg=15
         hi WildMenu         ctermbg=8     ctermfg=15
