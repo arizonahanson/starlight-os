@@ -52,6 +52,7 @@
         " no timeout
         set notimeout
         set ttimeout
+        "set timeoutlen=500
         " case insensitivity
         set ignorecase
         set smartcase
@@ -94,6 +95,17 @@
         autocmd FileType markdown set spell spelllang=en_us
         " vimdiff layout
         set diffopt=filler,vertical
+        " lines to the cursor when moving vertically using j/k
+        set so=6
+        " height of command bar
+        set cmdheight=1
+        " buffer becomes hidden when abandoned
+        set hid
+        " tenths of a second to blink when matching brackets
+        set matchtime=2
+        " no sound on errors
+        set noerrorbells
+        set novisualbell
       '';
       plug.plugins = with pkgs.vimPlugins; [
         vim-sensible editorconfig-vim fugitive gitgutter ale vim-nix base16-vim deoplete-nvim
