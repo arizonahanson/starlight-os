@@ -13,13 +13,28 @@
         let g:gitgutter_sign_modified='*'
         set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
-        " colors
+        " colorscheme
         set background=dark
         colorscheme base16-default-dark
-        hi LineNr         ctermfg=8     ctermbg=NONE
-        hi CursorLineNr   ctermfg=7     ctermbg=NONE
-        hi CursorLine     ctermbg=NONE
-        hi SignColumn     ctermbg=NONE
+        hi Normal           ctermfg=15
+        hi LineNr           ctermfg=8     ctermbg=NONE
+        hi CursorLineNr     ctermfg=7     ctermbg=NONE
+        hi CursorLine       ctermbg=NONE
+        hi SignColumn       ctermbg=NONE
+        hi GitGutterAdd     ctermbg=NONE  ctermfg=11
+        hi GitGutterChange  ctermbg=NONE  ctermfg=9
+        hi GitGutterDelete  ctermbg=NONE  ctermfg=1
+        hi TabLine          ctermbg=NONE
+        hi TabLineFill      ctermbg=NONE
+        hi TabLineSel       ctermbg=8     ctermfg=15
+        hi StatusLine       ctermbg=NONE
+        hi StatusLineNC     ctermbg=NONE  ctermfg=8
+        hi Pmenu            ctermbg=8     ctermfg=7
+        hi PmenuSel         ctermbg=8     ctermfg=15
+        hi IncSearch        ctermbg=8     ctermfg=15
+        hi Search           ctermbg=8     ctermfg=NONE
+        hi Visual           ctermbg=8     ctermfg=15
+        hi WildMenu         ctermbg=8     ctermfg=15
         hi Repeat         ctermfg=13
         " turn backup off
         set nobackup
@@ -65,6 +80,8 @@
           set stal=2
         catch
         endtry
+        " show tabline when tabs >1
+        set showtabline=1
         " return to last edit position when opening files
         autocmd BufReadPost *
           \ if line("'\"") > 0 && line("'\"") <= line("$") |
@@ -85,7 +102,7 @@
   });
   in
   {
-    systemPackages = [ (system_vim) ];
+    systemPackages = [ (system_vim) pkgs.nvi ];
   };
 }
 

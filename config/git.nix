@@ -51,7 +51,7 @@
       '';
     in
     {
-      systemPackages = [ (git_minimal) ];
+      systemPackages = [ (git_minimal) pkgs.tig ];
       etc.gitconfig = if config.services.xserver.enable then
       {
         text = ''

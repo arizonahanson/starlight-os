@@ -101,7 +101,7 @@ with lib;
             KERNEL=="hpet", GROUP="audio"
           '';
         };
-        cron.enable =false;
+        cron.enable = false;
       };
       systemd.user.services.pulseaudio.environment.DISPLAY = ":0";
       systemd.user.services.autojack = let cfg = config.starlight.proaudio; in {

@@ -11,7 +11,7 @@
   nixpkgs.config.allowUnfree = true;
   nix.autoOptimiseStore = true;
   environment.systemPackages = with pkgs; [
-    gnumake bc nvi
+    gnumake bc
     psmisc pciutils
     tree ag
     zip unzip
