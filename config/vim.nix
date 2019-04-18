@@ -38,6 +38,7 @@
         hi Repeat           ctermfg=13
         hi Type             ctermfg=12
         hi Identifier       ctermfg=13
+        hi Include          ctermfg=5
         " turn backup off
         set nobackup
         set nowb
