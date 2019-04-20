@@ -60,15 +60,11 @@
         set encoding=utf-8
         set fileencoding=utf-8
         set ffs=unix,dos,mac
-        " treat long lines as break lines
-        map j gj
-        map k gk
         " wrap arrow on line begin/end
         set whichwrap+=<,>,h,l
         " no timeout
         set notimeout
         set ttimeout
-        "set timeoutlen=500
         " case insensitivity
         set ignorecase
         set smartcase
