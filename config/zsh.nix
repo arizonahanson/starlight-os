@@ -14,7 +14,6 @@
     plugins = [
       "git"
       "colored-man-pages"
-      "zsh-users/zsh-completions"
     ];
     theme = "starlight";
     customPkgs = 
@@ -35,7 +34,7 @@
           '';
         };
       in
-      [ pkgs.nix-zsh-completions (zsh-starlight-theme) ];
+      [ (zsh-starlight-theme) pkgs.zsh-completions pkgs.nix-zsh-completions ];
   };
   programs.zsh.syntaxHighlighting = {
     enable = true;
