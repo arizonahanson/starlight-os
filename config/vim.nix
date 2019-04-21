@@ -7,6 +7,8 @@
       customRC = ''
         " no startup message
         set shortmess+=I
+        " recursive pathfinding
+        set path+=**
         " visual theme
         let g:gitgutter_override_sign_column_highlight=0
         let g:gitgutter_sign_modified='*'
@@ -122,13 +124,13 @@
         call deoplete#custom#option('auto_complete_delay', 500)
       '';
       plug.plugins = with pkgs.vimPlugins; [
-        vim-sensible editorconfig-vim fugitive gitgutter ale vim-nix base16-vim deoplete-nvim vim-polyglot vim-gutentags
+        vim-sensible base16-vim editorconfig-vim fugitive gitgutter vim-polyglot vim-nix vim-gutentags ale deoplete-nvim
       ];
     };
   });
   in
   {
-    systemPackages = [ (system_vim) pkgs.nvi pkgs.universal-ctags ];
+    systemPackages = [ pkgs.nvi pkgs.universal-ctags (system_vim) ];
   };
 }
 
