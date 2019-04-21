@@ -51,6 +51,10 @@ with lib;
           termite -e "tmux-session ''${SESSION_NAME}" --class="''${CLASS_NAME}"
         fi
       '')
+      (with import <nixpkgs> {}; writeShellScriptBin "flatpak" ''
+        ${flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+        ${flatpak}/bin/flatpak $@
+      '')
     ];
     systemd.user.services = {
       clipmenud = {
@@ -63,15 +67,6 @@ with lib;
        script = ''
          ${pkgs.clipmenu}/bin/clipmenud
        '';
-      };
-      flatpakrepo = {
-        serviceConfig.Type = "oneshot";
-        wantedBy = [ "default.target" ];
-        path = [ pkgs.flatpak ];
-        enable = false;
-        script = ''
-          flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-        '';
       };
     };
     environment.variables = {
