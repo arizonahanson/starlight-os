@@ -129,7 +129,7 @@
         let g:gutentags_cache_dir='/tmp/.gutentags'
       '';
       plug.plugins = with pkgs.vimPlugins; [
-        vim-sensible base16-vim editorconfig-vim fugitive gitgutter vim-polyglot vim-nix vim-gutentags ale deoplete-nvim
+        vim-sensible base16-vim editorconfig-vim fugitive gitgutter vim-polyglot vim-nix vim-gutentags ale deoplete-nvim neco-syntax
       ];
     };
   });
