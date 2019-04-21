@@ -119,15 +119,16 @@
         " no sound on errors
         set noerrorbells
         set novisualbell
+        call deoplete#custom#option('auto_complete_delay', 500)
       '';
       plug.plugins = with pkgs.vimPlugins; [
-        vim-sensible editorconfig-vim fugitive gitgutter ale vim-nix base16-vim deoplete-nvim vim-polyglot
+        vim-sensible editorconfig-vim fugitive gitgutter ale vim-nix base16-vim deoplete-nvim vim-polyglot vim-gutentags
       ];
     };
   });
   in
   {
-    systemPackages = [ (system_vim) pkgs.nvi ];
+    systemPackages = [ (system_vim) pkgs.nvi pkgs.universal-ctags ];
   };
 }
 
