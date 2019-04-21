@@ -47,6 +47,7 @@
         hi WildMenu     ctermbg=8     ctermfg=15
         hi Repeat       ctermfg=5
         hi Type         ctermfg=12
+        hi PreProc      ctermfg=11
         hi Include      ctermfg=5
         hi Function     ctermfg=10
         hi Identifier   ctermfg=7
