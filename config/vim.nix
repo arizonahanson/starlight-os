@@ -22,15 +22,15 @@
         hi CursorLineNr ctermfg=7     ctermbg=NONE
         hi CursorLine   ctermbg=NONE
         hi SignColumn   ctermbg=NONE
+        hi DiffAdd                ctermbg=NONE  ctermfg=11
         hi GitGutterAdd           ctermbg=NONE  ctermfg=11
+        hi DiffChange             ctermbg=NONE  ctermfg=9
         hi GitGutterChange        ctermbg=NONE  ctermfg=9
+        hi DiffDelete             ctermbg=NONE  ctermfg=1
         hi GitGutterAddDelete     ctermbg=NONE  ctermfg=1
         hi GitGutterChangeDelete  ctermbg=NONE  ctermfg=1
         hi GitGutterDelete        ctermbg=NONE  ctermfg=1
-        hi DiffAdd                ctermbg=NONE  ctermfg=11
-        hi DiffChange             ctermbg=NONE  ctermfg=9
-        hi DiffDelete             ctermbg=NONE  ctermfg=1
-        hi Todo         ctermbg=8     ctermfg=9
+        hi Todo         ctermbg=8     ctermfg=11
         hi SpellBad     ctermbg=NONE  ctermfg=9
         hi SpellRare    ctermbg=NONE  ctermfg=11
         hi SpellCap     ctermbg=NONE  ctermfg=11
@@ -45,18 +45,18 @@
         hi Search       ctermbg=8     ctermfg=NONE
         hi Visual       ctermbg=8     ctermfg=15
         hi WildMenu     ctermbg=8     ctermfg=15
-        hi Repeat       ctermfg=5
+        hi Repeat       ctermfg=13
         hi Type         ctermfg=12
         hi PreProc      ctermfg=11
         hi Include      ctermfg=5
-        hi Function     ctermfg=10
+        hi Function     ctermfg=2
         hi Identifier   ctermfg=7
         hi String       ctermfg=3
         hi Boolean      ctermfg=13
         hi Number       ctermfg=14
         hi Statement    ctermfg=2
         hi Operator     ctermfg=5
-        hi zshDereferencing ctermfg=9
+        hi zshDereferencing ctermfg=7
         " turn backup off
         set nobackup
         set nowb
