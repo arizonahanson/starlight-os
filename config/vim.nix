@@ -53,7 +53,8 @@
         hi Identifier   ctermfg=7
         hi String       ctermfg=3
         hi Boolean      ctermfg=13
-        hi Statement    ctermfg=5
+        hi Number       ctermfg=14
+        hi Statement    ctermfg=2
         hi Operator     ctermfg=5
         hi zshDereferencing ctermfg=9
         " turn backup off
