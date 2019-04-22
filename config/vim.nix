@@ -37,8 +37,8 @@
         hi TabLine      ctermbg=NONE
         hi TabLineFill  ctermbg=NONE
         hi TabLineSel   ctermbg=8     ctermfg=15
-        hi StatusLine   ctermbg=NONE
-        hi StatusLineNC ctermbg=NONE  ctermfg=8
+        hi StatusLine   ctermbg=8     ctermfg=15
+        hi StatusLineNC ctermbg=8     ctermfg=7
         hi Pmenu        ctermbg=8     ctermfg=7
         hi PmenuSel     ctermbg=8     ctermfg=15
         hi IncSearch    ctermbg=8     ctermfg=15
