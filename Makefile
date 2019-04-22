@@ -29,7 +29,6 @@ rebuild:
 	@sudo cp -a config/. /etc/nixos/
 	@echo "starting rebuild..."
 	@sudo nixos-rebuild switch
-	@sudo nix-collect-garbage
 
 .PHONY: upgrade
 upgrade:
@@ -37,4 +36,3 @@ upgrade:
 	@sudo cp -a config/. /etc/nixos/
 	@sudo nixos-rebuild --upgrade switch
 	@nix-env -u
-	@sudo nix-collect-garbage
