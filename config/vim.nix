@@ -36,6 +36,7 @@
         hi SpellCap     ctermbg=NONE  ctermfg=11
         hi TabLine      ctermbg=NONE
         hi TabLineFill  ctermbg=NONE
+        hi Label        ctermfg=5
         hi TabLineSel   ctermbg=8     ctermfg=15
         hi StatusLine   ctermbg=8     ctermfg=15
         hi StatusLineNC ctermbg=8     ctermfg=7
@@ -52,7 +53,7 @@
         hi Function     ctermfg=2
         hi Identifier   ctermfg=7
         hi String       ctermfg=3
-        hi Boolean      ctermfg=13
+        hi Boolean      ctermfg=14
         hi Number       ctermfg=14
         hi Statement    ctermfg=13
         hi Operator     ctermfg=5
