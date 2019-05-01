@@ -28,35 +28,24 @@
       setw -g pane-base-index 1
 
       # default statusbar colors
-      set-option -g status-bg default
-      set-option -g status-fg yellow
-      set-option -g status-attr default
+      set-option -g status-style bg=default,fg=yellow
 
       # default window title colors
-      set-window-option -g window-status-fg brightblack
-      set-window-option -g window-status-bg default
-      #set-window-option -g window-status-attr dim
+      set-window-option -g window-status-style fg=brightblack,bg=default
 
       # active window title colors
-      set-window-option -g window-status-current-fg brightwhite
-      set-window-option -g window-status-current-bg brightblack
-      #set-window-option -g window-status-current-attr bright
+      set-window-option -g window-status-current-style fg=brightwhite,bg=brightblack
 
       # inactive window activity colors
-      setw -g window-status-activity-attr none
-      set-window-option -g window-status-activity-fg white
-      set-window-option -g window-status-activity-bg default
-      setw -g window-status-bell-attr none
-      set-window-option -g window-status-bell-fg red
-      set-window-option -g window-status-bell-bg default
+      set-window-option -g window-status-activity-style fg=white,bg=default
+      set-window-option -g window-status-bell-style fg=red,bg=default
 
       # pane border
-      set-option -g pane-border-fg brightblack
-      set-option -g pane-active-border-fg white
+      set-option -g pane-border-style fg=brightblack
+      set-option -g pane-active-border-style fg=white
 
       # message text
-      set-option -g message-bg black
-      set-option -g message-fg brightwhite
+      set-option -g message-style bg=black,fg=brightwhite
 
       # pane number display
       set-option -g display-panes-active-colour blue
