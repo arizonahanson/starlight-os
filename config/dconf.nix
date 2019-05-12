@@ -76,7 +76,7 @@
       font-name='Exo 2 14'
       gtk-im-module='ibus'
       cursor-blink-time=1000
-      monospace-font-name='Fira Mono 11'
+      monospace-font-name='Share Tech Mono 14'
       accessibility=true
       gtk-theme='starlight'
       icon-theme='starlight'
