@@ -45,7 +45,7 @@
         hi IncSearch    ctermbg=8     ctermfg=15
         hi Search       ctermbg=8     ctermfg=NONE
         hi Visual       ctermbg=8     ctermfg=15
-        hi WildMenu     ctermbg=8     ctermfg=15
+        hi WildMenu     ctermbg=7     ctermfg=15
         hi Repeat       ctermfg=13
         hi Type         ctermfg=12
         hi PreProc      ctermfg=11
