@@ -79,7 +79,7 @@ with lib;
       mode = "0644";
       text = ''
         [options]
-        font = Fira Mono Medium 14
+        font = Share Tech Mono 16
         allow_bold = false
   
         [colors]
