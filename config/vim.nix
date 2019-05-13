@@ -149,6 +149,7 @@
         hi! link gitcommitFile DiffChange
         " misc syntax relinking
         hi! link zshDereferencing Identifier
+        hi! link zshTypes Statement
         hi! link csLogicSymbols Operator
         hi! link csBraces Operator
       '';
