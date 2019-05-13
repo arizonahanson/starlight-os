@@ -19,7 +19,7 @@
         colorscheme base16-default-dark
         hi Normal       ctermfg=15
         hi LineNr       ctermfg=8     ctermbg=NONE
-        hi CursorLineNr ctermfg=13    ctermbg=NONE
+        hi CursorLineNr ctermfg=7     ctermbg=NONE
         hi CursorLine   ctermbg=NONE  cterm=NONE
         hi SignColumn   ctermbg=NONE
         hi Todo         ctermbg=8     ctermfg=11
@@ -38,9 +38,6 @@
         hi Search       ctermbg=8     ctermfg=NONE
         hi Visual       ctermbg=8     ctermfg=15
         hi WildMenu     ctermbg=7     ctermfg=15
-        hi Repeat       ctermfg=13
-        hi Type         ctermfg=12
-        hi PreProc      ctermfg=11
         hi Include      ctermfg=5
         hi Function     ctermfg=2
         hi Identifier   ctermfg=7
@@ -49,7 +46,10 @@
         hi Boolean      ctermfg=14
         hi Number       ctermfg=14
         hi Statement    ctermfg=13
-        hi Operator     ctermfg=5
+        hi Repeat       ctermfg=13
+        hi Operator     ctermfg=13
+        hi Type         ctermfg=12
+        hi PreProc      ctermfg=11
         hi zshDereferencing       ctermfg=7
         hi DiffAdd                ctermbg=NONE  ctermfg=11
         hi GitGutterAdd           ctermbg=NONE  ctermfg=11
@@ -129,7 +129,7 @@
         " auto complete delay
         call deoplete#custom#option('auto_complete_delay', 500)
         " do not pollute with ctags
-        let g:gutentags_cache_dir='/tmp/.gutentags'
+        let g:gutentags_cache_dir='/tmp/.gutentags-' . $USER
       '';
       plug.plugins = with pkgs.vimPlugins; [
         vim-sensible base16-vim editorconfig-vim fugitive gitgutter vim-polyglot vim-nix vim-gutentags ale deoplete-nvim neco-syntax
