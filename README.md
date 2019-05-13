@@ -6,9 +6,9 @@ WARNING!!! The partition script in this repository could ERASE ALL OF YOUR DATA!
 principles:
   be vi-like
   be minimal
-  for development
-  for pro-audio
-  do auto-completion
+  for development (code and audio)
+  do syntax-highlighting and auto-completion
+  everywhere.
 
  key-bindings:
  	super + arrow:

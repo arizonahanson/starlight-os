@@ -12,6 +12,7 @@
         " visual theme
         let g:gitgutter_override_sign_column_highlight=0
         let g:gitgutter_sign_modified='*'
+        let g:gitgutter_sign_modified_removed='*_'
         set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
         " turn backup off
@@ -94,11 +95,10 @@
         hi LineNr       ctermfg=8     ctermbg=NONE
         hi CursorLineNr ctermfg=7     ctermbg=NONE
         hi CursorLine   ctermbg=NONE  cterm=NONE
-        hi SignColumn   ctermbg=NONE
-        hi TabLine      ctermbg=NONE
-        hi TabLineFill  ctermbg=NONE
-        hi Label        ctermfg=5
-        hi TabLineSel   ctermbg=8     ctermfg=15
+        hi SignColumn   ctermbg=NONE  cterm=NONE
+        hi TabLine      ctermbg=NONE  ctermfg=8     cterm=NONE
+        hi TabLineSel   ctermbg=8     ctermfg=15    cterm=NONE
+        hi TabLineFill  ctermbg=NONE  cterm=NONE
         hi StatusLine   ctermbg=8     ctermfg=15    cterm=NONE
         hi StatusLineNC ctermbg=8     ctermfg=7
         hi Pmenu        ctermbg=8     ctermfg=7
@@ -120,6 +120,7 @@
         hi Function     ctermfg=4
         hi Type         ctermfg=12
         " magentas (keywords)
+        hi Label        ctermfg=5
         hi Include      ctermfg=5
         hi PreProc      ctermfg=5
         hi Statement    ctermfg=5
