@@ -87,7 +87,6 @@
         " do not pollute with ctags
         let g:gutentags_cache_dir='/tmp/.gutentags-' . $USER
         " colorscheme
-        hi clear
         set background=dark
         " grays (general)
         hi CursorLine   ctermfg=NONE  ctermbg=NONE  cterm=NONE "clear
