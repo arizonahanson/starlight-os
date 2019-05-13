@@ -185,6 +185,7 @@ with lib;
     # keyring
     services.gnome3.seahorse.enable = true;
     services.gnome3.gnome-keyring.enable = true;
+    services.haveged.enable = true;
     programs.zsh.interactiveShellInit = ''
       export SSH_ASKPASS="${pkgs.gnome3.seahorse}/libexec/seahorse/ssh-askpass"
     '';
