@@ -19,17 +19,9 @@
         colorscheme base16-default-dark
         hi Normal       ctermfg=15
         hi LineNr       ctermfg=8     ctermbg=NONE
-        hi CursorLineNr ctermfg=7     ctermbg=NONE
-        hi CursorLine   ctermbg=NONE
+        hi CursorLineNr ctermfg=13    ctermbg=NONE
+        hi CursorLine   ctermbg=NONE  cterm=NONE
         hi SignColumn   ctermbg=NONE
-        hi DiffAdd                ctermbg=NONE  ctermfg=11
-        hi GitGutterAdd           ctermbg=NONE  ctermfg=11
-        hi DiffChange             ctermbg=NONE  ctermfg=9
-        hi GitGutterChange        ctermbg=NONE  ctermfg=9
-        hi DiffDelete             ctermbg=NONE  ctermfg=1
-        hi GitGutterAddDelete     ctermbg=NONE  ctermfg=1
-        hi GitGutterChangeDelete  ctermbg=NONE  ctermfg=1
-        hi GitGutterDelete        ctermbg=NONE  ctermfg=1
         hi Todo         ctermbg=8     ctermfg=11
         hi SpellBad     ctermbg=NONE  ctermfg=9
         hi SpellRare    ctermbg=NONE  ctermfg=11
@@ -57,7 +49,15 @@
         hi Number       ctermfg=14
         hi Statement    ctermfg=13
         hi Operator     ctermfg=5
-        hi zshDereferencing ctermfg=7
+        hi zshDereferencing       ctermfg=7
+        hi DiffAdd                ctermbg=NONE  ctermfg=11
+        hi GitGutterAdd           ctermbg=NONE  ctermfg=11
+        hi DiffChange             ctermbg=NONE  ctermfg=9
+        hi GitGutterChange        ctermbg=NONE  ctermfg=9
+        hi DiffDelete             ctermbg=NONE  ctermfg=1
+        hi GitGutterAddDelete     ctermbg=NONE  ctermfg=1
+        hi GitGutterChangeDelete  ctermbg=NONE  ctermfg=1
+        hi GitGutterDelete        ctermbg=NONE  ctermfg=1
         " turn backup off
         set nobackup
         set nowb
