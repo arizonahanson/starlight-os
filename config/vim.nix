@@ -89,7 +89,7 @@
         " colorscheme
         set background=dark
         " grays (general)
-        hi CursorLine   ctermfg=NONE  ctermbg=NONE  cterm=NONE "clear
+        hi CursorLine   ctermbg=NONE  ctermfg=NONE  cterm=NONE "clear
         hi Comment      ctermbg=NONE  ctermfg=8     cterm=NONE "charcoal
         hi Identifier   ctermbg=NONE  ctermfg=7     cterm=NONE "pencil
         hi Normal       ctermbg=NONE  ctermfg=15    cterm=NONE "chalk
@@ -108,27 +108,33 @@
         hi! link TabLineFill CursorLine
         hi! link Pmenu StatusLineNC
         hi! link PmenuSel StatusLine
-        " yellows (strings)
+        " identifiers
+        hi! link zshDereferencing Identifier
+        " strings
         hi String       ctermfg=3  "brown
         hi Character    ctermfg=11 "yellow
         hi! link Special Character
-        " cyans (consts)
+        " other consts
         hi Number       ctermfg=6  "teal
         hi Constant     ctermfg=14 "cyan
         hi! link Boolean Constant
-        " blues (types)
+        hi! link shOption Constant
+        " types
         hi Function     ctermfg=4  "blue
         hi Type         ctermfg=12 "sky
-        " magentas (keywords)
+        " keywords
         hi Statement    ctermfg=5  "purple
         hi Keyword      ctermfg=13 "magenta
+        hi! link Operator Keyword
         hi! link StorageClass Statement
         hi! link Include Statement
         hi! link PreProc Statement
+        hi! link zshTypes Statement
+        hi! link csBraces Statement
         hi! link Label Keyword
-        hi! link Operator Keyword
         hi! link Repeat Keyword
-        " red/orange/yellow/green (status)
+        hi! link csLogicSymbols Operator
+        " status highlight
         hi Error        ctermbg=8     ctermfg=1  "red on gray
         hi Warning      ctermbg=8     ctermfg=9  "orange on gray
         hi Todo         ctermbg=8     ctermfg=11 "yellow on gray
@@ -149,11 +155,6 @@
         hi! link gitcommitFile DiffChange
         hi! link gitcommitSummary Normal
         " misc syntax relinking
-        hi! link shOption Constant
-        hi! link zshDereferencing Identifier
-        hi! link zshTypes Statement
-        hi! link csLogicSymbols Operator
-        hi! link csBraces Operator
       '';
       plug.plugins = with pkgs.vimPlugins; [
         vim-sensible editorconfig-vim fugitive gitgutter vim-polyglot vim-nix vim-gutentags ale neco-syntax deoplete-nvim
