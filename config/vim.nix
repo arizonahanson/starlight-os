@@ -107,7 +107,6 @@
         hi Search       ctermbg=8     ctermfg=NONE
         hi Visual       ctermbg=8     ctermfg=15
         hi WildMenu     ctermbg=7     ctermfg=15
-        hi zshDereferencing ctermfg=7
         hi Identifier   ctermfg=7     cterm=NONE
         " yellows (strings)
         hi String       ctermfg=3
@@ -141,6 +140,9 @@
         hi GitGutterAddDelete     ctermbg=NONE  ctermfg=1
         hi GitGutterChangeDelete  ctermbg=NONE  ctermfg=1
         hi GitGutterDelete        ctermbg=NONE  ctermfg=1
+        " relink
+        hi link zshDereferencing Identifier
+        hi link csLogicSymbols Operator
       '';
       plug.plugins = with pkgs.vimPlugins; [
         vim-sensible editorconfig-vim fugitive gitgutter vim-polyglot vim-nix vim-gutentags ale neco-syntax deoplete-nvim
