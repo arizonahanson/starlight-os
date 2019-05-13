@@ -12,6 +12,7 @@
     default = "bspwm";
   };
   environment.etc.bspwmrc = {
+    mode = "0645";
     text = ''
       #!/usr/bin/env zsh
 
