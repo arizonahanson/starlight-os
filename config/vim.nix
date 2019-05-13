@@ -96,8 +96,8 @@
         hi Visual       ctermbg=8     ctermfg=NONE  cterm=NONE "highlight
         hi StatusLineNC ctermbg=8     ctermfg=7     cterm=NONE "muted
         hi StatusLine   ctermbg=8     ctermfg=15    cterm=NONE "current
+        hi IncSearch    ctermbg=8     ctermfg=15    cterm=underline "incremental
         hi WildMenu     ctermbg=15    ctermfg=8     cterm=NONE "menu
-        hi! link IncSearch StatusLine
         hi! link Search Visual
         hi! link MatchParen Visual
         hi! link LineNr Comment
