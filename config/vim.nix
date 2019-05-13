@@ -87,62 +87,64 @@
         " do not pollute with ctags
         let g:gutentags_cache_dir='/tmp/.gutentags-' . $USER
         " colorscheme
+        hi clear
         set background=dark
-        colorscheme default
         " grays (general)
-        hi Normal       ctermfg=15    ctermbg=NONE
-        hi Comment      ctermfg=8     ctermbg=NONE
-        hi LineNr       ctermfg=8     ctermbg=NONE
-        hi CursorLineNr ctermfg=7     ctermbg=NONE
-        hi CursorLine   ctermbg=NONE  cterm=NONE
-        hi SignColumn   ctermbg=NONE  cterm=NONE
-        hi TabLine      ctermbg=NONE  ctermfg=8     cterm=NONE
-        hi TabLineSel   ctermbg=8     ctermfg=15    cterm=NONE
-        hi TabLineFill  ctermbg=NONE  cterm=NONE
-        hi StatusLine   ctermbg=8     ctermfg=15    cterm=NONE
-        hi StatusLineNC ctermbg=8     ctermfg=7
-        hi Pmenu        ctermbg=8     ctermfg=7
-        hi PmenuSel     ctermbg=8     ctermfg=15
-        hi IncSearch    ctermbg=8     ctermfg=15
-        hi Search       ctermbg=8     ctermfg=NONE
-        hi Visual       ctermbg=8     ctermfg=15
-        hi WildMenu     ctermbg=7     ctermfg=15
-        hi Identifier   ctermfg=7     cterm=NONE
+        hi CursorLine   ctermfg=NONE  ctermbg=NONE  cterm=NONE "clear
+        hi Comment      ctermbg=NONE  ctermfg=8     cterm=NONE "charcoal
+        hi Identifier   ctermbg=NONE  ctermfg=7     cterm=NONE "pencil
+        hi Normal       ctermbg=NONE  ctermfg=15    cterm=NONE "chalk
+        hi Visual       ctermbg=8     ctermfg=NONE  cterm=NONE "highlight
+        hi StatusLineNC ctermbg=8     ctermfg=7     cterm=NONE "muted
+        hi StatusLine   ctermbg=8     ctermfg=15    cterm=NONE "current
+        hi WildMenu     ctermbg=7     ctermfg=15    cterm=NONE "menu
+        hi! link IncSearch StatusLine
+        hi! link Search Visual
+        hi! link LineNr Comment
+        hi! link CursorLineNr Identifier
+        hi! link SignColumn CursorLine
+        hi! link TabLine Comment
+        hi! link TabLineSel StatusLine
+        hi! link TabLineFill CursorLine
+        hi! link Pmenu StatusLineNC
+        hi! link PmenuSel StatusLine
         " yellows (strings)
         hi String       ctermfg=3
         hi Character    ctermfg=11
         " cyans (consts)
         hi Number       ctermfg=6
-        hi Boolean      ctermfg=14
         hi Constant     ctermfg=14
+        hi! link Boolean Constant
         " blues (types)
         hi Function     ctermfg=4
         hi Type         ctermfg=12
         " magentas (keywords)
-        hi Label        ctermfg=5
-        hi Include      ctermfg=5
-        hi PreProc      ctermfg=5
         hi Statement    ctermfg=5
-        hi StorageClass ctermfg=5
-        hi Repeat       ctermfg=13
-        hi Operator     ctermfg=13
+        hi Keyword      ctermfg=13
+        hi! link StorageClass Statement
+        hi! link Label Statement
+        hi! link Include Statement
+        hi! link PreProc Statement
+        hi! link Operator Keyword
+        hi! link Repeat Keyword
         " red/orange/yellow/green (status)
-        hi SpellBad     ctermbg=NONE  ctermfg=9
-        hi SpellRare    ctermbg=NONE  ctermfg=11
-        hi SpellCap     ctermbg=NONE  ctermfg=11
         hi Error        ctermbg=8     ctermfg=1
         hi Todo         ctermbg=8     ctermfg=11
-        hi DiffAdd                ctermbg=NONE  ctermfg=11
-        hi GitGutterAdd           ctermbg=NONE  ctermfg=11
-        hi DiffChange             ctermbg=NONE  ctermfg=9
-        hi GitGutterChange        ctermbg=NONE  ctermfg=9
-        hi DiffDelete             ctermbg=NONE  ctermfg=1
-        hi GitGutterAddDelete     ctermbg=NONE  ctermfg=1
-        hi GitGutterChangeDelete  ctermbg=NONE  ctermfg=1
-        hi GitGutterDelete        ctermbg=NONE  ctermfg=1
-        " relink
-        hi link zshDereferencing Identifier
-        hi link csLogicSymbols Operator
+        hi SpellRare    ctermbg=NONE  ctermfg=11
+        hi SpellBad     ctermbg=NONE  ctermfg=9
+        hi! link SpellCap SpellRare
+        hi DiffAdd      ctermbg=NONE  ctermfg=11
+        hi DiffChange   ctermbg=NONE  ctermfg=9
+        hi DiffDelete   ctermbg=NONE  ctermfg=1
+        hi! link GitGutterAdd DiffAdd
+        hi! link GitGutterChange DiffChange
+        hi! link GitGutterAddDelete DiffDelete
+        hi! link GitGutterChangeDelete DiffDelete
+        hi! link GitGutterDelete DiffDelete
+        " misc syntax relinking
+        hi! link zshDereferencing Identifier
+        hi! link csLogicSymbols Operator
+        hi! link csBraces Operator
       '';
       plug.plugins = with pkgs.vimPlugins; [
         vim-sensible editorconfig-vim fugitive gitgutter vim-polyglot vim-nix vim-gutentags ale neco-syntax deoplete-nvim
@@ -154,4 +156,3 @@
     systemPackages = [ pkgs.nvi pkgs.universal-ctags (system_vim) ];
   };
 }
-
