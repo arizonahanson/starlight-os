@@ -35,7 +35,7 @@
 	mkdir -p $mntpnt
 	sudo mount -o compress=lzo $device $mntpnt
 	pushd $mntpnt >/dev/null
-	sudo duperemove -Ardh system/nix >/dev/null
+	sudo duperemove -Ardh --hash=xxhash system/nix >/dev/null
 	echo -e "\n\e[1;34m\e[0m Rebalancing filesystem..."
 	sudo btrfs balance start -dusage=70 -musage=70 $mntpnt
 	popd >/dev/null
