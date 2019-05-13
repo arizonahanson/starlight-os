@@ -99,6 +99,7 @@
         hi WildMenu     ctermbg=15    ctermfg=8     cterm=NONE "menu
         hi! link IncSearch StatusLine
         hi! link Search Visual
+        hi! link MatchParen Visual
         hi! link LineNr Comment
         hi! link CursorLineNr Identifier
         hi! link SignColumn CursorLine
