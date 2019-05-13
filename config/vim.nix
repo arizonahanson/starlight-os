@@ -45,6 +45,7 @@
         hi Function     ctermfg=2
         hi Identifier   ctermfg=7
         hi String       ctermfg=3
+        hi Character    ctermfg=3
         hi Boolean      ctermfg=14
         hi Number       ctermfg=14
         hi Statement    ctermfg=13
