@@ -96,7 +96,7 @@
         hi Visual       ctermbg=8     ctermfg=NONE  cterm=NONE "highlight
         hi StatusLineNC ctermbg=8     ctermfg=7     cterm=NONE "muted
         hi StatusLine   ctermbg=8     ctermfg=15    cterm=NONE "current
-        hi WildMenu     ctermbg=7     ctermfg=15    cterm=NONE "menu
+        hi WildMenu     ctermbg=15    ctermfg=8     cterm=NONE "menu
         hi! link IncSearch StatusLine
         hi! link Search Visual
         hi! link LineNr Comment
@@ -108,19 +108,19 @@
         hi! link Pmenu StatusLineNC
         hi! link PmenuSel StatusLine
         " yellows (strings)
-        hi String       ctermfg=3
-        hi Character    ctermfg=11
+        hi String       ctermfg=3  "brown
+        hi Character    ctermfg=11 "yellow
         hi! link Special Character
         " cyans (consts)
-        hi Number       ctermfg=6
-        hi Constant     ctermfg=14
+        hi Number       ctermfg=6  "teal
+        hi Constant     ctermfg=14 "cyan
         hi! link Boolean Constant
         " blues (types)
-        hi Function     ctermfg=4
-        hi Type         ctermfg=12
+        hi Function     ctermfg=4  "blue
+        hi Type         ctermfg=12 "sky
         " magentas (keywords)
-        hi Statement    ctermfg=5
-        hi Keyword      ctermfg=13
+        hi Statement    ctermfg=5  "purple
+        hi Keyword      ctermfg=13 "magenta
         hi! link StorageClass Statement
         hi! link Include Statement
         hi! link PreProc Statement
@@ -128,14 +128,15 @@
         hi! link Operator Keyword
         hi! link Repeat Keyword
         " red/orange/yellow/green (status)
-        hi Error        ctermbg=8     ctermfg=1
-        hi Todo         ctermbg=8     ctermfg=11
+        hi Error        ctermbg=8     ctermfg=1  "red on gray
+        hi Warning      ctermbg=8     ctermfg=9  "orange on gray
+        hi Todo         ctermbg=8     ctermfg=11 "yellow on gray
         hi! link SpellCap Todo
-        hi! link SpellRare Todo
+        hi! link SpellRare Warning
         hi! link SpellBad Error
-        hi DiffAdd      ctermbg=NONE  ctermfg=2
-        hi DiffChange   ctermbg=NONE  ctermfg=9
-        hi DiffDelete   ctermbg=NONE  ctermfg=1
+        hi DiffAdd      ctermbg=NONE  ctermfg=2 "green
+        hi DiffChange   ctermbg=NONE  ctermfg=9 "orange
+        hi DiffDelete   ctermbg=NONE  ctermfg=1 "red
         hi! link GitGutterAdd DiffAdd
         hi! link GitGutterChange DiffChange
         hi! link GitGutterAddDelete DiffDelete
