@@ -110,6 +110,7 @@
         " yellows (strings)
         hi String       ctermfg=3
         hi Character    ctermfg=11
+        hi! link Special Character
         " cyans (consts)
         hi Number       ctermfg=6
         hi Constant     ctermfg=14
@@ -121,18 +122,18 @@
         hi Statement    ctermfg=5
         hi Keyword      ctermfg=13
         hi! link StorageClass Statement
-        hi! link Label Statement
         hi! link Include Statement
         hi! link PreProc Statement
+        hi! link Label Keyword
         hi! link Operator Keyword
         hi! link Repeat Keyword
         " red/orange/yellow/green (status)
         hi Error        ctermbg=8     ctermfg=1
         hi Todo         ctermbg=8     ctermfg=11
-        hi SpellRare    ctermbg=NONE  ctermfg=11
-        hi SpellBad     ctermbg=NONE  ctermfg=9
-        hi! link SpellCap SpellRare
-        hi DiffAdd      ctermbg=NONE  ctermfg=11
+        hi! link SpellCap Todo
+        hi! link SpellRare Todo
+        hi! link SpellBad Error
+        hi DiffAdd      ctermbg=NONE  ctermfg=2
         hi DiffChange   ctermbg=NONE  ctermfg=9
         hi DiffDelete   ctermbg=NONE  ctermfg=1
         hi! link GitGutterAdd DiffAdd
@@ -140,6 +141,10 @@
         hi! link GitGutterAddDelete DiffDelete
         hi! link GitGutterChangeDelete DiffDelete
         hi! link GitGutterDelete DiffDelete
+        hi! link diffAdded DiffAdd
+        hi! link diffRemoved DiffDelete
+        hi! link diffChanged DiffChange
+        hi! link gitcommitFile DiffChange
         " misc syntax relinking
         hi! link zshDereferencing Identifier
         hi! link csLogicSymbols Operator
