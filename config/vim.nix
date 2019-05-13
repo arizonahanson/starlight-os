@@ -120,8 +120,8 @@
         hi! link Boolean Constant
         hi! link shOption Constant
         " types
-        hi Function     ctermfg=4  "blue
-        hi Type         ctermfg=12 "sky
+        hi Function     ctermfg=2  "green
+        hi Type         ctermfg=12 "skyblue
         " keywords, statements, operators
         hi Statement    ctermfg=5  "purple
         hi Keyword      ctermfg=13 "magenta
