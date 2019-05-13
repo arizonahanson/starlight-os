@@ -14,51 +14,6 @@
         let g:gitgutter_sign_modified='*'
         set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
-        " colorscheme
-        set background=dark
-        colorscheme base16-default-dark
-        hi Normal       ctermfg=15
-        hi LineNr       ctermfg=8     ctermbg=NONE
-        hi CursorLineNr ctermfg=7     ctermbg=NONE
-        hi CursorLine   ctermbg=NONE  cterm=NONE
-        hi SignColumn   ctermbg=NONE
-        hi Todo         ctermbg=8     ctermfg=11
-        hi SpellBad     ctermbg=NONE  ctermfg=9
-        hi SpellRare    ctermbg=NONE  ctermfg=11
-        hi SpellCap     ctermbg=NONE  ctermfg=11
-        hi TabLine      ctermbg=NONE
-        hi TabLineFill  ctermbg=NONE
-        hi Label        ctermfg=5
-        hi TabLineSel   ctermbg=8     ctermfg=15
-        hi StatusLine   ctermbg=8     ctermfg=15
-        hi StatusLineNC ctermbg=8     ctermfg=7
-        hi Pmenu        ctermbg=8     ctermfg=7
-        hi PmenuSel     ctermbg=8     ctermfg=15
-        hi IncSearch    ctermbg=8     ctermfg=15
-        hi Search       ctermbg=8     ctermfg=NONE
-        hi Visual       ctermbg=8     ctermfg=15
-        hi WildMenu     ctermbg=7     ctermfg=15
-        hi Include      ctermfg=5
-        hi Function     ctermfg=2
-        hi Identifier   ctermfg=7
-        hi String       ctermfg=3
-        hi Character    ctermfg=3
-        hi Boolean      ctermfg=14
-        hi Number       ctermfg=14
-        hi Statement    ctermfg=13
-        hi Repeat       ctermfg=13
-        hi Operator     ctermfg=13
-        hi Type         ctermfg=12
-        hi PreProc      ctermfg=11
-        hi zshDereferencing       ctermfg=7
-        hi DiffAdd                ctermbg=NONE  ctermfg=11
-        hi GitGutterAdd           ctermbg=NONE  ctermfg=11
-        hi DiffChange             ctermbg=NONE  ctermfg=9
-        hi GitGutterChange        ctermbg=NONE  ctermfg=9
-        hi DiffDelete             ctermbg=NONE  ctermfg=1
-        hi GitGutterAddDelete     ctermbg=NONE  ctermfg=1
-        hi GitGutterChangeDelete  ctermbg=NONE  ctermfg=1
-        hi GitGutterDelete        ctermbg=NONE  ctermfg=1
         " turn backup off
         set nobackup
         set nowb
@@ -130,9 +85,64 @@
         call deoplete#custom#option('auto_complete_delay', 500)
         " do not pollute with ctags
         let g:gutentags_cache_dir='/tmp/.gutentags-' . $USER
+        " colorscheme
+        set background=dark
+        colorscheme default
+        " grays (general)
+        hi Normal       ctermfg=15    ctermbg=NONE
+        hi Comment      ctermfg=8     ctermbg=NONE
+        hi LineNr       ctermfg=8     ctermbg=NONE
+        hi CursorLineNr ctermfg=7     ctermbg=NONE
+        hi CursorLine   ctermbg=NONE  cterm=NONE
+        hi SignColumn   ctermbg=NONE
+        hi TabLine      ctermbg=NONE
+        hi TabLineFill  ctermbg=NONE
+        hi Label        ctermfg=5
+        hi TabLineSel   ctermbg=8     ctermfg=15
+        hi StatusLine   ctermbg=8     ctermfg=15    cterm=NONE
+        hi StatusLineNC ctermbg=8     ctermfg=7
+        hi Pmenu        ctermbg=8     ctermfg=7
+        hi PmenuSel     ctermbg=8     ctermfg=15
+        hi IncSearch    ctermbg=8     ctermfg=15
+        hi Search       ctermbg=8     ctermfg=NONE
+        hi Visual       ctermbg=8     ctermfg=15
+        hi WildMenu     ctermbg=7     ctermfg=15
+        hi zshDereferencing ctermfg=7
+        hi Identifier   ctermfg=7     cterm=NONE
+        " yellows (strings)
+        hi String       ctermfg=3
+        hi Character    ctermfg=11
+        " cyans (consts)
+        hi Number       ctermfg=6
+        hi Boolean      ctermfg=14
+        hi Constant     ctermfg=14
+        " blues (types)
+        hi Function     ctermfg=4
+        hi Type         ctermfg=12
+        " magentas (keywords)
+        hi Include      ctermfg=5
+        hi PreProc      ctermfg=5
+        hi Statement    ctermfg=5
+        hi StorageClass ctermfg=5
+        hi Repeat       ctermfg=13
+        hi Operator     ctermfg=13
+        " red/orange/yellow/green (status)
+        hi SpellBad     ctermbg=NONE  ctermfg=9
+        hi SpellRare    ctermbg=NONE  ctermfg=11
+        hi SpellCap     ctermbg=NONE  ctermfg=11
+        hi Error        ctermbg=8     ctermfg=1
+        hi Todo         ctermbg=8     ctermfg=11
+        hi DiffAdd                ctermbg=NONE  ctermfg=11
+        hi GitGutterAdd           ctermbg=NONE  ctermfg=11
+        hi DiffChange             ctermbg=NONE  ctermfg=9
+        hi GitGutterChange        ctermbg=NONE  ctermfg=9
+        hi DiffDelete             ctermbg=NONE  ctermfg=1
+        hi GitGutterAddDelete     ctermbg=NONE  ctermfg=1
+        hi GitGutterChangeDelete  ctermbg=NONE  ctermfg=1
+        hi GitGutterDelete        ctermbg=NONE  ctermfg=1
       '';
       plug.plugins = with pkgs.vimPlugins; [
-        vim-sensible base16-vim editorconfig-vim fugitive gitgutter vim-polyglot vim-nix vim-gutentags ale deoplete-nvim neco-syntax
+        vim-sensible editorconfig-vim fugitive gitgutter vim-polyglot vim-nix vim-gutentags ale neco-syntax deoplete-nvim
       ];
     };
   });
