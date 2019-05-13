@@ -3,7 +3,6 @@
   environment = {
     systemPackages = with pkgs; [ polybar ];
     etc."polybar.conf" = {
-      mode = "0644";
       text = ''
         [colors]
         background = ''${xrdb:color0}

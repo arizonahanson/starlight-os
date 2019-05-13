@@ -6,7 +6,6 @@
     scrot
   ];
   environment.etc.sxhkdrc = {
-    mode = "0644";
     text = ''
       # rofi applications menu
       super + space
