@@ -147,7 +147,9 @@
         hi! link diffRemoved DiffDelete
         hi! link diffChanged DiffChange
         hi! link gitcommitFile DiffChange
+        hi! link gitcommitSummary Normal
         " misc syntax relinking
+        hi! link shOption Constant
         hi! link zshDereferencing Identifier
         hi! link zshTypes Statement
         hi! link csLogicSymbols Operator
