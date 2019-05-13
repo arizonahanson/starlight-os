@@ -122,7 +122,7 @@
         " types
         hi Function     ctermfg=4  "blue
         hi Type         ctermfg=12 "sky
-        " keywords
+        " keywords, statements, operators
         hi Statement    ctermfg=5  "purple
         hi Keyword      ctermfg=13 "magenta
         hi! link Operator Keyword
@@ -154,7 +154,6 @@
         hi! link diffChanged DiffChange
         hi! link gitcommitFile DiffChange
         hi! link gitcommitSummary Normal
-        " misc syntax relinking
       '';
       plug.plugins = with pkgs.vimPlugins; [
         vim-sensible editorconfig-vim fugitive gitgutter vim-polyglot vim-nix vim-gutentags ale neco-syntax deoplete-nvim
