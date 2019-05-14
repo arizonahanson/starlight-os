@@ -73,6 +73,10 @@
         " activate spell check for some types
         autocmd FileType gitcommit set spell spelllang=en_us
         autocmd FileType markdown set spell spelllang=en_us
+        " turn-on numbers
+        autocmd FileType go set number
+        autocmd FileType javascript set number
+        autocmd FileType nix set number
         " vimdiff layout
         set diffopt=filler,vertical
         " lines to the cursor when moving vertically using j/k
@@ -103,6 +107,7 @@
         hi IncSearch    ctermbg=8     ctermfg=15    cterm=underline "incremental
         hi WildMenu     ctermbg=15    ctermfg=8     cterm=NONE "menu
         hi PmenuThumb   ctermfg=7
+        hi! link Noise Identifier
         hi! link Search Visual
         hi! link MatchParen Visual
         hi! link LineNr Comment
@@ -114,8 +119,9 @@
         hi! link Pmenu StatusLineNC
         hi! link PmenuSbar StatusLineNC
         hi! link PmenuSel StatusLine
-        " identifiers
+        " identifiers / noise
         hi! link zshDereferencing Identifier
+        hi! link csBraces Noise
         " strings
         hi String       ctermfg=3  "brown
         hi Character    ctermfg=11 "yellow
@@ -136,7 +142,6 @@
         hi! link Include Statement
         hi! link PreProc Statement
         hi! link zshTypes Statement
-        hi! link csBraces Statement
         hi! link Label Keyword
         hi! link Repeat Keyword
         hi! link csLogicSymbols Operator
