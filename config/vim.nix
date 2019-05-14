@@ -17,6 +17,7 @@
         let g:gitgutter_sign_removed=''
         let g:ale_sign_error=''
         let g:ale_sign_warning=''
+        let g:ale_sign_info=''
         set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
         " turn backup off
@@ -151,6 +152,7 @@
         hi Todo         ctermbg=8     ctermfg=11 "yellow on gray
         hi AleErrorSign   ctermbg=NONE ctermfg=1 "red
         hi AleWarningSign ctermbg=NONE ctermfg=9 "orange
+        hi AleInfoSign    ctermbg=NONE ctermfg=11 "yellow
         hi! link SpellCap Todo
         hi! link SpellRare Warning
         hi! link SpellBad Error
