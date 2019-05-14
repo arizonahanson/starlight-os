@@ -15,7 +15,7 @@
         let g:gitgutter_sign_modified_removed=''
         let g:gitgutter_sign_added=''
         let g:gitgutter_sign_removed=''
-        let g:ale_sign_error=''
+        let g:ale_sign_error=''
         let g:ale_sign_warning=''
         set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
