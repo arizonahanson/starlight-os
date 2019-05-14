@@ -109,7 +109,7 @@
         hi! link Pmenu StatusLineNC
         hi! link PmenuSbar StatusLineNC
         hi! link PmenuSel StatusLine
-        hi! link PmenuThumb StatusLine
+        hi! link PmenuThumb StatusLineNC
         " identifiers
         hi! link zshDereferencing Identifier
         " strings
