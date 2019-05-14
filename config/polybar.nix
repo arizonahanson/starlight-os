@@ -17,7 +17,7 @@
         purple = ''${xrdb:color5}
         cyan = ''${xrdb:color6}
         accent = ''${colors.blue}
-        alert = ''${colors.red}
+        alert = ''${colors.yellow}
 
         [bar/default]
         monitor = ''${env:MONITOR:VGA-1}
