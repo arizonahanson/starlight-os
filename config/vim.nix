@@ -107,7 +107,9 @@
         hi! link TabLineSel StatusLine
         hi! link TabLineFill CursorLine
         hi! link Pmenu StatusLineNC
+        hi! link PmenuSbar StatusLineNC
         hi! link PmenuSel StatusLine
+        hi! link PmenuThumb StatusLine
         " identifiers
         hi! link zshDereferencing Identifier
         " strings
