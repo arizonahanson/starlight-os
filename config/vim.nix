@@ -98,6 +98,7 @@
         hi StatusLine   ctermbg=8     ctermfg=15    cterm=NONE "current
         hi IncSearch    ctermbg=8     ctermfg=15    cterm=underline "incremental
         hi WildMenu     ctermbg=15    ctermfg=8     cterm=NONE "menu
+        hi PmenuThumb   ctermfg=7
         hi! link Search Visual
         hi! link MatchParen Visual
         hi! link LineNr Comment
@@ -109,7 +110,6 @@
         hi! link Pmenu StatusLineNC
         hi! link PmenuSbar StatusLineNC
         hi! link PmenuSel StatusLine
-        hi! link PmenuThumb StatusLineNC
         " identifiers
         hi! link zshDereferencing Identifier
         " strings
