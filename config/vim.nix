@@ -13,6 +13,8 @@
         let g:gitgutter_override_sign_column_highlight=0
         let g:gitgutter_sign_modified='*'
         let g:gitgutter_sign_modified_removed='*_'
+        let g:ale_sign_error=''
+        let g:ale_sign_warning=''
         set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
         " turn backup off
@@ -140,6 +142,8 @@
         hi Error        ctermbg=8     ctermfg=1  "red on gray
         hi Warning      ctermbg=8     ctermfg=9  "orange on gray
         hi Todo         ctermbg=8     ctermfg=11 "yellow on gray
+        hi AleErrorSign   ctermbg=NONE ctermfg=1 "red
+        hi AleWarningSign ctermbg=NONE ctermfg=9 "orange
         hi! link SpellCap Todo
         hi! link SpellRare Warning
         hi! link SpellBad Error
