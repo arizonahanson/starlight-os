@@ -45,7 +45,7 @@
         module-margin-left = 1
         module-margin-right = 1
 
-        font-0 = Share Tech:size=15;4
+        font-0 = Share Tech:size=16;4
         font-1 = Font Awesome 5 Free Solid:size=14;3
         font-2 = Noto Emoji:size=14;4
         font-3 = DejaVu Sans:size=14;2
@@ -79,7 +79,7 @@
         type = custom/script
         exec = date '+%a %_d %b %l:%M %p ' | sed 's/  / /g'
         interval = 30
-        format-foreground = ''${colors.foreground}
+        format-foreground = ''${colors.foreground-alt}
         label-font = 1
 
         [module/xwindow]
