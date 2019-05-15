@@ -75,7 +75,7 @@ with lib;
       CM_LAUNCHER = "cliprofi";
       SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
     };
-    environment.etc."termite.conf" = {
+    environment.etc."termite.conf" = let palette = config.starlight.palette; in {
       mode = "0644";
       text = ''
         [options]
@@ -85,42 +85,42 @@ with lib;
         [colors]
   
         # special
-        foreground      = #c7c7c7
-        foreground_bold = #c7c7c7
-        cursor          = #c7c7c7
-        background      = #212121
+        foreground      = ${palette.foreground}
+        foreground_bold = ${palette.foreground}
+        cursor          = ${palette.foreground}
+        background      = ${palette.background}
   
         # black
-        color0  = #212121
-        color8  = #404040
+        color0  = ${palette.color0}
+        color8  = ${palette.color8}
   
         # red
-        color1  = #cc6666
-        color9  = #de985f
+        color1  = ${palette.color1}
+        color9  = ${palette.color9}
   
         # green
-        color2  = #638f63
-        color10 = #85cc85
+        color2  = ${palette.color2}
+        color10 = ${palette.color10}
   
         # yellow
-        color3  = #8f7542
-        color11 = #f0c674
+        color3  = ${palette.color3}
+        color11 = ${palette.color11}
   
         # blue
-        color4  = #59748f
-        color12 = #8fadcc
+        color4  = ${palette.color4}
+        color12 = ${palette.color12}
   
         # magenta
-        color5  = #85678f
-        color13 = #b093ba
+        color5  = ${palette.color5}
+        color13 = ${palette.color13}
   
         # cyan
-        color6  = #5e8d87
-        color14 = #8abeb7
+        color6  = ${palette.color6}
+        color14 = ${palette.color14}
   
         # white
-        color7  = #787878
-        color15 = #c7c7c7
+        color7  = ${palette.color7}
+        color15 = ${palette.color15}
       '';
     };
     environment.etc."ld-nix.so.preload" = if config.virtualisation.virtualbox.guest.enable then {
@@ -232,7 +232,7 @@ with lib;
         shadow-radius = 6;
       '';
     };
-    environment.etc."X11/Xresources" = {
+    environment.etc."X11/Xresources" = let palette = config.starlight.palette; in {
       text = ''
         ! XFT
         Xft.antialias: 1
@@ -268,10 +268,10 @@ with lib;
         ! "scrolling method. (0: Page, 1: Centered)"
         rofi.scroll-method:     1
         ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
-        rofi.color-normal: #212121,#404040,#212121,#212121,#c7c7c7
-        rofi.color-urgent: #212121,#cc6666,#212121,#212121,#cc6666
-        rofi.color-active: #212121,#787878,#212121,#212121,#c7c7c7
-        rofi.color-window: #212121,#212121,#212121
+        rofi.color-normal: ${palette.background},${palette.color8},${palette.background},${palette.background},${palette.foreground}
+        rofi.color-urgent: ${palette.background},${palette.color1},${palette.background},${palette.background},${palette.color1}
+        rofi.color-active: ${palette.background},${palette.color7},${palette.background},${palette.background},${palette.foreground}
+        rofi.color-window: ${palette.background},${palette.background},${palette.background}
         rofi.display-drun: 
         rofi.display-run: 
         rofi.display-window: 
@@ -281,41 +281,41 @@ with lib;
         rofi.monitor: -1
   
         ! special
-        *.foreground:   #c7c7c7
-        *.background:   #212121
-        *.cursorColor:  #c7c7c7
+        *.foreground:   ${palette.foreground}
+        *.background:   ${palette.background}
+        *.cursorColor:  ${palette.foreground}
   
         ! black
-        *.color0:       #212121
-        *.color8:       #404040
+        *.color0:       ${palette.color0}
+        *.color8:       ${palette.color8}
   
         ! red
-        *.color1:       #cc6666
-        *.color9:       #de985f
+        *.color1:       ${palette.color1}
+        *.color9:       ${palette.color9}
 
         ! green
-        *.color2:       #638f63
-        *.color10:      #85cc85
+        *.color2:       ${palette.color2}
+        *.color10:      ${palette.color10}
 
         ! yellow
-        *.color3:       #8f7542
-        *.color11:      #f0c674
+        *.color3:       ${palette.color3}
+        *.color11:      ${palette.color11}
   
         ! blue
-        *.color4:       #59748f
-        *.color12:      #8fadcc
+        *.color4:       ${palette.color4}
+        *.color12:      ${palette.color12}
   
         ! magenta
-        *.color5:       #85678f
-        *.color13:      #b093ba
+        *.color5:       ${palette.color5}
+        *.color13:      ${palette.color13}
 
         ! cyan
-        *.color6:       #5e8d87
-        *.color14:      #8abeb7
+        *.color6:       ${palette.color6}
+        *.color14:      ${palette.color14}
   
         ! white
-        *.color7:       #787878
-        *.color15:      #c7c7c7
+        *.color7:       ${palette.color7}
+        *.color15:      ${palette.color15}
       '';
     };
   };

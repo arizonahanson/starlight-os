@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [ gnome3.dconf ];
-  environment.etc.dconf_keyfile = {
+  environment.etc.dconf_keyfile = let palette = config.starlight.palette; in {
     target = "dconf/db/site.d/keyfile";
     text = ''
       [org/gnome/desktop/a11y/mouse]
@@ -159,7 +159,7 @@
       [desktop/ibus/panel]
       show=0
       show-icon-on-systray=true
-      xkb-icon-rgba='#c7c7c7'
+      xkb-icon-rgba='${palette.foreground}'
 
       [org/mate/marco/general]
       theme='starlight'
