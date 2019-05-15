@@ -244,7 +244,7 @@ with lib;
         Xft.rgba: rgb
   
         ! ROFI
-        rofi.font:              Exo 2 SemiBold 18
+        rofi.font:              Share Tech 16
         rofi.modi:              window,run,drun,combi
         rofi.width:             38
         rofi.lines:             5

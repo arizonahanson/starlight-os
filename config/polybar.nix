@@ -45,11 +45,10 @@
         module-margin-left = 1
         module-margin-right = 1
 
-        font-0 = Exo 2:style=Bold:size=12;2
-        font-1 = Exo 2:style=Bold:size=14;3
-        font-2 = Font Awesome 5 Free Solid:size=14;4
-        font-3 = Noto Emoji:size=14;4
-        font-4 = DejaVu Sans:size=14;2
+        font-0 = Share Tech:size=15;4
+        font-1 = Font Awesome 5 Free Solid:size=14;3
+        font-2 = Noto Emoji:size=14;4
+        font-3 = DejaVu Sans:size=14;2
 
         modules-left = xwindow
         modules-center =
@@ -86,9 +85,9 @@
         [module/xwindow]
         type = internal/xwindow
         label = %title:0:64:…%
-        label-font = 2
+        label-font = 1
         label-empty = •
-        label-empty-font = 4
+        label-empty-font = 3
         label-empty-foreground = ''${colors.foreground}
 
         [module/bspwm]
@@ -113,10 +112,10 @@
         label-empty-foreground = ''${colors.background-alt}
         label-empty-padding = 0
 
-        label-focused-font = 5
-        label-occupied-font = 5
-        label-urgent-font = 5
-        label-empty-font = 5
+        label-focused-font = 4
+        label-occupied-font = 4
+        label-urgent-font = 4
+        label-empty-font = 4
 
         label-dimmed-focused-foreground = ''${colors.foreground-alt}
 

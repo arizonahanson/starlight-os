@@ -73,7 +73,7 @@
       [org/mate/desktop/interface]
       menus-have-icons=true
       gtk-decoration-layout='menu:close'
-      font-name='Exo 2 14'
+      font-name='Share Tech 15'
       gtk-im-module='ibus'
       cursor-blink-time=1000
       monospace-font-name='Share Tech Mono 14'
