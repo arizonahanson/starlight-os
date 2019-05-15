@@ -282,8 +282,8 @@ with lib;
   
         ! special
         *.foreground:   ${palette.foreground}
-        *.background:   ${palette.background}
         *.cursorColor:  ${palette.foreground}
+        *.background:   ${palette.background}
   
         ! black
         *.color0:       ${palette.color0}
