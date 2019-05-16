@@ -132,6 +132,7 @@
         hi Constant     ctermfg=14 "cyan
         hi! link Boolean Constant
         hi! link shOption Constant
+        hi! link jsNull Constant
         " types
         hi Function     ctermfg=2  "green
         hi Type         ctermfg=12 "skyblue
