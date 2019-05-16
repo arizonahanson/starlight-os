@@ -119,7 +119,6 @@
 
         label-dimmed-focused-foreground = ''${colors.foreground-alt}
 
-        label-monocle = "  "
         label-floating = "  "
         label-pseudotiled = "  "
 
