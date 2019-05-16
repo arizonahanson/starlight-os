@@ -251,10 +251,10 @@ with lib;
         rofi.columns:           1
         ! "border width"
         rofi.bw:                2
-        rofi.location:          1
+        rofi.location:          0
         rofi.padding:           12
-        rofi.yoffset:           44
-        rofi.xoffset:           4
+        rofi.yoffset:           0
+        rofi.xoffset:           0
         rofi.fixed-num-lines:   true
         rofi.terminal:          termite
         rofi.run-shell-command:  {terminal} -e '{cmd}'
