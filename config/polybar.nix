@@ -35,7 +35,7 @@
         border-size = 1
         border-color = ''${colors.background-alt}
 
-        padding-left = 4
+        padding-left = 3
         padding-right = 1
 
         module-margin-left = 1
