@@ -129,7 +129,7 @@
       OTHER_WRITABLE 0;7;32 # dir that is other-writable (o+w) and not sticky
       STICKY 0;4;31 # dir with the sticky bit set (+t) and not other-writable
       # This is for files with execute permission:
-      EXEC 0;32
+      EXEC 1;32
       # List any file extensions like '.gz' or '.tar' that you would like ls
       # to colorize below. Put the extension, a space, and the color init string.
       # (and any comments you want to add after a '#')
@@ -405,9 +405,9 @@
     export ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=yellow'
     export ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'
     export ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=white,underline'
-    export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,bold'
-    export ZSH_HIGHLIGHT_STYLES[alias]='fg=green,bold'
-    export ZSH_HIGHLIGHT_STYLES[command]='fg=green'
+    export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green'
+    export ZSH_HIGHLIGHT_STYLES[alias]='fg=green'
+    export ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
     export ZSH_HIGHLIGHT_STYLES[builtin]='fg=magenta,bold'
     export ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=magenta'
     export ZSH_HIGHLIGHT_STYLES[redirection]='fg=magenta'
