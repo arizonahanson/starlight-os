@@ -96,83 +96,19 @@
         " do not pollute with ctags
         let g:gutentags_cache_dir='/tmp/.gutentags-' . $USER
         " colorscheme
-        set background=dark
-        " grays (general)
-        hi Normal       ctermbg=NONE  ctermfg=15    cterm=NONE "chalk
-        hi Identifier   ctermbg=NONE  ctermfg=7     cterm=NONE "pencil
-        hi Comment      ctermbg=NONE  ctermfg=8     cterm=NONE "charcoal
-        hi CursorLine   ctermbg=NONE  ctermfg=NONE  cterm=NONE "clear
-        hi Visual       ctermbg=8     ctermfg=NONE  cterm=NONE "highlight
-        hi StatusLine   ctermbg=8     ctermfg=fg    cterm=NONE "current
-        hi StatusLineNC ctermbg=8     ctermfg=7     cterm=NONE "muted
-        hi IncSearch    ctermbg=8     ctermfg=fg    cterm=underline "incremental
-        hi WildMenu     ctermbg=fg    ctermfg=8     cterm=NONE "menu
-        hi PmenuThumb   ctermfg=7
-        hi! link Noise Identifier
-        hi! link Search Visual
-        hi! link MatchParen Visual
-        hi! link LineNr Comment
-        hi! link CursorLineNr Identifier
-        hi! link SignColumn CursorLine
-        hi! link TabLine Comment
-        hi! link TabLineSel StatusLine
-        hi! link TabLineFill CursorLine
-        hi! link Pmenu StatusLineNC
-        hi! link PmenuSbar StatusLineNC
-        hi! link PmenuSel StatusLine
-        " identifiers / noise
-        hi! link zshDereferencing Identifier
-        hi! link csBraces Noise
-        " strings
-        hi String       ctermfg=3  "brown
-        hi Character    ctermfg=11 "yellow
-        hi! link Special Character
-        " other consts
-        hi Number       ctermfg=6  "teal
-        hi Constant     ctermfg=14 "cyan
-        hi! link Boolean Constant
-        hi! link shOption Constant
-        hi! link jsNull Constant
-        " types
-        hi Function     ctermfg=2  "green
-        hi Type         ctermfg=12 "skyblue
-        " keywords, statements, operators
-        hi Statement    ctermfg=5  "purple
-        hi Keyword      ctermfg=13 "magenta
-        hi! link Operator Keyword
-        hi! link StorageClass Statement
-        hi! link Include Statement
-        hi! link PreProc Statement
-        hi! link zshTypes Statement
-        hi! link Label Keyword
-        hi! link Repeat Keyword
-        hi! link csLogicSymbols Operator
-        " status highlight
-        hi Error        ctermbg=8     ctermfg=1  "red on gray
-        hi Warning      ctermbg=8     ctermfg=9  "orange on gray
-        hi Todo         ctermbg=8     ctermfg=11 "yellow on gray
-        hi AleErrorSign   ctermbg=NONE ctermfg=1 "red
-        hi AleWarningSign ctermbg=NONE ctermfg=9 "orange
-        hi AleInfoSign    ctermbg=NONE ctermfg=11 "yellow
-        hi! link SpellCap Todo
-        hi! link SpellRare Warning
-        hi! link SpellBad Error
-        hi DiffAdd      ctermbg=NONE  ctermfg=2 "green
-        hi DiffChange   ctermbg=NONE  ctermfg=9 "orange
-        hi DiffDelete   ctermbg=NONE  ctermfg=1 "red
-        hi! link GitGutterAdd DiffAdd
-        hi! link GitGutterChange DiffChange
-        hi! link GitGutterAddDelete DiffDelete
-        hi! link GitGutterChangeDelete DiffDelete
-        hi! link GitGutterDelete DiffDelete
-        hi! link diffAdded DiffAdd
-        hi! link diffRemoved DiffDelete
-        hi! link diffChanged DiffChange
-        hi! link gitcommitFile DiffChange
-        hi! link gitcommitSummary Normal
+        colorscheme starlight
       '';
-      plug.plugins = with pkgs.vimPlugins; [
-        vim-sensible editorconfig-vim fugitive gitgutter vim-polyglot vim-nix vim-gutentags ale neco-syntax deoplete-nvim
+      plug.plugins = let starlightTheme = pkgs.vimUtils.buildVimPlugin {
+        name = "vim-starlight-theme";
+        src = pkgs.fetchFromGitHub {
+          owner = "isaacwhanson";
+          repo = "vim-starlight-theme";
+          rev = "v0.1";
+          sha256 = "0c7bkccbwryab45nmlxyl9j9n19sqc9hrd2dx579r2arfyqspzfl";
+        };
+      }; in
+      with pkgs.vimPlugins; [
+        (starlightTheme) vim-sensible editorconfig-vim fugitive gitgutter vim-polyglot vim-nix vim-gutentags ale neco-syntax deoplete-nvim
       ];
     };
   });
