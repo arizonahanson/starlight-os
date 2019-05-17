@@ -93,7 +93,7 @@
         format-foreground = ''${colors.foreground}
 
         label-focused = "▣ "
-        label-focused-foreground = ''${colors.foreground}
+        label-focused-foreground = ''${colors.cyan}
         label-focused-padding = 0
 
         label-occupied = "▨ "
