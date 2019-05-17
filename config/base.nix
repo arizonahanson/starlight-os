@@ -9,6 +9,13 @@ with lib;
     ./tmux.nix
     ./vim.nix
   ];
+  options.starlight.logo = mkOption {
+    type = types.str;
+    default = "• ";
+    description = ''
+      Text logo
+    '';
+  };
   options.starlight.palette = {
     foreground = mkOption {
       type = types.str;

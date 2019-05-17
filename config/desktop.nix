@@ -37,18 +37,17 @@ with lib;
       '')
       (with import <nixpkgs> {}; writeShellScriptBin "terminal" ''
         CLASS_NAME="terminal"
-        SESSION_NAME="0"
         # does term with CLASS_NAME exist?
         if xdo id -N "$CLASS_NAME">/dev/null; then
           # focus, move to current desktop the existing term with CLASS_NAME
-          for NODE_ID in $(xdo id -N ''${CLASS_NAME}); do
+          for NODE_ID in $(xdo id -N $CLASS_NAME); do
             bspc node $NODE_ID -d focused -m focused
             bspc node -f $NODE_ID
           done
         else
           # create new term with CLASS_NAME
           # create new tmux session, or attach if exists
-          termite -e "tmux-session ''${SESSION_NAME}" --class="''${CLASS_NAME}"
+          termite -e "tmux-session '${config.starlight.logo}'" --class="$CLASS_NAME"
         fi
       '')
       (with import <nixpkgs> {}; writeShellScriptBin "flatpak" ''
@@ -224,9 +223,9 @@ with lib;
       shadow = true;
       shadowOffsets = [ (-9) (-3) ];
       shadowExclude = [
-  	    "name = 'Polybar tray window'"
-      	"_GTK_FRAME_EXTENTS@:c"
-        ];
+        "name = 'Polybar tray window'"
+        "_GTK_FRAME_EXTENTS@:c"
+      ];
       shadowOpacity = "0.5";
       extraOptions = ''
         shadow-radius = 6;

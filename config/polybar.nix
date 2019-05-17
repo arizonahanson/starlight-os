@@ -78,7 +78,7 @@
         type = internal/xwindow
         label = %title:0:92:…%
         label-font = 1
-        label-empty = •
+        label-empty = ${config.starlight.logo}
         label-empty-font = 3
         label-empty-foreground = ''${colors.foreground}
 
