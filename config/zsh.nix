@@ -19,12 +19,12 @@
     customPkgs = 
       let
         zsh-starlight-theme = with pkgs; stdenv.mkDerivation rec {
-          name = "zsh-starlight-theme-v1.7";
+          name = "zsh-starlight-theme-v1.8";
           src = fetchFromGitHub {
             owner = "isaacwhanson";
             repo = "zsh-starlight-theme";
-            rev = "v1.7";
-            sha256 = "031a7csr3dqdkj1spx3aq60a71acwv72mxdl8p3gf0z0ns0lmwhw";
+            rev = "v1.8";
+            sha256 = "0fwf37vnhfpvx5vk12idjh0xmp3j1ig6lcwy8rjx8kcxysshmn00";
           };
             
           dontBuild = true;
@@ -401,12 +401,12 @@
     export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red,bg=8'
     export ZSH_HIGHLIGHT_STYLES[path]='fg=blue'
     export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=blue'
-    export ZSH_HIGHLIGHT_STYLES[globbing]='fg=cyan'
+    export ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue,bold'
     export ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=yellow'
     export ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'
     export ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=white,underline'
-    export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green'
-    export ZSH_HIGHLIGHT_STYLES[alias]='fg=green'
+    export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,bold'
+    export ZSH_HIGHLIGHT_STYLES[alias]='fg=green,bold'
     export ZSH_HIGHLIGHT_STYLES[command]='fg=green'
     export ZSH_HIGHLIGHT_STYLES[builtin]='fg=magenta,bold'
     export ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=magenta'
@@ -419,7 +419,7 @@
     export ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=cyan'
     export ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg=magenta'
     export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=cyan'
-    export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan'
+    export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan,bold'
     export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan'
     
     # fzf with tmux
