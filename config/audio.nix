@@ -13,21 +13,21 @@ with lib;
     };
     device = mkOption {
       type = types.str;
-      default = "hw:0";
+      default = "none";
       description = ''
         ALSA device
       '';
     };
     capture = mkOption {
       type = types.str;
-      default = "hw:0";
+      default = "none";
       description = ''
         ALSA capture device
       '';
     };
     playback = mkOption {
       type = types.str;
-      default = "hw:0";
+      default = "none";
       description = ''
         ALSA playback device
       '';
@@ -41,9 +41,9 @@ with lib;
     };
     periods = mkOption {
       type = types.int;
-      default = 3;
+      default = 2;
       description = ''
-        number of periods (3)
+        number of periods (2)
       '';
     };
     frames = mkOption {
