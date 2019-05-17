@@ -38,7 +38,7 @@
         padding-left = 3
         padding-right = 1
 
-        module-margin-left = 1
+        module-margin-left = 0
         module-margin-right = 1
 
         font-0 = Share Tech:size=16;4
