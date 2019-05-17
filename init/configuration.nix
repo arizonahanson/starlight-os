@@ -3,19 +3,19 @@
 {
   imports = [ ./os.nix ];
 
-  networking.hostName = "myhost";
-  #starlight = {
+  starlight = {
+    hostname = "myhost";
+  # logo = "• ";
   # desktop = true;
   # docker = false;
   # server = false;
   # proaudio = {
   #   enable = false;
-  #   enable = false;
   #   device = "none";
-  #   capture = "hw:0";
-  #   playback = "hw:0";
+  #   capture = "none";
+  #   playback = "none";
   #   rate = 44100;
-  #   periods = 3;
+  #   periods = 2;
   #   frames = 1024;
   # };
   # palette = {
@@ -23,6 +23,5 @@
   #   foreground = "#c7c7c7";
   #   color0 = "#212121";
   # };
-  # logo = "• ";
-  #};
+  };
 }

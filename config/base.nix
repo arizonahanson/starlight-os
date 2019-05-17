@@ -9,153 +9,161 @@ with lib;
     ./tmux.nix
     ./vim.nix
   ];
-  options.starlight.logo = mkOption {
-    type = types.str;
-    default = "• ";
-    description = ''
-      Text logo
-    '';
-  };
-  options.starlight.palette = {
-    foreground = mkOption {
+  options.starlight = {
+    hostname = mkOption {
       type = types.str;
-      default = "#c7c7c7";
       description = ''
-        Foreground color
+        hostname
       '';
     };
-    foreground-alt = mkOption {
+    logo = mkOption {
       type = types.str;
-      default = "#787878";
+      default = "• ";
       description = ''
-        Alternate foreground color
+        Text logo
       '';
     };
-    background = mkOption {
-      type = types.str;
-      default = "#212121";
-      description = ''
-        Background color
-      '';
-    };
-    background-alt = mkOption {
-      type = types.str;
-      default = "#404040";
-      description = ''
-        Background color
-      '';
-    };
-    color0 = mkOption {
-      type = types.str;
-      default = "#212121";
-      description = ''
-        color 0 (black)
-      '';
-    };
-    color1 = mkOption {
-      type = types.str;
-      default = "#cc6666";
-      description = ''
-        color 1 (red)
-      '';
-    };
-    color2 = mkOption {
-      type = types.str;
-      default = "#638f63";
-      description = ''
-        color 2 (green)
-      '';
-    };
-    color3 = mkOption {
-      type = types.str;
-      default = "#8f7542";
-      description = ''
-        color 3 (brown)
-      '';
-    };
-    color4 = mkOption {
-      type = types.str;
-      default = "#59748f";
-      description = ''
-        color 4 (blue)
-      '';
-    };
-    color5 = mkOption {
-      type = types.str;
-      default = "#85678f";
-      description = ''
-        color 5 (magenta)
-      '';
-    };
-    color6 = mkOption {
-      type = types.str;
-      default = "#5e8d87";
-      description = ''
-        color 6 (cyan)
-      '';
-    };
-    color7 = mkOption {
-      type = types.str;
-      default = "#787878";
-      description = ''
-        color 7 (white)
-      '';
-    };
-    color8 = mkOption {
-      type = types.str;
-      default = "#404040";
-      description = ''
-        color 8 (dark gray)
-      '';
-    };
-    color9 = mkOption {
-      type = types.str;
-      default = "#de985f";
-      description = ''
-        color 9 (orange)
-      '';
-    };
-    color10 = mkOption {
-      type = types.str;
-      default = "#85cc85";
-      description = ''
-        color 10 (bright green)
-      '';
-    };
-    color11 = mkOption {
-      type = types.str;
-      default = "#f0c674";
-      description = ''
-        color 11 (yellow)
-      '';
-    };
-    color12 = mkOption {
-      type = types.str;
-      default = "#8fadcc";
-      description = ''
-        color 12 (bright blue)
-      '';
-    };
-    color13 = mkOption {
-      type = types.str;
-      default = "#b093ba";
-      description = ''
-        color 13 (bright magenta)
-      '';
-    };
-    color14 = mkOption {
-      type = types.str;
-      default = "#8abeb7";
-      description = ''
-        color 14 (bright cyan)
-      '';
-    };
-    color15 = mkOption {
-      type = types.str;
-      default = "#c7c7c7";
-      description = ''
-        color 15 (bright white)
-      '';
+    palette = {
+      foreground = mkOption {
+        type = types.str;
+        default = "#c7c7c7";
+        description = ''
+          Foreground color
+        '';
+      };
+      foreground-alt = mkOption {
+        type = types.str;
+        default = "#787878";
+        description = ''
+          Alternate foreground color
+        '';
+      };
+      background = mkOption {
+        type = types.str;
+        default = "#212121";
+        description = ''
+          Background color
+        '';
+      };
+      background-alt = mkOption {
+        type = types.str;
+        default = "#404040";
+        description = ''
+          Background color
+        '';
+      };
+      color0 = mkOption {
+        type = types.str;
+        default = "#212121";
+        description = ''
+          color 0 (black)
+        '';
+      };
+      color1 = mkOption {
+        type = types.str;
+        default = "#cc6666";
+        description = ''
+          color 1 (red)
+        '';
+      };
+      color2 = mkOption {
+        type = types.str;
+        default = "#638f63";
+        description = ''
+          color 2 (green)
+        '';
+      };
+      color3 = mkOption {
+        type = types.str;
+        default = "#8f7542";
+        description = ''
+          color 3 (brown)
+        '';
+      };
+      color4 = mkOption {
+        type = types.str;
+        default = "#59748f";
+        description = ''
+          color 4 (blue)
+        '';
+      };
+      color5 = mkOption {
+        type = types.str;
+        default = "#85678f";
+        description = ''
+          color 5 (magenta)
+        '';
+      };
+      color6 = mkOption {
+        type = types.str;
+        default = "#5e8d87";
+        description = ''
+          color 6 (cyan)
+        '';
+      };
+      color7 = mkOption {
+        type = types.str;
+        default = "#787878";
+        description = ''
+          color 7 (white)
+        '';
+      };
+      color8 = mkOption {
+        type = types.str;
+        default = "#404040";
+        description = ''
+          color 8 (dark gray)
+        '';
+      };
+      color9 = mkOption {
+        type = types.str;
+        default = "#de985f";
+        description = ''
+          color 9 (orange)
+        '';
+      };
+      color10 = mkOption {
+        type = types.str;
+        default = "#85cc85";
+        description = ''
+          color 10 (bright green)
+        '';
+      };
+      color11 = mkOption {
+        type = types.str;
+        default = "#f0c674";
+        description = ''
+          color 11 (yellow)
+        '';
+      };
+      color12 = mkOption {
+        type = types.str;
+        default = "#8fadcc";
+        description = ''
+          color 12 (bright blue)
+        '';
+      };
+      color13 = mkOption {
+        type = types.str;
+        default = "#b093ba";
+        description = ''
+          color 13 (bright magenta)
+        '';
+      };
+      color14 = mkOption {
+        type = types.str;
+        default = "#8abeb7";
+        description = ''
+          color 14 (bright cyan)
+        '';
+      };
+      color15 = mkOption {
+        type = types.str;
+        default = "#c7c7c7";
+        description = ''
+          color 15 (bright white)
+        '';
+      };
     };
   };
   config = mkMerge [
@@ -163,6 +171,7 @@ with lib;
   # latest kernel
   nixpkgs.config.allowUnfree = true;
   nix.autoOptimiseStore = true;
+  networking.hostName = (config.starlight.hostname);
   environment.systemPackages = with pkgs; [
     gnumake bc
     psmisc pciutils
