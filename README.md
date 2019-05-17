@@ -51,7 +51,7 @@ principles:
     full-screen window
   super + t:
     tile window
-  super + shift + t:
+  super + a:
     anchor window (pseudo-tile)
   super + m:
     monocle mode toggle

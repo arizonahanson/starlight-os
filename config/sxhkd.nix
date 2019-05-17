@@ -37,8 +37,8 @@
       # monocle toggle
       super + m
         bspc desktop -l next
-      # tile/pseudo-tile toggle
-      super + {_,shift + }t
+      # anchored/tiled toggle
+      super + {t,a}
         bspc node -t {_,pseudo_}tiled
       # floating/fullscreen toggle
       super + {_,shift + }f
