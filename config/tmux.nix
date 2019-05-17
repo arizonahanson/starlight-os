@@ -52,7 +52,7 @@
       set-option -g display-panes-colour brightred
 
       # clock
-      set-window-option -g clock-mode-colour green
+      set-window-option -g clock-mode-colour brightwhite
     '';
   };
 }

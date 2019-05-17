@@ -48,7 +48,7 @@
 
         modules-left = xwindow
         modules-center =
-        modules-right = temperature cal bspwm
+        modules-right = temperature clock bspwm
 
         tray-position = center
         tray-padding = 2
@@ -71,11 +71,11 @@
         interval = 3600
         format-foreground = ''${colors.foreground-alt}
 
-        [module/cal]
+        [module/clock]
         type = custom/script
         exec = date '+%a %_d %b %l:%M %p ' | sed 's/  / /g'
         interval = 30
-        format-foreground = ''${colors.foreground-alt}
+        format-foreground = ''${colors.foreground}
         label-font = 1
 
         [module/xwindow]
@@ -93,7 +93,7 @@
         format-foreground = ''${colors.foreground}
 
         label-focused = "▣ "
-        label-focused-foreground = ''${colors.cyan}
+        label-focused-foreground = ''${colors.foreground}
         label-focused-padding = 0
 
         label-occupied = "▨ "
