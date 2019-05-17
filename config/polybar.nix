@@ -80,7 +80,7 @@
 
         [module/xwindow]
         type = internal/xwindow
-        label = %title:0:64:…%
+        label = %title:0:92:…%
         label-font = 1
         label-empty = •
         label-empty-font = 3
