@@ -11,15 +11,10 @@
     };
     default = "bspwm";
   };
-  environment.etc.bspwmrc = {
+  environment.etc.bspwmrc = let palette = config.starlight.palette; in {
     mode = "0645";
     text = ''
       #!/usr/bin/env zsh
-
-      # xrdb
-      function get_xrdb() {
-        xrdb -query | grep "$1" | awk '{print $2}' | tail -n1
-      }
 
       if [ -e "/etc/X11/Xresources" ]; then
         xrdb /etc/X11/Xresources
@@ -46,8 +41,8 @@
       xset s noblank
 
       # border color
-      bspc config normal_border_color "$(get_xrdb color8)"
-      bspc config focused_border_color "$(get_xrdb color7)"
+      bspc config normal_border_color "${palette.color8}"
+      bspc config focused_border_color "${palette.color7}"
       bspc config border_width         2
       bspc config window_gap           0
       bspc config split_ratio          0.50
