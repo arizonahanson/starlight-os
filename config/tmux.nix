@@ -8,7 +8,6 @@
     '')
   ];
   environment.etc."tmux.conf" = {
-    mode = "0644";
     text = ''
       set -g default-terminal "screen-256color"
       set -g set-titles on
