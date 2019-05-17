@@ -11,12 +11,11 @@
         foreground-alt = ''${xrdb:color7}
         red = ''${xrdb:color1}
         orange = ''${xrdb:color9}
-        green = ''${xrdb:color2}
+        green = ''${xrdb:color10}
         yellow = ''${xrdb:color11}
-        blue = ''${xrdb:color4}
-        purple = ''${xrdb:color5}
-        cyan = ''${xrdb:color6}
-        accent = ''${colors.blue}
+        blue = ''${xrdb:color12}
+        purple = ''${xrdb:color13}
+        cyan = ''${xrdb:color14}
         alert = ''${colors.yellow}
 
         [bar/default]
@@ -32,9 +31,6 @@
 
         background = ''${colors.background}
         foreground = ''${colors.foreground}
-
-        line-size = 3
-        line-color = ''${colors.accent}
 
         border-size = 1
         border-color = ''${colors.background-alt}
@@ -121,6 +117,8 @@
 
         label-floating = "  "
         label-pseudotiled = "  "
+        label-floating-foreground = ''${colors.blue}
+        label-pseudotiled-foreground = ''${colors.purple}
 
         [module/temperature]
         type = internal/temperature
