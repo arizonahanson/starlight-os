@@ -17,9 +17,23 @@ with lib;
         Foreground color
       '';
     };
+    foreground-alt = mkOption {
+      type = types.str;
+      default = "#787878";
+      description = ''
+        Alternate foreground color
+      '';
+    };
     background = mkOption {
       type = types.str;
       default = "#212121";
+      description = ''
+        Background color
+      '';
+    };
+    background-alt = mkOption {
+      type = types.str;
+      default = "#404040";
       description = ''
         Background color
       '';

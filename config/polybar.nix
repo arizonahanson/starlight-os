@@ -2,21 +2,17 @@
 {
   environment = {
     systemPackages = with pkgs; [ polybar ];
-    etc."polybar.conf" = {
+    etc."polybar.conf" = let palette = config.starlight.palette; in {
       text = ''
         [colors]
-        background = ''${xrdb:color0}
-        background-alt = ''${xrdb:color8}
-        foreground = ''${xrdb:color15}
-        foreground-alt = ''${xrdb:color7}
-        red = ''${xrdb:color1}
-        orange = ''${xrdb:color9}
-        green = ''${xrdb:color10}
-        yellow = ''${xrdb:color11}
-        blue = ''${xrdb:color12}
-        purple = ''${xrdb:color13}
-        cyan = ''${xrdb:color14}
-        alert = ''${colors.yellow}
+        foreground = ${palette.foreground}
+        foreground-alt = ${palette.foreground-alt}
+        background = ${palette.background}
+        background-alt = ${palette.background-alt}
+        info = ${palette.color11}
+        warn = ${palette.color9}
+        blue = ${palette.color12}
+        purple = ${palette.color13}
 
         [bar/default]
         monitor = ''${env:MONITOR:VGA-1}
@@ -101,7 +97,7 @@
         label-occupied-foreground = ''${colors.foreground-alt}
 
         label-urgent = "▩ "
-        label-urgent-foreground = ''${colors.alert}
+        label-urgent-foreground = ''${colors.info}
         label-urgent-padding = 0
 
         label-empty = "▢ "
@@ -133,13 +129,13 @@
         label = %temperature-c%
         label-font = 1
         label-warn = %temperature-c%
-        label-warn-foreground = ''${colors.orange}
+        label-warn-foreground = ''${colors.warn}
         label-warn-font = 1
 
         ramp-0 = 
         ramp-1 = 
         ramp-2 = 
-        ramp-foreground = ''${colors.orange}
+        ramp-foreground = ''${colors.warn}
 
         [settings]
         screenchange-reload = true
