@@ -98,7 +98,7 @@
         " colorscheme
         colorscheme starlight
       '';
-      plug.plugins = let starlightTheme = pkgs.vimUtils.buildVimPlugin {
+      plug.plugins = let vim-starlight-theme = pkgs.vimUtils.buildVimPlugin {
         name = "vim-starlight-theme";
         src = pkgs.fetchFromGitHub {
           owner = "isaacwhanson";
@@ -108,7 +108,7 @@
         };
       }; in
       with pkgs.vimPlugins; [
-        (starlightTheme) vim-sensible editorconfig-vim fugitive gitgutter vim-polyglot vim-nix vim-gutentags ale neco-syntax deoplete-nvim
+        (vim-starlight-theme) vim-sensible editorconfig-vim fugitive gitgutter vim-polyglot vim-nix vim-gutentags ale neco-syntax deoplete-nvim
       ];
     };
   });
