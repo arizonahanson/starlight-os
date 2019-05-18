@@ -11,8 +11,8 @@
         background-alt = ${palette.background-alt}
         info = ${palette.color11}
         warn = ${palette.color9}
-        blue = ${palette.color12}
-        purple = ${palette.color13}
+        blue = ${palette.color4}
+        purple = ${palette.color5}
 
         [bar/default]
         monitor = ''${env:MONITOR:VGA-1}
