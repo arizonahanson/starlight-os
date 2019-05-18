@@ -49,9 +49,11 @@
         set wildmode=longest:full,full
         " turn on syntax completion
         let g:ale_completion_enabled = 1
-        set omnifunc=syntaxcomplete#Complete
-        set completeopt=menuone,noinsert
         let g:deoplete#enable_at_startup = 1
+        call deoplete#custom#option({
+        \ 'auto_complete_delay': 500,
+        \ 'ignore_case': v:true
+        \ })
         " shut off completion messages
         set shortmess+=c
         " no beeps during completion
@@ -91,8 +93,6 @@
         " no sound on errors
         set noerrorbells
         set novisualbell
-        " auto complete delay
-        call deoplete#custom#option('auto_complete_delay', 500)
         " do not pollute with ctags
         let g:gutentags_cache_dir='/tmp/.gutentags-' . $USER
         " colorscheme
