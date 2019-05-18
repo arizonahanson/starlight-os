@@ -19,31 +19,31 @@ principles:
     previous desktop
   super + ]:
     next desktop
- 	super + shift + arrow:
- 		move window
- 	super + shift + number:
- 		move window to desktop
+  super + shift + arrow:
+    move window
+  super + shift + number:
+    move window to desktop
   super + shift + [:
     move window to previous desktop
   super + shift + ]:
     move window to next desktop
 
- 	super + space:
- 		menu
- 	super + enter:
- 		terminal
+  super + space:
+    menu
+  super + enter:
+    terminal
 
- 	super + q:
- 		quit
- 	super + shift + q:
- 		logout...
- 	super + control + q:
- 		shutdown...
+  super + q:
+     quit
+  super + shift + q:
+     logout...
+  super + control + q:
+    shutdown...
 
- 	super + page-up/page-down:
- 		rotate 90 deg
- 	super + shift + backspace:
- 		reload bar and key-bindings
+  super + page-up/page-down:
+    rotate 90 deg
+  super + shift + backspace:
+    reload bar and key-bindings
 
   super + f:
     float window
