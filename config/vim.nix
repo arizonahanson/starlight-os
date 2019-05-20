@@ -115,6 +115,9 @@
   });
   in
   {
+    variables = {
+        EDITOR = "vim";
+    };
     systemPackages = [ pkgs.nvi pkgs.universal-ctags (system_vim) ];
   };
 }
