@@ -122,7 +122,7 @@
       CHR 0;33 # character device driver
       ORPHAN 00;31 # symlink to nonexistent file, or non-stat'able file ...
       MISSING 1;30 # ... and the files they point to
-      SETUID 4;31 # file that is setuid (u+s)
+      SETUID 1;4;31 # file that is setuid (u+s)
       SETGID 4;0;33 # file that is setgid (g+s)
       CAPABILITY 4;0;35 # file with capability
       STICKY_OTHER_WRITABLE 0;7;4;32 # dir that is sticky and other-writable (+t,o+w)
@@ -407,6 +407,7 @@
     export ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=white,underline'
     export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green'
     export ZSH_HIGHLIGHT_STYLES[alias]='fg=green'
+    export ZSH_HIGHLIGHT_STYLES[precommand]='fg=red,bold,underline'
     export ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
     export ZSH_HIGHLIGHT_STYLES[builtin]='fg=magenta,bold'
     export ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=magenta'
