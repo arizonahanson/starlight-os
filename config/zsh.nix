@@ -115,19 +115,19 @@
       LINK target #0;36 # symbolic link. (If you set this to 'target' instead of a
       # numerical value, the color is as for the file pointed to.)
       MULTIHARDLINK 00 # regular file with more than one link
-      FIFO 00;33 # pipe
       SOCK 0;35 # socket
-      DOOR 0;35 # door
+      DOOR 1;35 # door
+      FIFO 00;33 # pipe
       BLK 0;33 # block device driver
-      CHR 0;33 # character device driver
+      CHR 1;33 # character device driver
       ORPHAN 00;31 # symlink to nonexistent file, or non-stat'able file ...
       MISSING 1;30 # ... and the files they point to
       SETUID 1;4;31 # file that is setuid (u+s)
       SETGID 4;0;33 # file that is setgid (g+s)
       CAPABILITY 4;0;35 # file with capability
-      STICKY_OTHER_WRITABLE 0;7;4;32 # dir that is sticky and other-writable (+t,o+w)
-      OTHER_WRITABLE 0;7;32 # dir that is other-writable (o+w) and not sticky
-      STICKY 0;4;31 # dir with the sticky bit set (+t) and not other-writable
+      STICKY_OTHER_WRITABLE 1;4;34 # dir that is sticky and other-writable (+t,o+w)
+      OTHER_WRITABLE 1;34 # dir that is other-writable (o+w) and not sticky
+      STICKY 0;4;34 # dir with the sticky bit set (+t) and not other-writable
       # This is for files with execute permission:
       EXEC 1;32
       # List any file extensions like '.gz' or '.tar' that you would like ls
