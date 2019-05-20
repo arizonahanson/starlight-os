@@ -18,6 +18,7 @@
         let g:ale_sign_error=''
         let g:ale_sign_warning=''
         let g:ale_sign_info=''
+        set updatetime=1000
         set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
         " turn backup off
