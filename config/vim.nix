@@ -11,11 +11,11 @@
         set path+=**
         " visual theme
         let g:gitgutter_override_sign_column_highlight=0
-        let g:gitgutter_sign_modified=''
-        let g:gitgutter_sign_modified_removed=''
-        let g:gitgutter_sign_added=''
-        let g:gitgutter_sign_removed=''
-        let g:ale_sign_error=''
+        let g:gitgutter_sign_modified=''
+        let g:gitgutter_sign_modified_removed=''
+        let g:gitgutter_sign_added=''
+        let g:gitgutter_sign_removed=''
+        let g:ale_sign_error=''
         let g:ale_sign_warning=''
         let g:ale_sign_info=''
         set updatetime=1000
