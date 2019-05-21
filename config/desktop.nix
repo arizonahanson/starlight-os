@@ -54,6 +54,13 @@ with lib;
           Background color
         '';
       };
+      cursor = mkOption {
+        type = types.str;
+        default = "#a1a1a1";
+        description = ''
+          Cursor color
+        '';
+      };
       color0 = mkOption {
         type = types.str;
         default = "#212121";
@@ -235,7 +242,7 @@ with lib;
         # special
         foreground      = ${palette.foreground}
         foreground_bold = ${palette.foreground}
-        cursor          = ${palette.foreground}
+        cursor          = ${palette.cursor}
         background      = ${palette.background}
   
         # black
@@ -430,7 +437,7 @@ with lib;
   
         ! special
         *.foreground:   ${palette.foreground}
-        *.cursorColor:  ${palette.foreground}
+        *.cursorColor:  ${palette.cursor}
         *.background:   ${palette.background}
   
         ! black
