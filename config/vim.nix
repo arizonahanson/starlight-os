@@ -19,7 +19,7 @@
         let g:ale_sign_warning=''
         let g:ale_sign_info=''
         set updatetime=1000
-        set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20
+        set guicursor=n-v-c-sm:block-blinkwait500-blinkon500-blinkoff500,i-ci-ve:ver25-blinkwait500-blinkon500-blinkoff500,r-cr-o:hor20-blinkwait500-blinkon500-blinkoff500
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
         " turn backup off
         set nobackup
@@ -115,6 +115,9 @@
   });
   in
   {
+    variables = {
+        EDITOR = "vim";
+    };
     systemPackages = [ pkgs.nvi pkgs.universal-ctags (system_vim) ];
   };
 }

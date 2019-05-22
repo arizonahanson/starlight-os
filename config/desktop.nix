@@ -18,6 +18,162 @@ with lib;
         If enabled, will treat as desktop machine
       '';
     };
+    logo = mkOption {
+      type = types.str;
+      default = "• ";
+      description = ''
+        Text logo
+      '';
+    };
+    palette = {
+      foreground = mkOption {
+        type = types.str;
+        default = "#c7c7c7";
+        description = ''
+          Foreground color
+        '';
+      };
+      foreground-alt = mkOption {
+        type = types.str;
+        default = "#787878";
+        description = ''
+          Alternate foreground color
+        '';
+      };
+      background = mkOption {
+        type = types.str;
+        default = "#212121";
+        description = ''
+          Background color
+        '';
+      };
+      background-alt = mkOption {
+        type = types.str;
+        default = "#404040";
+        description = ''
+          Background color
+        '';
+      };
+      cursor = mkOption {
+        type = types.str;
+        default = "#a1a1a1";
+        description = ''
+          Cursor color
+        '';
+      };
+      color0 = mkOption {
+        type = types.str;
+        default = "#212121";
+        description = ''
+          color 0 (black)
+        '';
+      };
+      color1 = mkOption {
+        type = types.str;
+        default = "#cc6666";
+        description = ''
+          color 1 (red)
+        '';
+      };
+      color2 = mkOption {
+        type = types.str;
+        default = "#638f63";
+        description = ''
+          color 2 (green)
+        '';
+      };
+      color3 = mkOption {
+        type = types.str;
+        default = "#8f7542";
+        description = ''
+          color 3 (brown)
+        '';
+      };
+      color4 = mkOption {
+        type = types.str;
+        default = "#59748f";
+        description = ''
+          color 4 (blue)
+        '';
+      };
+      color5 = mkOption {
+        type = types.str;
+        default = "#85678f";
+        description = ''
+          color 5 (magenta)
+        '';
+      };
+      color6 = mkOption {
+        type = types.str;
+        default = "#5e8d87";
+        description = ''
+          color 6 (cyan)
+        '';
+      };
+      color7 = mkOption {
+        type = types.str;
+        default = "#787878";
+        description = ''
+          color 7 (white)
+        '';
+      };
+      color8 = mkOption {
+        type = types.str;
+        default = "#404040";
+        description = ''
+          color 8 (dark gray)
+        '';
+      };
+      color9 = mkOption {
+        type = types.str;
+        default = "#de985f";
+        description = ''
+          color 9 (orange)
+        '';
+      };
+      color10 = mkOption {
+        type = types.str;
+        default = "#85cc85";
+        description = ''
+          color 10 (bright green)
+        '';
+      };
+      color11 = mkOption {
+        type = types.str;
+        default = "#f0c674";
+        description = ''
+          color 11 (yellow)
+        '';
+      };
+      color12 = mkOption {
+        type = types.str;
+        default = "#8fadcc";
+        description = ''
+          color 12 (bright blue)
+        '';
+      };
+      color13 = mkOption {
+        type = types.str;
+        default = "#b093ba";
+        description = ''
+          color 13 (bright magenta)
+        '';
+      };
+      color14 = mkOption {
+        type = types.str;
+        default = "#8abeb7";
+        description = ''
+          color 14 (bright cyan)
+        '';
+      };
+      color15 = mkOption {
+        type = types.str;
+        default = "#c7c7c7";
+        description = ''
+          color 15 (bright white)
+        '';
+      };
+    };
   };
   config = lib.mkIf config.starlight.desktop {
     environment.systemPackages = with pkgs; [
@@ -86,7 +242,7 @@ with lib;
         # special
         foreground      = ${palette.foreground}
         foreground_bold = ${palette.foreground}
-        cursor          = ${palette.foreground}
+        cursor          = ${palette.cursor}
         background      = ${palette.background}
   
         # black
@@ -281,7 +437,7 @@ with lib;
   
         ! special
         *.foreground:   ${palette.foreground}
-        *.cursorColor:  ${palette.foreground}
+        *.cursorColor:  ${palette.cursor}
         *.background:   ${palette.background}
   
         ! black
