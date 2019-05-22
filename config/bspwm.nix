@@ -41,7 +41,7 @@
       xset s noblank
 
       # border color
-      bspc config focused_border_color "${palette.foreground-alt}"
+      bspc config focused_border_color "${palette.cursor}"
       bspc config normal_border_color "${palette.background-alt}"
       bspc config border_width         2
       bspc config window_gap           0
