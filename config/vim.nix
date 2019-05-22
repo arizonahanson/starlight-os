@@ -96,6 +96,7 @@
         set novisualbell
         " do not pollute with ctags
         let g:gutentags_cache_dir='/tmp/.gutentags-' . $USER
+        let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
         " colorscheme
         colorscheme starlight
       '';
