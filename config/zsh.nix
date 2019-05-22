@@ -397,7 +397,7 @@
     ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=vi-forward-char
     ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=""
 
-    #export ZSH_HIGHLIGHT_STYLES[cursor]=
+    export ZSH_HIGHLIGHT_STYLES[cursor]=fg=yellow,bold
     export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red,bg=8'
     export ZSH_HIGHLIGHT_STYLES[path]='fg=blue'
     export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=blue'
