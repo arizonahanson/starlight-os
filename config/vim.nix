@@ -111,7 +111,7 @@
         };
       }; in
       with pkgs.vimPlugins; [
-        (vim-starlight-theme) vim-sensible editorconfig-vim fugitive gitgutter vim-polyglot vim-nix vim-gutentags ale neco-syntax deoplete-nvim
+        (vim-starlight-theme) vim-sensible editorconfig-vim fugitive gitgutter vim-polyglot vim-nix ale neco-syntax deoplete-nvim vim-gutentags
       ];
     };
   });
