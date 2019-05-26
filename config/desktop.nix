@@ -174,6 +174,13 @@ with lib;
         '';
       };
     };
+    dwarf-fortress = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        Include dwarf fortress
+      '';
+    };
   };
   config = lib.mkIf config.starlight.desktop {
     environment.systemPackages = with pkgs; [
@@ -210,7 +217,12 @@ with lib;
         ${flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
         ${flatpak}/bin/flatpak $@
       '')
-    ];
+    ] 
+    ++ lib.optional config.starlight.dwarf-fortress (dwarf-fortress-packages.dwarf-fortress-full.override {
+      enableIntro = false;
+      enableTWBT = false;
+      theme = dwarf-fortress-packages.themes.tergel;
+    });
     systemd.user.services = {
       clipmenud = {
        serviceConfig.Type = "simple";
