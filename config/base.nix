@@ -37,6 +37,7 @@ with lib;
     };
     networking.hostName = (config.starlight.hostname);
     nixpkgs.config.allowUnfree = true;
+    environment.pathsToLink = [ "/include" ];
     environment.systemPackages = with pkgs; [
       gnumake bc gcc
       psmisc pciutils
