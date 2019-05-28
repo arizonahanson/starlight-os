@@ -88,19 +88,20 @@
         format = <label-mode><label-state>
         format-foreground = ''${colors.foreground}
 
-        label-focused = "▣ "
+        label-focused = "◉ "
         label-focused-foreground = ''${colors.foreground}
         label-focused-padding = 0
 
-        label-occupied = "▨ "
+        label-occupied = "◍ "
         label-occupied-padding = 0
         label-occupied-foreground = ''${colors.foreground-alt}
 
-        label-urgent = "▩ "
+        label-urgent = "◍ "
         label-urgent-foreground = ''${colors.info}
         label-urgent-padding = 0
 
-        label-empty = "▢ "
+        ;label-empty = "▢ "
+        label-empty = "○ "
         label-empty-foreground = ''${colors.background-alt}
         label-empty-padding = 0
 
