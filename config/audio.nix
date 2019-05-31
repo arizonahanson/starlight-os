@@ -143,7 +143,7 @@ with lib;
         fluidsynth = "${fluidsynth}/bin/fluidsynth ${soundfont-fluid}/share/soundfonts/FluidR3_GM2-2.sf2";
       };
       environment.systemPackages = with pkgs; [
-        jack2 a2jmidid patchage fluidsynth soundfont-fluid
+        jack2 a2jmidid patchage fluidsynth soundfont-fluid alsaLib
       ];
     })
   ];

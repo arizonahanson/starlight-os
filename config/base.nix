@@ -37,10 +37,11 @@ with lib;
     };
     networking.hostName = (config.starlight.hostname);
     nixpkgs.config.allowUnfree = true;
+    environment.pathsToLink = [ "/include" ];
     environment.systemPackages = with pkgs; [
-      gnumake bc
+      gnumake bc gcc
       psmisc pciutils
-      tree ag
+      tree ag calc
       zip unzip
       duperemove
       nox

@@ -81,6 +81,7 @@
         autocmd FileType go set number
         autocmd FileType javascript set number
         autocmd FileType nix set number
+        autocmd FileType python set number
         " vimdiff layout
         set diffopt=filler,vertical
         " lines to the cursor when moving vertically using j/k
