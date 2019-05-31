@@ -36,6 +36,85 @@
       in
       [ (zsh-starlight-theme) pkgs.zsh-completions pkgs.nix-zsh-completions ];
   };
+  programs.zsh.loginShellInit = ''
+    eval `dircolors -b /etc/dircolors`
+  '';
+  programs.zsh.promptInit = ''
+    bindkey -v
+    # shorter delay on cmd-mode
+    export KEYTIMEOUT=1
+    zle-line-init() {
+      typeset -g __prompt_status="$?"
+    }
+    zle-keymap-select () {
+      if [ ! "$TERM" = "linux" ]; then
+        if [ $KEYMAP = vicmd ]; then
+          echo -ne "\e[1 q"
+        else
+          echo -ne "\e[3 q"
+        fi
+      fi
+      () { return $__prompt_status }
+      zle reset-prompt
+    }
+    zle -N zle-keymap-select
+    zle -N zle-line-init
+
+    autoload -Uz run-help
+    unalias run-help
+    alias help=run-help
+
+    bindkey '^ ' autosuggest-accept
+    ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=vi-forward-char
+    ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=""
+
+    export ZSH_HIGHLIGHT_STYLES[cursor]=fg=yellow,bold
+    export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red,bg=8'
+    export ZSH_HIGHLIGHT_STYLES[path]='fg=blue'
+    export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=blue'
+    export ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue,bold'
+    export ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=yellow'
+    export ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'
+    export ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=white,underline'
+    export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green'
+    export ZSH_HIGHLIGHT_STYLES[alias]='fg=green'
+    export ZSH_HIGHLIGHT_STYLES[precommand]='fg=red,bold,underline'
+    export ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
+    export ZSH_HIGHLIGHT_STYLES[builtin]='fg=magenta,bold'
+    export ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=magenta'
+    export ZSH_HIGHLIGHT_STYLES[redirection]='fg=magenta'
+    export ZSH_HIGHLIGHT_STYLES[arg0]='fg=magenta,bold,underline'
+    export ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=magenta'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=magenta,bold'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=blue'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=green'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=cyan'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg=magenta'
+    export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=cyan'
+    export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan,bold'
+    export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan'
+    
+    # fzf with tmux
+    export FZF_TMUX=1
+    export FZF_DEFAULT_COMMAND='ag -f -g "" --hidden --depth 16 --ignore dosdevices'
+    export FZF_DEFAULT_OPTS='-m --ansi --color=16,bg:-1,bg+:-1 --tac'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND="find -L . -maxdepth 16 -type d 2>/dev/null"
+    source ${pkgs.fzf}/share/fzf/key-bindings.zsh
+    source ${pkgs.fzf}/share/fzf/completion.zsh
+
+    export LESS="-erFX"
+
+    # some aliases
+    alias l='ls -hF'
+    alias la='ls -AhF'
+    alias ll='ls -l'
+    alias cp='cp --reflink=auto'
+    alias xz='xz --threads=0'
+
+    # last to pickup other zsh-widgets
+    source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  '';
   programs.zsh.syntaxHighlighting = {
     enable = true;
     highlighters = [ "main" "brackets" "cursor" "root" "line" ];
@@ -358,87 +437,4 @@
     # complete word
     bindkey '^w' vi-forward-word
   '';
-  programs.zsh.loginShellInit = ''
-    eval `dircolors -b /etc/dircolors`
-  '';
-  programs.zsh.promptInit = ''
-    bindkey -v
-    # shorter delay on cmd-mode
-    export KEYTIMEOUT=1
-    zle-line-init() {
-      typeset -g __prompt_status="$?"
-    }
-    zle-keymap-select () {
-      if [ ! "$TERM" = "linux" ]; then
-        if [ $KEYMAP = vicmd ]; then
-          echo -ne "\e[1 q"
-        else
-          echo -ne "\e[3 q"
-        fi
-      fi
-      () { return $__prompt_status }
-      zle reset-prompt
-    }
-    zle -N zle-keymap-select
-    zle -N zle-line-init
-
-    autoload -Uz run-help
-    unalias run-help
-    alias help=run-help
-
-    # better auto-suggest
-    my-autosuggest-accept() {
-      zle autosuggest-accept
-      zle redisplay
-    }
-    zle -N my-autosuggest-accept
-    bindkey '^ ' my-autosuggest-accept
-    ZSH_AUTOSUGGEST_IGNORE_WIDGETS+=my-autosuggest-accept
-    ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=vi-forward-char
-    ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=""
-
-    export ZSH_HIGHLIGHT_STYLES[cursor]=fg=yellow,bold
-    export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red,bg=8'
-    export ZSH_HIGHLIGHT_STYLES[path]='fg=blue'
-    export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=blue'
-    export ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue,bold'
-    export ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=yellow'
-    export ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'
-    export ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=white,underline'
-    export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green'
-    export ZSH_HIGHLIGHT_STYLES[alias]='fg=green'
-    export ZSH_HIGHLIGHT_STYLES[precommand]='fg=red,bold,underline'
-    export ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
-    export ZSH_HIGHLIGHT_STYLES[builtin]='fg=magenta,bold'
-    export ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=magenta'
-    export ZSH_HIGHLIGHT_STYLES[redirection]='fg=magenta'
-    export ZSH_HIGHLIGHT_STYLES[arg0]='fg=magenta,bold,underline'
-    export ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=magenta'
-    export ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=magenta,bold'
-    export ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=blue'
-    export ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=green'
-    export ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=cyan'
-    export ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg=magenta'
-    export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=cyan'
-    export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan,bold'
-    export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan'
-    
-    # fzf with tmux
-    export FZF_TMUX=1
-    export FZF_DEFAULT_COMMAND='ag -f -g "" --hidden --depth 16 --ignore dosdevices'
-    export FZF_DEFAULT_OPTS='-m --ansi --color=16,bg:-1,bg+:-1 --tac'
-    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    export FZF_ALT_C_COMMAND="find -L . -maxdepth 16 -type d 2>/dev/null"
-    source ${pkgs.fzf}/share/fzf/key-bindings.zsh
-    source ${pkgs.fzf}/share/fzf/completion.zsh
-
-    export LESS="-erFX"
-
-    # some aliases
-    alias l='ls -hF'
-    alias la='ls -AhF'
-    alias ll='ls -l'
-    alias cp='cp --reflink=auto'
-    alias xz='xz --threads=0'
-    '';
 }
