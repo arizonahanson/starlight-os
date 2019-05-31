@@ -278,14 +278,6 @@ with lib;
         color15 = ${palette.color15}
       '';
     };
-    environment.etc."ld-nix.so.preload" = if config.virtualisation.virtualbox.guest.enable then {
-      text = ''
-        ${pkgs.linuxPackages.virtualboxGuestAdditions}/lib/VBoxOGL.so
-      '';
-    } else {
-      text = "";
-    };
-  
     xdg = {
       autostart.enable = true;
       icons.enable = true;
