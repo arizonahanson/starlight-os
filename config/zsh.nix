@@ -40,12 +40,16 @@
     eval `dircolors -b /etc/dircolors`
   '';
   programs.zsh.promptInit = ''
+    # vi-like editing
     bindkey -v
     # shorter delay on cmd-mode
     export KEYTIMEOUT=1
+    # save prompt status
     zle-line-init() {
       typeset -g __prompt_status="$?"
     }
+    zle -N zle-line-init
+    # cursor shows mode
     zle-keymap-select () {
       if [ ! "$TERM" = "linux" ]; then
         if [ $KEYMAP = vicmd ]; then
@@ -58,8 +62,8 @@
       zle reset-prompt
     }
     zle -N zle-keymap-select
-    zle -N zle-line-init
 
+    # better 'help'
     autoload -Uz run-help
     unalias run-help
     alias help=run-help
