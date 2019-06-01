@@ -41,7 +41,7 @@ with lib;
     environment.systemPackages = with pkgs; [
       gnumake bc gcc
       psmisc pciutils
-      tree ag calc
+      tree ag
       zip unzip
       duperemove
       nox
