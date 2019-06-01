@@ -21,8 +21,8 @@
       set -g status-left ""
       set -g renumber-windows on
       setw -g window-status-separator ""
-      setw -g window-status-current-format " #W "
-      setw -g window-status-format " #W "
+      setw -g window-status-current-format "  #W  "
+      setw -g window-status-format "  #W  "
       set -g base-index 1
       setw -g pane-base-index 1
 
