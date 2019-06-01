@@ -220,7 +220,7 @@ with lib;
     ] 
     ++ lib.optional config.starlight.dwarf-fortress (dwarf-fortress-packages.dwarf-fortress-full.override {
       enableIntro = false;
-      enableTWBT = false;
+      enableTWBT = true;
       theme = dwarf-fortress-packages.themes.tergel;
     });
     systemd.user.services = {
