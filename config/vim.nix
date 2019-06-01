@@ -106,8 +106,8 @@
         src = pkgs.fetchFromGitHub {
           owner = "isaacwhanson";
           repo = "vim-starlight-theme";
-          rev = "v0.3";
-          sha256 = "1nq5wrwm6wr0kgk8cyh3jpx3y7rs8m4j91y5vcjwid2np2yr04zj";
+          rev = "v0.4";
+          sha256 = "10j0rmkjal0dz6bmff9w1825rsjkfqs8ar2fqjqcix5cpy115bpx";
         };
       }; in
       with pkgs.vimPlugins; [
