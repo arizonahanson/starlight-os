@@ -20,7 +20,7 @@ with lib;
     };
     logo = mkOption {
       type = types.str;
-      default = "• ";
+      default = "⋆ ";
       description = ''
         Text logo
       '';
