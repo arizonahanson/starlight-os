@@ -11,8 +11,6 @@
         background-alt = ${palette.background-alt}
         info = ${palette.color11}
         warn = ${palette.color9}
-        blue = ${palette.color4}
-        purple = ${palette.color5}
 
         [bar/default]
         monitor = ''${env:MONITOR:VGA-1}
@@ -114,8 +112,8 @@
 
         label-floating = "  "
         label-pseudotiled = "  "
-        label-floating-foreground = ''${colors.blue}
-        label-pseudotiled-foreground = ''${colors.purple}
+        label-floating-foreground = ''${colors.foreground-alt}
+        label-pseudotiled-foreground = ''${colors.foreground-alt}
 
         [module/temperature]
         type = internal/temperature

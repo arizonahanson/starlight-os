@@ -56,7 +56,7 @@ with lib;
       };
       cursor = mkOption {
         type = types.str;
-        default = "#a1a1a1";
+        default = "#9e9e9e";
         description = ''
           Cursor color
         '';
