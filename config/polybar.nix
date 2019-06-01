@@ -98,7 +98,6 @@
         label-urgent-foreground = ''${colors.info}
         label-urgent-padding = 0
 
-        ;label-empty = "▢ "
         label-empty = "○ "
         label-empty-foreground = ''${colors.background-alt}
         label-empty-padding = 0
@@ -108,6 +107,7 @@
         label-urgent-font = 4
         label-empty-font = 4
 
+        label-dimmed-focused = "◎ "
         label-dimmed-focused-foreground = ''${colors.foreground-alt}
 
         label-floating = "  "
