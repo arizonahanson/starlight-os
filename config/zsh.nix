@@ -73,7 +73,7 @@
     ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=""
 
     export ZSH_HIGHLIGHT_STYLES[cursor]=fg=yellow,bold
-    export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red,bg=8'
+    export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
     export ZSH_HIGHLIGHT_STYLES[path]='fg=blue'
     export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=blue'
     export ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue,bold'
