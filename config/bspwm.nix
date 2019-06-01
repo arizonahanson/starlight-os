@@ -68,7 +68,7 @@
       if [ -e "$HOME/.fehbg" ]; then
         source "$HOME/.fehbg"
       else
-        feh --bg-scale /etc/nixos/wallpaper.png
+        feh --bg-scale /etc/nixos/wallpaper.jpg
       fi
     '';
   };
