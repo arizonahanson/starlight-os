@@ -388,9 +388,9 @@
       .yml          0;33
 
       # txt files
-      .txt     1;36
-      .TXT     1;36
-      .log     1;36
+      .txt     0;37
+      .TXT     0;37
+      .log     0;37
 
       # readme, etc
       .md        1;37
@@ -405,15 +405,16 @@
       .less   0;35
 
       # other
-      *.pid         1;36
-      *desktop.ini  1;36
-      *Desktop.ini  1;36
-      *~            1;36
-      .ICEauthority 1;36
-      .Xauthority   1;36
-      .xsession-errors 1;36
-      .old          1;36
-      .hidden       1;36
+      *.pid         1;30
+      *desktop.ini  1;30
+      *Desktop.ini  1;30
+      *~            1;30
+      .ICEauthority 1;30
+      .Xauthority   1;30
+      .xsession-errors 1;30
+      .old          1;30
+      .hidden       1;30
+      .zcompdump    1;30
     '';
   };
   environment.interactiveShellInit = ''
