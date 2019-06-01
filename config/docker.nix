@@ -2,9 +2,7 @@
 
 with lib;
 
-let
-  cfg = config.starlight;
-in {
+let cfg = config.starlight; in {
   # imports...
   # options...
   options.starlight = {

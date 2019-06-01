@@ -11,13 +11,13 @@
         set path+=**
         " visual theme
         let g:gitgutter_override_sign_column_highlight=0
-        let g:gitgutter_sign_modified=''
-        let g:gitgutter_sign_modified_removed=''
-        let g:gitgutter_sign_added=''
-        let g:gitgutter_sign_removed=''
-        let g:ale_sign_error=''
-        let g:ale_sign_warning=''
-        let g:ale_sign_info=''
+        let g:gitgutter_sign_modified=' '
+        let g:gitgutter_sign_modified_removed=' '
+        let g:gitgutter_sign_added=' '
+        let g:gitgutter_sign_removed=' '
+        let g:ale_sign_error=' '
+        let g:ale_sign_warning=' '
+        let g:ale_sign_info=' '
         set updatetime=1000
         set guicursor=n-v-c-sm:block-blinkwait500-blinkon500-blinkoff500,i-ci-ve:ver25-blinkwait500-blinkon500-blinkoff500,r-cr-o:hor20-blinkwait500-blinkon500-blinkoff500
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
