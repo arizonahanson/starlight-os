@@ -1,4 +1,0 @@
-* vim integration with home .vimrc?
-* needs:
- sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixos
- sudo nix-channel --update
