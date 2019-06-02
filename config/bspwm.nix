@@ -14,6 +14,8 @@
   environment.etc.bspwmrc = let palette = config.starlight.palette; in {
     mode = "0645";
     text = ''
+      #!/usr/bin/env bash
+
       if [ -e "/etc/X11/Xresources" ]; then
         xrdb /etc/X11/Xresources
       fi

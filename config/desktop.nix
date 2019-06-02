@@ -207,6 +207,11 @@ with lib;
       enableTWBT = true;
       theme = dwarf-fortress-packages.themes.wanderlust;
     });
+    # flatpak
+    services.flatpak = {
+      enable = true;
+      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    };
     systemd.user.services = {
       clipmenud = {
        serviceConfig.Type = "simple";
@@ -220,17 +225,32 @@ with lib;
        '';
       };
     };
+    # chromium profile
+    programs.chromium = {
+      enable = true;
+      extraOpts = {
+        DiskCacheDir = "/tmp/.chromium-\${user_name}";
+      };
+    };
+    # keyring
+    services.gnome3.seahorse.enable = true;
+    services.gnome3.gnome-keyring.enable = true;
     environment.variables = {
       BROWSER = "chromium";
       CM_LAUNCHER = "cliprofi";
       SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
     };
+    # SSH_ASKPASS already defined
+    programs.zsh.interactiveShellInit = ''
+      export SSH_ASKPASS="${pkgs.gnome3.seahorse}/libexec/seahorse/ssh-askpass"
+    '';
     xdg = {
       autostart.enable = true;
       icons.enable = true;
       menus.enable = true;
       mime.enable = true;
     };
+    users.users.admin.extraGroups = [ "networkmanager" ];
     networking.networkmanager = {
       enable = true;
     };
@@ -265,27 +285,8 @@ with lib;
       enabled = "ibus";
       ibus.engines = with pkgs.ibus-engines; [ uniemoji ];
     };
-    programs.chromium = {
-      enable = true;
-      extraOpts = {
-        DiskCacheDir = "/tmp/.chromium-\${user_name}";
-      };
-    };
-    # flatpak
-    services.flatpak = {
-      enable = true;
-      extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-    };
-    # keyring
-    services.gnome3.seahorse.enable = true;
-    services.gnome3.gnome-keyring.enable = true;
+    # more entropy
     services.haveged.enable = true;
-    programs.zsh.interactiveShellInit = ''
-      export SSH_ASKPASS="${pkgs.gnome3.seahorse}/libexec/seahorse/ssh-askpass"
-    '';
-  
-    users.users.admin.extraGroups = [ "networkmanager" ];
-  
     # Enable the X11 windowing system.
     hardware.opengl.driSupport32Bit = true;
     boot.plymouth = {

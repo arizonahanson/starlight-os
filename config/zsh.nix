@@ -38,9 +38,11 @@
       in
       [ (zsh-starlight-theme) pkgs.zsh-completions pkgs.nix-zsh-completions ];
   };
+  # zprofile (once, before zshrc)
   programs.zsh.loginShellInit = ''
     eval `dircolors -b /etc/dircolors`
   '';
+  # zshrc (start)
   environment.interactiveShellInit = ''
     bindkey -v
     # spellcheck commands
@@ -66,6 +68,7 @@
     # complete word
     bindkey '^w' vi-forward-word
   '';
+  # zshrc (end)
   programs.zsh.promptInit = ''
     # vi-like editing
     bindkey -v
