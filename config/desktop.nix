@@ -221,7 +221,7 @@ with lib;
     ++ lib.optional config.starlight.dwarf-fortress (dwarf-fortress-packages.dwarf-fortress-full.override {
       enableIntro = false;
       enableTWBT = true;
-      theme = dwarf-fortress-packages.themes.tergel;
+      theme = dwarf-fortress-packages.themes.wanderlust;
     });
     systemd.user.services = {
       clipmenud = {
