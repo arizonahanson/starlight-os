@@ -196,6 +196,7 @@ with lib;
       (with import <nixpkgs> {}; writeShellScriptBin "reload-desktop" ''
         pkill -USR1 -x sxhkd
         pkill -USR1 -x polybar
+        pkill -USR1 -x compton
         ${libnotify}/bin/notify-send -i keyboard 'Reloaded desktop' 'desktop bar and key-bindings reloaded'
       '')
       (with import <nixpkgs> {}; writeShellScriptBin "terminal" ''
