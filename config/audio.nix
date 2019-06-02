@@ -56,7 +56,7 @@ with lib;
   };
     
   config = mkMerge [
-    {
+    (mkIf config.starlight.desktop {
       # Enable sound.
       sound.enable = true;
       users.users.admin.extraGroups = [ "audio" ];
@@ -71,7 +71,7 @@ with lib;
       environment.systemPackages = with pkgs; [
         playerctl sound-theme-freedesktop
       ];
-    }
+    })
     (mkIf config.starlight.proaudio.enable {
       # proaudio extension enabled!
       security.rtkit.enable = true;
