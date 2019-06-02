@@ -388,7 +388,7 @@ with lib;
       ];
       shadowOpacity = "0.5";
       extraOptions = ''
-        shadow-radius = 12;
+        shadow-radius = 9;
       '';
     };
     environment.etc."X11/Xresources" = let palette = config.starlight.palette; in {
