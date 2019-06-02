@@ -129,6 +129,7 @@
     # fzf with tmux
     source ${pkgs.fzf}/share/fzf/key-bindings.zsh
     source ${pkgs.fzf}/share/fzf/completion.zsh
+    zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS} ma=7\;37
 
     export ZSH_THEME_HOME_PROMPT="⭐";
 
