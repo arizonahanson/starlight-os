@@ -1,13 +1,15 @@
 { config, pkgs, ... }:
+
 {
-  environment.systemPackages = with pkgs; [
-    fzf
-  ];
   programs.zsh.enable = true;
   programs.zsh.autosuggestions = {
     enable = true;
     strategy = "match_prev_cmd";
     highlightStyle = "fg=8";
+  };
+  programs.zsh.syntaxHighlighting = {
+    enable = true;
+    highlighters = [ "main" "brackets" "cursor" "root" "line" ];
   };
   programs.zsh.ohMyZsh = {
     enable = true;
@@ -38,6 +40,31 @@
   };
   programs.zsh.loginShellInit = ''
     eval `dircolors -b /etc/dircolors`
+  '';
+  environment.interactiveShellInit = ''
+    bindkey -v
+    # spellcheck commands
+    setopt correct
+    # backspace
+    bindkey -a '^?' vi-backward-delete-char
+    # home
+    bindkey -a '\e[1~' vi-first-non-blank
+    bindkey '\e[1~' vi-first-non-blank
+    # insert
+    bindkey -a '\e[2~' vi-insert
+    bindkey '\e[2~' vi-insert # noop?
+    # delete
+    bindkey '\e[3~' vi-delete-char
+    bindkey -a '\e[3~' vi-delete-char
+    # end
+    bindkey -a '\e[4~'  vi-end-of-line
+    bindkey '\e[4~'  vi-end-of-line
+    bindkey  "''${terminfo[khome]}" vi-beginning-of-line
+    bindkey -a "''${terminfo[khome]}" vi-beginning-of-line
+    bindkey  "''${terminfo[kend]}" vi-end-of-line
+    bindkey -a "''${terminfo[kend]}" vi-end-of-line
+    # complete word
+    bindkey '^w' vi-forward-word
   '';
   programs.zsh.promptInit = ''
     # vi-like editing
@@ -100,7 +127,7 @@
     
     # fzf with tmux
     export FZF_TMUX=1
-    export FZF_DEFAULT_COMMAND='ag -f -g "" --hidden --depth 16 --ignore dosdevices'
+    export FZF_DEFAULT_COMMAND='${pkgs.ag}/bin/ag -f -g "" --hidden --depth 16 --ignore dosdevices'
     export FZF_DEFAULT_OPTS='-m --ansi --color=16,bg:-1,bg+:-1 --tac'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_ALT_C_COMMAND="find -L . -maxdepth 16 -type d 2>/dev/null"
@@ -119,10 +146,6 @@
     # last to pickup other zsh-widgets
     source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   '';
-  programs.zsh.syntaxHighlighting = {
-    enable = true;
-    highlighters = [ "main" "brackets" "cursor" "root" "line" ];
-  };
   environment.etc.dircolors = {
     text = ''
       TERM Eterm
@@ -417,29 +440,4 @@
       .zcompdump    1;30
     '';
   };
-  environment.interactiveShellInit = ''
-    bindkey -v
-    # spellcheck commands
-    setopt correct
-    # backspace
-    bindkey -a '^?' vi-backward-delete-char
-    # home
-    bindkey -a '\e[1~' vi-first-non-blank
-    bindkey '\e[1~' vi-first-non-blank
-    # insert
-    bindkey -a '\e[2~' vi-insert
-    bindkey '\e[2~' vi-insert # noop?
-    # delete
-    bindkey '\e[3~' vi-delete-char
-    bindkey -a '\e[3~' vi-delete-char
-    # end
-    bindkey -a '\e[4~'  vi-end-of-line
-    bindkey '\e[4~'  vi-end-of-line
-    bindkey  "''${terminfo[khome]}" vi-beginning-of-line
-    bindkey -a "''${terminfo[khome]}" vi-beginning-of-line
-    bindkey  "''${terminfo[kend]}" vi-end-of-line
-    bindkey -a "''${terminfo[kend]}" vi-end-of-line
-    # complete word
-    bindkey '^w' vi-forward-word
-  '';
 }
