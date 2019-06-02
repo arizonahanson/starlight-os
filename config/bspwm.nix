@@ -14,8 +14,6 @@
   environment.etc.bspwmrc = let palette = config.starlight.palette; in {
     mode = "0645";
     text = ''
-      #!/usr/bin/env zsh
-
       if [ -e "/etc/X11/Xresources" ]; then
         xrdb /etc/X11/Xresources
       fi
@@ -51,13 +49,14 @@
       bspc config single_monocle       true
       bspc config focus_follows_pointer false
 
+      bspc rule -a "-c" state=floating
+      bspc rule -a terminal state=floating
       bspc rule -a Rofi state=floating
       bspc rule -a Ibus-ui-gtk3 state=floating
       bspc rule -a Pavucontrol state=floating
       bspc rule -a Nm-connection-editor state=floating
       bspc rule -a Calfjackhost state=floating
       bspc rule -a calfjackhost state=floating
-      bspc rule -a "-c" state=floating
 
       # polybar
       for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
