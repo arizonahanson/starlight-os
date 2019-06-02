@@ -72,8 +72,6 @@
   programs.zsh.promptInit = ''
     # vi-like editing
     bindkey -v
-    # shorter delay on cmd-mode
-    export KEYTIMEOUT=1
     # save prompt status
     zle-line-init() {
       typeset -g __prompt_status="$?"
@@ -100,7 +98,7 @@
 
     bindkey '^ ' autosuggest-accept
     ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=vi-forward-char
-    ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=""
+    #ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=""
 
     export ZSH_HIGHLIGHT_STYLES[cursor]=fg=yellow,bold
     export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
@@ -129,26 +127,29 @@
     export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan'
     
     # fzf with tmux
-    export FZF_TMUX=1
-    export FZF_DEFAULT_COMMAND='${pkgs.ag}/bin/ag -f -g "" --hidden --depth 16 --ignore dosdevices'
-    export FZF_DEFAULT_OPTS='-m --ansi --color=16,bg:-1,bg+:-1 --tac'
-    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    export FZF_ALT_C_COMMAND="find -L . -maxdepth 16 -type d 2>/dev/null"
     source ${pkgs.fzf}/share/fzf/key-bindings.zsh
     source ${pkgs.fzf}/share/fzf/completion.zsh
-
-    export LESS="-erFX"
-
-    # some aliases
-    alias l='ls -hF'
-    alias la='ls -AhF'
-    alias ll='ls -l'
-    alias cp='cp --reflink=auto'
-    alias xz='xz --threads=0'
 
     # last to pickup other zsh-widgets
     source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   '';
+  programs.zsh.shellAliases = with pkgs; {
+    l = "ls -hF";
+    la = "ls -AhF";
+    ll = "ls -lAhF";
+    cp = "cp --reflink=auto";
+    xz = "xz --threads=0";
+  };
+  environment.variables = {
+    # shorter delay on cmd-mode
+    KEYTIMEOUT = "1";
+    LESS = "-erFX";
+    FZF_TMUX = "1";
+    FZF_DEFAULT_COMMAND = "${pkgs.ag}/bin/ag -f -g \"\" --hidden --depth 16 --ignore dosdevices";
+    FZF_CTRL_T_COMMAND = "${pkgs.ag}/bin/ag -f -g \"\" --hidden --depth 16 --ignore dosdevices";
+    FZF_DEFAULT_OPTS = "-m --ansi --color=16,bg:-1,bg+:-1 --tac";
+    FZF_ALT_C_COMMAND = "find -L . -maxdepth 16 -type d 2>/dev/null";
+  };
   environment.etc.dircolors = {
     text = ''
       TERM Eterm
