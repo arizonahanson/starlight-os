@@ -43,7 +43,11 @@
     eval `dircolors -b /etc/dircolors`
   '';
   # zshrc (start)
+  programs.zsh.enableGlobalCompInit = false;
   environment.interactiveShellInit = ''
+    # keep zcompdump in tmpfs
+    mkdir -p "/tmp/.zcompdump-''${USER}"
+    autoload -U compinit && compinit -d "/tmp/.zcompdump-''${USER}/zcompdump"
     bindkey -v
     # spellcheck commands
     setopt correct
