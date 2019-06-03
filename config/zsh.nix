@@ -18,6 +18,7 @@
       "colored-man-pages"
     ];
     theme = "starlight";
+    cacheDir = "/tmp/.ohmyzsh-$USER";
     customPkgs = 
       let
         zsh-starlight-theme = with pkgs; stdenv.mkDerivation rec {
