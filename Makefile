@@ -11,8 +11,8 @@ configure: $(CONFNIX)
 $(CONFNIX):
 	@bash ./scripts/partition
 	@nixos-generate-config --root /mnt
-	@cp -av init/. /mnt/etc/nixos/
-	@cp -av config/. /mnt/etc/nixos/
+	@cp -r init/. /mnt/etc/nixos/
+	@cp -r config/. /mnt/etc/nixos/
 	@echo "Edit the file '$(CONFNIX)' then run '$(INSTCMD)'."
 
 .PHONY: install
@@ -23,16 +23,18 @@ install: $(CONFNIX)
 iso:
 	@nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=$(ISONIX)
 
-.PHONY: rebuild
-rebuild:
+.PHONY: copy
+copy:
 	@echo "copying Nix configs..."
-	@sudo cp -a config/. /etc/nixos/
+	@sudo cp -r config/. /etc/nixos/
+
+.PHONY: rebuild
+rebuild: copy
 	@echo "starting rebuild..."
 	@sudo nixos-rebuild switch
 
 .PHONY: upgrade
-upgrade:
+upgrade: copy
 	@echo -e "Updating system..."
-	@sudo cp -a config/. /etc/nixos/
 	@sudo nixos-rebuild --upgrade switch
 	@nix-env -u

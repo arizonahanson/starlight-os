@@ -153,8 +153,8 @@
     KEYTIMEOUT = "1";
     LESS = "-erFX";
     FZF_TMUX = "1";
-    FZF_DEFAULT_COMMAND = "${pkgs.ag}/bin/ag -f -g \"\" --hidden --depth 16 --ignore dosdevices";
-    FZF_CTRL_T_COMMAND = "${pkgs.ag}/bin/ag -f -g \"\" --hidden --depth 16 --ignore dosdevices";
+    FZF_DEFAULT_COMMAND = "${pkgs.ag}/bin/ag -f -g '' --hidden --depth 16 --ignore dosdevices";
+    FZF_CTRL_T_COMMAND = "${pkgs.ag}/bin/ag -f -g '' --hidden --depth 16 --ignore dosdevices";
     FZF_DEFAULT_OPTS = "-m --ansi --color=16,bg:-1,bg+:-1 --tac";
     FZF_ALT_C_COMMAND = "find -L . -maxdepth 16 -type d 2>/dev/null";
   };
