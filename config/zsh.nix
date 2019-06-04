@@ -235,7 +235,7 @@
       MULTIHARDLINK 00 # regular file with more than one link
       SOCK 0;35 # socket
       DOOR 1;35 # door
-      FIFO 00;33 # pipe
+      FIFO 0;33 # pipe
       BLK 0;33 # block device driver
       CHR 1;33 # character device driver
       ORPHAN 00;31 # symlink to nonexistent file, or non-stat'able file ...
@@ -414,6 +414,7 @@
       .jsx  0;32
       .vim  0;32
       .py   0;32
+      .go   0;32
 
       # data files
       .json         0;33
