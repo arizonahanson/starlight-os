@@ -4,17 +4,20 @@ NixOS based Linux operating system for software development
 WARNING!!! The partition script in this repository could ERASE ALL OF YOUR DATA!!!
 
 principles:
-  be vi-like
-  be minimal
-  for development (code and audio)
-  do syntax-highlighting and auto-completion
-  everywhere.
+ * tiled operation - like vim, tmux
+ * minimal clicks & keystrokes
+ * heavy tmux, zsh, fzf, vim & git integration
+ * atomic upgrades/rollback
+ * optimized for virtualbox & hardware
+ * no post-configuration warranted
+ * pro-audio support
+ * TODO: tablet support
 
- key-bindings:
- 	super + arrow:
- 		change focus
- 	super + number:
- 		change desktop
+key-bindings:
+  super + arrow:
+    change focus
+  super + number:
+    change desktop
   super + [:
     previous desktop
   super + ]:
@@ -27,24 +30,20 @@ principles:
     move window to previous desktop
   super + shift + ]:
     move window to next desktop
-
   super + space:
     menu
   super + enter:
     terminal
-
   super + q:
-     quit
+    quit
   super + shift + q:
-     logout...
+    logout...
   super + control + q:
     shutdown...
-
   super + page-up/page-down:
     rotate 90 deg
   super + shift + backspace:
     reload bar and key-bindings
-
   super + f:
     float window
   super + shift + f:
