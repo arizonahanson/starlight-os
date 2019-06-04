@@ -422,6 +422,7 @@
       .iml          0;33
       .properties   0;33
       .yml          0;33
+      .yaml         0;33
       .toml         0;33
 
       # txt files
