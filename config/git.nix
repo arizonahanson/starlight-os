@@ -48,6 +48,8 @@
           untracked = red
           header = black bold
           branch = yellow bold
+        [pack]
+          threads = ${toString config.nix.maxJobs}
       '';
     in
     {
