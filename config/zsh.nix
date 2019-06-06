@@ -136,8 +136,6 @@
     source ${pkgs.fzf}/share/fzf/completion.zsh
     zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS} ma=7\;37
 
-    export ZSH_THEME_HOME_PROMPT="⭐";
-
     # last to pickup other zsh-widgets
     source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   '';
