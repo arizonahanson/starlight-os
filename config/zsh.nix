@@ -415,6 +415,7 @@
       .vim  0;32
       .py   0;32
       .go   0;32
+      .nix  0;32
 
       # data files
       .json         0;33
