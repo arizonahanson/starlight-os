@@ -1,6 +1,10 @@
 # starlight-os
 NixOS based Linux operating system for software development
 
+Perfection is reached, not when there is no longer anything to add, but when there is no longer anything to take away.
+-- Antoine de Saint-Exupery
+
+
 WARNING!!! The partition script in this repository could ERASE ALL OF YOUR DATA!!!
 
 principles:
