@@ -260,6 +260,7 @@ with lib;
       noto-fonts-emoji
     ];
     fonts.fontconfig = {
+      enable = true;
       localConf = ''
         <fontconfig>
           <match target="pattern">
