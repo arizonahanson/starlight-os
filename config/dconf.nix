@@ -210,6 +210,7 @@ with lib;
         docking-shrink-workarea=false
 
         [org/onboard/keyboard]
+        default-key-action='single-stroke'
         touch-feedback-enabled=true
 
         [org/onboard/typing-assistance/word-suggestions]

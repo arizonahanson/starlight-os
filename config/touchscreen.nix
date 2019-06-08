@@ -53,25 +53,25 @@ with lib;
 <?xml version="1.0"?>
 <color_scheme name="starlight" format="2.1">
     <window type="key-popup">
-      <color element="border" rgb="#8fadcc" opacity="1.0"/>
+      <color element="fill" rgb="${cfg.palette.color7}" opacity="0.9"/>
     </window>
     <layer> <color element="background" rgb="#000000" opacity="1.0"/> </layer>
-    <layer> <color element="background" rgb="#081021" opacity="0.9"/> </layer>
-    <layer> <color element="background" rgb="#081021" opacity="0.9"/> </layer>
+    <layer> <color element="background" rgb="${cfg.palette.background}" opacity="0.9"/> </layer>
+    <layer> <color element="background" rgb="${cfg.palette.background}" opacity="0.9"/> </layer>
     <key_group>
-        <color element="fill"   rgb="#081021"/>
-        <color element="stroke" rgb="#59748F"/>
-        <color element="label"  rgb="#c5c8c6"/>
+        <color element="fill"   rgb="${cfg.palette.background}"/>
+        <color element="stroke" rgb="${cfg.palette.color8}"/>
+        <color element="label"  rgb="${cfg.palette.foreground}"/>
         icon0
         <key_group>
-            <color element="fill" rgb="#c5c8c6"/>
+            <color element="fill" rgb="${cfg.palette.foreground}"/>
             icon1, icon2
         </key_group>
         <!-- dark keys -->
         <key_group>
-            <color element="fill" rgb="#081021"/>
-            <color element="stroke" rgb="#59748F"/>
-            <color element="label" rgb="#c5c8c6"/>
+            <color element="fill" rgb="${cfg.palette.background}"/>
+            <color element="stroke" rgb="${cfg.palette.color8}"/>
+            <color element="label" rgb="${cfg.palette.foreground}"/>
             icon3,
             RCTL, LCTL, RALT, LALT, LWIN, CAPS,
             LFSH, RTSH, NMLK,
@@ -85,24 +85,24 @@ with lib;
             quit, inputline,
             <!-- word suggestions -->
             <key_group>
-                <color element="fill" rgb="#081021"/>
+                <color element="fill" rgb="${cfg.palette.background}"/>
                 prediction
                 <key_group>
-                    <color element="fill" rgb="#081021" opacity="0.8"/>
+                    <color element="fill" rgb="${cfg.palette.background}" opacity="0.8"/>
                     wordlist, pause-learning.wordlist, language.wordlist, hide.wordlist
                 </key_group>
             </key_group>
         </key_group>
         <!-- snippets -->
         <key_group>
-            <color element="fill" rgb="#2b2b63"/>
-            <color element="stroke" rgb="#4c506c"/>
+            <color element="fill" rgb="${cfg.palette.background}"/>
+            <color element="stroke" rgb="${cfg.palette.color8}"/>
             m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15
         </key_group>
         <!-- red preferences -->
         <key_group>
-            <color element="fill" rgb="${cfg.palette.color1}"/>
-            <color element="stroke" rgb="${cfg.palette.foreground}"/>
+            <color element="fill" rgb="${cfg.palette.background}"/>
+            <color element="stroke" rgb="${cfg.palette.color8}"/>
             settings
         </key_group>
     </key_group>
