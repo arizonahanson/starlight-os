@@ -175,6 +175,13 @@ with lib;
         '';
       };
     };
+    touchscreen = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        Support touchscreen interface
+      '';
+    };
     dwarf-fortress = mkOption {
       type = types.bool;
       default = false;
@@ -184,24 +191,30 @@ with lib;
     };
   };
   config = lib.mkIf config.starlight.desktop {
-    environment.systemPackages = with pkgs; [
-      sxhkd rofi-unwrapped libnotify feh clipmenu
-      chromium networkmanagerapplet
-      xdg-desktop-portal-gtk xorg.xkill xdo xsel
-      (with import <nixpkgs> {}; writeShellScriptBin "cliprofi" ''
-        ${rofi-unwrapped}/bin/rofi -p  -dmenu -normal-window $@
-      '')
-      (with import <nixpkgs> {}; writeShellScriptBin "reload-desktop" ''
-        pkill -USR1 -x sxhkd
-        pkill -USR1 -x polybar
-        pkill -USR1 -x compton
-        ${libnotify}/bin/notify-send -i keyboard 'Reloaded desktop' 'desktop bar and key-bindings reloaded'
-      '')
-      (with import <nixpkgs> {}; writeShellScriptBin "flatpak" ''
-        ${flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-        ${flatpak}/bin/flatpak $@
-      '')
-    ] 
+    environment.systemPackages = 
+      let 
+        cliprofi = (with import <nixpkgs> {}; writeShellScriptBin "cliprofi" ''
+          ${rofi-unwrapped}/bin/rofi -p  -dmenu -normal-window $@
+        '');
+        reload-desktop = (with import <nixpkgs> {}; writeShellScriptBin "reload-desktop" ''
+          pkill -USR1 -x sxhkd
+          pkill -USR1 -x polybar
+          pkill -USR1 -x compton
+          ${libnotify}/bin/notify-send -i keyboard 'Reloaded desktop' 'desktop bar and key-bindings reloaded'
+        '');
+        flatpak-alt = (with import <nixpkgs> {}; writeShellScriptBin "flatpak" ''
+          ${flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          ${flatpak}/bin/flatpak $@
+        '');
+      in with pkgs; [
+        sxhkd rofi-unwrapped libnotify feh clipmenu
+        chromium networkmanagerapplet
+        xdg-desktop-portal-gtk xorg.xkill xdo xsel
+        (cliprofi) (reload-desktop) (flatpak-alt)
+    ]
+    ++ lib.optional config.starlight.touchscreen (onboard.overrideAttrs (oldAttrs: rec {
+      strictDeps = false;
+    }))
     ++ lib.optional config.starlight.dwarf-fortress (dwarf-fortress-packages.dwarf-fortress-full.override {
       enableIntro = false;
       enableTWBT = true;
