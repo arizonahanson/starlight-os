@@ -40,8 +40,8 @@ with lib;
   <key_gradient_direction>-23.0</key_gradient_direction>
   <key_label_font>Share Tech bold</key_label_font>
   <key_label_overrides>
-    <key group="super" id="LWIN" label="${cfg.logo}"/>
-    <key group="super" id="RWIN" label="${cfg.logo}"/>
+    <key group="super" id="LWIN" label="${removeSuffix " " cfg.logo}"/>
+    <key group="super" id="RWIN" label="${removeSuffix " " cfg.logo}"/>
   </key_label_overrides>
   <key_shadow_strength>50.0</key_shadow_strength>
   <key_shadow_size>50.0</key_shadow_size>

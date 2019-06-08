@@ -187,7 +187,7 @@ with lib;
         key-gradient-direction=-23.0
         key-stroke-gradient=0.0
         key-label-font='Share Tech bold'
-        key-label-overrides=['LWIN:${cfg.logo}:super', 'RWIN:${cfg.logo}:super']
+        key-label-overrides=['LWIN:${removeSuffix " " cfg.logo}:super', 'RWIN:${removeSuffix " " cfg.logo}:super']
         key-shadow-size=50.0
         key-shadow-strength=50.0
 
