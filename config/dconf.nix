@@ -205,6 +205,8 @@ with lib;
         enabled=true
 
         [org/onboard/window]
+        docking-aspect-change-range=[0.0, 100.0]
+        inactive-transparency-delay=5.0
         transparent-background=true
         enable-inactive-transparency=true
         docking-shrink-workarea=false
