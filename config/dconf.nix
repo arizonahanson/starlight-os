@@ -3,9 +3,9 @@
 with lib;
 
 {
-  config = lib.mkIf config.starlight.desktop {
+  config = let cfg = config.starlight; in lib.mkIf config.starlight.desktop {
     environment.systemPackages = with pkgs; [ gnome3.dconf ];
-    environment.etc.dconf_keyfile = let palette = config.starlight.palette; in {
+    environment.etc.dconf_keyfile = {
       target = "dconf/db/site.d/keyfile";
       text = ''
         [org/gnome/desktop/a11y/mouse]
@@ -162,10 +162,59 @@ with lib;
         [desktop/ibus/panel]
         show=0
         show-icon-on-systray=true
-        xkb-icon-rgba='${palette.foreground}'
+        xkb-icon-rgba='${cfg.palette.foreground}'
 
         [org/mate/marco/general]
         theme='starlight'
+      ''
+      + optionalString config.starlight.touchscreen.enable ''
+        [org/onboard]
+        schema-version='2.3'
+        system-theme-associations={'HighContrast': 'HighContrast', 'HighContrastInverse': 'HighContrastInverse', 'LowContrast': 'LowContrast', 'ContrastHighInverse': 'HighContrastInverse', 'Default': ''', 'starlight': '/etc/onboard/starlight.theme'}
+        use-system-defaults=false
+        start-minimized=true
+        status-icon-provider='GtkStatusIcon'
+        current-settings-page=8
+        snippets=@as []
+
+        [org/onboard/theme-settings]
+        color-scheme='/etc/onboard/starlight.colors'
+        key-fill-gradient=6.0
+        key-size=94.0
+        key-stroke-width=50.0
+        key-style='gradient'
+        roundrect-radius=16.0
+        key-gradient-direction=-23.0
+        key-stroke-gradient=0.0
+        key-label-font='Share Tech bold'
+        key-label-overrides=['LWIN:${cfg.logo}:super', 'RWIN:${cfg.logo}:super']
+        key-shadow-size=50.0
+        key-shadow-strength=50.0
+
+        [org/onboard/icon-palette]
+        in-use=true
+
+        [org/onboard/icon-palette/landscape]
+        x=64
+        y=64
+
+        [org/gnome/desktop/interface]
+        toolkit-accessibility=true
+
+        [org/onboard/auto-show]
+        enabled=true
+
+        [org/onboard/window]
+        transparent-background=true
+        enable-inactive-transparency=true
+        docking-shrink-workarea=false
+
+        [org/onboard/keyboard]
+        touch-feedback-enabled=true
+
+        [org/onboard/typing-assistance/word-suggestions]
+        enabled=true
+        wordlist-buttons=['previous-predictions', 'next-predictions', 'pause-learning', 'hide']
       '';
     };
         

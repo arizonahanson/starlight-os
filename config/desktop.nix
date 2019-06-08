@@ -10,6 +10,7 @@ with lib;
     ./theme.nix
     ./audio.nix
     ./terminal.nix
+    ./touchscreen.nix
   ];
   options.starlight = {
     desktop = mkOption {
@@ -175,13 +176,6 @@ with lib;
         '';
       };
     };
-    touchscreen = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        Support touchscreen interface
-      '';
-    };
     dwarf-fortress = mkOption {
       type = types.bool;
       default = false;
@@ -212,9 +206,6 @@ with lib;
         xdg-desktop-portal-gtk xorg.xkill xdo xsel
         (cliprofi) (reload-desktop) (flatpak-alt)
     ]
-    ++ lib.optional config.starlight.touchscreen (onboard.overrideAttrs (oldAttrs: rec {
-      strictDeps = false;
-    }))
     ++ lib.optional config.starlight.dwarf-fortress (dwarf-fortress-packages.dwarf-fortress-full.override {
       enableIntro = false;
       enableTWBT = true;
