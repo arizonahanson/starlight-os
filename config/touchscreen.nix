@@ -62,8 +62,10 @@ with lib;
         <color element="fill"   rgb="${cfg.palette.background}"/>
         <color element="stroke" rgb="${cfg.palette.color8}"/>
         <color element="label"  rgb="${cfg.palette.foreground}"/>
+        <color element="fill" locked="true" rgb="${cfg.palette.color8}"/>
         icon0
         <key_group>
+            <color element="fill" locked="true" rgb="${cfg.palette.color8}"/>
             <color element="fill" rgb="${cfg.palette.foreground}"/>
             icon1, icon2
         </key_group>
@@ -72,6 +74,7 @@ with lib;
             <color element="fill" rgb="${cfg.palette.background}"/>
             <color element="stroke" rgb="${cfg.palette.color8}"/>
             <color element="label" rgb="${cfg.palette.foreground}"/>
+            <color element="fill" locked="true" rgb="${cfg.palette.color8}"/>
             icon3,
             RCTL, LCTL, RALT, LALT, LWIN, CAPS,
             LFSH, RTSH, NMLK,
@@ -97,12 +100,14 @@ with lib;
         <key_group>
             <color element="fill" rgb="${cfg.palette.background}"/>
             <color element="stroke" rgb="${cfg.palette.color8}"/>
+            <color element="fill" locked="true" rgb="${cfg.palette.color8}"/>
             m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15
         </key_group>
         <!-- red preferences -->
         <key_group>
             <color element="fill" rgb="${cfg.palette.background}"/>
             <color element="stroke" rgb="${cfg.palette.color8}"/>
+            <color element="fill" locked="true" rgb="${cfg.palette.color8}"/>
             settings
         </key_group>
     </key_group>
