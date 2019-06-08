@@ -62,6 +62,7 @@ with lib;
         bspc rule -a Nm-connection-editor state=floating
         bspc rule -a Calfjackhost state=floating
         bspc rule -a calfjackhost state=floating
+        bspc rule -a .onboard-settings-wrapped state=floating
 
         # polybar
         for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
