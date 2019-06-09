@@ -175,19 +175,18 @@ with lib;
         schema-version='2.3'
         system-theme-associations={'HighContrast': 'HighContrast', 'HighContrastInverse': 'HighContrastInverse', 'LowContrast': 'LowContrast', 'ContrastHighInverse': 'HighContrastInverse', 'Default': ''', 'starlight': '/etc/onboard/starlight.theme'}
         use-system-defaults=false
-        start-minimized=true
+        start-minimized=false
         status-icon-provider='GtkStatusIcon'
-        current-settings-page=8
         snippets=@as []
 
         [org/onboard/theme-settings]
         color-scheme='/etc/onboard/starlight.colors'
-        key-fill-gradient=6.0
+        key-fill-gradient=5.0
         key-size=94.0
         key-stroke-width=50.0
         key-style='gradient'
-        roundrect-radius=16.0
-        key-gradient-direction=-23.0
+        roundrect-radius=12.0
+        key-gradient-direction=0.0
         key-stroke-gradient=0.0
         key-label-font='Share Tech bold'
         key-label-overrides=['LWIN:${removeSuffix " " cfg.logo}:super', 'RWIN:${removeSuffix " " cfg.logo}:super']
