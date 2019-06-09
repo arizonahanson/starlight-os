@@ -16,13 +16,19 @@ with lib;
   config = let cfg = config.starlight; in mkMerge [
     (mkIf cfg.touchscreen.enable {
       # touchscreen extension enabled!
+      users.users.admin.extraGroups = [ "input" ];
+      nixpkgs.config.packageOverrides = pkgs: {
+        onboard = pkgs.onboard.overrideAttrs (oldAttrs: rec {
+          strictDeps = false;
+          preInstall = ''
+            mkdir -p $out/etc/xdg/autostart
+            cp build/share/autostart/onboard-autostart.desktop $out/etc/xdg/autostart/
+          '';
+        });
+      };
       environment = {
-        systemPackages = let
-          onboard-alt = pkgs.onboard.overrideAttrs (oldAttrs: rec {
-            strictDeps = false;
-          });
-        in with pkgs; [
-            (onboard-alt) libinput-gestures
+        systemPackages = with pkgs; [
+            onboard libinput-gestures
         ];
         etc = {
           "onboard/starlight.theme" = {

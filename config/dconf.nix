@@ -168,6 +168,9 @@ with lib;
         theme='starlight'
       ''
       + optionalString config.starlight.touchscreen.enable ''
+        [org/gnome/desktop/a11y/applications]
+        screen-keyboard-enabled=true
+
         [org/onboard]
         schema-version='2.3'
         system-theme-associations={'HighContrast': 'HighContrast', 'HighContrastInverse': 'HighContrastInverse', 'LowContrast': 'LowContrast', 'ContrastHighInverse': 'HighContrastInverse', 'Default': ''', 'starlight': '/etc/onboard/starlight.theme'}
