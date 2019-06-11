@@ -19,6 +19,9 @@ with lib;
         enable = true;
         #dns = "systemd-resolved";
       };
+      firewall = {
+        allowedUDPPorts = [ 5353 ];
+      };
       timeServers = [
         "time1.google.com"
         "time2.google.com"
@@ -31,13 +34,6 @@ with lib;
       resolved = {
         enable = true;
         fallbackDns = [ "8.8.8.8" ];
-      };
-      avahi = {
-        enable = true;
-        nssmdns = true;
-        publish = {
-          enable = true;
-        };
       };
     };
     environment.systemPackages = with pkgs; [ nssmdns ];
