@@ -32,7 +32,15 @@ with lib;
         enable = true;
         fallbackDns = [ "8.8.8.8" ];
       };
+      avahi = {
+        enable = true;
+        nssmdns = true;
+        publish = {
+          enable = true;
+        };
+      };
     };
+    environment.systemPackages = with pkgs; [ nssmdns ];
     #systemd = {
     #  additionalUpstreamSystemUnits = [
     #    "systemd-resolved.service"
