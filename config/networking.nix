@@ -41,19 +41,21 @@ with lib;
         restartTriggers = [ config.environment.etc."systemd/resolved.conf".source ];
       };
     };
-    environment.etc = {
+    environment.etc = let
+      net = config.networking;
+      resolv = config.services.resolved; in {
       "resolv.conf".source = "/run/systemd/resolve/resolv.conf";
       "systemd/resolved.conf".text = ''
         [Resolve]
-        ${optionalString (config.networking.nameservers != [])
-          "DNS=${concatStringsSep " " config.networking.nameservers}"}
-        ${optionalString (config.services.resolved.fallbackDns != [])
-          "FallbackDNS=${concatStringsSep " " config.services.resolved.fallbackDns}"}
-        ${optionalString (config.services.resolved.domains != [])
-          "Domains=${concatStringsSep " " config.services.resolved.domains}"}
-        LLMNR=${config.services.resolved.llmnr}
-        DNSSEC=${config.services.resolved.dnssec}
-        ${config.services.resolved.extraConfig}
+        ${optionalString (net.nameservers != [])
+          "DNS=${concatStringsSep " " net.nameservers}"}
+        ${optionalString (resolv.fallbackDns != [])
+          "FallbackDNS=${concatStringsSep " " resolv.fallbackDns}"}
+        ${optionalString (resolv.domains != [])
+          "Domains=${concatStringsSep " " resolv.domains}"}
+        LLMNR=${resolv.llmnr}
+        DNSSEC=${resolv.dnssec}
+        ${resolv.extraConfig}
       '';
     };
   };
