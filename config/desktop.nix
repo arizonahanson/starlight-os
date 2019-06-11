@@ -258,6 +258,10 @@ with lib;
     networking.networkmanager = {
       enable = true;
     };
+    services.resolved = {
+      enable = true;
+      fallbackDns = [ "8.8.8.8" ];
+    };
     fonts.fonts = with pkgs; [
       font-awesome_5
       google-fonts
