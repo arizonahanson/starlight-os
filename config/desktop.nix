@@ -259,9 +259,30 @@ with lib;
       enable = true;
     };
     services.resolved = {
-      enable = true;
       fallbackDns = [ "8.8.8.8" ];
     };
+    systemd.additionalUpstreamSystemUnits = [
+      "systemd-resolved.service"
+    ];
+    systemd.services.systemd-resolved = {
+      wantedBy = [ "multi-user.target" ];
+      restartTriggers = [ config.environment.etc."systemd/resolved.conf".source ];
+    };
+    environment.etc."systemd/resolved.conf".text = ''
+      [Resolve]
+      ${optionalString (config.networking.nameservers != [])
+        "DNS=${concatStringsSep " " config.networking.nameservers}"}
+      ${optionalString (config.services.resolved.fallbackDns != [])
+        "FallbackDNS=${concatStringsSep " " config.services.resolved.fallbackDns}"}
+      ${optionalString (config.services.resolved.domains != [])
+        "Domains=${concatStringsSep " " config.services.resolved.domains}"}
+      LLMNR=${config.services.resolved.llmnr}
+      DNSSEC=${config.services.resolved.dnssec}
+      ${config.services.resolved.extraConfig}
+    '';
+    environment.etc."resolv.conf".source = "/run/systemd/resolve/resolv.conf";
+    # If networkmanager is enabled, ask it to interface with resolved.
+    networking.networkmanager.dns = "systemd-resolved";
     fonts.fonts = with pkgs; [
       font-awesome_5
       google-fonts
