@@ -94,7 +94,7 @@ with lib;
           label-focused-foreground = ''${colors.foreground}
           label-focused-padding = 0
 
-          label-occupied = "▤ "
+          label-occupied = "▩ "
           label-occupied-padding = 0
           label-occupied-foreground = ''${colors.foreground-alt}
 
