@@ -195,6 +195,7 @@ with lib;
 
         [org/onboard/icon-palette]
         in-use=true
+        window-handles='M'
 
         [org/onboard/icon-palette/landscape]
         x=64
