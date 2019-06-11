@@ -31,6 +31,7 @@ with lib;
       openssh.enable = true;
       avahi = {
         enable = true;
+        publish.enable = true;
         nssmdns = true;
         ipv6 = false;
       };
