@@ -19,7 +19,6 @@ let cfg = config.starlight; in {
     virtualisation.docker = {
       enable = true;
       enableOnBoot = false;
-      autoPrune.enable = true;
       storageDriver = "btrfs";
       logDriver = "json-file";
     };
