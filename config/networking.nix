@@ -32,7 +32,7 @@ with lib;
       avahi = {
         enable = true;
         nssmdns = true;
-        ipv6 = true;
+        ipv6 = false;
       };
       resolved = {
         fallbackDns = [ "8.8.8.8" ];
