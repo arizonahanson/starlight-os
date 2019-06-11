@@ -18,6 +18,11 @@ with lib;
       networkmanager = {
         enable = true;
         #dns = "systemd-resolved";
+        extraConfig = ''
+          [connection]
+          connection.mdns=2
+          connection.llmnr=2
+        '';
       };
       firewall = {
         allowedUDPPorts = [ 5353 5355 ];
@@ -37,12 +42,12 @@ with lib;
         fallbackDns = [ "8.8.8.8" ];
       };
     };
-    environment.etc."NetworkManager/conf.d/mdns.conf" = {
-      text = ''
-        [connection]
-        connection.mdns=1
-      '';
-    };
+    #environment.etc."NetworkManager/conf.d/extra.conf" = {
+    #  text = ''
+    #    [connection]
+    #    connection.mdns=1
+    #  '';
+    #};
     #environment.systemPackages = with pkgs; [ nssmdns ];
     #systemd = {
     #  additionalUpstreamSystemUnits = [
