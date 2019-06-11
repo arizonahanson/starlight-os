@@ -28,7 +28,6 @@ with lib;
     };
     system.nssHosts = [ "mdns" ];
     services = {
-      nscd.enable = true;
       openssh.enable = true;
       avahi = {
         enable = true;
