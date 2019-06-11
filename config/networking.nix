@@ -17,7 +17,7 @@ with lib;
       hostName = (config.starlight.hostname);
       networkmanager = {
         enable = true;
-        dns = "systemd-resolved";
+        #dns = "systemd-resolved";
       };
       timeServers = [
         "time1.google.com"
@@ -29,34 +29,35 @@ with lib;
     services = {
       openssh.enable = true;
       resolved = {
+        enable = true;
         fallbackDns = [ "8.8.8.8" ];
       };
     };
-    systemd = {
-      additionalUpstreamSystemUnits = [
-        "systemd-resolved.service"
-      ];
-      services.systemd-resolved = {
-        wantedBy = [ "multi-user.target" ];
-        restartTriggers = [ config.environment.etc."systemd/resolved.conf".source ];
-      };
-    };
-    environment.etc = let
-      net = config.networking;
-      resolv = config.services.resolved; in {
-      "resolv.conf".source = "/run/systemd/resolve/resolv.conf";
-      "systemd/resolved.conf".text = ''
-        [Resolve]
-        ${optionalString (net.nameservers != [])
-          "DNS=${concatStringsSep " " net.nameservers}"}
-        ${optionalString (resolv.fallbackDns != [])
-          "FallbackDNS=${concatStringsSep " " resolv.fallbackDns}"}
-        ${optionalString (resolv.domains != [])
-          "Domains=${concatStringsSep " " resolv.domains}"}
-        LLMNR=${resolv.llmnr}
-        DNSSEC=${resolv.dnssec}
-        ${resolv.extraConfig}
-      '';
-    };
+    #systemd = {
+    #  additionalUpstreamSystemUnits = [
+    #    "systemd-resolved.service"
+    #  ];
+    #  services.systemd-resolved = {
+    #    wantedBy = [ "multi-user.target" ];
+    #    restartTriggers = [ config.environment.etc."systemd/resolved.conf".source ];
+    #  };
+    #};
+    #environment.etc = let
+    #  net = config.networking;
+    #  resolv = config.services.resolved; in {
+    #  "resolv.conf".source = "/run/systemd/resolve/resolv.conf";
+    #  "systemd/resolved.conf".text = ''
+    #    [Resolve]
+    #    ${optionalString (net.nameservers != [])
+    #      "DNS=${concatStringsSep " " net.nameservers}"}
+    #    ${optionalString (resolv.fallbackDns != [])
+    #      "FallbackDNS=${concatStringsSep " " resolv.fallbackDns}"}
+    #    ${optionalString (resolv.domains != [])
+    #      "Domains=${concatStringsSep " " resolv.domains}"}
+    #    LLMNR=${resolv.llmnr}
+    #    DNSSEC=${resolv.dnssec}
+    #    ${resolv.extraConfig}
+    #  '';
+    #};
   };
 }
