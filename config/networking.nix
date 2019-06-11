@@ -28,6 +28,11 @@ with lib;
     };
     services = {
       openssh.enable = true;
+      avahi = {
+        enable = true;
+        nssmdns = true;
+        ipv6 = true;
+      };
       resolved = {
         fallbackDns = [ "8.8.8.8" ];
       };

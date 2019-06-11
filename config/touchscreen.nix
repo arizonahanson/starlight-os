@@ -28,7 +28,7 @@ with lib;
       };
       environment = {
         systemPackages = with pkgs; [
-            onboard libinput-gestures xinput_calibrator
+            onboard xinput_calibrator
         ];
         etc = {
           "onboard/starlight.theme" = {
@@ -120,16 +120,6 @@ with lib;
               </color_scheme>
             '';
           };
-        };
-        etc."libinput-gestures.conf" = {
-          text = ''
-            gesture pinch in	xdotool key super+q
-            gesture pinch out	xdotool key super+space
-            gesture swipe up	_internal ws_up
-            gesture swipe down	_internal ws_down
-            gesture swipe left	xdotool key alt+Right
-            gesture swipe right	xdotool key alt+Left
-          '';
         };
       };
       services.compton.shadowExclude = [
