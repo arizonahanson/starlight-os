@@ -37,7 +37,13 @@ with lib;
         fallbackDns = [ "8.8.8.8" ];
       };
     };
-    environment.systemPackages = with pkgs; [ nssmdns ];
+    environment.etc."NetworkManager/conf.d/mdns.conf" = {
+      text = ''
+        [connection]
+        connection.mdns=1
+      '';
+    };
+    #environment.systemPackages = with pkgs; [ nssmdns ];
     #systemd = {
     #  additionalUpstreamSystemUnits = [
     #    "systemd-resolved.service"
