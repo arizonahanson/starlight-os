@@ -20,7 +20,8 @@ with lib;
         #dns = "systemd-resolved";
       };
       firewall = {
-        allowedUDPPorts = [ 5353 ];
+        allowedUDPPorts = [ 5353 5355 ];
+        allowedTCPPorts = [ 5355 ];
       };
       timeServers = [
         "time1.google.com"
