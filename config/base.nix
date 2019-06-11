@@ -4,19 +4,12 @@ with lib;
 
 {
   imports = [
+    ./networking.nix
     ./zsh.nix
     ./git.nix
     ./tmux.nix
     ./vim.nix
   ];
-  options.starlight = {
-    hostname = mkOption {
-      type = types.str;
-      description = ''
-        hostname
-      '';
-    };
-  };
   config = mkMerge [{
     # btrfs auto-scrub
     #services.btrfs.autoScrub.enable = true;
@@ -35,7 +28,6 @@ with lib;
       "/".options = [ "compress=lzo" ];
       "/home".options = [ "compress=lzo" ];
     };
-    networking.hostName = (config.starlight.hostname);
     nixpkgs.config.allowUnfree = true;
     environment.pathsToLink = [ "/include" ];
     environment.systemPackages = with pkgs; [
@@ -66,7 +58,6 @@ with lib;
         EOF
       '')
     ];
-    services.openssh.enable = true;
     services.journald.extraConfig = ''
       Storage=volatile
     '';
