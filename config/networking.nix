@@ -26,7 +26,9 @@ with lib;
         "time4.google.com"
       ];
     };
+    system.nssHosts = [ "mdns" ];
     services = {
+      nscd.enable = true;
       openssh.enable = true;
       avahi = {
         enable = true;
@@ -46,6 +48,7 @@ with lib;
         restartTriggers = [ config.environment.etc."systemd/resolved.conf".source ];
       };
     };
+    environment.systemPackages = with pkgs; [ nssmdns ];
     environment.etc = let
       net = config.networking;
       resolv = config.services.resolved; in {
