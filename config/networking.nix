@@ -15,6 +15,10 @@ with lib;
     users.users.admin.extraGroups = [ "networkmanager" ];
     networking = {
       hostName = (config.starlight.hostname);
+      firewall = {
+        allowedTCPPorts = [ 5355 ];
+        allowedUDPPorts = [ 5355 ];
+      };
       networkmanager = {
         enable = true;
         extraConfig = ''
