@@ -19,7 +19,6 @@ with lib;
         enable = true;
         extraConfig = ''
           [connection]
-          connection.mdns=2
           connection.llmnr=2
         '';
       };
@@ -34,10 +33,6 @@ with lib;
       openssh.enable = true;
       resolved = {
         enable = !config.starlight.docker;
-        llmnr = "false";
-        extraConfig = ''
-          MulticastDNS=false
-        '';
       };
       avahi = {
         enable = true;
