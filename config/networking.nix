@@ -34,13 +34,6 @@ with lib;
       resolved = {
         enable = !config.starlight.docker;
       };
-      avahi = {
-        enable = true;
-        nssmdns = true;
-        publish = {
-          enable = true;
-        };
-      };
     };
   };
 }
