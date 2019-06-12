@@ -23,10 +23,6 @@ with lib;
           connection.llmnr=2
         '';
       };
-      firewall = {
-        allowedUDPPorts = [ 5353 5355 ];
-        allowedTCPPorts = [ 5355 ];
-      };
       timeServers = [
         "time1.google.com"
         "time2.google.com"
@@ -38,6 +34,17 @@ with lib;
       openssh.enable = true;
       resolved = {
         enable = !config.starlight.docker;
+        llmnr = "false";
+        extraConfig = ''
+          MulticastDNS=false
+        '';
+      };
+      avahi = {
+        enable = true;
+        nssmdns = true;
+        publish = {
+          enable = true;
+        };
       };
     };
   };
