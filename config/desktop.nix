@@ -53,7 +53,7 @@ with lib;
         type = types.str;
         default = "#404040";
         description = ''
-          Background color
+          Alternate Background color
         '';
       };
       cursor = mkOption {
