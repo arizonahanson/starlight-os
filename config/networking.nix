@@ -36,7 +36,7 @@ with lib;
     services = {
       openssh.enable = true;
       resolved = {
-        enable = !config.starlight.docker;
+        enable = true;
       };
     };
   };
