@@ -192,8 +192,8 @@ with lib;
         '');
         reload-desktop = (with import <nixpkgs> {}; writeShellScriptBin "reload-desktop" ''
           pkill -USR1 -x sxhkd
-          pkill -USR1 -x polybar
           pkill -USR1 -x compton
+          pkill -TERM -x polybar
           bspc wm -r
           ${libnotify}/bin/notify-send -i keyboard 'Reloaded desktop' 'Desktop components have been reloaded'
         '');
