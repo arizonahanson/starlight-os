@@ -195,7 +195,7 @@ with lib;
           pkill -USR1 -x polybar
           pkill -USR1 -x compton
           bspc wm -r
-          ${libnotify}/bin/notify-send -i keyboard 'Reloaded desktop' 'desktop bar and key-bindings reloaded'
+          ${libnotify}/bin/notify-send -i keyboard 'Reloaded desktop' 'Desktop components have been reloaded'
         '');
         flatpak-alt = (with import <nixpkgs> {}; writeShellScriptBin "flatpak" ''
           ${flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
