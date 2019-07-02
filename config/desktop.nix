@@ -210,7 +210,7 @@ with lib;
     ++ lib.optional config.starlight.dwarf-fortress (dwarf-fortress-packages.dwarf-fortress-full.override {
       enableIntro = false;
       enableTWBT = true;
-      theme = dwarf-fortress-packages.themes.wanderlust;
+      theme = dwarf-fortress-packages.themes.tergel;
     });
     # flatpak
     services.flatpak = {
