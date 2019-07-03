@@ -30,147 +30,147 @@ with lib;
     palette = {
       foreground = mkOption {
         type = types.str;
-        default = "#C7C7C7";
+        default = "#CCCCCC";
         description = ''
           Foreground color
         '';
       };
       foreground-alt = mkOption {
         type = types.str;
-        default = "#787878";
+        default = "#999999";
         description = ''
           Alternate foreground color
         '';
       };
       background = mkOption {
         type = types.str;
-        default = "#212121";
+        default = "#1A1A1A";
         description = ''
           Background color
         '';
       };
       background-alt = mkOption {
         type = types.str;
-        default = "#404040";
+        default = "#333333";
         description = ''
           Alternate Background color
         '';
       };
       cursor = mkOption {
         type = types.str;
-        default = "#9E9E9E";
+        default = "#B3B3B3";
         description = ''
           Cursor color
         '';
       };
       color0 = mkOption {
         type = types.str;
-        default = "#212121";
+        default = "#1A1A1A";
         description = ''
           color 0 (black)
         '';
       };
       color1 = mkOption {
         type = types.str;
-        default = "#CC6666";
+        default = "#CC7A7A";
         description = ''
           color 1 (red)
         '';
       };
       color2 = mkOption {
         type = types.str;
-        default = "#638F63";
+        default = "#6B996B";
         description = ''
           color 2 (green)
         '';
       };
       color3 = mkOption {
         type = types.str;
-        default = "#8F8842";
+        default = "#99996B";
         description = ''
           color 3 (brown)
         '';
       };
       color4 = mkOption {
         type = types.str;
-        default = "#59748F";
+        default = "#6B8299";
         description = ''
           color 4 (blue)
         '';
       };
       color5 = mkOption {
         type = types.str;
-        default = "#85678F";
+        default = "#8a6b99";
         description = ''
           color 5 (magenta)
         '';
       };
       color6 = mkOption {
         type = types.str;
-        default = "#5E8D87";
+        default = "#6B9999";
         description = ''
           color 6 (cyan)
         '';
       };
       color7 = mkOption {
         type = types.str;
-        default = "#787878";
+        default = "#999999";
         description = ''
           color 7 (white)
         '';
       };
       color8 = mkOption {
         type = types.str;
-        default = "#404040";
+        default = "#333333";
         description = ''
           color 8 (dark gray)
         '';
       };
       color9 = mkOption {
         type = types.str;
-        default = "#DE985F";
+        default = "#CCA37A";
         description = ''
           color 9 (orange)
         '';
       };
       color10 = mkOption {
         type = types.str;
-        default = "#85CC85";
+        default = "#7ACC7A";
         description = ''
           color 10 (bright green)
         '';
       };
       color11 = mkOption {
         type = types.str;
-        default = "#D9CF69";
+        default = "#CCCC7A";
         description = ''
           color 11 (yellow)
         '';
       };
       color12 = mkOption {
         type = types.str;
-        default = "#8FADCC";
+        default = "#7AA3CC";
         description = ''
           color 12 (bright blue)
         '';
       };
       color13 = mkOption {
         type = types.str;
-        default = "#B093BA";
+        default = "#B17ACC";
         description = ''
           color 13 (bright magenta)
         '';
       };
       color14 = mkOption {
         type = types.str;
-        default = "#8ABEB7";
+        default = "#7ACCCC";
         description = ''
           color 14 (bright cyan)
         '';
       };
       color15 = mkOption {
         type = types.str;
-        default = "#C7C7C7";
+        default = "#CCCCCC";
         description = ''
           color 15 (bright white)
         '';
@@ -377,39 +377,29 @@ with lib;
         rofi.combi-modi: window,run,drun
         rofi.monitor: -1
   
-        ! special
         *.foreground:   ${palette.foreground}
         *.cursorColor:  ${palette.cursor}
         *.background:   ${palette.background}
-  
-        ! black
         *.color0:       ${palette.color0}
         *.color8:       ${palette.color8}
-  
         ! red
         *.color1:       ${palette.color1}
         *.color9:       ${palette.color9}
-
         ! green
         *.color2:       ${palette.color2}
         *.color10:      ${palette.color10}
-
         ! yellow
         *.color3:       ${palette.color3}
         *.color11:      ${palette.color11}
-  
         ! blue
         *.color4:       ${palette.color4}
         *.color12:      ${palette.color12}
-  
         ! magenta
         *.color5:       ${palette.color5}
         *.color13:      ${palette.color13}
-
         ! cyan
         *.color6:       ${palette.color6}
         *.color14:      ${palette.color14}
-  
         ! white
         *.color7:       ${palette.color7}
         *.color15:      ${palette.color15}
