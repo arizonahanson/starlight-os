@@ -191,10 +191,10 @@ with lib;
           ${rofi-unwrapped}/bin/rofi -p  -dmenu -normal-window $@
         '');
         reload-desktop = (with import <nixpkgs> {}; writeShellScriptBin "reload-desktop" ''
-          pkill -USR1 -x sxhkd
-          pkill -USR1 -x compton
-          pkill -TERM -x polybar
-          bspc wm -r
+          ${procps}/bin/pkill -USR1 -x sxhkd
+          ${procps}/bin/pkill -USR1 -x compton
+          ${procps}/bin/pkill -TERM -x polybar
+          ${bspwm}/bin/bspc wm -r
           ${libnotify}/bin/notify-send -i keyboard 'Reloaded desktop' 'Desktop components have been reloaded'
         '');
         flatpak-alt = (with import <nixpkgs> {}; writeShellScriptBin "flatpak" ''
