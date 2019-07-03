@@ -7,12 +7,12 @@ with lib;
     environment.systemPackages = 
       let
         starlight-gtk-theme = with pkgs; stdenv.mkDerivation rec {
-          name = "starlight-gtk-theme-v0.9";
+          name = "starlight-gtk-theme-v1.0";
           src = fetchFromGitHub {
             owner = "isaacwhanson";
             repo = "starlight-gtk-theme";
-            rev = "v0.9";
-            sha256 = "04l1i34cpyyyzkjlll6nz7ij9y9s0ii33kgkdr7vdr22gzm2b83f";
+            rev = "v1.0";
+            sha256 = "0pcrfdaw35s6yfq83f33rif4i5w3xpcarg7dhn2w45ip16b7ss9a";
           };
               
           dontBuild = true;
@@ -22,12 +22,12 @@ with lib;
           '';
         };
         starlight-icon-theme = with pkgs; stdenv.mkDerivation rec {
-          name = "starlight-icon-theme-v0.6";
+          name = "starlight-icon-theme-v1.0";
           src = fetchFromGitHub {
             owner = "isaacwhanson";
             repo = "starlight-icon-theme";
-            rev = "v0.6";
-            sha256 = "1my1gbjci4myhsqsf4r2iagkfdfjf4z77swn2z8lbf64axdfnx53";
+            rev = "v1.0";
+            sha256 = "1bqydmzkialx95wf5s9vz3nqgmmajwacbwcrm3c98r1bddfyw3a7";
           };
               
           dontBuild = true;
