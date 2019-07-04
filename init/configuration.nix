@@ -19,9 +19,9 @@
   #   frames = 1024;
   # };
   # palette = {
-  #   background = "#212121";
-  #   foreground = "#c7c7c7";
-  #   color0 = "#212121";
+  #   background = "#1A1A1A";
+  #   foreground = "#CCCCCC";
+  #   color0 = "#1A1A1A";
   # };
   };
 }
