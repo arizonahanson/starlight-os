@@ -100,7 +100,7 @@ with lib;
       };
       color5 = mkOption {
         type = types.str;
-        default = "#8a6b99";
+        default = "#826B99";
         description = ''
           color 5 (magenta)
         '';
@@ -156,7 +156,7 @@ with lib;
       };
       color13 = mkOption {
         type = types.str;
-        default = "#B17ACC";
+        default = "#A37ACC";
         description = ''
           color 13 (bright magenta)
         '';
