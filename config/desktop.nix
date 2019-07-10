@@ -27,6 +27,7 @@ with lib;
         Text logo
       '';
     };
+    # system colors
     palette = {
       foreground = mkOption {
         type = types.str;
@@ -51,7 +52,7 @@ with lib;
       };
       background-alt = mkOption {
         type = types.str;
-        default = "#333333";
+        default = "#4D4D4D";
         description = ''
           Alternate Background color
         '';
@@ -121,7 +122,7 @@ with lib;
       };
       color8 = mkOption {
         type = types.str;
-        default = "#333333";
+        default = "#4D4D4D";
         description = ''
           color 8 (dark gray)
         '';
