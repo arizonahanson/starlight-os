@@ -51,7 +51,7 @@ with lib;
         bspc config split_ratio          0.50
         bspc config borderless_monocle   true
         bspc config gapless_monocle      true
-        bspc config single_monocle       true
+        bspc config single_monocle       false
         bspc config focus_follows_pointer false
 
         bspc rule -a "-c" state=floating
