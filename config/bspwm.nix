@@ -46,7 +46,7 @@ with lib;
         # border color
         bspc config focused_border_color "${palette.foreground-alt}"
         bspc config normal_border_color "${palette.background-alt}"
-        bspc config border_width         3
+        bspc config border_width         2
         bspc config window_gap           0
         bspc config split_ratio          0.50
         bspc config borderless_monocle   true
