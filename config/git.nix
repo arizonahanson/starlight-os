@@ -7,7 +7,7 @@
         guiSupport = false;
         pythonSupport = false;
         perlSupport = false;
-        withManual = true;
+        withManual = false; # time consuming
         withLibsecret = true;
       });
       git_config = ''
