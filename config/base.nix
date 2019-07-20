@@ -29,6 +29,9 @@ with lib;
       "/home".options = [ "compress=lzo" ];
     };
     nixpkgs.config.allowUnfree = true;
+    environment.variables = {
+      NIX_CFLAGS_COMPILE = "-march=native";
+    };
     environment.pathsToLink = [ "/include" ];
     environment.systemPackages = with pkgs; [
       gnumake bc gcc
