@@ -38,6 +38,16 @@
         " persist undo tree
         set undofile
         let &undodir=g:vimcache.'undo//'
+        " keep buffer list in shada
+        set shada^=%
+        " relocate shada file
+        let shada_file=g:vimcache.'/shada'
+        let &shada.=',n'.shada_file
+        " return to last edit position when opening files
+        autocmd BufReadPost *
+          \ if line("'\"") > 0 && line("'\"") <= line("$") |
+          \   exe "normal! g`\"" |
+          \ endif
         " encoding
         set encoding=utf-8
         set fileencoding=utf-8
@@ -80,13 +90,6 @@
         endtry
         " show tabline when tabs >1
         set showtabline=1
-        " return to last edit position when opening files
-        autocmd BufReadPost *
-          \ if line("'\"") > 0 && line("'\"") <= line("$") |
-          \   exe "normal! g`\"" |
-          \ endif
-        " remember info about open buffers on close
-        set viminfo^=%
         " turn-on numbers
         set number
         " activate spell check for some types
