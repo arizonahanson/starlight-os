@@ -29,9 +29,9 @@
         [color]
           ui = auto
         [color "grep"]
-          separator = green
-          filename = magenta bold
-          linenumber = magenta
+          separator = magenta
+          filename = blue
+          linenumber = black bold
         [color "diff"]
           commit = magenta
           meta = black bold
@@ -39,9 +39,9 @@
           old = red
           new = green
         [color "branch"]
-          remote = red
-          current = yellow
-          local = red bold
+          remote = red bold
+          current = yellow bold
+          local = yellow
         [color "status"]
           added = yellow bold
           changed = red bold

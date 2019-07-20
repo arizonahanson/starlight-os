@@ -145,14 +145,15 @@
     ll = "ls -lAhF";
     cp = "cp --reflink=auto";
     xz = "xz --threads=0";
+    ag = "${pkgs.ag}/bin/ag --color-line-number '1;30' --color-path '0;34' --color-match '1;31'";
   };
   environment.variables = {
     # shorter delay on cmd-mode
     KEYTIMEOUT = "1";
     LESS = "-erFX";
     FZF_TMUX = "1";
-    FZF_DEFAULT_COMMAND = "${pkgs.ag}/bin/ag -f -g '' --hidden --depth 16 --ignore dosdevices";
-    FZF_CTRL_T_COMMAND = "${pkgs.ag}/bin/ag -f -g '' --hidden --depth 16 --ignore dosdevices";
+    FZF_DEFAULT_COMMAND = "ag -f -g '' --hidden --depth 16 --ignore dosdevices";
+    FZF_CTRL_T_COMMAND = "ag -f -g '' --hidden --depth 16 --ignore dosdevices";
     FZF_DEFAULT_OPTS = "-m --ansi --color=16,bg:-1,bg+:-1 --tac";
     FZF_ALT_C_COMMAND = "find -L . -maxdepth 16 -type d 2>/dev/null";
   };
