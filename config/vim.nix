@@ -5,6 +5,9 @@
     vimAlias = true;
     configure = {
       customRC = ''
+        " temp cache directory
+        let g:vimcache='/tmp/.vim-'.$USER.'/'
+        call mkdir(g:vimcache, 'p', 0700)
         " no startup message
         set shortmess+=I
         " recursive pathfinding
@@ -21,10 +24,20 @@
         set updatetime=1000
         set guicursor=n-v-c-sm:block-blinkwait500-blinkon500-blinkoff500,i-ci-ve:ver25-blinkwait500-blinkon500-blinkoff500,r-cr-o:hor20-blinkwait500-blinkon500-blinkoff500
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
-        " turn backup off
+        " swapfile
+        set swapfile
+        let &directory=g:vimcache.'swap//'
+        " backup during write
+        set writebackup
+        " no backup after write
         set nobackup
-        set nowb
-        set noswapfile
+        " rename/write new when safe
+        set backupcopy=auto
+        let &backupdir=g:vimcache.'backup//'
+        call mkdir(&backupdir, 'p', 0700)
+        " persist undo tree
+        set undofile
+        let &undodir=g:vimcache.'undo//'
         " encoding
         set encoding=utf-8
         set fileencoding=utf-8
@@ -74,13 +87,13 @@
           \ endif
         " remember info about open buffers on close
         set viminfo^=%
+        " turn-on numbers
+        set number
         " activate spell check for some types
         autocmd FileType gitcommit set spell spelllang=en_us
         autocmd FileType gitcommit set nonumber
         autocmd FileType markdown set spell spelllang=en_us
         autocmd FileType markdown set nonumber
-        " turn-on numbers
-        set number
         " vimdiff layout
         set diffopt=filler,vertical
         " lines to the cursor when moving vertically using j/k
@@ -95,7 +108,7 @@
         set noerrorbells
         set novisualbell
         " do not pollute with ctags
-        let g:gutentags_cache_dir='/tmp/.gutentags-' . $USER
+        let g:gutentags_cache_dir=g:vimcache.'gutentags/'
         let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
         " colorscheme
         colorscheme starlight
