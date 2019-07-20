@@ -79,12 +79,3 @@ with lib;
     system.stateVersion = "unstable"; # Did you read the comment?
   }];
 }
-#!/usr/bin/env zsh
-#colors:
-
-#blk gry1 red org grn grn2 brn yel blu blu2 prp prp2 cyn cyn2 gry2 wht (16)
-
-#blk gry1 gry2 wht			4 gray scale
-#red org yel grn2 cyn2 blu2 prp2	7 bright color scale
-#brn grn cyn blu prp			5 cool color scale
-
