@@ -38,11 +38,9 @@
         " persist undo tree
         set undofile
         let &undodir=g:vimcache.'undo//'
-        " keep buffer list in shada
-        set shada^=%
-        " relocate shada file
-        let shada_file=g:vimcache.'/shada'
-        let &shada.=',n'.shada_file
+        " relocate shada file, keep buffer list, larger shada
+        let shada_file=g:vimcache.'shada'
+        let &shada="%,!,'100,<50,s1024,h,n".shada_file
         " return to last edit position when opening files
         autocmd BufReadPost *
           \ if line("'\"") > 0 && line("'\"") <= line("$") |
