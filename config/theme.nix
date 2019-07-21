@@ -38,7 +38,7 @@ with lib;
         };
       in
     with pkgs; [
-      capitaine-cursors gtk-engine-murrine
+      bibata-cursors gtk-engine-murrine
       (starlight-gtk-theme) (starlight-icon-theme)
     ];
   };

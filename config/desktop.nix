@@ -27,6 +27,14 @@ with lib;
         Text logo
       '';
     };
+    cursorSize = mkOption {
+      type = types.int;
+      default = 32;
+      description = ''
+        XCursor size
+        (default 32)
+      '';
+    };
     # system colors
     palette = {
       foreground = mkOption {
@@ -244,6 +252,7 @@ with lib;
       BROWSER = "chromium";
       CM_LAUNCHER = "cliprofi";
       SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
+      XCURSOR_THEME="Bibata_Oil";
     };
     # SSH_ASKPASS already defined
     programs.zsh.interactiveShellInit = ''
@@ -329,6 +338,9 @@ with lib;
     };
     environment.etc."X11/Xresources" = let palette = config.starlight.palette; in {
       text = ''
+        ! cursor
+        Xcursor.theme: Bibata_Oil
+        Xcursor.size:  ${toString config.starlight.cursorSize}
         ! XFT
         Xft.antialias: 1
         Xft.autohint: 1

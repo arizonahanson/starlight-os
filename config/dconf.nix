@@ -96,7 +96,8 @@ with lib;
 
         [org/mate/desktop/peripherals/mouse]
         double-click=600
-        cursor-theme='capitaine-cursors'
+        cursor-theme='Bibata_Oil'
+        cursor-size=${toString cfg.cursorSize}
 
         [org/mate/desktop/session]
         auto-save-session=false
