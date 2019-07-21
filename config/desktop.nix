@@ -292,9 +292,6 @@ with lib;
     services.haveged.enable = true;
     # Enable the X11 windowing system.
     hardware.opengl.driSupport32Bit = true;
-    boot.plymouth = {
-      enable = true;
-    };
     services.xserver = {
       enable = true;
       layout = "us";
