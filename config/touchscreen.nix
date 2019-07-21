@@ -59,28 +59,28 @@ with lib;
               <?xml version="1.0"?>
               <color_scheme name="starlight" format="2.1">
               <window type="key-popup">
-                <color element="fill" rgb="${cfg.palette.color7}" opacity="0.9"/>
+                <color element="fill" rgb="${cfg.palette.foreground-alt}" opacity="0.9"/>
               </window>
               <layer> <color element="background" rgb="#000000" opacity="1.0"/> </layer>
               <layer> <color element="background" rgb="${cfg.palette.background}" opacity="0.9"/> </layer>
               <layer> <color element="background" rgb="${cfg.palette.background}" opacity="0.9"/> </layer>
               <key_group>
                 <color element="fill"   rgb="${cfg.palette.background}"/>
-                <color element="stroke" rgb="${cfg.palette.color8}"/>
+                <color element="stroke" rgb="${cfg.palette.background-alt}"/>
                 <color element="label"  rgb="${cfg.palette.foreground}"/>
-                <color element="fill" locked="true" rgb="${cfg.palette.color8}"/>
+                <color element="fill" locked="true" rgb="${cfg.palette.background-alt}"/>
                 icon0
                 <key_group>
-                  <color element="fill" locked="true" rgb="${cfg.palette.color8}"/>
+                  <color element="fill" locked="true" rgb="${cfg.palette.background-alt}"/>
                   <color element="fill" rgb="${cfg.palette.foreground}"/>
                   icon1, icon2
                 </key_group>
                 <!-- dark keys -->
                 <key_group>
                   <color element="fill" rgb="${cfg.palette.background}"/>
-                  <color element="stroke" rgb="${cfg.palette.color8}"/>
+                  <color element="stroke" rgb="${cfg.palette.background-alt}"/>
                   <color element="label" rgb="${cfg.palette.foreground}"/>
-                  <color element="fill" locked="true" rgb="${cfg.palette.color8}"/>
+                  <color element="fill" locked="true" rgb="${cfg.palette.background-alt}"/>
                   icon3,
                   RCTL, LCTL, RALT, LALT, LWIN, CAPS,
                   LFSH, RTSH, NMLK,
@@ -105,15 +105,15 @@ with lib;
                 <!-- snippets -->
                 <key_group>
                   <color element="fill" rgb="${cfg.palette.background}"/>
-                  <color element="stroke" rgb="${cfg.palette.color8}"/>
-                  <color element="fill" locked="true" rgb="${cfg.palette.color8}"/>
+                  <color element="stroke" rgb="${cfg.palette.background-alt}"/>
+                  <color element="fill" locked="true" rgb="${cfg.palette.background-alt}"/>
                   m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15
                 </key_group>
                 <!-- red preferences -->
                 <key_group>
                   <color element="fill" rgb="${cfg.palette.background}"/>
-                  <color element="stroke" rgb="${cfg.palette.color8}"/>
-                  <color element="fill" locked="true" rgb="${cfg.palette.color8}"/>
+                  <color element="stroke" rgb="${cfg.palette.background-alt}"/>
+                  <color element="fill" locked="true" rgb="${cfg.palette.background-alt}"/>
                   settings
                 </key_group>
               </key_group>
