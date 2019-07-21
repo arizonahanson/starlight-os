@@ -46,6 +46,9 @@
           \ if line("'\"") > 0 && line("'\"") <= line("$") |
           \   exe "normal! g`\"" |
           \ endif
+        " ctags
+        let g:gutentags_cache_dir=g:vimcache.'ctags//'
+        let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
         " encoding
         set encoding=utf-8
         set fileencoding=utf-8
@@ -110,9 +113,6 @@
         " no sound on errors
         set noerrorbells
         set novisualbell
-        " do not pollute with ctags
-        let g:gutentags_cache_dir=g:vimcache.'gutentags/'
-        let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
         " colorscheme
         colorscheme starlight
       '';
