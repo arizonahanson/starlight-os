@@ -108,8 +108,6 @@
         set cmdheight=1
         " buffer becomes hidden when abandoned
         set hid
-        " tenths of a second to blink when matching brackets
-        set matchtime=2
         " no sound on errors
         set noerrorbells
         set novisualbell
