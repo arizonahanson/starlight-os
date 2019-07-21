@@ -326,14 +326,14 @@ with lib;
     services.compton = {
       enable = true;
       shadow = true;
-      shadowOffsets = [ (-9) (0) ];
+      shadowOffsets = [ (-8) (-4) ];
       shadowExclude = [
         "name = 'Polybar tray window'"
         "_GTK_FRAME_EXTENTS@:c"
       ];
       shadowOpacity = "0.5";
       extraOptions = ''
-        shadow-radius = 9;
+        shadow-radius = 8;
       '';
     };
     environment.etc."X11/Xresources" = let palette = config.starlight.palette; in {
