@@ -69,13 +69,15 @@
         " ignore files in menu
         set wildignore=*.o,*~,*.pyc,*.so,*.class,.DS_Store
         set wildmode=longest:full,full
-        " turn on syntax completion
-        let g:ale_completion_enabled = 1
-        let g:deoplete#enable_at_startup = 1
-        call deoplete#custom#option({
-        \ 'auto_complete_delay': 500,
-        \ 'ignore_case': v:true
-        \ })
+        " turn on completion
+        let g:mucomplete#enable_auto_at_startup = 1
+        set completeopt+=menuone
+        set completeopt+=noselect
+        let g:mucomplete#no_mappings = 1
+        autocmd FileType *
+          \ if &omnifunc == "" |
+          \   setlocal omnifunc=syntaxcomplete#Complete |
+          \ endif
         " shut off completion messages
         set shortmess+=c
         " no beeps during completion
@@ -114,17 +116,27 @@
         " colorscheme
         colorscheme starlight
       '';
-      plug.plugins = let vim-starlight-theme = pkgs.vimUtils.buildVimPlugin {
-        name = "vim-starlight-theme";
-        src = pkgs.fetchFromGitHub {
-          owner = "isaacwhanson";
-          repo = "vim-starlight-theme";
-          rev = "v0.5";
-          sha256 = "1s335ydgflklv04w5w7srs9nc8ky0cp5adz4pkzfv9pdwa8pc9f1";
+      plug.plugins = let
+        vim-mucomplete = pkgs.vimUtils.buildVimPlugin {
+          name = "vim-mucomplete";
+          src = pkgs.fetchFromGitHub {
+            owner = "lifepillar";
+            repo = "vim-mucomplete";
+            rev = "v1.4.0";
+            sha256 = "0rl4ijz2asyrhr2s72j1y06js0yizzir414q6fznvgvmic4wjcj9";
+          };
         };
-      }; in
+        vim-starlight-theme = pkgs.vimUtils.buildVimPlugin {
+          name = "vim-starlight-theme";
+          src = pkgs.fetchFromGitHub {
+            owner = "isaacwhanson";
+            repo = "vim-starlight-theme";
+            rev = "v0.5";
+            sha256 = "1s335ydgflklv04w5w7srs9nc8ky0cp5adz4pkzfv9pdwa8pc9f1";
+          };
+        }; in
       with pkgs.vimPlugins; [
-        (vim-starlight-theme) vim-sensible editorconfig-vim fugitive gitgutter vim-polyglot vim-nix ale neco-syntax deoplete-nvim vim-gutentags
+        (vim-starlight-theme) vim-sensible editorconfig-vim fugitive gitgutter vim-polyglot vim-nix ale (vim-mucomplete) vim-gutentags
       ];
     };
   });
