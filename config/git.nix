@@ -14,6 +14,8 @@
         [core]
           filemode = true
           autocrlf = false
+        [pack]
+          threads = ${toString config.nix.maxJobs}
         [push]
           default = current
         [help]
@@ -57,8 +59,9 @@
           branch = yellow bold
           localBranch = yellow bold
           remoteBranch = red bold
-        [pack]
-          threads = ${toString config.nix.maxJobs}
+        [tig "color"]
+          cursor = 15 8
+          title-focus = 7 8
       '';
       git-all = (with import <nixpkgs> {}; writeShellScriptBin "git-all" ''
         echo
