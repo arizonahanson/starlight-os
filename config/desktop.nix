@@ -338,9 +338,10 @@ with lib;
     };
     environment.etc."X11/Xresources" = let palette = config.starlight.palette; in {
       text = ''
-        ! cursor
+        ! Xcursor
         Xcursor.theme: Bibata_Oil
         Xcursor.size:  ${toString config.starlight.cursorSize}
+
         ! XFT
         Xft.antialias: 1
         Xft.autohint: 1
