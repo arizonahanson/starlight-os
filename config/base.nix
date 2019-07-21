@@ -19,7 +19,6 @@ with lib;
       tmpOnTmpfs = true;
       kernelParams = [ "quiet" ];
       consoleLogLevel = 0;
-      loader.grub.useOSProber = true;
       kernel.sysctl = {
         "vm.max_map_count" = 262144;
       };
