@@ -42,19 +42,27 @@
           remote = red bold
           current = yellow bold
           local = yellow
+        [color "decorate"]
+          branch = yellow bold
+          remoteBranch = red bold
+          tag = cyan bold
+          HEAD = cyan
+          stash = magenta
         [color "status"]
           added = yellow bold
           changed = red bold
           untracked = red
           header = black bold
           branch = yellow bold
+          localBranch = yellow bold
+          remoteBranch = red bold
         [pack]
           threads = ${toString config.nix.maxJobs}
       '';
       git-all = (with import <nixpkgs> {}; writeShellScriptBin "git-all" ''
         echo
         for repo in $(find -L . -maxdepth 7 -iname '.git' -type d -printf '%P\0' 2>/dev/null | xargs -0 dirname | sort); do
-          echo -e "\e[1;31m  \e[1;34m$repo \e[0m(\e[1;33m$@\e[0m)"
+          echo -e "\e[0;37m  \e[0;34m$repo \e[0m(\e[0;32m$@\e[0m)"
           pushd $repo >/dev/null
           ${git_minimal}/bin/git "$@"
           popd >/dev/null
