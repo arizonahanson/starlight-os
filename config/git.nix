@@ -29,9 +29,10 @@
         [color]
           ui = always
         [color "grep"]
-          separator = magenta
+          separator = white
           filename = blue
           linenumber = black bold
+          match = black bold white reverse
         [color "diff"]
           commit = magenta
           meta = black bold

@@ -145,7 +145,7 @@
     ll = "ls -lAhF";
     cp = "cp --reflink=auto";
     xz = "xz --threads=0";
-    ag = "${pkgs.ag}/bin/ag --color-line-number '1;30' --color-path '0;34' --color-match '1;31'";
+    ag = "${pkgs.ag}/bin/ag --color-line-number '1;30' --color-path '0;34' --color-match '7;01;30;47'";
   };
   environment.variables = {
     # shorter delay on cmd-mode
