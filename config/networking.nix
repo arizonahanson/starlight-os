@@ -15,16 +15,9 @@ with lib;
     users.users.admin.extraGroups = [ "networkmanager" ];
     networking = {
       hostName = (config.starlight.hostname);
-      firewall = {
-        allowedTCPPorts = [ 5355 ];
-        allowedUDPPorts = [ 5355 ];
-      };
       networkmanager = {
         enable = true;
-        extraConfig = ''
-          [connection]
-          connection.llmnr=2
-        '';
+        dns = "dnsmasq";
       };
       timeServers = [
         "time1.google.com"
@@ -35,9 +28,6 @@ with lib;
     };
     services = {
       openssh.enable = true;
-      resolved = {
-        enable = true;
-      };
     };
   };
 }
