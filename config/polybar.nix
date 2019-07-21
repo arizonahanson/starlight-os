@@ -111,7 +111,7 @@ with lib;
           label-urgent-font = 4
           label-empty-font = 4
 
-          label-dimmed-focused = "▩ "
+          label-dimmed-focused = " "
           label-dimmed-focused-foreground = ''${colors.foreground-alt}
 
           label-floating = "  "
