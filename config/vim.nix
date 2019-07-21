@@ -132,7 +132,7 @@
             owner = "isaacwhanson";
             repo = "vim-starlight-theme";
             rev = "v0.6";
-            sha256 = "16ny220y3p43045i0hrz1g2ifs0q9mdhqmh9kl9r0yqdbip3s22s";
+            sha256 = "19h82bzjj0k6l2ma4s9p8g60vb7y5fc1s6p06vl772z3im8vfrs9";
           };
         }; in
       with pkgs.vimPlugins; [
