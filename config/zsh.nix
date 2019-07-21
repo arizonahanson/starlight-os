@@ -156,6 +156,7 @@
     FZF_CTRL_T_COMMAND = "ag -f -g '' --hidden --depth 16 --ignore dosdevices";
     FZF_DEFAULT_OPTS = "-m --ansi --color=16,bg:-1,bg+:-1 --tac";
     FZF_ALT_C_COMMAND = "find -L . -maxdepth 16 -type d 2>/dev/null";
+    GREP_COLORS="mt=100;97:sl=:cx=:fn=34:ln=01;30:bn=32:se=37";
   };
   environment.etc.dircolors = {
     text = ''
