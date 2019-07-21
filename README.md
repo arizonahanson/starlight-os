@@ -13,9 +13,9 @@ principles:
  * heavy tmux, zsh, fzf, vim & git integration
  * atomic upgrades/rollback
  * optimized for virtualbox & hardware
- * no post-configuration warranted
+ * no post-configuration required
  * pro-audio support
- * TODO: tablet support
+ * tablet support
 
 key-bindings:
   super + arrow:
