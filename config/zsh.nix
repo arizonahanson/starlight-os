@@ -160,7 +160,6 @@
   };
   environment.etc.dircolors = {
     text = ''
-      TERM Eterm
       TERM ansi
       TERM color-xterm
       TERM con132x25
@@ -175,22 +174,10 @@
       TERM con80x60
       TERM cons25
       TERM console
-      TERM cygwin
-      TERM dtterm
-      TERM eterm-color
       TERM gnome
       TERM gnome-256color
-      TERM hurd
-      TERM jfbterm
-      TERM konsole
-      TERM kterm
       TERM linux
       TERM linux-c
-      TERM mach-color
-      TERM mach-gnu-color
-      TERM mlterm
-      TERM putty
-      TERM putty-256color
       TERM rxvt
       TERM rxvt-256color
       TERM rxvt-cygwin
@@ -214,9 +201,7 @@
       TERM xterm
       TERM xterm-16color
       TERM xterm-256color
-      TERM xterm-88color
       TERM xterm-color
-      TERM xterm-debian
       TERM xterm-termite
       # Below are the color init strings for the basic file types. A color init
       # string consists of one or more of the following numeric codes:
