@@ -32,7 +32,7 @@
           separator = white
           filename = blue
           linenumber = black bold
-          match = black bold white reverse
+          match = 15 8
         [color "diff"]
           commit = magenta
           meta = black bold

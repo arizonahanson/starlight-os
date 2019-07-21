@@ -5,7 +5,7 @@ with lib;
 {
   config = lib.mkIf config.starlight.desktop {
     environment.variables = {
-      GREP_COLORS="mt=7;01;30;47:sl=:cx=:fn=34:ln=01;30:bn=32:se=37";
+      GREP_COLORS="mt=100;97:sl=:cx=:fn=34:ln=01;30:bn=32:se=37";
     };
     environment.systemPackages = 
       let

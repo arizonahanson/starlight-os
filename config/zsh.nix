@@ -134,7 +134,7 @@
     # fzf with tmux
     source ${pkgs.fzf}/share/fzf/key-bindings.zsh
     source ${pkgs.fzf}/share/fzf/completion.zsh
-    zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS} ma=7\;37
+    zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS} ma=100\;97
 
     # last to pickup other zsh-widgets
     source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -145,7 +145,7 @@
     ll = "ls -lAhF";
     cp = "cp --reflink=auto";
     xz = "xz --threads=0";
-    ag = "${pkgs.ag}/bin/ag --color-line-number '1;30' --color-path '0;34' --color-match '7;01;30;47'";
+    ag = "${pkgs.ag}/bin/ag --color-line-number '1;30' --color-path '0;34' --color-match '100;97'";
   };
   environment.variables = {
     # shorter delay on cmd-mode
