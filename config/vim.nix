@@ -77,6 +77,7 @@
         set completeopt+=menuone
         set completeopt+=noselect
         let g:mucomplete#no_mappings = 1
+        " TODO: vim-polyglot doesn't include vim-styled-components omnifunc
         autocmd FileType *
           \ if &omnifunc == "" || &omnifunc == "styledcomplete#CompleteSC" |
           \   setlocal omnifunc=syntaxcomplete#Complete |
