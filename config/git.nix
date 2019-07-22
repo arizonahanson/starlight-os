@@ -29,7 +29,7 @@
         [difftool]
           prompt = false
         [color]
-          ui = always
+          ui = auto
         [color "grep"]
           separator = white
           filename = blue
