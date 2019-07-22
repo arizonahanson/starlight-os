@@ -78,7 +78,7 @@
         set completeopt+=noselect
         let g:mucomplete#no_mappings = 1
         autocmd FileType *
-          \ if &omnifunc == "" |
+          \ if &omnifunc == "" || &omnifunc == "styledcomplete#CompleteSC" |
           \   setlocal omnifunc=syntaxcomplete#Complete |
           \ endif
         " shut off completion messages
