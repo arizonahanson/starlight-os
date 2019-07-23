@@ -17,7 +17,6 @@ with lib;
       hostName = (config.starlight.hostname);
       networkmanager = {
         enable = true;
-        dns = "dnsmasq";
       };
       timeServers = [
         "time1.google.com"
@@ -28,6 +27,7 @@ with lib;
     };
     services = {
       openssh.enable = true;
+      resolved.enable = true;
     };
   };
 }

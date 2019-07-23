@@ -77,8 +77,9 @@
         set completeopt+=menuone
         set completeopt+=noselect
         let g:mucomplete#no_mappings = 1
+        " TODO: vim-polyglot doesn't include vim-styled-components omnifunc
         autocmd FileType *
-          \ if &omnifunc == "" |
+          \ if &omnifunc == "" || &omnifunc == "styledcomplete#CompleteSC" |
           \   setlocal omnifunc=syntaxcomplete#Complete |
           \ endif
         " shut off completion messages
@@ -134,7 +135,7 @@
           };
         }; in
       with pkgs.vimPlugins; [
-        (vim-starlight-theme) vim-sensible editorconfig-vim fugitive gitgutter vim-polyglot vim-nix ale (vim-mucomplete) vim-gutentags
+        vim-sensible (vim-starlight-theme) vim-polyglot vim-nix editorconfig-vim fugitive gitgutter vim-gutentags ale (vim-mucomplete)
       ];
     };
   });
