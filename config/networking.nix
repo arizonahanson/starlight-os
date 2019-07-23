@@ -19,10 +19,10 @@ with lib;
         enable = true;
       };
       timeServers = [
-        "time1.google.com"
-        "time2.google.com"
         "time3.google.com"
         "time4.google.com"
+        "time2.google.com"
+        "time1.google.com"
       ];
     };
     services = {
