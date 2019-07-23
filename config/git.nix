@@ -3,14 +3,14 @@
 {
   environment = 
     let
-      git_minimal = ((pkgs.git.overrideAttrs (oldAttrs: rec { doInstallCheck = false; })).override {
+      git-minimal = ((pkgs.git.overrideAttrs (oldAttrs: rec { doInstallCheck = false; })).override {
         guiSupport = false;
         pythonSupport = false;
         perlSupport = false;
         withManual = false; # time consuming
         withLibsecret = true;
       });
-      git_config = ''
+      git-config = ''
         [core]
           filemode = true
           autocrlf = false
@@ -73,23 +73,23 @@
         for repo in $(find -L . -maxdepth 7 -iname '.git' -type d -printf '%P\0' 2>/dev/null | xargs -0 dirname | sort); do
           echo -e "\e[0;37m  \e[0;34m$repo \e[0m(\e[0;32m$@\e[0m)"
           pushd $repo >/dev/null
-          ${git_minimal}/bin/git "$@"
+          ${git-minimal}/bin/git "$@"
           popd >/dev/null
           echo
         done
       '');
     in
     {
-      systemPackages = [ (git_minimal) (git-all) pkgs.tig ];
+      systemPackages = [ (git-minimal) (git-all) pkgs.tig ];
       etc.gitconfig = if config.services.xserver.enable then
       {
         text = ''
           [credential]
-            helper = ${git_minimal}/bin/git-credential-libsecret
-          ${git_config}
+            helper = ${git-minimal}/bin/git-credential-libsecret
+          ${git-config}
         '';
       } else {
-        text = "${git_config}";
+        text = "${git-config}";
       };
     };
 }
