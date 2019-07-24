@@ -332,9 +332,9 @@ with lib;
         "_GTK_FRAME_EXTENTS@:c"
       ];
       shadowOpacity = "0.5";
-      settings = {
-        shadow-radius = 8;
-      };
+      extraOptions = ''
+        shadow-radius=8;
+      '';
     };
     environment.etc."X11/Xresources" = let palette = config.starlight.palette; in {
       text = ''
