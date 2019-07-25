@@ -27,6 +27,7 @@ iso:
 copy:
 	@echo "copying Nix configs..."
 	@sudo cp -r config/. /etc/nixos/
+	@bash ./scripts/channel
 
 .PHONY: rebuild
 rebuild: copy

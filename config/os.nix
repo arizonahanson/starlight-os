@@ -42,7 +42,7 @@
     mkdir -p $mntpnt
     sudo mount -o compress=lzo $device $mntpnt
     pushd $mntpnt >/dev/null
-    sudo duperemove -Ardh --hash=xxhash system/nix >/dev/null
+    sudo duperemove -Ardhv --hash=xxhash system/nix | grep "net change"
     echo -e "\n\e[1;34m\e[0m Rebalancing filesystem..."
     sudo btrfs balance start -dusage=70 -musage=70 $mntpnt
     popd >/dev/null

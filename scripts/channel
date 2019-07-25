@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if ! sudo nix-channel --list | grep nixos >/dev/null; then
+  echo 'adding channel...'
+  sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos
+  sudo nix-channel --update nixos
+fi
+
