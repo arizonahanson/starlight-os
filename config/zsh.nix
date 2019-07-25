@@ -107,9 +107,9 @@
 
     export ZSH_HIGHLIGHT_STYLES[cursor]=fg=yellow,bold
     export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
-    export ZSH_HIGHLIGHT_STYLES[path]='fg=blue'
-    export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=blue'
-    export ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue,bold'
+    export ZSH_HIGHLIGHT_STYLES[path]='fg=blue,bold'
+    export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=blue,bold'
+    export ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue'
     export ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=yellow'
     export ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'
     export ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=white,underline'
@@ -214,7 +214,7 @@
       #NORMAL 00 # no color code at all
       #FILE 00 # regular file: use no color at all
       RESET 0 # reset to "normal" color
-      DIR 0;34 # directory
+      DIR 1;34 # directory
       LINK target #0;36 # symbolic link. (If you set this to 'target' instead of a
       # numerical value, the color is as for the file pointed to.)
       MULTIHARDLINK 00 # regular file with more than one link

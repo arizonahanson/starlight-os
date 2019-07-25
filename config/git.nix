@@ -40,7 +40,7 @@
           meta = black bold
           frag = magenta bold
           old = red
-          new = green
+          new = green bold
         [color "branch"]
           remote = red bold
           current = yellow bold
