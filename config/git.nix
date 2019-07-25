@@ -32,7 +32,7 @@
           ui = auto
         [color "grep"]
           separator = white
-          filename = blue
+          filename = blue bold
           linenumber = black bold
           match = 15 8
         [color "diff"]
