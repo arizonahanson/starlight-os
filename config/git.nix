@@ -61,12 +61,13 @@
           remoteBranch = red bold
         [tig "color"]
           cursor = 15 8
+          date = black default bold
+          graph-commit = cyan default
+          line-number = black default bold
+          title-blur = 8 default
           title-focus = 15 8
           search-result = 15 8
-          title-blur = 8 default
           status = yellow default bold
-          date = cyan default
-          line-number = black default bold
       '';
       git-all = (with import <nixpkgs> {}; writeShellScriptBin "git-all" ''
         echo
