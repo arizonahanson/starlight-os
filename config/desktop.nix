@@ -201,7 +201,7 @@ with lib;
         '');
         reload-desktop = (with import <nixpkgs> {}; writeShellScriptBin "reload-desktop" ''
           ${procps}/bin/pkill -USR1 -x sxhkd
-          ${procps}/bin/pkill -USR1 -x compton
+          ${procps}/bin/pkill -TERM -x compton
           ${procps}/bin/pkill -TERM -x polybar
           ${bspwm}/bin/bspc wm -r
           ${libnotify}/bin/notify-send -i keyboard 'Reloaded desktop' 'Desktop components have been reloaded'
@@ -332,9 +332,9 @@ with lib;
         "_GTK_FRAME_EXTENTS@:c"
       ];
       shadowOpacity = "0.5";
-      extraOptions = ''
-        shadow-radius=8;
-      '';
+      settings = {
+        shadow-radius = 8;
+      };
     };
     environment.etc."X11/Xresources" = let palette = config.starlight.palette; in {
       text = ''
