@@ -42,7 +42,7 @@ with lib;
       (with import <nixpkgs> {}; writeShellScriptBin "palette" ''
         for b in 0 1; do
           for n in {0..7}; do
-            echo -en "\e[$b;3${n}m "
+            echo -en "\e[$b;3''${n}m "
           done
         echo
         done
