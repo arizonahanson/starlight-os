@@ -88,7 +88,7 @@ with lib;
       };
       color2 = mkOption {
         type = types.str;
-        default = "#6bb383";
+        default = "#6bb38f";
         description = ''
           color 2 (green)
         '';
