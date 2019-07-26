@@ -42,18 +42,31 @@ with lib;
       (with import <nixpkgs> {}; writeShellScriptBin "palette" ''
         for b in 0 1; do
           for n in {0..7}; do
-            echo -en "\e[$b;3''${n}m "
+            echo -en "\e[$b;3${n}m "
           done
         echo
         done
         echo
         echo -en "\e[0;31m "
         echo -en "\e[1;31m "
-        for n in 3 2 6 4 5 7 0; do
-          for b in 1 0; do
-            echo -en "\e[$b;3''${n}m "
-          done
+        for b in 1 0; do
+          echo -en "\e[$b;33m "
         done
+        echo
+        echo -en "\e[0;35m "
+        echo -en "\e[0;30m "
+        echo -en "\e[1;30m "
+        echo -en "\e[1;32m "
+        echo
+        echo -en "\e[1;35m "
+        echo -en "\e[1;37m "
+        echo -en "\e[0;37m "
+        echo -en "\e[0;32m "
+        echo
+        echo -en "\e[0;34m "
+        echo -en "\e[1;34m "
+        echo -en "\e[0;36m "
+        echo -en "\e[1;36m "
         echo
       '')
     ];
