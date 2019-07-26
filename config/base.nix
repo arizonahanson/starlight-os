@@ -40,24 +40,19 @@ with lib;
       duperemove
       nox
       (with import <nixpkgs> {}; writeShellScriptBin "palette" ''
-        echo -en "              \e[1;30m "
-        echo -e "\e[0m"
-        echo -en "    \e[0;33m "
-        echo -en "\e[0;32m "
-        echo -en "\e[0;36m "
-        echo -en "\e[0;34m "
-        echo -en "\e[0;35m "
-        echo -en "\e[0;37m "
-        echo -e "\e[0m"
-        echo -en "\e[0;31m "
-        echo -en "\e[1;31m "
-        echo -en "\e[1;33m "
-        echo -en "\e[1;32m "
-        echo -en "\e[1;36m "
-        echo -en "\e[1;34m "
-        echo -en "\e[1;35m "
-        echo -en "\e[1;37m "
-        echo -e "\e[0m"
+        for b in 0 1; do
+          for n in {0..7}; do
+            echo -en "\e[$b;3${n}m "
+          done
+        echo
+        done
+        echo
+        for n in 0 7 1 3 2 6 4 5; do
+          for b in 0 1; do
+            echo -en "\e[$b;3${n}m "
+          done
+        done
+        echo
       '')
     ];
     services.journald.extraConfig = ''
