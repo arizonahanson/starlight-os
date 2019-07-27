@@ -33,6 +33,7 @@ with lib;
           [options]
           font = Share Tech Mono 16
           allow_bold = false
+          mouse_autohide = true
     
           [colors]
     
