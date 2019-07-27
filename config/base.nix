@@ -47,26 +47,27 @@ with lib;
         echo
         done
         echo
-        echo -en "\e[0;31m "
-        echo -en "\e[1;31m "
-        for b in 1 0; do
-          echo -en "\e[$b;33m "
+        for c in 1 3; do
+          for b in 0 1; do
+            echo -en "\e[$b;3''${c}m "
+          done
         done
         echo
-        echo -en "\e[0;35m "
+        echo -en "\e[1;35m "
         echo -en "\e[0;30m "
         echo -en "\e[1;30m "
-        echo -en "\e[1;32m "
-        echo
-        echo -en "\e[1;35m "
-        echo -en "\e[1;37m "
-        echo -en "\e[0;37m "
         echo -en "\e[0;32m "
         echo
-        echo -en "\e[0;34m "
-        echo -en "\e[1;34m "
-        echo -en "\e[0;36m "
-        echo -en "\e[1;36m "
+        echo -en "\e[0;35m "
+        echo -en "\e[1;37m "
+        echo -en "\e[0;37m "
+        echo -en "\e[1;32m "
+        echo
+        for c in 4 6; do
+          for b in 1 0; do
+            echo -en "\e[$b;3''${c}m "
+          done
+        done
         echo
       '')
     ];

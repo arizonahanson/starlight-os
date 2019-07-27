@@ -37,7 +37,7 @@
 
       # inactive window activity colors
       set-window-option -g window-status-activity-style fg=white,bg=default
-      set-window-option -g window-status-bell-style fg=brightyellow,bg=default
+      set-window-option -g window-status-bell-style fg=yellow,bg=default
 
       # pane border
       set-option -g pane-border-style fg=brightblack

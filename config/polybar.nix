@@ -13,7 +13,7 @@ with lib;
           foreground-alt = ${palette.foreground-alt}
           background = ${palette.background}
           background-alt = ${palette.background-alt}
-          info = ${palette.color11}
+          info = ${palette.color3}
           warn = ${palette.color9}
 
           [bar/default]

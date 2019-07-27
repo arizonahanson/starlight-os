@@ -32,42 +32,42 @@
           ui = auto
         [color "grep"]
           separator = white
-          filename = blue bold
+          filename = blue
           linenumber = black bold
           match = 15 8
         [color "diff"]
           commit = magenta
           meta = black bold
-          frag = magenta bold
+          frag = magenta
           old = red
-          new = green bold
+          new = green
         [color "branch"]
           remote = red bold
-          current = yellow bold
-          local = yellow
+          current = yellow
+          local = yellow bold
         [color "decorate"]
-          branch = yellow bold
+          branch = yellow
           remoteBranch = red bold
-          tag = cyan bold
-          HEAD = cyan
-          stash = magenta
+          tag = cyan
+          HEAD = cyan bold
+          stash = magenta bold
         [color "status"]
-          added = yellow bold
+          added = yellow
           changed = red bold
           untracked = red
           header = black bold
-          branch = yellow bold
-          localBranch = yellow bold
+          branch = yellow
+          localBranch = yellow
           remoteBranch = red bold
         [tig "color"]
           cursor = 15 8
           date = black default bold
-          graph-commit = cyan default
+          graph-commit = cyan default bold
           line-number = black default bold
           title-blur = 8 default
           title-focus = 15 8
           search-result = 15 8
-          status = yellow default bold
+          status = yellow default
       '';
       git-all = (with import <nixpkgs> {}; writeShellScriptBin "git-all" ''
         echo

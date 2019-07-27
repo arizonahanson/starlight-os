@@ -39,7 +39,7 @@ with lib;
     palette = {
       foreground = mkOption {
         type = types.str;
-        default = "#b3b3b3";
+        default = "#cccccc";
         description = ''
           Foreground color
         '';
@@ -53,14 +53,14 @@ with lib;
       };
       background = mkOption {
         type = types.str;
-        default = "#1A1A1A";
+        default = "#1a1a1a";
         description = ''
           Background color
         '';
       };
       background-alt = mkOption {
         type = types.str;
-        default = "#4D4D4D";
+        default = "#4d4d4d";
         description = ''
           Alternate Background color
         '';
@@ -74,7 +74,7 @@ with lib;
       };
       color0 = mkOption {
         type = types.str;
-        default = "#1A1A1A";
+        default = "#1a1a1a";
         description = ''
           color 0 (black)
         '';
@@ -88,35 +88,35 @@ with lib;
       };
       color2 = mkOption {
         type = types.str;
-        default = "#6bb38f";
+        default = "#6bb36b";
         description = ''
           color 2 (green)
         '';
       };
       color3 = mkOption {
         type = types.str;
-        default = "#8fb36b";
+        default = "#b3b36b";
         description = ''
           color 3 (yellow)
         '';
       };
       color4 = mkOption {
         type = types.str;
-        default = "#8f6bb3";
+        default = "#6b6bb3";
         description = ''
           color 4 (blue)
         '';
       };
       color5 = mkOption {
         type = types.str;
-        default = "#b36b8f";
+        default = "#b36bb3";
         description = ''
           color 5 (magenta)
         '';
       };
       color6 = mkOption {
         type = types.str;
-        default = "#6b8fb3";
+        default = "#6bb3b3";
         description = ''
           color 6 (cyan)
         '';
@@ -130,7 +130,7 @@ with lib;
       };
       color8 = mkOption {
         type = types.str;
-        default = "#4D4D4D";
+        default = "#4d4d4d";
         description = ''
           color 8 (dark gray)
         '';
@@ -144,42 +144,42 @@ with lib;
       };
       color10 = mkOption {
         type = types.str;
-        default = "#6bb36b";
+        default = "#6bb38f";
         description = ''
           color 10 (bright green)
         '';
       };
       color11 = mkOption {
         type = types.str;
-        default = "#b3b36b";
+        default = "#8fb36b";
         description = ''
           color 11 (bright yellow)
         '';
       };
       color12 = mkOption {
         type = types.str;
-        default = "#6b6bb3";
+        default = "#8f6bb3";
         description = ''
           color 12 (bright blue)
         '';
       };
       color13 = mkOption {
         type = types.str;
-        default = "#b36bb3";
+        default = "#b36b8f";
         description = ''
           color 13 (bright magenta)
         '';
       };
       color14 = mkOption {
         type = types.str;
-        default = "#6bb3b3";
+        default = "#6b8fb3";
         description = ''
           color 14 (bright cyan)
         '';
       };
       color15 = mkOption {
         type = types.str;
-        default = "#b3b3b3";
+        default = "#cccccc";
         description = ''
           color 15 (bright white)
         '';

@@ -105,31 +105,31 @@
     ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=vi-forward-char
     #ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=""
 
-    export ZSH_HIGHLIGHT_STYLES[cursor]=fg=yellow,bold
+    export ZSH_HIGHLIGHT_STYLES[cursor]=fg=yellow
     export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
-    export ZSH_HIGHLIGHT_STYLES[path]='fg=blue,bold'
-    export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=blue,bold'
-    export ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue'
-    export ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=yellow,bold'
-    export ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow'
+    export ZSH_HIGHLIGHT_STYLES[path]='fg=blue'
+    export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=blue'
+    export ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue,bold'
+    export ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=yellow'
+    export ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow,bold'
     export ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=white'
-    export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green'
-    export ZSH_HIGHLIGHT_STYLES[alias]='fg=green'
+    export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,bold'
+    export ZSH_HIGHLIGHT_STYLES[alias]='fg=green,bold'
     export ZSH_HIGHLIGHT_STYLES[precommand]='fg=red,bold,underline'
-    export ZSH_HIGHLIGHT_STYLES[command]='fg=green,bold'
-    export ZSH_HIGHLIGHT_STYLES[builtin]='fg=magenta,bold'
-    export ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=magenta'
-    export ZSH_HIGHLIGHT_STYLES[redirection]='fg=magenta'
-    export ZSH_HIGHLIGHT_STYLES[arg0]='fg=magenta,bold,underline'
-    export ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=magenta'
-    export ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=magenta,bold'
-    export ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=blue'
-    export ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=green'
-    export ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=cyan'
-    export ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg=magenta'
-    export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=cyan'
-    export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan,bold'
-    export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan'
+    export ZSH_HIGHLIGHT_STYLES[command]='fg=green'
+    export ZSH_HIGHLIGHT_STYLES[builtin]='fg=magenta'
+    export ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=magenta,bold'
+    export ZSH_HIGHLIGHT_STYLES[redirection]='fg=magenta,bold'
+    export ZSH_HIGHLIGHT_STYLES[arg0]='fg=magenta,underline'
+    export ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=magenta,bold'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=magenta'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=blue,bold'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=green,bold'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=cyan,bold'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg=magenta,bold'
+    export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=cyan,bold'
+    export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan'
+    export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan,bold'
     
     # fzf with tmux
     source ${pkgs.fzf}/share/fzf/key-bindings.zsh
@@ -214,39 +214,39 @@
       #NORMAL 00 # no color code at all
       #FILE 00 # regular file: use no color at all
       RESET 0 # reset to "normal" color
-      DIR 1;34 # directory
+      DIR 0;34 # directory
       LINK target #0;36 # symbolic link. (If you set this to 'target' instead of a
       # numerical value, the color is as for the file pointed to.)
       MULTIHARDLINK 00 # regular file with more than one link
-      SOCK 0;35 # socket
-      DOOR 1;35 # door
-      FIFO 0;33 # pipe
-      BLK 0;33 # block device driver
-      CHR 1;33 # character device driver
-      ORPHAN 00;31 # symlink to nonexistent file, or non-stat'able file ...
+      SOCK 1;35 # socket
+      DOOR 0;35 # door
+      FIFO 1;33 # pipe
+      BLK 1;33 # block device driver
+      CHR 0;33 # character device driver
+      ORPHAN 0;31 # symlink to nonexistent file, or non-stat'able file ...
       MISSING 1;30 # ... and the files they point to
       SETUID 1;4;31 # file that is setuid (u+s)
-      SETGID 4;0;33 # file that is setgid (g+s)
-      CAPABILITY 4;0;35 # file with capability
-      STICKY_OTHER_WRITABLE 1;4;34 # dir that is sticky and other-writable (+t,o+w)
-      OTHER_WRITABLE 1;34 # dir that is other-writable (o+w) and not sticky
-      STICKY 0;4;34 # dir with the sticky bit set (+t) and not other-writable
+      SETGID 4;1;33 # file that is setgid (g+s)
+      CAPABILITY 4;1;35 # file with capability
+      STICKY_OTHER_WRITABLE 0;4;34 # dir that is sticky and other-writable (+t,o+w)
+      OTHER_WRITABLE 0;34 # dir that is other-writable (o+w) and not sticky
+      STICKY 1;4;34 # dir with the sticky bit set (+t) and not other-writable
       # This is for files with execute permission:
-      EXEC 1;32
+      EXEC 0;32
       # List any file extensions like '.gz' or '.tar' that you would like ls
       # to colorize below. Put the extension, a space, and the color init string.
       # (and any comments you want to add after a '#')
       # If you use DOS-style suffixes, you may want to uncomment the following:
-      .cmd 0;32 # executables (bright green)
-      .exe 0;32
-      .com 0;32
-      .btm 0;32
-      .bat 0;32
+      .cmd 1;32 # executables (bright green)
+      .exe 1;32
+      .com 1;32
+      .btm 1;32
+      .bat 1;32
       # Or if you want to colorize scripts even if they do not have the
       # executable bit actually set.
-      .sh 00;32
-      .csh 00;32
-      .tcsh 00;32
+      .sh 1;32
+      .csh 1;32
+      .tcsh 1;32
 
       # archives or compressed (bright red)
       .tar 1;31
@@ -291,125 +291,125 @@
       .rz 1;31
       .cab 1;31
       # image formats
-      .jpg 0;35
-      .jpeg 0;35
-      .gif 0;35
-      .bmp 0;35
-      .pbm 0;35
-      .pgm 0;35
-      .ppm 0;35
-      .tga 0;35
-      .xbm 0;35
-      .xpm 0;35
-      .tif 0;35
-      .tiff 0;35
-      .png 0;35
-      .svg 0;35
-      .svgz 0;35
-      .mng 0;35
-      .pcx 0;35
-      .mov 0;35
-      .mpg 0;35
-      .mpeg 0;35
-      .m2v 0;35
-      .mkv 0;35
-      .webm 0;35
-      .ogm 0;35
-      .mp4 0;35
-      .m4v 0;35
-      .mp4v 0;35
-      .vob 0;35
-      .qt 0;35
-      .nuv 0;35
-      .wmv 0;35
-      .asf 0;35
-      .rm 0;35
-      .rmvb 0;35
-      .flc 0;35
-      .avi 0;35
-      .fli 0;35
-      .flv 0;35
-      .gl 0;35
-      .dl 0;35
-      .xcf 0;35
-      .xwd 0;35
-      .yuv 0;35
-      .cgm 0;35
-      .emf 0;35
+      .jpg 1;35
+      .jpeg 1;35
+      .gif 1;35
+      .bmp 1;35
+      .pbm 1;35
+      .pgm 1;35
+      .ppm 1;35
+      .tga 1;35
+      .xbm 1;35
+      .xpm 1;35
+      .tif 1;35
+      .tiff 1;35
+      .png 1;35
+      .svg 1;35
+      .svgz 1;35
+      .mng 1;35
+      .pcx 1;35
+      .mov 1;35
+      .mpg 1;35
+      .mpeg 1;35
+      .m2v 1;35
+      .mkv 1;35
+      .webm 1;35
+      .ogm 1;35
+      .mp4 1;35
+      .m4v 1;35
+      .mp4v 1;35
+      .vob 1;35
+      .qt 1;35
+      .nuv 1;35
+      .wmv 1;35
+      .asf 1;35
+      .rm 1;35
+      .rmvb 1;35
+      .flc 1;35
+      .avi 1;35
+      .fli 1;35
+      .flv 1;35
+      .gl 1;35
+      .dl 1;35
+      .xcf 1;35
+      .xwd 1;35
+      .yuv 1;35
+      .cgm 1;35
+      .emf 1;35
       # http://wiki.xiph.org/index.php/MIME_Types_and_File_Extensions
-      .ogv 0;35
-      .ogx 0;35
+      .ogv 1;35
+      .ogx 1;35
       # audio formats
-      .aac 00;36
-      .au 00;36
-      .flac 00;36
-      .m4a 00;36
-      .mid 00;36
-      .midi 00;36
-      .mka 00;36
-      .mp3 00;36
-      .mpc 00;36
-      .ogg 00;36
-      .ra 00;36
-      .wav 00;36
+      .aac 1;36
+      .au 1;36
+      .flac 1;36
+      .m4a 1;36
+      .mid 1;36
+      .midi 1;36
+      .mka 1;36
+      .mp3 1;36
+      .mpc 1;36
+      .ogg 1;36
+      .ra 1;36
+      .wav 1;36
       # http://wiki.xiph.org/index.php/MIME_Types_and_File_Extensions
-      .oga 00;36
-      .opus 00;36
-      .spx 00;36
-      .xspf 00;36
+      .oga 1;36
+      .opus 1;36
+      .spx 1;36
+      .xspf 1;36
 
       # encrypted/key formats
-      .gpg  0;33
-      .pgp  0;33
-      .pub  0;33
-      .crt  0;33
-      .pem  0;33
-      .asc  0;33
-      .3des 0;33
-      .aes  0;33
-      .enc  0;33
-      .sig  0;33
-      *key  0;33
+      .gpg  1;33
+      .pgp  1;33
+      .pub  1;33
+      .crt  1;33
+      .pem  1;33
+      .asc  1;33
+      .3des 1;33
+      .aes  1;33
+      .enc  1;33
+      .sig  1;33
+      *key  1;33
 
       # documents
-      .pdf   0;35
-      .doc   0;35
-      .docx  0;35
-      .xps   0;35
-      .xpsx  0;35
-      .odg   0;35
-      .odt   0;35
-      .odf   0;35
-      .xls   0;35
-      .xlsx  0;35
-      .dia   0;35
-      .rtf   0;35
-      .dot   0;35
-      .dotx  0;35
-      .ppt   0;35
-      .pptx  0;35
-      .fla   0;35
-      .psd   0;35
+      .pdf   1;35
+      .doc   1;35
+      .docx  1;35
+      .xps   1;35
+      .xpsx  1;35
+      .odg   1;35
+      .odt   1;35
+      .odf   1;35
+      .xls   1;35
+      .xlsx  1;35
+      .dia   1;35
+      .rtf   1;35
+      .dot   1;35
+      .dotx  1;35
+      .ppt   1;35
+      .pptx  1;35
+      .fla   1;35
+      .psd   1;35
 
       # source code files
-      .c    0;32
-      .h    0;32
-      .java 0;32
-      .js   0;32
-      .jsx  0;32
-      .vim  0;32
-      .py   0;32
-      .go   0;32
-      .nix  0;32
+      .c    1;32
+      .h    1;32
+      .java 1;32
+      .js   1;32
+      .jsx  1;32
+      .vim  1;32
+      .py   1;32
+      .go   1;32
+      .nix  1;32
 
       # data files
-      .json         0;33
-      .xml          0;33
-      .iml          0;33
-      .properties   0;33
-      .yml          0;33
-      .yaml         0;33
-      .toml         0;33
+      .json         1;33
+      .xml          1;33
+      .iml          1;33
+      .properties   1;33
+      .yml          1;33
+      .yaml         1;33
+      .toml         1;33
 
       # txt files
       .txt     0;37
@@ -423,10 +423,10 @@
       *README.txt 1;37
 
       # html
-      .html   0;35
-      .htm    0;35
-      .css    0;35
-      .less   0;35
+      .html   1;35
+      .htm    1;35
+      .css    1;35
+      .less   1;35
 
       # other
       *.pid         1;30
