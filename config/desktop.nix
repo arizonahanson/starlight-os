@@ -97,7 +97,7 @@ with lib;
         type = types.str;
         default = "#8fb36b";
         description = ''
-          color 3 (brown)
+          color 3 (yellow)
         '';
       };
       color4 = mkOption {
@@ -139,7 +139,7 @@ with lib;
         type = types.str;
         default = "#b38f6b";
         description = ''
-          color 9 (orange)
+          color 9 (bright red)
         '';
       };
       color10 = mkOption {
@@ -153,7 +153,7 @@ with lib;
         type = types.str;
         default = "#b3b36b";
         description = ''
-          color 11 (yellow)
+          color 11 (bright yellow)
         '';
       };
       color12 = mkOption {
