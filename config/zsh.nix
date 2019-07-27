@@ -111,13 +111,13 @@
     export ZSH_HIGHLIGHT_STYLES[path]='fg=blue'
     export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=blue'
     export ZSH_HIGHLIGHT_STYLES[globbing]='fg=blue,bold'
-    export ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=yellow'
-    export ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=yellow,bold'
+    export ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=green'
+    export ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=green,bold'
     export ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=white'
-    export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=green,bold'
-    export ZSH_HIGHLIGHT_STYLES[alias]='fg=green,bold'
+    export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=yellow,bold'
+    export ZSH_HIGHLIGHT_STYLES[alias]='fg=yellow,bold'
     export ZSH_HIGHLIGHT_STYLES[precommand]='fg=red,bold,underline'
-    export ZSH_HIGHLIGHT_STYLES[command]='fg=green'
+    export ZSH_HIGHLIGHT_STYLES[command]='fg=yellow'
     export ZSH_HIGHLIGHT_STYLES[builtin]='fg=magenta'
     export ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=magenta,bold'
     export ZSH_HIGHLIGHT_STYLES[redirection]='fg=magenta,bold'
@@ -221,8 +221,8 @@
       SOCK 1;35 # socket
       DOOR 0;35 # door
       FIFO 1;33 # pipe
-      BLK 1;33 # block device driver
-      CHR 0;33 # character device driver
+      BLK 1;32 # block device driver
+      CHR 0;32 # character device driver
       ORPHAN 0;31 # symlink to nonexistent file, or non-stat'able file ...
       MISSING 1;30 # ... and the files they point to
       SETUID 1;4;31 # file that is setuid (u+s)
@@ -232,23 +232,23 @@
       OTHER_WRITABLE 0;34 # dir that is other-writable (o+w) and not sticky
       STICKY 1;4;34 # dir with the sticky bit set (+t) and not other-writable
       # This is for files with execute permission:
-      EXEC 0;32
+      EXEC 1;33
       # List any file extensions like '.gz' or '.tar' that you would like ls
       # to colorize below. Put the extension, a space, and the color init string.
       # (and any comments you want to add after a '#')
       # If you use DOS-style suffixes, you may want to uncomment the following:
-      .cmd 1;32 # executables (bright green)
-      .exe 1;32
-      .com 1;32
-      .btm 1;32
-      .bat 1;32
+      .cmd 0;33 # executables
+      .exe 0;33
+      .com 0;33
+      .btm 0;33
+      .bat 0;33
       # Or if you want to colorize scripts even if they do not have the
       # executable bit actually set.
-      .sh 1;32
-      .csh 1;32
-      .tcsh 1;32
+      .sh 0;33
+      .csh 0;33
+      .tcsh 0;33
 
-      # archives or compressed (bright red)
+      # archives or compressed
       .tar 1;31
       .tgz 1;31
       .arc 1;31
@@ -392,24 +392,24 @@
       .psd   1;35
 
       # source code files
-      .c    1;32
-      .h    1;32
-      .java 1;32
-      .js   1;32
-      .jsx  1;32
-      .vim  1;32
-      .py   1;32
-      .go   1;32
-      .nix  1;32
+      .c    1;33
+      .h    1;33
+      .java 1;33
+      .js   1;33
+      .jsx  1;33
+      .vim  1;33
+      .py   1;33
+      .go   1;33
+      .nix  1;33
 
       # data files
-      .json         1;33
-      .xml          1;33
-      .iml          1;33
-      .properties   1;33
-      .yml          1;33
-      .yaml         1;33
-      .toml         1;33
+      .json         1;32
+      .xml          1;32
+      .iml          1;32
+      .properties   1;32
+      .yml          1;32
+      .yaml         1;32
+      .toml         1;32
 
       # txt files
       .txt     0;37
