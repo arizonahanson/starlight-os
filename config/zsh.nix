@@ -26,8 +26,8 @@
           src = fetchFromGitHub {
             owner = "isaacwhanson";
             repo = "zsh-starlight-theme";
-            rev = "v2.3";
-            sha256 = "176h00569rdmkqncvgglimnkc604dq1v42bsvqmf587m29pvw492";
+            rev = "v2.4";
+            sha256 = "0japff6bs7ar6rlid1p5rswpha6rb0dy676f9mij5mv0ih8asb4m";
           };
             
           dontBuild = true;

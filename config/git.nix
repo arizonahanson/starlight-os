@@ -42,12 +42,12 @@
           old = red
           new = green
         [color "branch"]
-          remote = red bold
-          current = yellow
-          local = yellow bold
+          remote = cyan bold
+          current = blue bold
+          local = blue
         [color "decorate"]
-          branch = yellow
-          remoteBranch = red bold
+          branch = blue bold
+          remoteBranch = cyan bold
           tag = cyan bold
           HEAD = cyan
           stash = blue bold
@@ -56,9 +56,9 @@
           changed = red bold
           untracked = red
           header = black bold
-          branch = yellow
-          localBranch = yellow
-          remoteBranch = red bold
+          branch = blue bold
+          localBranch = blue
+          remoteBranch = cyan bold
         [tig "color"]
           cursor = 15 8
           date = black default bold
