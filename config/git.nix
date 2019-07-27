@@ -36,9 +36,9 @@
           linenumber = black bold
           match = 15 8
         [color "diff"]
-          commit = magenta
+          commit = cyan bold
           meta = black bold
-          frag = magenta
+          frag = white
           old = red
           new = green
         [color "branch"]
@@ -48,9 +48,9 @@
         [color "decorate"]
           branch = yellow
           remoteBranch = red bold
-          tag = cyan
-          HEAD = cyan bold
-          stash = magenta bold
+          tag = cyan bold
+          HEAD = cyan
+          stash = blue bold
         [color "status"]
           added = yellow
           changed = red bold
