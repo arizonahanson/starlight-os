@@ -64,6 +64,7 @@
           date = black default bold
           graph-commit = cyan default bold
           line-number = black default bold
+          main-tracked = cyan default bold
           title-blur = 8 default
           title-focus = 15 8
           search-result = 15 8
