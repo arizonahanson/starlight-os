@@ -8,7 +8,6 @@
    # logo = "• ";
    # desktop = true;
    # docker = false;
-   # server = false;
    # proaudio = {
    #   enable = false;
    #   device = "none";
