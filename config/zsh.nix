@@ -106,6 +106,7 @@
     #ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=""
 
     export ZSH_HIGHLIGHT_STYLES[cursor]=fg=yellow
+    export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=yellow'
     export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=red'
     export ZSH_HIGHLIGHT_STYLES[path]='fg=blue'
     export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=blue'
@@ -122,12 +123,11 @@
     export ZSH_HIGHLIGHT_STYLES[redirection]='fg=magenta,bold'
     export ZSH_HIGHLIGHT_STYLES[arg0]='fg=magenta,underline'
     export ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=magenta,bold'
-    export ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=magenta'
-    export ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=blue,bold'
-    export ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=green,bold'
-    export ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=cyan,bold'
-    export ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg=magenta,bold'
-    export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=cyan,bold'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-1]='fg=magenta,bold'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-2]='fg=magenta'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-3]='fg=blue,bold'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-4]='fg=blue'
+    export ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg=cyan,bold'
     export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=cyan'
     export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=cyan,bold'
     
