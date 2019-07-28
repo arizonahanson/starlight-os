@@ -21,7 +21,7 @@
         let g:ale_sign_error=' '
         let g:ale_sign_warning=' '
         let g:ale_sign_info=' '
-        set updatetime=1000
+        set updatetime=500
         set guicursor=n-v-c-sm:block-blinkwait500-blinkon500-blinkoff500,i-ci-ve:ver25-blinkwait500-blinkon500-blinkoff500,r-cr-o:hor20-blinkwait500-blinkon500-blinkoff500
         set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
         " swapfile
@@ -74,9 +74,10 @@
         set wildmode=longest:full,full
         " turn on completion
         let g:mucomplete#enable_auto_at_startup = 1
+        let g:mucomplete#no_mappings = 1
+        let g:mucomplete#completion_delay = 500
         set completeopt+=menuone
         set completeopt+=noselect
-        let g:mucomplete#no_mappings = 1
         " TODO: vim-polyglot doesn't include vim-styled-components omnifunc
         autocmd FileType *
           \ if &omnifunc == "" || &omnifunc == "styledcomplete#CompleteSC" |
