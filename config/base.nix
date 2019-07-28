@@ -40,16 +40,18 @@ with lib;
       duperemove
       nox
       (with import <nixpkgs> {}; writeShellScriptBin "palette" ''
-        for b in 0 1; do
-          for n in {0..7}; do
-            echo -en "\e[$b;3''${n}m "
+        # ansi order
+        for bold in 0 1; do
+          for col in {0..7}; do
+            echo -en "\e[$bold;3''${col}m "
           done
-        echo
+          echo
         done
         echo
-        for n in 1 3 2 6 4 5 0 7; do
-          for b in 0 1; do
-            echo -en "\e[$b;3''${n}m "
+        # color order
+        for col in 1 3 2 6 4 5 0 7; do
+          for bold in 0 1; do
+            echo -en "\e[$bold;3''${col}m "
           done
         done
         echo
