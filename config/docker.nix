@@ -3,8 +3,7 @@
 with lib;
 
 let cfg = config.starlight; in {
-  # imports...
-  # options...
+  # docker option
   options.starlight = {
     docker = mkOption {
       type = types.bool;
@@ -14,7 +13,7 @@ let cfg = config.starlight; in {
       '';
     };
   };
-  # config...
+  # docker config
   config = mkIf cfg.docker {
     virtualisation.docker = {
       enable = true;
