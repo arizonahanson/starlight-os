@@ -116,7 +116,7 @@
     export ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=white'
     export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=yellow,bold'
     export ZSH_HIGHLIGHT_STYLES[alias]='fg=yellow,bold'
-    export ZSH_HIGHLIGHT_STYLES[precommand]='fg=red,bold,underline'
+    export ZSH_HIGHLIGHT_STYLES[precommand]='fg=red,bold'
     export ZSH_HIGHLIGHT_STYLES[command]='fg=yellow'
     export ZSH_HIGHLIGHT_STYLES[builtin]='fg=magenta'
     export ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=magenta,bold'
