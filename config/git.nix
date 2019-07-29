@@ -73,7 +73,7 @@
       git-all = (with import <nixpkgs> {}; writeShellScriptBin "git-all" ''
         echo
         for repo in $(find -L . -maxdepth 7 -iname '.git' -type d -printf '%P\0' 2>/dev/null | xargs -0 dirname | sort); do
-          echo -e "\e[0;37m  \e[0;34m$repo \e[0m(\e[0;32m$@\e[0m)"
+          echo -e "\e[0;37m  \e[0;34m$repo \e[0m(\e[0;33m$@\e[0m)"
           pushd $repo >/dev/null
           ${git-minimal}/bin/git "$@"
           popd >/dev/null
