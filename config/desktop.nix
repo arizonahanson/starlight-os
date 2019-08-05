@@ -263,7 +263,10 @@ with lib;
       icons.enable = true;
       menus.enable = true;
       mime.enable = true;
-      portal.extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+      portal = {
+        enable = true;
+        extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+      };
     };
     fonts.fonts = with pkgs; [
       font-awesome_5
