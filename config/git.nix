@@ -43,26 +43,26 @@
         new = ${toString theme.diff-add}
         old = ${toString theme.diff-remove}
       [color "branch"]
-        remote = ${toString theme.number}
-        current = ${toString theme.pattern}
-        local = ${toString theme.path}
+        remote = ${toString theme.remoteBranch}
+        current = ${toString theme.currentBranch}
+        local = ${toString theme.localBranch}
       [color "decorate"]
-        HEAD = ${toString theme.keyword}
-        tag = ${toString theme.constant}
-        branch = ${toString theme.pattern}
-        stash = ${toString theme.pattern}
-        remoteBranch = ${toString theme.number}
+        HEAD = ${toString theme.localBranch}
+        tag = ${toString theme.remoteBranch}
+        branch = ${toString theme.currentBranch}
+        stash = ${toString theme.localBranch}
+        remoteBranch = ${toString theme.remoteBranch}
       [color "status"]
         added = ${toString theme.info}
         changed = ${toString theme.warning}
         untracked = ${toString theme.error}
         header = ${toString theme.background-alt}
-        branch = ${toString theme.pattern}
-        localBranch = ${toString theme.path}
-        remoteBranch = ${toString theme.number}
+        branch = ${toString theme.currentBranch}
+        localBranch = ${toString theme.localBranch}
+        remoteBranch = ${toString theme.remoteBranch}
       [tig "color"]
         graph-commit = ${toString theme.number} default
-        main-tracked = ${toString theme.number} default
+        main-tracked = ${toString theme.currentBranch} default
         cursor = ${toString theme.foreground} ${toString theme.background-alt}
         date = ${toString theme.background-alt} default
         line-number = ${toString theme.background-alt} default

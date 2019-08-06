@@ -3,7 +3,7 @@
 {
   environment = let system_vim = (pkgs.neovim.override {
     vimAlias = true;
-    configure = {
+    configure = let theme = config.starlight.theme; in {
       customRC = ''
         " temp cache directory
         let g:vimcache='/tmp/.vim-'.$USER.'/'
@@ -114,7 +114,97 @@
         set noerrorbells
         set novisualbell
         " colorscheme
-        colorscheme starlight
+        set background=dark
+        " grays (general)
+        hi Normal       ctermbg=NONE ctermfg=${toString theme.foreground} cterm=NONE
+        hi Identifier   ctermbg=NONE ctermfg=${toString theme.foreground-alt} cterm=NONE
+        hi Comment      ctermbg=NONE ctermfg=${toString theme.background-alt} cterm=NONE
+        hi CursorLine   ctermbg=NONE ctermfg=NONE cterm=NONE
+        hi Visual       ctermbg=${toString theme.background-alt} ctermfg=fg cterm=NONE
+        hi IncSearch    ctermbg=${toString theme.background-alt} ctermfg=fg cterm=underline
+        hi StatusLine   ctermbg=${toString theme.background-alt} ctermfg=fg cterm=NONE
+        hi StatusLineNC ctermbg=${toString theme.background-alt} ctermfg=${toString theme.foreground-alt} cterm=NONE
+        hi WildMenu     ctermbg=fg ctermfg=${toString theme.background-alt} cterm=NONE
+        hi PmenuThumb   ctermfg=${toString theme.foreground-alt}
+        hi Underlined   ctermbg=NONE ctermfg=${toString theme.path} cterm=underline
+        hi! link Noise Identifier
+        hi! link Search Visual
+        hi! link MatchParen Visual
+        hi! link LineNr Comment
+        hi! link CursorLineNr Identifier
+        hi! link SignColumn CursorLine
+        hi! link TabLine Comment
+        hi! link TabLineSel StatusLine
+        hi! link TabLineFill CursorLine
+        hi! link Pmenu StatusLineNC
+        hi! link PmenuSbar StatusLineNC
+        hi! link PmenuSel StatusLine
+        hi! link SpecialComment Identifier
+        hi! link Debug SpecialComment
+        hi! link Ignore Comment
+        " grays (other)
+        hi! link gitcommitSummary Normal
+        hi! link zshDereferencing Identifier
+        hi! link csBraces Noise
+        hi! link shShellVariables Identifier
+        " strings
+        hi String       ctermfg=${toString theme.string}
+        hi Character    ctermfg=${toString theme.character}
+        hi! link Special Character
+        " other consts
+        hi Number       ctermfg=${toString theme.number}
+        hi Constant     ctermfg=${toString theme.constant}
+        hi! link Integer Number
+        hi! link Boolean Constant
+        hi! link shOption Constant
+        hi! link jsNull Constant
+        " functions
+        hi Function     ctermfg=${toString theme.executable}
+        hi! link Question Function
+        hi! link goBuiltins Function
+        " types
+        hi Type         ctermfg=${toString theme.pattern}
+        hi! link Include Type
+        " keywords, statements, operators
+        hi Statement    ctermfg=${toString theme.statement}
+        hi Keyword      ctermfg=${toString theme.keyword}
+        hi! link Exception Keyword
+        hi! link Operator Keyword
+        hi! link Repeat Keyword
+        hi! link StorageClass Statement
+        hi! link Structure Statement
+        hi! link Typedef Statement
+        hi! link PreProc Statement
+        hi! link zshTypes Statement
+        hi! link Label Statement
+        hi! link csLogicSymbols Operator
+        " status highlight
+        hi Error        ctermbg=${toString theme.background-alt} ctermfg=${toString theme.error}
+        hi Warning      ctermbg=${toString theme.background-alt} ctermfg=${toString theme.warning}
+        hi Todo         ctermbg=${toString theme.background-alt} ctermfg=${toString theme.info}
+        hi ErrorMsg     ctermbg=NONE ctermfg=${toString theme.error}
+        hi WarningMsg   ctermbg=NONE ctermfg=${toString theme.warning}
+        hi InfoMsg      ctermbg=NONE ctermfg=${toString theme.info}
+        hi! link ModeMsg Comment
+        hi! link MoreMsg InfoMsg
+        hi! link AleErrorSign ErrorMsg
+        hi! link AleWarningSign WarningMsg
+        hi! link AleInfoSign InfoMsg
+        hi! link SpellCap Todo
+        hi! link SpellRare Warning
+        hi! link SpellBad Error
+        hi DiffAdd    ctermbg=NONE ctermfg=${toString theme.diff-add}
+        hi DiffChange ctermbg=NONE ctermfg=${toString theme.warning}
+        hi DiffDelete ctermbg=NONE ctermfg=${toString theme.diff-remove}
+        hi! link GitGutterAdd DiffAdd
+        hi! link GitGutterChange DiffChange
+        hi! link GitGutterAddDelete DiffDelete
+        hi! link GitGutterChangeDelete DiffDelete
+        hi! link GitGutterDelete DiffDelete
+        hi! link diffAdded DiffAdd
+        hi! link diffRemoved DiffDelete
+        hi! link diffChanged DiffChange
+        hi! link gitcommitFile DiffChange
       '';
       plug.plugins = let
         vim-mucomplete = pkgs.vimUtils.buildVimPlugin {
@@ -125,18 +215,9 @@
             rev = "v1.4.0";
             sha256 = "0rl4ijz2asyrhr2s72j1y06js0yizzir414q6fznvgvmic4wjcj9";
           };
-        };
-        vim-starlight-theme = pkgs.vimUtils.buildVimPlugin {
-          name = "vim-starlight-theme";
-          src = pkgs.fetchFromGitHub {
-            owner = "isaacwhanson";
-            repo = "vim-starlight-theme";
-            rev = "v1.3";
-            sha256 = "0wxn8x3c6fgjwvv76wm397137j53sibhifkcm8s9xpr2fw8qijpv";
-          };
         }; in
       with pkgs.vimPlugins; [
-        vim-sensible (vim-starlight-theme) vim-polyglot vim-nix editorconfig-vim fugitive gitgutter vim-gutentags ale (vim-mucomplete)
+        vim-sensible vim-polyglot vim-nix editorconfig-vim fugitive gitgutter vim-gutentags ale (vim-mucomplete)
       ];
     };
   });

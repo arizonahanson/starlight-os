@@ -291,6 +291,30 @@ with lib;
           default: 12
         '';
       };
+      localBranch = mkOption {
+        type = types.int;
+        default = 4;
+        description = ''
+          color number for local branches
+          default: 4
+        '';
+      };
+      currentBranch = mkOption {
+        type = types.int;
+        default = 12;
+        description = ''
+          color number for current branch
+          default: 12
+        '';
+      };
+      remoteBranch = mkOption {
+        type = types.int;
+        default = 5;
+        description = ''
+          color number for remote branches
+          default: 5
+        '';
+      };
       keyword = mkOption {
         type = types.int;
         default = 5;
