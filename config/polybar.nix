@@ -6,15 +6,18 @@ with lib;
   config = lib.mkIf config.starlight.desktop {
     environment = {
       systemPackages = with pkgs; [ polybar ];
-      etc."polybar.conf" = let palette = config.starlight.palette; in {
+      etc."polybar.conf" = let
+        palette = config.starlight.palette;
+        theme = config.starlight.theme;
+      in {
         text = ''
           [colors]
-          foreground = ${palette.foreground}
-          foreground-alt = ${palette.foreground-alt}
-          background = ${palette.background}
-          background-alt = ${palette.background-alt}
-          info = ${palette.color3}
-          warn = ${palette.color9}
+          foreground = ''${xrdb:color${toString theme.foreground}}
+          foreground-alt = ''${xrdb:color${toString theme.foreground-alt}}
+          background = ''${xrdb:color${toString theme.background}}
+          background-alt = ''${xrdb:color${toString theme.background-alt}}
+          info = ''${xrdb:color${toString theme.info}}
+          warn = ''${xrdb:color${toString theme.warning}}
 
           [bar/default]
           monitor = ''${env:MONITOR:VGA-1}
