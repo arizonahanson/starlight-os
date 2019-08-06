@@ -4,14 +4,14 @@ with lib;
 
 {
   config = let
-    cfg = config.starlight;
+    theme = config.starlight.theme;
     toANSI = num: if num <= 7 then "00;3${toString num}" else "01;3${toString (num - 8)}";
   in {
     programs.zsh.enable = true;
     programs.zsh.autosuggestions = {
       enable = true;
       strategy = "match_prev_cmd";
-      highlightStyle = "fg=${toString cfg.theme.background-alt}";
+      highlightStyle = "fg=${toString theme.background-alt}";
     };
     programs.zsh.syntaxHighlighting = {
       enable = true;
@@ -111,28 +111,28 @@ with lib;
       ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=vi-forward-char
       #ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=""
 
-      export ZSH_HIGHLIGHT_STYLES[cursor]='fg=${toString cfg.theme.info}'
-      export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=${toString cfg.theme.info}'
-      export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=${toString cfg.theme.error}'
-      export ZSH_HIGHLIGHT_STYLES[path]='fg=${toString cfg.theme.path}'
-      export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=${toString cfg.theme.pattern}'
-      export ZSH_HIGHLIGHT_STYLES[globbing]='fg=${toString cfg.theme.pattern}'
-      export ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=${toString cfg.theme.character}'
-      export ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=${toString cfg.theme.string}'
-      export ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=${toString cfg.theme.constant}'
-      export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=${toString cfg.theme.alias}'
-      export ZSH_HIGHLIGHT_STYLES[alias]='fg=${toString cfg.theme.alias}'
-      export ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=${toString cfg.theme.alias}'
-      export ZSH_HIGHLIGHT_STYLES[function]='fg=${toString cfg.theme.executable}'
-      export ZSH_HIGHLIGHT_STYLES[precommand]='fg=${toString cfg.theme.warning}'
-      export ZSH_HIGHLIGHT_STYLES[command]='fg=${toString cfg.theme.executable}'
-      export ZSH_HIGHLIGHT_STYLES[builtin]='fg=${toString cfg.theme.statement}'
-      export ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=${toString cfg.theme.keyword}'
-      export ZSH_HIGHLIGHT_STYLES[redirection]='fg=${toString cfg.theme.keyword}'
-      export ZSH_HIGHLIGHT_STYLES[arg0]='fg=${toString cfg.theme.keyword}'
-      export ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=${toString cfg.theme.keyword}'
-      export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=${toString cfg.theme.constant}'
-      export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=${toString cfg.theme.number}'
+      export ZSH_HIGHLIGHT_STYLES[cursor]='fg=${toString theme.info}'
+      export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=${toString theme.info}'
+      export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=${toString theme.error}'
+      export ZSH_HIGHLIGHT_STYLES[path]='fg=${toString theme.path}'
+      export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=${toString theme.pattern}'
+      export ZSH_HIGHLIGHT_STYLES[globbing]='fg=${toString theme.pattern}'
+      export ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=${toString theme.character}'
+      export ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=${toString theme.string}'
+      export ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=${toString theme.constant}'
+      export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=${toString theme.alias}'
+      export ZSH_HIGHLIGHT_STYLES[alias]='fg=${toString theme.alias}'
+      export ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=${toString theme.alias}'
+      export ZSH_HIGHLIGHT_STYLES[function]='fg=${toString theme.executable}'
+      export ZSH_HIGHLIGHT_STYLES[precommand]='fg=${toString theme.warning}'
+      export ZSH_HIGHLIGHT_STYLES[command]='fg=${toString theme.executable}'
+      export ZSH_HIGHLIGHT_STYLES[builtin]='fg=${toString theme.statement}'
+      export ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=${toString theme.keyword}'
+      export ZSH_HIGHLIGHT_STYLES[redirection]='fg=${toString theme.keyword}'
+      export ZSH_HIGHLIGHT_STYLES[arg0]='fg=${toString theme.keyword}'
+      export ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=${toString theme.keyword}'
+      export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=${toString theme.constant}'
+      export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=${toString theme.number}'
       
       # fzf with tmux
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh
@@ -148,7 +148,7 @@ with lib;
       ll = "ls -lAhF";
       cp = "cp --reflink=auto";
       xz = "xz --threads=0";
-      ag = "${pkgs.ag}/bin/ag --color-line-number '${toANSI cfg.theme.background-alt}' --color-path '${toANSI cfg.theme.path}' --color-match '100;97'";
+      ag = "${pkgs.ag}/bin/ag --color-line-number '${toANSI theme.background-alt}' --color-path '${toANSI theme.path}' --color-match '100;97'";
     };
     environment.variables = {
       # shorter delay on cmd-mode
@@ -159,7 +159,7 @@ with lib;
       FZF_CTRL_T_COMMAND = "ag -f -g '' --hidden --depth 16 --ignore dosdevices";
       FZF_DEFAULT_OPTS = "-m --ansi --color=16,bg:-1,bg+:-1 --tac";
       FZF_ALT_C_COMMAND = "find -L . -maxdepth 16 -type d 2>/dev/null";
-      GREP_COLORS="mt=100;97:sl=:cx=:fn=${toANSI cfg.theme.path}:ln=${toANSI cfg.theme.background-alt}:bn=32:se=37";
+      GREP_COLORS="mt=100;97:sl=:cx=:fn=${toANSI theme.path}:ln=${toANSI theme.background-alt}:bn=32:se=37";
     };
     environment.etc.dircolors = {
       text = ''
@@ -217,32 +217,32 @@ with lib;
         #NORMAL 00 # no color code at all
         #FILE 00 # regular file: use no color at all
         RESET 0 # reset to "normal" color
-        DIR ${toANSI cfg.theme.path} # directory
+        DIR ${toANSI theme.path} # directory
         LINK target #0;36 # symbolic link. (If you set this to 'target' instead of a
         # numerical value, the color is as for the file pointed to.)
         MULTIHARDLINK 00 # regular file with more than one link
-        SOCK ${toANSI cfg.theme.pattern} # socket
-        DOOR ${toANSI cfg.theme.pattern} # door
-        FIFO ${toANSI cfg.theme.pattern} # pipe
-        BLK ${toANSI cfg.theme.string} # block device driver
-        CHR ${toANSI cfg.theme.character} # character device driver
-        ORPHAN ${toANSI cfg.theme.error} # symlink to nonexistent file, or non-stat'able file ...
-        MISSING ${toANSI cfg.theme.background-alt} # ... and the files they point to
-        SETUID 4;${toANSI cfg.theme.warning} # file that is setuid (u+s)
-        SETGID 4;${toANSI cfg.theme.warning} # file that is setgid (g+s)
-        CAPABILITY 4;${toANSI cfg.theme.pattern} # file with capability
-        STICKY_OTHER_WRITABLE 4;${toANSI cfg.theme.path} # dir that is sticky and other-writable (+t,o+w)
-        OTHER_WRITABLE ${toANSI cfg.theme.path} # dir that is other-writable (o+w) and not sticky
-        STICKY 4;${toANSI cfg.theme.path} # dir with the sticky bit set (+t) and not other-writable
-        EXEC ${toANSI cfg.theme.executable}
-        .cmd ${toANSI cfg.theme.alias}
-        .exe ${toANSI cfg.theme.alias}
-        .com ${toANSI cfg.theme.alias}
-        .btm ${toANSI cfg.theme.alias}
-        .bat ${toANSI cfg.theme.alias}
-        .sh ${toANSI cfg.theme.alias}
-        .csh ${toANSI cfg.theme.alias}
-        .tcsh ${toANSI cfg.theme.alias}
+        SOCK ${toANSI theme.pattern} # socket
+        DOOR ${toANSI theme.pattern} # door
+        FIFO ${toANSI theme.pattern} # pipe
+        BLK ${toANSI theme.string} # block device driver
+        CHR ${toANSI theme.character} # character device driver
+        ORPHAN ${toANSI theme.error} # symlink to nonexistent file, or non-stat'able file ...
+        MISSING ${toANSI theme.background-alt} # ... and the files they point to
+        SETUID 4;${toANSI theme.warning} # file that is setuid (u+s)
+        SETGID 4;${toANSI theme.warning} # file that is setgid (g+s)
+        CAPABILITY 4;${toANSI theme.pattern} # file with capability
+        STICKY_OTHER_WRITABLE 4;${toANSI theme.path} # dir that is sticky and other-writable (+t,o+w)
+        OTHER_WRITABLE ${toANSI theme.path} # dir that is other-writable (o+w) and not sticky
+        STICKY 4;${toANSI theme.path} # dir with the sticky bit set (+t) and not other-writable
+        EXEC ${toANSI theme.executable}
+        .cmd ${toANSI theme.alias}
+        .exe ${toANSI theme.alias}
+        .com ${toANSI theme.alias}
+        .btm ${toANSI theme.alias}
+        .bat ${toANSI theme.alias}
+        .sh ${toANSI theme.alias}
+        .csh ${toANSI theme.alias}
+        .tcsh ${toANSI theme.alias}
 
         # archives or compressed
         .tar 1;31
@@ -425,16 +425,16 @@ with lib;
         .less   1;35
 
         # other
-        *~            ${toANSI cfg.theme.background-alt}
-        *.pid         ${toANSI cfg.theme.background-alt}
-        *desktop.ini  ${toANSI cfg.theme.background-alt}
-        *Desktop.ini  ${toANSI cfg.theme.background-alt}
-        .ICEauthority ${toANSI cfg.theme.background-alt}
-        .Xauthority   ${toANSI cfg.theme.background-alt}
-        .xsession-errors ${toANSI cfg.theme.background-alt}
-        .old          ${toANSI cfg.theme.background-alt}
-        .hidden       ${toANSI cfg.theme.background-alt}
-        .zcompdump    ${toANSI cfg.theme.background-alt}
+        *~            ${toANSI theme.background-alt}
+        *.pid         ${toANSI theme.background-alt}
+        *desktop.ini  ${toANSI theme.background-alt}
+        *Desktop.ini  ${toANSI theme.background-alt}
+        .ICEauthority ${toANSI theme.background-alt}
+        .Xauthority   ${toANSI theme.background-alt}
+        .xsession-errors ${toANSI theme.background-alt}
+        .old          ${toANSI theme.background-alt}
+        .hidden       ${toANSI theme.background-alt}
+        .zcompdump    ${toANSI theme.background-alt}
       '';
     };
   };
