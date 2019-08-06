@@ -7,7 +7,7 @@
       ${tmux}/bin/tmux -2 new-session -A -s "$1"
     '')
   ];
-  environment.etc."tmux.conf" = {
+  environment.etc."tmux.conf" = let theme = config.starlight.theme; in {
     text = ''
       set -g default-terminal "screen-256color"
       set -g set-titles on
@@ -27,31 +27,28 @@
       setw -g pane-base-index 1
 
       # default statusbar colors
-      set-option -g status-style bg=default,fg=brightwhite
-
+      set-option -g status-style bg=colour${toString theme.background},fg=colour${toString theme.foreground}
       # default window title colors
-      set-window-option -g window-status-style fg=brightblack,bg=default
-
+      set-window-option -g window-status-style fg=colour${toString theme.background-alt},bg=colour${toString theme.background}
       # active window title colors
-      set-window-option -g window-status-current-style fg=brightwhite,bg=brightblack
-
+      set-window-option -g window-status-current-style fg=colour${toString theme.foreground},bg=colour${toString theme.background-alt}
       # inactive window activity colors
-      set-window-option -g window-status-activity-style fg=white,bg=default
-      set-window-option -g window-status-bell-style fg=yellow,bg=default
+      set-window-option -g window-status-activity-style fg=colour${toString theme.foreground-alt},bg=colour${toString theme.background}
+      set-window-option -g window-status-bell-style fg=colour${toString theme.info},bg=colour${toString theme.background}
 
       # pane border
-      set-option -g pane-border-style fg=brightblack
-      set-option -g pane-active-border-style fg=white
+      set-option -g pane-border-style fg=colour${toString theme.background-alt}
+      set-option -g pane-active-border-style fg=colour${toString theme.foreground-alt}
 
       # message text
-      set-option -g message-style bg=black,fg=brightwhite
+      set-option -g message-style bg=colour${toString theme.background},fg=colour${toString theme.foreground}
 
       # pane number display
-      set-option -g display-panes-active-colour blue
-      set-option -g display-panes-colour brightred
+      set-option -g display-panes-active-colour colour${toString theme.info}
+      set-option -g display-panes-colour colour${toString theme.warning}
 
       # clock
-      set-window-option -g clock-mode-colour brightwhite
+      set-window-option -g clock-mode-colour colour${toString theme.foreground}
     '';
   };
 }
