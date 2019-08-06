@@ -39,27 +39,27 @@
       [color "diff"]
         commit = ${toString theme.number}
         meta = ${toString theme.background-alt}
-        frag = white
+        frag = ${toString theme.foreground-alt}
         new = ${toString theme.diff-add}
         old = ${toString theme.diff-remove}
       [color "branch"]
-        remote = cyan bold
-        current = blue bold
-        local = blue
+        remote = ${toString theme.path}
+        current = ${toString theme.pattern}
+        local = ${toString theme.number}
       [color "decorate"]
-        branch = blue bold
-        remoteBranch = cyan bold
-        tag = cyan bold
-        HEAD = cyan
-        stash = blue bold
+        HEAD = ${toString theme.keyword}
+        tag = ${toString theme.constant}
+        branch = ${toString theme.pattern}
+        stash = ${toString theme.pattern}
+        remoteBranch = ${toString theme.path}
       [color "status"]
         added = ${toString theme.info}
         changed = ${toString theme.warning}
         untracked = ${toString theme.error}
         header = ${toString theme.background-alt}
-        branch = blue bold
-        localBranch = blue
-        remoteBranch = cyan bold
+        branch = ${toString theme.pattern}
+        localBranch = ${toString theme.number}
+        remoteBranch = ${toString theme.path}
       [tig "color"]
         graph-commit = ${toString theme.number} default
         main-tracked = ${toString theme.number} default
