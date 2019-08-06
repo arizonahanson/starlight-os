@@ -159,7 +159,7 @@ with lib;
       FZF_CTRL_T_COMMAND = "ag -f -g '' --hidden --depth 16 --ignore dosdevices";
       FZF_DEFAULT_OPTS = "-m --ansi --color=16,bg:-1,bg+:-1 --tac";
       FZF_ALT_C_COMMAND = "find -L . -maxdepth 16 -type d 2>/dev/null";
-      GREP_COLORS="mt=100;97:sl=:cx=:fn=${toANSI theme.path}:ln=${toANSI theme.background-alt}:bn=32:se=37";
+      GREP_COLORS="mt=100;97:sl=:cx=:fn=${toANSI theme.path}:ln=${toANSI theme.background-alt}:bn=${toANSI theme.number}:se=${toANSI theme.foreground-alt}";
     };
     environment.etc.dircolors = {
       text = ''
@@ -218,7 +218,7 @@ with lib;
         #FILE 00 # regular file: use no color at all
         RESET 0 # reset to "normal" color
         DIR ${toANSI theme.path} # directory
-        LINK target #0;36 # symbolic link. (If you set this to 'target' instead of a
+        LINK target # symbolic link. (If you set this to 'target' instead of a
         # numerical value, the color is as for the file pointed to.)
         MULTIHARDLINK 00 # regular file with more than one link
         SOCK ${toANSI theme.pattern} # socket
@@ -230,10 +230,10 @@ with lib;
         MISSING ${toANSI theme.background-alt} # ... and the files they point to
         SETUID 4;${toANSI theme.warning} # file that is setuid (u+s)
         SETGID 4;${toANSI theme.warning} # file that is setgid (g+s)
-        CAPABILITY 4;${toANSI theme.pattern} # file with capability
-        STICKY_OTHER_WRITABLE 4;${toANSI theme.path} # dir that is sticky and other-writable (+t,o+w)
-        OTHER_WRITABLE ${toANSI theme.path} # dir that is other-writable (o+w) and not sticky
-        STICKY 4;${toANSI theme.path} # dir with the sticky bit set (+t) and not other-writable
+        CAPABILITY ${toANSI theme.pattern};4 # file with capability
+        STICKY_OTHER_WRITABLE 7;${toANSI theme.path};4 # dir that is sticky and other-writable (+t,o+w)
+        OTHER_WRITABLE 7;${toANSI theme.path} # dir that is other-writable (o+w) and not sticky
+        STICKY ${toANSI theme.path};4 # dir with the sticky bit set (+t) and not other-writable
         EXEC ${toANSI theme.executable}
         .cmd ${toANSI theme.alias}
         .exe ${toANSI theme.alias}
