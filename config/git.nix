@@ -43,23 +43,23 @@
         new = ${toString theme.diff-add}
         old = ${toString theme.diff-remove}
       [color "branch"]
-        remote = ${toString theme.path}
+        remote = ${toString theme.number}
         current = ${toString theme.pattern}
-        local = ${toString theme.number}
+        local = ${toString theme.path}
       [color "decorate"]
         HEAD = ${toString theme.keyword}
         tag = ${toString theme.constant}
         branch = ${toString theme.pattern}
         stash = ${toString theme.pattern}
-        remoteBranch = ${toString theme.path}
+        remoteBranch = ${toString theme.number}
       [color "status"]
         added = ${toString theme.info}
         changed = ${toString theme.warning}
         untracked = ${toString theme.error}
         header = ${toString theme.background-alt}
         branch = ${toString theme.pattern}
-        localBranch = ${toString theme.number}
-        remoteBranch = ${toString theme.path}
+        localBranch = ${toString theme.path}
+        remoteBranch = ${toString theme.number}
       [tig "color"]
         graph-commit = ${toString theme.number} default
         main-tracked = ${toString theme.number} default
