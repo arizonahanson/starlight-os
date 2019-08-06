@@ -191,7 +191,7 @@ with lib;
         type = types.int;
         default = 1;
         description = ''
-          color number for errors
+          color number for errors/unknown
           default: 1
         '';
       };
@@ -199,7 +199,7 @@ with lib;
         type = types.int;
         default = 9;
         description = ''
-          color number for warnings
+          color number for warnings/change
           default: 9
         '';
       };
@@ -209,6 +209,22 @@ with lib;
         description = ''
           color number for info
           default: 3
+        '';
+      };
+      diff-add = mkOption {
+        type = types.int;
+        default = 2;
+        description = ''
+          color number for diff-add
+          default: 2
+        '';
+      };
+      diff-remove = mkOption {
+        type = types.int;
+        default = 1;
+        description = ''
+          color number for diff-remove
+          default: 1
         '';
       };
       executable = mkOption {
