@@ -156,139 +156,139 @@ with lib;
     };
     theme = {
       background = mkOption {
-        type = types.str;
-        default = "0";
+        type = types.int;
+        default = 0;
         description = ''
           color number for background
-          default: "0"
+          default: 0
         '';
       };
       foreground = mkOption {
-        type = types.str;
-        default = "15";
+        type = types.int;
+        default = 15;
         description = ''
           color number for foreground
-          default: "15"
+          default: 15
         '';
       };
       background-alt = mkOption {
-        type = types.str;
-        default = "8";
+        type = types.int;
+        default = 8;
         description = ''
           color number for background-alt
-          default: "8"
+          default: 8
         '';
       };
       foreground-alt = mkOption {
-        type = types.str;
-        default = "7";
+        type = types.int;
+        default = 7;
         description = ''
           color number for foreground-alt
-          default: "7"
+          default: 7
         '';
       };
       error = mkOption {
-        type = types.str;
-        default = "1";
+        type = types.int;
+        default = 1;
         description = ''
           color number for errors
-          default: "1"
+          default: 1
         '';
       };
       warning = mkOption {
-        type = types.str;
-        default = "9";
+        type = types.int;
+        default = 9;
         description = ''
           color number for warnings
-          default: "9"
+          default: 9
         '';
       };
       info = mkOption {
-        type = types.str;
-        default = "3";
+        type = types.int;
+        default = 3;
         description = ''
           color number for info
-          default: "3"
+          default: 3
         '';
       };
       executable = mkOption {
-        type = types.str;
-        default = "3";
+        type = types.int;
+        default = 3;
         description = ''
           color number for executable
-          default: "3"
+          default: 3
         '';
       };
       alias = mkOption {
-        type = types.str;
-        default = "11";
+        type = types.int;
+        default = 11;
         description = ''
           color number for executable
-          default: "11"
+          default: 11
         '';
       };
       character = mkOption {
-        type = types.str;
-        default = "2";
+        type = types.int;
+        default = 2;
         description = ''
           color number for characters
-          default: "2"
+          default: 2
         '';
       };
       string = mkOption {
-        type = types.str;
-        default = "10";
+        type = types.int;
+        default = 10;
         description = ''
           color number for strings
-          default: "10"
+          default: 10
         '';
       };
       constant = mkOption {
-        type = types.str;
-        default = "6";
+        type = types.int;
+        default = 6;
         description = ''
           color number for constants
-          default: "6"
+          default: 6
         '';
       };
       number = mkOption {
-        type = types.str;
-        default = "14";
+        type = types.int;
+        default = 14;
         description = ''
           color number for numbers
-          default: "14"
+          default: 14
         '';
       };
       path = mkOption {
-        type = types.str;
-        default = "4";
+        type = types.int;
+        default = 4;
         description = ''
           color number for paths
-          default: "4"
+          default: 4
         '';
       };
       pattern = mkOption {
-        type = types.str;
-        default = "12";
+        type = types.int;
+        default = 12;
         description = ''
           color number for patterns
-          default: "12"
+          default: 12
         '';
       };
       keyword = mkOption {
-        type = types.str;
-        default = "5";
+        type = types.int;
+        default = 5;
         description = ''
           color number for keywords
-          default: "5"
+          default: 5
         '';
       };
       statement = mkOption {
-        type = types.str;
-        default = "13";
+        type = types.int;
+        default = 13;
         description = ''
           color number for statements
-          default: "13"
+          default: 13
         '';
       };
     };
