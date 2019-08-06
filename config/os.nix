@@ -42,7 +42,7 @@
     mkdir -p $mntpnt
     sudo mount -o compress=lzo $device $mntpnt
     pushd $mntpnt >/dev/null
-    sudo duperemove -Ardhv --hash=xxhash $(ls | grep -v home) | grep "net change"
+    sudo duperemove -Ardhv --hash=xxhash $(ls -d */nix) | grep "net change"
     sudo nix-store --optimise
     echo -e "\n\e[1;34m\e[0m Rebalancing filesystem..."
     sudo btrfs balance start -dusage=38 -musage=38 $mntpnt
