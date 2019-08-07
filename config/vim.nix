@@ -163,7 +163,7 @@
         hi! link Question Function
         hi! link goBuiltins Function
         " types
-        hi Type         ctermfg=${toString theme.pattern}
+        hi Type         ctermfg=${toString theme.type}
         hi! link Include Type
         " keywords, statements, operators
         hi Statement    ctermfg=${toString theme.statement}

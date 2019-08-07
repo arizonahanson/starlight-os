@@ -298,6 +298,22 @@ with lib;
           default: 4
         '';
       };
+      socket = mkOption {
+        type = types.int;
+        default = 12;
+        description = ''
+          color number for sockets
+          default: 12
+        '';
+      };
+      type = mkOption {
+        type = types.int;
+        default = 12;
+        description = ''
+          color number for types
+          default: 12
+        '';
+      };
       pattern = mkOption {
         type = types.int;
         default = 12;
@@ -332,18 +348,18 @@ with lib;
       };
       keyword = mkOption {
         type = types.int;
-        default = 5;
+        default = 13;
         description = ''
           color number for keywords
-          default: 5
+          default: 13
         '';
       };
       statement = mkOption {
         type = types.int;
-        default = 13;
+        default = 5;
         description = ''
           color number for statements
-          default: 13
+          default: 5
         '';
       };
     };

@@ -721,9 +721,9 @@ with lib;
         LINK target # symbolic link. (If you set this to 'target' instead of a
         # numerical value, the color is as for the file pointed to.)
         MULTIHARDLINK 00 # regular file with more than one link
-        SOCK ${toANSI theme.pattern} # socket
-        DOOR ${toANSI theme.pattern} # door
-        FIFO ${toANSI theme.pattern} # pipe
+        SOCK ${toANSI theme.socket} # socket
+        DOOR ${toANSI theme.socket};7 # door
+        FIFO ${toANSI theme.socket};4 # pipe
         BLK ${toANSI theme.string} # block device driver
         CHR ${toANSI theme.character} # character device driver
         ORPHAN ${toANSI theme.error} # symlink to nonexistent file, or non-stat'able file ...
