@@ -731,8 +731,8 @@ with lib;
         SETUID 4;${toANSI theme.warning} # file that is setuid (u+s)
         SETGID 4;${toANSI theme.warning} # file that is setgid (g+s)
         CAPABILITY ${toANSI theme.pattern};4 # file with capability
-        STICKY_OTHER_WRITABLE 7;${toANSI theme.path};4 # dir that is sticky and other-writable (+t,o+w)
-        OTHER_WRITABLE 7;${toANSI theme.path} # dir that is other-writable (o+w) and not sticky
+        STICKY_OTHER_WRITABLE ${toANSI theme.path};4;7 # dir that is sticky and other-writable (+t,o+w)
+        OTHER_WRITABLE ${toANSI theme.path};7 # dir that is other-writable (o+w) and not sticky
         STICKY ${toANSI theme.path};4 # dir with the sticky bit set (+t) and not other-writable
         EXEC ${toANSI theme.executable}
         .cmd ${toANSI theme.alias}
