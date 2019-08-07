@@ -121,14 +121,14 @@
         hi Comment      ctermbg=NONE ctermfg=${toString theme.background-alt} cterm=NONE
         hi CursorLine   ctermbg=NONE ctermfg=NONE cterm=NONE
         hi Visual       ctermbg=${toString theme.background-alt} ctermfg=fg cterm=NONE
-        hi IncSearch    ctermbg=${toString theme.background-alt} ctermfg=fg cterm=underline
         hi StatusLine   ctermbg=${toString theme.background-alt} ctermfg=fg cterm=NONE
         hi StatusLineNC ctermbg=${toString theme.background-alt} ctermfg=${toString theme.foreground-alt} cterm=NONE
         hi WildMenu     ctermbg=fg ctermfg=${toString theme.background-alt} cterm=NONE
         hi PmenuThumb   ctermfg=${toString theme.foreground-alt}
         hi Underlined   ctermbg=NONE ctermfg=${toString theme.path} cterm=underline
+        hi IncSearch    ctermbg=NONE ctermfg=${toString theme.match} cterm=underline
+        hi Search       ctermbg=NONE ctermfg=${toString theme.match} cterm=NONE
         hi! link Noise Identifier
-        hi! link Search Visual
         hi! link MatchParen Visual
         hi! link LineNr Comment
         hi! link CursorLineNr Identifier

@@ -94,8 +94,8 @@ with lib;
       ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=vi-forward-char
       #ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=""
 
-      export ZSH_HIGHLIGHT_STYLES[cursor]='fg=${toString theme.info}'
-      export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=${toString theme.info}'
+      export ZSH_HIGHLIGHT_STYLES[cursor]='fg=${toString theme.match}'
+      export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=${toString theme.match}'
       export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=${toString theme.error}'
       export ZSH_HIGHLIGHT_STYLES[path]='fg=${toString theme.path}'
       export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=${toString theme.pattern}'
@@ -120,7 +120,7 @@ with lib;
       # fzf with tmux
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh
       source ${pkgs.fzf}/share/fzf/completion.zsh
-      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS} ma=100\;97
+      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS} ma='${toANSI theme.match}'
 
       # last to pickup other zsh-widgets
       source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -648,7 +648,7 @@ with lib;
       ll = "ls -lAhF";
       cp = "cp --reflink=auto";
       xz = "xz --threads=0";
-      ag = "${pkgs.ag}/bin/ag --color-line-number '${toANSI theme.background-alt}' --color-path '${toANSI theme.path}' --color-match '100;97'";
+      ag = "${pkgs.ag}/bin/ag --color-line-number '${toANSI theme.background-alt}' --color-path '${toANSI theme.path}' --color-match '${toANSI theme.match}'";
     };
     environment.variables = {
       # shorter delay on cmd-mode
@@ -659,7 +659,7 @@ with lib;
       FZF_CTRL_T_COMMAND = "ag -f -g '' --hidden --depth 16 --ignore dosdevices";
       FZF_DEFAULT_OPTS = "-m --ansi --color=16,bg:-1,bg+:-1 --tac";
       FZF_ALT_C_COMMAND = "find -L . -maxdepth 16 -type d 2>/dev/null";
-      GREP_COLORS="mt=100;97:sl=:cx=:fn=${toANSI theme.path}:ln=${toANSI theme.background-alt}:bn=${toANSI theme.number}:se=${toANSI theme.foreground-alt}";
+      GREP_COLORS="mt=${toANSI theme.match}:sl=:cx=:fn=${toANSI theme.path}:ln=${toANSI theme.background-alt}:bn=${toANSI theme.number}:se=${toANSI theme.foreground-alt}";
     };
     environment.etc.dircolors = {
       text = ''

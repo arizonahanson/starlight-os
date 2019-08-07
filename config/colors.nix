@@ -211,6 +211,14 @@ with lib;
           default: 3
         '';
       };
+      match = mkOption {
+        type = types.int;
+        default = 3;
+        description = ''
+          color number for matches
+          default: 3
+        '';
+      };
       diff-add = mkOption {
         type = types.int;
         default = 2;
