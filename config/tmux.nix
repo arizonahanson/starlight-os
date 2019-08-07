@@ -21,8 +21,8 @@
       set -g status-left ""
       set -g renumber-windows on
       setw -g window-status-separator ""
-      setw -g window-status-current-format "  #W  "
-      setw -g window-status-format "  #W  "
+      setw -g window-status-current-format " #W "
+      setw -g window-status-format " #W "
       set -g base-index 1
       setw -g pane-base-index 1
 
@@ -31,7 +31,7 @@
       # default window title colors
       set-window-option -g window-status-style fg=colour${toString theme.background-alt},bg=colour${toString theme.background}
       # active window title colors
-      set-window-option -g window-status-current-style fg=colour${toString theme.foreground},bg=colour${toString theme.background-alt}
+      set-window-option -g window-status-current-style fg=colour${toString theme.foreground},bg=colour${toString theme.background}
       # inactive window activity colors
       set-window-option -g window-status-activity-style fg=colour${toString theme.foreground-alt},bg=colour${toString theme.background}
       set-window-option -g window-status-bell-style fg=colour${toString theme.info},bg=colour${toString theme.background}
