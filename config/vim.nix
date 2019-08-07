@@ -170,7 +170,7 @@
         hi Keyword      ctermfg=${toString theme.keyword}
         hi! link Exception Keyword
         hi! link Operator Keyword
-        hi! link Repeat Keyword
+        hi! link Repeat Statement
         hi! link StorageClass Statement
         hi! link Structure Statement
         hi! link Typedef Statement
