@@ -94,7 +94,7 @@ with lib;
       ZSH_AUTOSUGGEST_PARTIAL_ACCEPT_WIDGETS+=vi-forward-char
       #ZSH_AUTOSUGGEST_ACCEPT_WIDGETS=""
 
-      export ZSH_HIGHLIGHT_STYLES[cursor]='fg=${toString theme.match}'
+      export ZSH_HIGHLIGHT_STYLES[cursor]='fg=${toString theme.select}'
       export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=${toString theme.match}'
       export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=${toString theme.error}'
       export ZSH_HIGHLIGHT_STYLES[path]='fg=${toString theme.path}'
@@ -120,7 +120,7 @@ with lib;
       # fzf with tmux
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh
       source ${pkgs.fzf}/share/fzf/completion.zsh
-      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS} ma='${toANSI theme.match}'
+      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS} ma='${toANSI theme.select}'
 
       # last to pickup other zsh-widgets
       source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

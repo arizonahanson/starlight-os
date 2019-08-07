@@ -63,7 +63,7 @@
       [tig "color"]
         graph-commit = ${toString theme.number} default
         main-tracked = ${toString theme.currentBranch} default
-        cursor = ${toString theme.match} default
+        cursor = ${toString theme.select} default
         date = ${toString theme.background-alt} default
         line-number = ${toString theme.background-alt} default
         title-blur = ${toString theme.background-alt} default

@@ -226,6 +226,14 @@ with lib;
           default: 9
         '';
       };
+      select = mkOption {
+        type = types.int;
+        default = 3;
+        description = ''
+          color number for selections
+          default: 3
+        '';
+      };
       diff-add = mkOption {
         type = types.int;
         default = 2;
