@@ -220,10 +220,10 @@ with lib;
       };
       match = mkOption {
         type = types.int;
-        default = 3;
+        default = 9;
         description = ''
           color number for matches
-          default: 3
+          default: 9
         '';
       };
       diff-add = mkOption {
