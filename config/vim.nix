@@ -205,6 +205,7 @@
         hi! link diffRemoved DiffDelete
         hi! link diffChanged DiffChange
         hi! link gitcommitFile DiffChange
+        hi gitcommitBranch ctermbg=NONE ctermfg=${toString theme.currentBranch}
       '';
       plug.plugins = let
         vim-mucomplete = pkgs.vimUtils.buildVimPlugin {
