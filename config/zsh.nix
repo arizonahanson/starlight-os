@@ -636,7 +636,7 @@ with lib;
         if [ -z "$TMUX" ]; then
           spc=" "
         fi
-        PROMPT='%(?.${toFG theme.constant}.${toFG theme.error})%(!.$ZSH_THEME_PROMPT_ROOT.$ZSH_THEME_PROMPT)%{$reset_color%}$spc '
+        PROMPT='%(?.${toFG theme.foreground-alt}.${toFG theme.error})%(!.$ZSH_THEME_PROMPT_ROOT.$ZSH_THEME_PROMPT)%{$reset_color%}$spc '
         RPROMPT=" \$(git_prompt_info)${toFG theme.path}$(get_pwd)$(host_info)%{\$reset_color%}"
         PS2="%{$reset_color%}${toFG theme.warning}$ZSH_THEME_PROMPT2$spc %{$reset_color%}"
       }
