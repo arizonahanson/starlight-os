@@ -35,7 +35,7 @@
         separator = ${toString theme.foreground-alt}
         filename = ${toString theme.path}
         linenumber = ${toString theme.background-alt}
-        match = ${toString theme.foreground} ${toString theme.background-alt}
+        match = ${toString theme.match}
       [color "diff"]
         commit = ${toString theme.number}
         meta = ${toString theme.background-alt}
@@ -63,12 +63,12 @@
       [tig "color"]
         graph-commit = ${toString theme.number} default
         main-tracked = ${toString theme.currentBranch} default
-        cursor = ${toString theme.foreground} ${toString theme.background-alt}
+        cursor = ${toString theme.match} default
         date = ${toString theme.background-alt} default
         line-number = ${toString theme.background-alt} default
         title-blur = ${toString theme.background-alt} default
         title-focus = ${toString theme.foreground} ${toString theme.background-alt}
-        search-result = ${toString theme.foreground} ${toString theme.background-alt}
+        search-result = ${toString theme.match} default
         status = ${toString theme.info} default
     '';
     git-all = (with import <nixpkgs> {}; writeShellScriptBin "git-all" ''
