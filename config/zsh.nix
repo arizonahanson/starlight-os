@@ -102,7 +102,7 @@ with lib;
       export ZSH_HIGHLIGHT_STYLES[globbing]='fg=${toString theme.pattern}'
       export ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=${toString theme.character}'
       export ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=${toString theme.string}'
-      export ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=${toString theme.constant}'
+      export ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=${toString theme.alias}'
       export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=${toString theme.alias}'
       export ZSH_HIGHLIGHT_STYLES[alias]='fg=${toString theme.alias}'
       export ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=${toString theme.alias}'
@@ -728,9 +728,9 @@ with lib;
         CHR ${toANSI theme.character} # character device driver
         ORPHAN ${toANSI theme.error} # symlink to nonexistent file, or non-stat'able file ...
         MISSING ${toANSI theme.background-alt} # ... and the files they point to
-        SETUID 4;${toANSI theme.warning} # file that is setuid (u+s)
-        SETGID 4;${toANSI theme.warning} # file that is setgid (g+s)
-        CAPABILITY ${toANSI theme.pattern};4 # file with capability
+        SETUID ${toANSI theme.warning} # file that is setuid (u+s)
+        SETGID ${toANSI theme.warning};4 # file that is setgid (g+s)
+        CAPABILITY ${toANSI theme.warning};7 # file with capability
         STICKY_OTHER_WRITABLE ${toANSI theme.path};4;7 # dir that is sticky and other-writable (+t,o+w)
         OTHER_WRITABLE ${toANSI theme.path};7 # dir that is other-writable (o+w) and not sticky
         STICKY ${toANSI theme.path};4 # dir with the sticky bit set (+t) and not other-writable
