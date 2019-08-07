@@ -41,6 +41,13 @@ with lib;
           Cursor color
         '';
       };
+      info = mkOption {
+        type = types.str;
+        default = "#b3b36b";
+        description = ''
+          Info color
+        '';
+      };
       color0 = mkOption {
         type = types.str;
         default = "#1a1a1a";

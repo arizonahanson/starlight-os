@@ -231,7 +231,7 @@ with lib;
         rofi.scroll-method:     1
         ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
         rofi.color-normal: ${palette.background},${palette.background-alt},${palette.background},${palette.background},${palette.foreground}
-        rofi.color-urgent: ${palette.background},${palette.color1},${palette.background},${palette.background},${palette.color1}
+        rofi.color-urgent: ${palette.background},${palette.info},${palette.background},${palette.background},${palette.info}
         rofi.color-active: ${palette.background},${palette.foreground-alt},${palette.background},${palette.background},${palette.foreground}
         rofi.color-window: ${palette.background},${palette.background},${palette.background}
         rofi.display-drun: 
