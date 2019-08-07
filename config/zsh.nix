@@ -745,184 +745,184 @@ with lib;
         .tcsh ${toANSI theme.alias}
 
         # archives or compressed
-        .tar 1;31
-        .tgz 1;31
-        .arc 1;31
-        .arj 1;31
-        .taz 1;31
-        .lha 1;31
-        .lz4 1;31
-        .lzh 1;31
-        .lzma 1;31
-        .tlz 1;31
-        .txz 1;31
-        .tzo 1;31
-        .t7z 1;31
-        .zip 1;31
-        .z 1;31
-        .Z 1;31
-        .dz 1;31
-        .gz 1;31
-        .lrz 1;31
-        .lz 1;31
-        .lzo 1;31
-        .xz 1;31
-        .bz2 1;31
-        .bz 1;31
-        .tbz 1;31
-        .tbz2 1;31
-        .tz 1;31
-        .deb 1;31
-        .rpm 1;31
-        .jar 1;31
-        .war 1;31
-        .ear 1;31
-        .sar 1;31
-        .rar 1;31
-        .alz 1;31
-        .ace 1;31
-        .zoo 1;31
-        .cpio 1;31
-        .7z 1;31
-        .rz 1;31
-        .cab 1;31
+        .tar ${toANSI theme.warning}
+        .tgz ${toANSI theme.warning}
+        .arc ${toANSI theme.warning}
+        .arj ${toANSI theme.warning}
+        .taz ${toANSI theme.warning}
+        .lha ${toANSI theme.warning}
+        .lz4 ${toANSI theme.warning}
+        .lzh ${toANSI theme.warning}
+        .lzma ${toANSI theme.warning}
+        .tlz ${toANSI theme.warning}
+        .txz ${toANSI theme.warning}
+        .tzo ${toANSI theme.warning}
+        .t7z ${toANSI theme.warning}
+        .zip ${toANSI theme.warning}
+        .z ${toANSI theme.warning}
+        .Z ${toANSI theme.warning}
+        .dz ${toANSI theme.warning}
+        .gz ${toANSI theme.warning}
+        .lrz ${toANSI theme.warning}
+        .lz ${toANSI theme.warning}
+        .lzo ${toANSI theme.warning}
+        .xz ${toANSI theme.warning}
+        .bz2 ${toANSI theme.warning}
+        .bz ${toANSI theme.warning}
+        .tbz ${toANSI theme.warning}
+        .tbz2 ${toANSI theme.warning}
+        .tz ${toANSI theme.warning}
+        .deb ${toANSI theme.warning}
+        .rpm ${toANSI theme.warning}
+        .jar ${toANSI theme.warning}
+        .war ${toANSI theme.warning}
+        .ear ${toANSI theme.warning}
+        .sar ${toANSI theme.warning}
+        .rar ${toANSI theme.warning}
+        .alz ${toANSI theme.warning}
+        .ace ${toANSI theme.warning}
+        .zoo ${toANSI theme.warning}
+        .cpio ${toANSI theme.warning}
+        .7z ${toANSI theme.warning}
+        .rz ${toANSI theme.warning}
+        .cab ${toANSI theme.warning}
         # image formats
-        .jpg 1;35
-        .jpeg 1;35
-        .gif 1;35
-        .bmp 1;35
-        .pbm 1;35
-        .pgm 1;35
-        .ppm 1;35
-        .tga 1;35
-        .xbm 1;35
-        .xpm 1;35
-        .tif 1;35
-        .tiff 1;35
-        .png 1;35
-        .svg 1;35
-        .svgz 1;35
-        .mng 1;35
-        .pcx 1;35
-        .mov 1;35
-        .mpg 1;35
-        .mpeg 1;35
-        .m2v 1;35
-        .mkv 1;35
-        .webm 1;35
-        .ogm 1;35
-        .mp4 1;35
-        .m4v 1;35
-        .mp4v 1;35
-        .vob 1;35
-        .qt 1;35
-        .nuv 1;35
-        .wmv 1;35
-        .asf 1;35
-        .rm 1;35
-        .rmvb 1;35
-        .flc 1;35
-        .avi 1;35
-        .fli 1;35
-        .flv 1;35
-        .gl 1;35
-        .dl 1;35
-        .xcf 1;35
-        .xwd 1;35
-        .yuv 1;35
-        .cgm 1;35
-        .emf 1;35
+        .jpg ${toANSI theme.pattern}
+        .jpeg ${toANSI theme.pattern}
+        .gif ${toANSI theme.pattern}
+        .bmp ${toANSI theme.pattern}
+        .pbm ${toANSI theme.pattern}
+        .pgm ${toANSI theme.pattern}
+        .ppm ${toANSI theme.pattern}
+        .tga ${toANSI theme.pattern}
+        .xbm ${toANSI theme.pattern}
+        .xpm ${toANSI theme.pattern}
+        .tif ${toANSI theme.pattern}
+        .tiff ${toANSI theme.pattern}
+        .png ${toANSI theme.pattern}
+        .svg ${toANSI theme.pattern}
+        .svgz ${toANSI theme.pattern}
+        .mng ${toANSI theme.pattern}
+        .pcx ${toANSI theme.pattern}
+        .mov ${toANSI theme.pattern}
+        .mpg ${toANSI theme.pattern}
+        .mpeg ${toANSI theme.pattern}
+        .m2v ${toANSI theme.pattern}
+        .mkv ${toANSI theme.pattern}
+        .webm ${toANSI theme.pattern}
+        .ogm ${toANSI theme.pattern}
+        .mp4 ${toANSI theme.pattern}
+        .m4v ${toANSI theme.pattern}
+        .mp4v ${toANSI theme.pattern}
+        .vob ${toANSI theme.pattern}
+        .qt ${toANSI theme.pattern}
+        .nuv ${toANSI theme.pattern}
+        .wmv ${toANSI theme.pattern}
+        .asf ${toANSI theme.pattern}
+        .rm ${toANSI theme.pattern}
+        .rmvb ${toANSI theme.pattern}
+        .flc ${toANSI theme.pattern}
+        .avi ${toANSI theme.pattern}
+        .fli ${toANSI theme.pattern}
+        .flv ${toANSI theme.pattern}
+        .gl ${toANSI theme.pattern}
+        .dl ${toANSI theme.pattern}
+        .xcf ${toANSI theme.pattern}
+        .xwd ${toANSI theme.pattern}
+        .yuv ${toANSI theme.pattern}
+        .cgm ${toANSI theme.pattern}
+        .emf ${toANSI theme.pattern}
         # http://wiki.xiph.org/index.php/MIME_Types_and_File_Extensions
-        .ogv 1;35
-        .ogx 1;35
+        .ogv ${toANSI theme.pattern}
+        .ogx ${toANSI theme.pattern}
+        # documents
+        .pdf   ${toANSI theme.string}
+        .doc   ${toANSI theme.string}
+        .docx  ${toANSI theme.string}
+        .xps   ${toANSI theme.string}
+        .xpsx  ${toANSI theme.string}
+        .odg   ${toANSI theme.string}
+        .odt   ${toANSI theme.string}
+        .odf   ${toANSI theme.string}
+        .xls   ${toANSI theme.string}
+        .xlsx  ${toANSI theme.string}
+        .dia   ${toANSI theme.string}
+        .rtf   ${toANSI theme.string}
+        .dot   ${toANSI theme.string}
+        .dotx  ${toANSI theme.string}
+        .ppt   ${toANSI theme.string}
+        .pptx  ${toANSI theme.string}
+        .fla   ${toANSI theme.string}
+        .psd   ${toANSI theme.string}
         # audio formats
-        .aac 1;36
-        .au 1;36
-        .flac 1;36
-        .m4a 1;36
-        .mid 1;36
-        .midi 1;36
-        .mka 1;36
-        .mp3 1;36
-        .mpc 1;36
-        .ogg 1;36
-        .ra 1;36
-        .wav 1;36
+        .aac ${toANSI theme.number}
+        .au ${toANSI theme.number}
+        .flac ${toANSI theme.number}
+        .m4a ${toANSI theme.number}
+        .mid ${toANSI theme.number}
+        .midi ${toANSI theme.number}
+        .mka ${toANSI theme.number}
+        .mp3 ${toANSI theme.number}
+        .mpc ${toANSI theme.number}
+        .ogg ${toANSI theme.number}
+        .ra ${toANSI theme.number}
+        .wav ${toANSI theme.number}
         # http://wiki.xiph.org/index.php/MIME_Types_and_File_Extensions
-        .oga 1;36
-        .opus 1;36
-        .spx 1;36
-        .xspf 1;36
+        .oga ${toANSI theme.number}
+        .opus ${toANSI theme.number}
+        .spx ${toANSI theme.number}
+        .xspf ${toANSI theme.number}
 
         # encrypted/key formats
-        .gpg  1;33
-        .pgp  1;33
-        .pub  1;33
-        .crt  1;33
-        .pem  1;33
-        .asc  1;33
-        .3des 1;33
-        .aes  1;33
-        .enc  1;33
-        .sig  1;33
-        *key  1;33
+        .gpg  ${toANSI theme.number}
+        .pgp  ${toANSI theme.number}
+        .pub  ${toANSI theme.number}
+        .crt  ${toANSI theme.number}
+        .pem  ${toANSI theme.number}
+        .asc  ${toANSI theme.number}
+        .3des ${toANSI theme.number}
+        .aes  ${toANSI theme.number}
+        .enc  ${toANSI theme.number}
+        .sig  ${toANSI theme.number}
+        *key  ${toANSI theme.number}
 
-        # documents
-        .pdf   1;35
-        .doc   1;35
-        .docx  1;35
-        .xps   1;35
-        .xpsx  1;35
-        .odg   1;35
-        .odt   1;35
-        .odf   1;35
-        .xls   1;35
-        .xlsx  1;35
-        .dia   1;35
-        .rtf   1;35
-        .dot   1;35
-        .dotx  1;35
-        .ppt   1;35
-        .pptx  1;35
-        .fla   1;35
-        .psd   1;35
 
         # source code files
-        .c    1;33
-        .h    1;33
-        .java 1;33
-        .js   1;33
-        .jsx  1;33
-        .vim  1;33
-        .py   1;33
-        .go   1;33
-        .nix  1;33
+        .c    ${toANSI theme.alias}
+        .h    ${toANSI theme.alias}
+        .java ${toANSI theme.alias}
+        .js   ${toANSI theme.alias}
+        .jsx  ${toANSI theme.alias}
+        .vim  ${toANSI theme.alias}
+        .py   ${toANSI theme.alias}
+        .go   ${toANSI theme.alias}
+        .nix  ${toANSI theme.alias}
 
         # data files
-        .json         1;32
-        .xml          1;32
-        .iml          1;32
-        .properties   1;32
-        .yml          1;32
-        .yaml         1;32
-        .toml         1;32
+        .json         ${toANSI theme.string}
+        .xml          ${toANSI theme.string}
+        .iml          ${toANSI theme.string}
+        .properties   ${toANSI theme.string}
+        .yml          ${toANSI theme.string}
+        .yaml         ${toANSI theme.string}
+        .toml         ${toANSI theme.string}
 
         # txt files
-        .txt     0;37
-        .TXT     0;37
-        .log     0;37
+        .txt     ${toANSI theme.foreground-alt}
+        .TXT     ${toANSI theme.foreground-alt}
+        .log     ${toANSI theme.foreground-alt}
 
         # readme, etc
-        .md        1;37
-        *README    1;37
-        *README.TXT 1;37
-        *README.txt 1;37
+        .md        ${toANSI theme.foreground-alt}
+        *README    ${toANSI theme.foreground-alt}
+        *README.TXT ${toANSI theme.foreground-alt}
+        *README.txt ${toANSI theme.foreground-alt}
 
         # html
-        .html   1;35
-        .htm    1;35
-        .css    1;35
-        .less   1;35
+        .html   ${toANSI theme.pattern}
+        .htm    ${toANSI theme.pattern}
+        .css    ${toANSI theme.pattern}
+        .less   ${toANSI theme.pattern}
 
         # other
         *~            ${toANSI theme.background-alt}
