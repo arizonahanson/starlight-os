@@ -44,8 +44,8 @@
       set-option -g message-style bg=colour${toString theme.background},fg=colour${toString theme.foreground}
 
       # pane number display
-      set-option -g display-panes-active-colour colour${toString theme.info}
-      set-option -g display-panes-colour colour${toString theme.warning}
+      set-option -g display-panes-active-colour colour${toString theme.foreground}
+      set-option -g display-panes-colour colour${toString theme.foreground-alt}
 
       # clock
       set-window-option -g clock-mode-colour colour${toString theme.foreground}
