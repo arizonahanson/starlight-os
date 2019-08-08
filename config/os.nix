@@ -11,6 +11,8 @@
     ./docker.nix
   ];
   config = let
+  theme = config.starlight.theme;
+  toANSI = num: if num <= 7 then "00;3${toString num}" else "01;3${toString (num - 8)}";
   os-update = (with import <nixpkgs> {}; writeShellScriptBin "os-update" ''
     renice 19 -p $$ >/dev/null
     echo -e "Fetching configuration..."
@@ -36,7 +38,7 @@
     nix-env --delete-generations old
   '');
   os-squish = (with import <nixpkgs>  {}; writeShellScriptBin "os-squish" ''
-    echo -e "\n\e[1;34m\e[0m Deduplicating system..."
+    echo -e "\n\e[${toANSI theme.path}m\e[0m Deduplicating system..."
     device="$(findmnt -nvo SOURCE /)"
     mntpnt="$(mktemp -d --tmpdir duperemove-XXXXXX)"
     mkdir -p $mntpnt
@@ -44,12 +46,12 @@
     pushd $mntpnt >/dev/null
     sudo duperemove -Ardhv --hash=xxhash $(ls -d */nix) | grep "net change"
     sudo nix-store --optimise
-    echo -e "\n\e[1;34m\e[0m Rebalancing filesystem..."
+    echo -e "\n\e[${toANSI theme.path}m\e[0m Rebalancing filesystem..."
     sudo btrfs balance start -dusage=38 -musage=38 $mntpnt
     popd >/dev/null
     sudo umount $mntpnt
     rmdir $mntpnt
-    echo -e "\n\e[1;34m\e[0m Discarding unused blocks..."
+    echo -e "\n\e[${toANSI theme.path}m\e[0m Discarding unused blocks..."
     sudo fstrim -av
   ''); in
   {
