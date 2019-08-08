@@ -58,7 +58,7 @@
         untracked = ${toString theme.error}
         header = ${toString theme.background-alt}
         branch = ${toString theme.currentBranch}
-        localBranch = ${toString theme.localBranch}
+        localBranch = ${toString theme.currentBranch}
         remoteBranch = ${toString theme.remoteBranch}
       [tig "color"]
         graph-commit = ${toString theme.number} default
