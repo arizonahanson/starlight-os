@@ -8,7 +8,7 @@ with lib;
     palette = {
       foreground = mkOption {
         type = types.str;
-        default = "#cccccc";
+        default = "#BFBFBF";
         description = ''
           Foreground color
         '';
@@ -22,77 +22,77 @@ with lib;
       };
       background = mkOption {
         type = types.str;
-        default = "#1a1a1a";
+        default = "#1A1A1A";
         description = ''
           Background color
         '';
       };
       background-alt = mkOption {
         type = types.str;
-        default = "#4d4d4d";
+        default = "#545454";
         description = ''
           Alternate Background color
         '';
       };
       cursor = mkOption {
         type = types.str;
-        default = "#999999";
+        default = "#A8A8A8";
         description = ''
           Cursor color
         '';
       };
       info = mkOption {
         type = types.str;
-        default = "#b3b36b";
+        default = "#BFBF60";
         description = ''
           Info color
         '';
       };
       color0 = mkOption {
         type = types.str;
-        default = "#1a1a1a";
+        default = "#1A1A1A";
         description = ''
           color 0 (black)
         '';
       };
       color1 = mkOption {
         type = types.str;
-        default = "#b36b6b";
+        default = "#BF6060";
         description = ''
           color 1 (red)
         '';
       };
       color2 = mkOption {
         type = types.str;
-        default = "#6bb36b";
+        default = "#60BF60";
         description = ''
           color 2 (green)
         '';
       };
       color3 = mkOption {
         type = types.str;
-        default = "#b3b36b";
+        default = "#BFBF60";
         description = ''
           color 3 (yellow)
         '';
       };
       color4 = mkOption {
         type = types.str;
-        default = "#6b6bb3";
+        default = "#6060BF";
         description = ''
           color 4 (blue)
         '';
       };
       color5 = mkOption {
         type = types.str;
-        default = "#b36bb3";
+        default = "#BF60BF";
         description = ''
           color 5 (magenta)
         '';
       };
       color6 = mkOption {
         type = types.str;
-        default = "#6bb3b3";
+        default = "#60BFBF";
         description = ''
           color 6 (cyan)
         '';
@@ -106,56 +106,56 @@ with lib;
       };
       color8 = mkOption {
         type = types.str;
-        default = "#4d4d4d";
+        default = "#545454";
         description = ''
           color 8 (dark gray)
         '';
       };
       color9 = mkOption {
         type = types.str;
-        default = "#b38f6b";
+        default = "#BF8F60";
         description = ''
           color 9 (bright red)
         '';
       };
       color10 = mkOption {
         type = types.str;
-        default = "#6bb38f";
+        default = "#60BF8F";
         description = ''
           color 10 (bright green)
         '';
       };
       color11 = mkOption {
         type = types.str;
-        default = "#8fb36b";
+        default = "#8FBF60";
         description = ''
           color 11 (bright yellow)
         '';
       };
       color12 = mkOption {
         type = types.str;
-        default = "#8f6bb3";
+        default = "#8F60BF";
         description = ''
           color 12 (bright blue)
         '';
       };
       color13 = mkOption {
         type = types.str;
-        default = "#b36b8f";
+        default = "#BF608F";
         description = ''
           color 13 (bright magenta)
         '';
       };
       color14 = mkOption {
         type = types.str;
-        default = "#6b8fb3";
+        default = "#608FBF";
         description = ''
           color 14 (bright cyan)
         '';
       };
       color15 = mkOption {
         type = types.str;
-        default = "#cccccc";
+        default = "#BFBFBF";
         description = ''
           color 15 (bright white)
         '';
