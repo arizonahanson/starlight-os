@@ -128,7 +128,7 @@ with lib;
       source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
       ZSH_THEME_PROMPT=""
       ZSH_THEME_PROMPT2=" "
-      ZSH_THEME_PROMPT_ROOT=""
+      ZSH_THEME_PROMPT_ROOT="${toFG theme.warning} "
       ZSH_THEME_AHEAD_PROMPT=''
       ZSH_THEME_BEHIND_PROMPT=''
       ZSH_THEME_UNTRACKED_PROMPT=" "
@@ -309,15 +309,15 @@ with lib;
               else
                       case "$count" in
                       "") # no upstream
-                              p="${toFG theme.error}$ZSH_THEME_NOUPSTREAM_PROMPT%{$reset_color%}" ;;
+                              p="%{${toFG theme.error}%}$ZSH_THEME_NOUPSTREAM_PROMPT%{$reset_color%}" ;;
                       "0	0") # equal to upstream
                               p="" ;;
                       "0	"*) # ahead of upstream
-                              p="${toFG theme.diff-add}''${count#0	}$ZSH_THEME_AHEAD_PROMPT%{$reset_color%}" ;;
+                              p="%{${toFG theme.diff-add}%}''${count#0	}$ZSH_THEME_AHEAD_PROMPT%{$reset_color%}" ;;
                       *"	0") # behind upstream
-                              p="${toFG theme.warning}''${count%	0}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
+                              p="%{${toFG theme.warning}%}''${count%	0}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
                       *)	    # diverged from upstream
-                              p="${toFG theme.diff-remove}''${count#*	}''${ZSH_THEME_AHEAD_PROMPT/ /}''${count%	*}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
+                              p="%{${toFG theme.diff-remove}%}''${count#*	}''${ZSH_THEME_AHEAD_PROMPT/ /}''${count%	*}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
                       esac
                       if [[ -n "$count" && -n "$name" ]]; then
                               __git_ps1_upstream_name=$(git rev-parse \
@@ -508,7 +508,7 @@ with lib;
                                       esac 2>/dev/null)" ||
 
                                       b="$short_sha..."
-                                      b="${toFG theme.error}%{$reset_color%}($b)"
+                                      b="%{${toFG theme.error}%}($b)%{$reset_color%}"
                               fi
                       fi
               fi
@@ -531,14 +531,14 @@ with lib;
                       if [ "true" = "$bare_repo" ]; then
                               c="%{$reset_color%}BARE:"
                       else
-                              b="%{$reset_color%}${toFG theme.error}GIT_DIR!"
+                              b="%{${toFG theme.error}%}GIT_DIR!%{$reset_color%}"
                       fi
               elif [ "true" = "$inside_worktree" ]; then
                       if [ -n "''${GIT_PS1_SHOWDIRTYSTATE-}" ] &&
                          [ "$(git config --bool bash.showDirtyState)" != "false" ]
                       then
-                              git diff --no-ext-diff --quiet || w="${toFG theme.warning}$ZSH_THEME_CHANGED_PROMPT%{$reset_color%}"
-                              git diff --no-ext-diff --cached --quiet || i="${toFG theme.info}$ZSH_THEME_STAGED_PROMPT%{$reset_color%}"
+                              git diff --no-ext-diff --quiet || w="%{${toFG theme.warning}%}$ZSH_THEME_CHANGED_PROMPT%{$reset_color%}"
+                              git diff --no-ext-diff --cached --quiet || i="%{${toFG theme.info}%}$ZSH_THEME_STAGED_PROMPT%{$reset_color%}"
                               if [ -z "$short_sha" ] && [ -z "$i" ]; then
                                       i="#"
                               fi
@@ -546,14 +546,14 @@ with lib;
                       if [ -n "''${GIT_PS1_SHOWSTASHSTATE-}" ] &&
                          git rev-parse --verify --quiet refs/stash >/dev/null
                       then
-                              s="${toFG theme.localBranch}$ZSH_THEME_STASHED_PROMPT%{$reset_color%}"
+                              s="%{${toFG theme.localBranch}%}$ZSH_THEME_STASHED_PROMPT%{$reset_color%}"
                       fi
 
                       if [ -n "''${GIT_PS1_SHOWUNTRACKEDFILES-}" ] &&
                          [ "$(git config --bool bash.showUntrackedFiles)" != "false" ] &&
                          git ls-files --others --exclude-standard --directory --no-empty-directory --error-unmatch -- ':/*' >/dev/null 2>/dev/null
                       then
-                              u="${toFG theme.error}$ZSH_THEME_UNTRACKED_PROMPT%{$reset_color%}"
+                              u="%{${toFG theme.error}%}$ZSH_THEME_UNTRACKED_PROMPT%{$reset_color%}"
                       fi
 
                       if [ -n "''${GIT_PS1_SHOWUPSTREAM-}" ]; then
@@ -563,7 +563,7 @@ with lib;
 
               local z="''${GIT_PS1_STATESEPARATOR-" "}"
 
-              b="${toFG theme.currentBranch}''${b##refs/heads/}%{$reset_color%}"
+              b="%{${toFG theme.currentBranch}%}''${b##refs/heads/}%{$reset_color%}"
               if [ $pcmode = yes ] && [ $ps1_expanded = yes ]; then
                       __git_ps1_branch_name=$b
                       b="\''${__git_ps1_branch_name}"
@@ -605,7 +605,7 @@ with lib;
 
       function host_info() {
         if [ -n "$SSH" ]; then
-          echo ' ${toFG theme.remoteBranch}%n@%m%{$reset_color%}'
+          echo ' %{${toFG theme.remoteBranch}%}%n@%m%{$reset_color%}'
         fi
       }
 
