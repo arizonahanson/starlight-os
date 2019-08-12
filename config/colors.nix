@@ -266,6 +266,14 @@ with lib;
           default: 11
         '';
       };
+      substitution = mkOption {
+        type = types.int;
+        default = 7;
+        description = ''
+          color number for substitutions
+          default: 7
+        '';
+      };
       character = mkOption {
         type = types.int;
         default = 2;

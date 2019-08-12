@@ -117,7 +117,7 @@
         set background=dark
         " grays (general)
         hi Normal       ctermbg=NONE ctermfg=${toString theme.foreground} cterm=NONE
-        hi Identifier   ctermbg=NONE ctermfg=${toString theme.foreground-alt} cterm=NONE
+        hi Identifier   ctermbg=NONE ctermfg=${toString theme.substitution} cterm=NONE
         hi Comment      ctermbg=NONE ctermfg=${toString theme.background-alt} cterm=NONE
         hi CursorLine   ctermbg=NONE ctermfg=NONE cterm=NONE
         hi Visual       ctermbg=${toString theme.background-alt} cterm=NONE
