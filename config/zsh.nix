@@ -651,6 +651,7 @@ with lib;
       cp = "cp --reflink=auto";
       xz = "xz --threads=0";
       ag = "${pkgs.ag}/bin/ag --color-line-number '${toANSI theme.background-alt}' --color-path '${toANSI theme.path}' --color-match '${toANSI theme.match}'";
+      ":q" = "exit";
     };
     environment.variables = {
       # shorter delay on cmd-mode

@@ -59,13 +59,16 @@ with lib;
         '');
         flatpak-alt = (with import <nixpkgs> {}; writeShellScriptBin "flatpak" ''
           ${flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-          ${flatpak}/bin/flatpak $@
+          ${flatpak}/bin/flatpak "$@"
+        '');
+        say = (with import <nixpkgs> {}; writeShellScriptBin "say" ''
+          ${libnotify}/bin/notify-send -i star "$@"
         '');
       in with pkgs; [
         sxhkd rofi-unwrapped libnotify feh clipmenu
         chromium networkmanagerapplet
         xdg-desktop-portal-gtk xorg.xkill xdo xsel
-        (cliprofi) (reload-desktop) (flatpak-alt)
+        (cliprofi) (reload-desktop) (flatpak-alt) (say)
     ]
     ++ lib.optional config.starlight.dwarf-fortress (dwarf-fortress-packages.dwarf-fortress-full.override {
       enableIntro = false;
