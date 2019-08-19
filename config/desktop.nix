@@ -36,7 +36,7 @@ with lib;
         (default 32)
       '';
     };
-    shadowSize = mkOption {
+    shadowDepth = mkOption {
       type = types.int;
       default = 7;
       description = ''
@@ -188,17 +188,17 @@ with lib;
         '';
       };
     };
-    services.compton = let shadowSize = config.starlight.shadowSize; in {
+    services.compton = let shadowDepth = config.starlight.shadowDepth; in {
       enable = true;
       shadow = true;
-      shadowOffsets = [ (-2 * shadowSize) (-1 * shadowSize) ];
+      shadowOffsets = [ (-2 * shadowDepth) (-1 * shadowDepth) ];
       shadowExclude = [
         "name = 'Polybar tray window'"
         "_GTK_FRAME_EXTENTS@:c"
       ];
       shadowOpacity = "0.5";
       settings = {
-        shadow-radius = 2 * shadowSize;
+        shadow-radius = 2 * shadowDepth;
       };
     };
     environment.etc."X11/Xresources" = let palette = config.starlight.palette; in {
