@@ -63,7 +63,7 @@ with lib;
           ${procps}/bin/pkill -TERM -x compton
           ${procps}/bin/pkill -TERM -x polybar
           ${bspwm}/bin/bspc wm -r
-          ${libnotify}/bin/notify-send -i keyboard 'Reloaded desktop' 'Desktop components have been reloaded'
+          say 'Reloaded desktop' 'Desktop components have been reloaded'
         '');
         flatpak-alt = (with import <nixpkgs> {}; writeShellScriptBin "flatpak" ''
           ${flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
