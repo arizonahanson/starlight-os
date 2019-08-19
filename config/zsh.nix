@@ -660,7 +660,7 @@ with lib;
       FZF_TMUX = "1";
       FZF_DEFAULT_COMMAND = "ag -f -g '' --hidden --depth 16 --ignore dosdevices";
       FZF_CTRL_T_COMMAND = "ag -f -g '' --hidden --depth 16 --ignore dosdevices";
-      FZF_DEFAULT_OPTS = "-m --ansi --color=16,bg:-1,bg+:-1 --tac";
+      FZF_DEFAULT_OPTS = "-m --ansi --no-bold --color=dark,fg:${toString theme.foreground},bg:${toString theme.background},hl:${toString theme.match},fg+:${toString theme.select},bg+:${toString theme.background},hl+:${toString theme.match},info:${toString theme.background-alt},border:${toString theme.foreground-alt},prompt:${toString theme.foreground-alt},pointer:${toString theme.select},marker:${toString theme.select},spinner:${toString theme.info},header:${toString theme.foreground-alt} --tac";
       FZF_ALT_C_COMMAND = "find -L . -maxdepth 16 -type d 2>/dev/null";
       GREP_COLORS="mt=${toANSI theme.match}:sl=:cx=:fn=${toANSI theme.path}:ln=${toANSI theme.background-alt}:bn=${toANSI theme.number}:se=${toANSI theme.foreground-alt}";
     };
