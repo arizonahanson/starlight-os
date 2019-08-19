@@ -36,12 +36,12 @@ with lib;
         (default 32)
       '';
     };
-    shadowDepth = mkOption {
+    shadowRadius = mkOption {
       type = types.int;
-      default = 7;
+      default = 16;
       description = ''
-        compton shadow depth
-        (default 7)
+        compton shadow radius
+        (default 16)
       '';
     };
     dwarf-fortress = mkOption {
@@ -188,17 +188,17 @@ with lib;
         '';
       };
     };
-    services.compton = let shadowDepth = config.starlight.shadowDepth; in {
+    services.compton = let shadowRadius = config.starlight.shadowRadius; in {
       enable = true;
       shadow = true;
-      shadowOffsets = [ (-2 * shadowDepth) (-1 * shadowDepth) ];
+      shadowOffsets = [ (shadowRadius * -1) (shadowRadius / -2) ];
       shadowExclude = [
         "name = 'Polybar tray window'"
         "_GTK_FRAME_EXTENTS@:c"
       ];
       shadowOpacity = "0.5";
       settings = {
-        shadow-radius = 2 * shadowDepth;
+        shadow-radius = shadowRadius;
       };
     };
     environment.etc."X11/Xresources" = let palette = config.starlight.palette; in {
