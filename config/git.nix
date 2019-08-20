@@ -97,10 +97,12 @@
     };
   programs.zsh.shellAliases = {
     gg = "git all";
+    gga = "";
     ggl = "git all pull";
     ggc = "git all gc";
     ggs = "git all status -sb";
     ggrp = "git all remote prune origin";
+    ggx = "sudo git all clean -fxd";
   };
 }
 
