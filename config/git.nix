@@ -74,7 +74,7 @@
     git-all = (with import <nixpkgs> {}; writeShellScriptBin "git-all" ''
       echo
       for repo in $(find -L . -maxdepth 7 -iname '.git' -type d -printf '%P\0' 2>/dev/null | xargs -0 dirname | sort); do
-        echo -e "\e[${toANSI theme.foreground-alt}m  \e[${toANSI theme.path}m$repo \e[0m(\e[${toANSI theme.alias}m$@\e[0m)"
+        echo -e "\e[${toANSI theme.foreground-alt}m  \e[${toANSI theme.path}m$repo \e[0m(\e[${toANSI theme.function}m$@\e[0m)"
         pushd $repo >/dev/null
         ${git-minimal}/bin/git "$@"
         popd >/dev/null

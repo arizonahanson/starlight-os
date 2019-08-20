@@ -104,11 +104,11 @@ with lib;
       export ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=${toString theme.character}'
       export ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=${toString theme.character}'
       export ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=${toString theme.string}'
-      export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=${toString theme.alias}'
-      export ZSH_HIGHLIGHT_STYLES[alias]='fg=${toString theme.alias}'
+      export ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=${toString theme.function}'
+      export ZSH_HIGHLIGHT_STYLES[alias]='fg=${toString theme.function}'
       export ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=${toString theme.substitution}'
       export ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=${toString theme.substitution}'
-      export ZSH_HIGHLIGHT_STYLES[function]='fg=${toString theme.alias}'
+      export ZSH_HIGHLIGHT_STYLES[function]='fg=${toString theme.function}'
       export ZSH_HIGHLIGHT_STYLES[precommand]='fg=${toString theme.warning}'
       export ZSH_HIGHLIGHT_STYLES[command]='fg=${toString theme.executable}'
       export ZSH_HIGHLIGHT_STYLES[builtin]='fg=${toString theme.keyword}'
@@ -735,15 +735,15 @@ with lib;
         # to colorize below. Put the extension, a space, and the color init string.
         # (and any comments you want to add after a '#')
         # If you use DOS-style suffixes, you may want to uncomment the following:
-        #.cmd ${toANSI theme.alias} # executables
-        #.exe ${toANSI theme.alias}
-        #.com ${toANSI theme.alias}
-        #.btm ${toANSI theme.alias}
-        #.bat ${toANSI theme.alias}
+        #.cmd ${toANSI theme.executable} # executables
+        #.exe ${toANSI theme.executable}
+        #.com ${toANSI theme.executable}
+        #.btm ${toANSI theme.executable}
+        #.bat ${toANSI theme.executable}
         # Or if you want to colorize scripts even if they do not have the
         # executable bit actually set.
-        .sh ${toANSI theme.alias}
-        .csh ${toANSI theme.alias}
+        .sh ${toANSI theme.executable}
+        .csh ${toANSI theme.executable}
          # archives or compressed
         .tar 01;31
         .tgz 01;31

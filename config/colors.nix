@@ -258,11 +258,11 @@ with lib;
           default: 3
         '';
       };
-      alias = mkOption {
+      function = mkOption {
         type = types.int;
         default = 11;
         description = ''
-          color number for executable
+          color number for functions
           default: 11
         '';
       };
