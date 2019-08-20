@@ -21,6 +21,8 @@
         default = current
       [help]
         autocorrect = 30
+        format = web
+        htmlpath = "https://git-scm.com/docs"
       [merge]
         tool = vimdiff
         conflictstyle = diff3
@@ -89,10 +91,16 @@
         text = ''
           [credential]
             helper = ${git-minimal}/bin/git-credential-libsecret
+          [web]
+            browser = "chromium"
           ${git-config}
         '';
       } else {
-        text = "${git-config}";
+        text = ''
+          [web]
+            browser = "w3m"
+          ${git-config}
+        '';
       };
     };
   programs.zsh.shellAliases = {
