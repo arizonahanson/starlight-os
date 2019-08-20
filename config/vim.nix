@@ -117,6 +117,7 @@
         set background=dark
         " grays (general)
         hi Normal       ctermbg=NONE ctermfg=${toString theme.foreground} cterm=NONE
+        hi Noise        ctermbg=NONE ctermfg=${toString theme.foreground-alt} cterm=NONE
         hi Identifier   ctermbg=NONE ctermfg=${toString theme.substitution} cterm=NONE
         hi Comment      ctermbg=NONE ctermfg=${toString theme.background-alt} cterm=NONE
         hi CursorLine   ctermbg=NONE ctermfg=NONE cterm=NONE
@@ -128,10 +129,9 @@
         hi Underlined   ctermbg=NONE ctermfg=${toString theme.path} cterm=underline
         hi IncSearch    ctermbg=NONE ctermfg=${toString theme.match} cterm=underline
         hi Search       ctermbg=NONE ctermfg=${toString theme.match} cterm=NONE
-        hi! link Noise Identifier
         hi! link MatchParen Search
         hi! link LineNr Comment
-        hi! link CursorLineNr Identifier
+        hi! link CursorLineNr Noise
         hi! link SignColumn CursorLine
         hi! link TabLine Comment
         hi! link TabLineSel StatusLine
@@ -139,7 +139,7 @@
         hi! link Pmenu StatusLineNC
         hi! link PmenuSbar StatusLineNC
         hi! link PmenuSel StatusLine
-        hi! link SpecialComment Identifier
+        hi! link SpecialComment Noise
         hi! link Debug SpecialComment
         hi! link Ignore Comment
         " grays (other)
