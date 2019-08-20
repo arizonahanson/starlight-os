@@ -29,6 +29,11 @@
       [mergetool]
         prompt = false
         keepBackup = false
+      [fetch]
+        prune = true
+        pruneTags = true
+      [diff]
+        algorithm = minimal
       [difftool]
         prompt = false
       [color]
@@ -54,6 +59,11 @@
         branch = ${toString theme.currentBranch}
         stash = ${toString theme.localBranch}
         remoteBranch = ${toString theme.remoteBranch}
+      [color "remote"]
+        hint = ${toString theme.foreground-alt}
+        warning = ${toString theme.warning}
+        success = ${toString theme.info}
+        error = ${toString theme.error}
       [color "status"]
         added = ${toString theme.info}
         changed = ${toString theme.diff-change}
