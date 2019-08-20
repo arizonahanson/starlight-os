@@ -95,5 +95,12 @@
         text = "${git-config}";
       };
     };
+  programs.zsh.shellAliases = {
+    gg = "git all";
+    ggl = "git all pull";
+    ggc = "git all gc";
+    ggs = "git all status -sb";
+    ggrp = "git all remote prune origin";
+  };
 }
 
