@@ -159,7 +159,7 @@
         hi! link shOption Constant
         hi! link jsNull Constant
         " functions
-        hi Function     ctermfg=${toString theme.executable}
+        hi Function     ctermfg=${toString theme.alias}
         hi! link Question Function
         hi! link goBuiltins Function
         " types

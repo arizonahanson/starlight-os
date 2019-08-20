@@ -108,7 +108,7 @@ with lib;
       export ZSH_HIGHLIGHT_STYLES[alias]='fg=${toString theme.alias}'
       export ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=${toString theme.substitution}'
       export ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=${toString theme.substitution}'
-      export ZSH_HIGHLIGHT_STYLES[function]='fg=${toString theme.executable}'
+      export ZSH_HIGHLIGHT_STYLES[function]='fg=${toString theme.alias}'
       export ZSH_HIGHLIGHT_STYLES[precommand]='fg=${toString theme.warning}'
       export ZSH_HIGHLIGHT_STYLES[command]='fg=${toString theme.executable}'
       export ZSH_HIGHLIGHT_STYLES[builtin]='fg=${toString theme.keyword}'
