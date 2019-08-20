@@ -185,7 +185,7 @@
         hi ErrorMsg     ctermbg=NONE ctermfg=${toString theme.error}
         hi WarningMsg   ctermbg=NONE ctermfg=${toString theme.warning}
         hi InfoMsg      ctermbg=NONE ctermfg=${toString theme.info}
-        hi! link ModeMsg Comment
+        hi! link ModeMsg InfoMsg
         hi! link MoreMsg InfoMsg
         hi! link AleErrorSign ErrorMsg
         hi! link AleWarningSign WarningMsg
