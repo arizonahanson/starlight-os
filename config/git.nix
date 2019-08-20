@@ -34,19 +34,22 @@
         pruneTags = true
       [diff]
         algorithm = minimal
+        colorMoved = blocks
       [difftool]
         prompt = false
       [color]
         ui = auto
       [color "grep"]
         separator = ${toString theme.foreground-alt}
+        match = ${toString theme.match}
         filename = ${toString theme.path}
         linenumber = ${toString theme.background-alt}
-        match = ${toString theme.match}
       [color "diff"]
         commit = ${toString theme.number}
         meta = ${toString theme.background-alt}
         frag = ${toString theme.foreground-alt}
+        oldMoved = ${toString theme.diff-remove} bold
+        newMoved = ${toString theme.diff-add} bold
         new = ${toString theme.diff-add}
         old = ${toString theme.diff-remove}
       [color "branch"]
