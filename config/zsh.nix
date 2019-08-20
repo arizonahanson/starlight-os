@@ -315,7 +315,7 @@ with lib;
                       "0	"*) # ahead of upstream
                               p="%{${toFG theme.diff-add}%}''${count#0	}$ZSH_THEME_AHEAD_PROMPT%{$reset_color%}" ;;
                       *"	0") # behind upstream
-                              p="%{${toFG theme.warning}%}''${count%	0}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
+                              p="%{${toFG theme.diff-change}%}''${count%	0}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
                       *)	    # diverged from upstream
                               p="%{${toFG theme.diff-remove}%}''${count#*	}''${ZSH_THEME_AHEAD_PROMPT/ /}''${count%	*}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
                       esac
@@ -537,7 +537,7 @@ with lib;
                       if [ -n "''${GIT_PS1_SHOWDIRTYSTATE-}" ] &&
                          [ "$(git config --bool bash.showDirtyState)" != "false" ]
                       then
-                              git diff --no-ext-diff --quiet || w="%{${toFG theme.warning}%}$ZSH_THEME_CHANGED_PROMPT%{$reset_color%}"
+                              git diff --no-ext-diff --quiet || w="%{${toFG theme.diff-change}%}$ZSH_THEME_CHANGED_PROMPT%{$reset_color%}"
                               git diff --no-ext-diff --cached --quiet || i="%{${toFG theme.info}%}$ZSH_THEME_STAGED_PROMPT%{$reset_color%}"
                               if [ -z "$short_sha" ] && [ -z "$i" ]; then
                                       i="#"

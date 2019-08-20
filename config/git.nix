@@ -54,8 +54,8 @@
         remoteBranch = ${toString theme.remoteBranch}
       [color "status"]
         added = ${toString theme.info}
-        changed = ${toString theme.warning}
-        untracked = ${toString theme.error}
+        changed = ${toString theme.diff-change}
+        untracked = ${toString theme.diff-remove}
         header = ${toString theme.background-alt}
         branch = ${toString theme.currentBranch}
         localBranch = ${toString theme.currentBranch}
