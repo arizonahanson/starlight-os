@@ -38,7 +38,7 @@ with lib;
       tree ag fzf
       zip unzip
       duperemove
-      nox
+      nox w3m
       (with import <nixpkgs> {}; writeShellScriptBin "palette" ''
         # ansi order
         for bold in 0 1; do
