@@ -13,78 +13,78 @@
     });
     git-config = ''
       [core]
-        filemode = true
         autocrlf = false
-      [pack]
-        threads = ${toString config.nix.maxJobs}
-      [push]
-        default = current
-      [help]
-        autocorrect = 30
-        format = web
-        htmlpath = "https://git-scm.com/docs"
-      [merge]
-        tool = vimdiff
-        conflictstyle = diff3
-      [mergetool]
-        prompt = false
-        keepBackup = false
-      [fetch]
-        prune = true
-        pruneTags = true
+        filemode = true
       [diff]
         algorithm = minimal
         colorMoved = blocks
       [difftool]
         prompt = false
+      [fetch]
+        prune = true
+        pruneTags = true
+      [help]
+        autocorrect = 30
+        format = html
+        htmlpath = "https://git-scm.com/docs"
+      [merge]
+        conflictstyle = diff3
+        tool = vimdiff
+      [mergetool]
+        keepBackup = false
+        prompt = false
+      [pack]
+        threads = ${toString config.nix.maxJobs}
+      [push]
+        default = current
       [color]
         ui = auto
       [color "grep"]
-        separator = ${toString theme.foreground-alt}
-        match = ${toString theme.match}
         filename = ${toString theme.path}
         linenumber = ${toString theme.background-alt}
+        match = ${toString theme.match}
+        separator = ${toString theme.foreground-alt}
       [color "diff"]
         commit = ${toString theme.number}
-        meta = ${toString theme.background-alt}
         frag = ${toString theme.foreground-alt}
-        oldMoved = ${toString theme.diff-remove} bold
+        meta = ${toString theme.background-alt}
         newMoved = ${toString theme.diff-add} bold
         new = ${toString theme.diff-add}
         old = ${toString theme.diff-remove}
+        oldMoved = ${toString theme.diff-remove} bold
       [color "branch"]
-        remote = ${toString theme.remoteBranch}
         current = ${toString theme.currentBranch}
         local = ${toString theme.localBranch}
+        remote = ${toString theme.remoteBranch}
       [color "decorate"]
         HEAD = ${toString theme.localBranch}
-        tag = ${toString theme.remoteBranch}
         branch = ${toString theme.currentBranch}
-        stash = ${toString theme.localBranch}
         remoteBranch = ${toString theme.remoteBranch}
+        stash = ${toString theme.localBranch}
+        tag = ${toString theme.remoteBranch}
       [color "remote"]
         hint = ${toString theme.foreground-alt}
-        warning = ${toString theme.warning}
         success = ${toString theme.info}
+        warning = ${toString theme.warning}
         error = ${toString theme.error}
       [color "status"]
+        header = ${toString theme.background-alt}
         added = ${toString theme.info}
         changed = ${toString theme.diff-change}
         untracked = ${toString theme.diff-remove}
-        header = ${toString theme.background-alt}
         branch = ${toString theme.currentBranch}
         localBranch = ${toString theme.currentBranch}
         remoteBranch = ${toString theme.remoteBranch}
       [tig "color"]
-        graph-commit = ${toString theme.number} default
-        main-tracked = ${toString theme.currentBranch} default
         cursor = ${toString theme.select} default
         date = ${toString theme.background-alt} default
+        graph-commit = ${toString theme.number} default
         line-number = ${toString theme.background-alt} default
-        title-blur = ${toString theme.background-alt} default
-        title-focus = ${toString theme.foreground} ${toString theme.background-alt}
+        main-tracked = ${toString theme.currentBranch} default
         search-result = ${toString theme.match} default
         status = ${toString theme.info} default
+        title-blur = ${toString theme.background-alt} default
+        title-focus = ${toString theme.foreground} ${toString theme.background-alt}
     '';
     git-all = (with import <nixpkgs> {}; writeShellScriptBin "git-all" ''
       echo
