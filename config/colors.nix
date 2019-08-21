@@ -234,6 +234,14 @@ with lib;
           default: 3
         '';
       };
+      staged = mkOption {
+        type = types.int;
+        default = 3;
+        description = ''
+          color number for staged items
+          default: 3
+        '';
+      };
       diff-add = mkOption {
         type = types.int;
         default = 2;

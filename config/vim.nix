@@ -219,7 +219,7 @@
         hi! link diffAdded DiffAdd
         hi! link diffRemoved DiffDelete
         hi! link diffChanged DiffChange
-        hi! link gitcommitSelectedType InfoMsg
+        hi gitcommitSelectedType ctermbg=NONE ctermfg=${toString theme.staged} cterm=NONE
         hi! link gitcommitDiscardedType DiffChange
         hi! link gitcommitUntrackedType DiffDelete
         hi! link gitcommitSelectedFile gitcommitSelectedType

@@ -71,7 +71,7 @@
         error = ${toString theme.error}
       [color "status"]
         header = ${toString theme.background-alt}
-        added = ${toString theme.info}
+        added = ${toString theme.staged}
         changed = ${toString theme.diff-change}
         untracked = ${toString theme.diff-remove}
         branch = ${toString theme.currentBranch}

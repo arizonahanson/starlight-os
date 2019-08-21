@@ -538,7 +538,7 @@ with lib;
                          [ "$(git config --bool bash.showDirtyState)" != "false" ]
                       then
                               git diff --no-ext-diff --quiet || w="%{${toFG theme.diff-change}%}$ZSH_THEME_CHANGED_PROMPT%{$reset_color%}"
-                              git diff --no-ext-diff --cached --quiet || i="%{${toFG theme.info}%}$ZSH_THEME_STAGED_PROMPT%{$reset_color%}"
+                              git diff --no-ext-diff --cached --quiet || i="%{${toFG theme.staged}%}$ZSH_THEME_STAGED_PROMPT%{$reset_color%}"
                               if [ -z "$short_sha" ] && [ -z "$i" ]; then
                                       i="#"
                               fi
