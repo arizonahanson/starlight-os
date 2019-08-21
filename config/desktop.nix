@@ -44,13 +44,6 @@ with lib;
         (default 16)
       '';
     };
-    dwarf-fortress = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        Include dwarf fortress
-      '';
-    };
   };
   config = lib.mkIf config.starlight.desktop {
     environment.systemPackages = 
@@ -73,16 +66,10 @@ with lib;
           ${libnotify}/bin/notify-send -i star "$@"
         '');
       in with pkgs; [
-        sxhkd rofi-unwrapped libnotify feh clipmenu
-        chromium networkmanagerapplet
-        xdg-desktop-portal-gtk xorg.xkill xdo xsel
+        sxhkd rofi-unwrapped libnotify feh clipmenu networkmanagerapplet
+        xdg-desktop-portal-gtk xorg.xkill xdo xsel chromium
         (cliprofi) (reload-desktop) (flatpak-alt) (say)
-    ]
-    ++ lib.optional config.starlight.dwarf-fortress (dwarf-fortress-packages.dwarf-fortress-full.override {
-      enableIntro = false;
-      enableTWBT = true;
-      theme = dwarf-fortress-packages.themes.tergel;
-    });
+      ];
     # flatpak
     services.flatpak = {
       enable = true;

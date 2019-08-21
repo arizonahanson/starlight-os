@@ -11,11 +11,7 @@ with lib;
     ./vim.nix
   ];
   config = mkMerge [{
-    # btrfs auto-scrub
-    #services.btrfs.autoScrub.enable = true;
-    #nix.autoOptimiseStore = true;
     boot = {
-      # /tmp on tmpfs
       tmpOnTmpfs = true;
       kernelParams = [ "quiet" ];
       consoleLogLevel = 0;
@@ -27,6 +23,16 @@ with lib;
       "/".options = [ "compress=lzo" ];
       "/home".options = [ "compress=lzo" ];
     };
+    services.btrfs.autoScrub = {
+      enable = true;
+      fileSystems = [ "/" ];
+    };
+    nix.gc = {
+      automatic = true;
+      dates = "*-*-* 00/4:00:00";
+      options = "--delete-older-than 14d";
+    };
+    nix.autoOptimiseStore = true;
     nixpkgs.config.allowUnfree = true;
     environment.variables = {
       NIX_CFLAGS_COMPILE = "-march=native";
