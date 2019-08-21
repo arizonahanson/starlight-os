@@ -21,7 +21,7 @@
         colorMovedWS = allow-indentation-change
         tool = vimdiff
       [difftool]
-        prompt = false
+        prompt = true
       [fetch]
         prune = true
         pruneTags = true
