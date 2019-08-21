@@ -19,7 +19,7 @@
         algorithm = minimal
         colorMoved = blocks
         colorMovedWS = allow-indentation-change
-        tool = vimdiff
+        tool = vimdiff3
       [difftool]
         prompt = true
       [fetch]
@@ -31,12 +31,10 @@
         htmlpath = "https://git-scm.com/docs"
       [merge]
         conflictstyle = diff3
-        tool = vimdiff
+        tool = vimdiff3
       [mergetool]
         keepBackup = false
         prompt = false
-      [mergetool "vimdiff"]
-        cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
       [pack]
         threads = ${toString config.nix.maxJobs}
       [push]
