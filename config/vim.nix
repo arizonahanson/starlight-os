@@ -149,7 +149,7 @@
         hi! link Debug SpecialComment
         hi! link Ignore Comment
         hi! link FoldColumn LineNr
-        hi! link VertSplit StatusLine
+        hi! link VertSplit CursorLineNr
         " grays (other)
         hi! link diffLine CursorLineNr
         hi! link diffFile LineNr
