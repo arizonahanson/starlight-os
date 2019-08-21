@@ -150,6 +150,7 @@
         hi! link Ignore Comment
         hi! link FoldColumn LineNr
         hi! link VertSplit LineNr
+        hi! link NonText Comment
         " grays (other)
         hi! link diffLine CursorLineNr
         hi! link diffFile LineNr

@@ -126,6 +126,7 @@
     ggs = "git all status -sb";
     ggrp = "git all remote prune origin";
     ggx = "sudo git all clean -fxd";
+    gdt = "git difftool";
   };
 }
 
