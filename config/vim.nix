@@ -208,12 +208,12 @@
         hi! link diffAdded DiffAdd
         hi! link diffRemoved DiffDelete
         hi! link diffChanged DiffChange
-        hi! link gitcommitSelectedFile InfoMsg
         hi! link gitcommitSelectedType InfoMsg
-        hi! link gitcommitDiscardedFile DiffChange
         hi! link gitcommitDiscardedType DiffChange
-        hi! link gitcommitUntrackedFile DiffDelete
         hi! link gitcommitUntrackedType DiffDelete
+        hi! link gitcommitSelectedFile gitcommitSelectedType
+        hi! link gitcommitDiscardedFile gitcommitDiscardedType
+        hi! link gitcommitUntrackedFile gitcommitUntrackedType
         hi gitcommitBranch ctermbg=NONE ctermfg=${toString theme.currentBranch}
       '';
       plug.plugins = let
