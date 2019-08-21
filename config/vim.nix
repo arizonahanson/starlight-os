@@ -149,6 +149,7 @@
         hi! link diffLine CursorLineNr
         hi! link diffFile LineNr
         hi! link diffIndexLine diffFile
+        hi! link diffSubname Normal
         hi! link gitcommitHeader Comment
         hi! link gitcommitSummary Normal
         hi! link zshDereferencing Identifier
