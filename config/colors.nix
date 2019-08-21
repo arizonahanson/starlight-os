@@ -242,11 +242,27 @@ with lib;
           default: 2
         '';
       };
+      diff-add-moved = mkOption {
+        type = types.int;
+        default = 10;
+        description = ''
+          color number for diff-add-moved
+          default: 10
+        '';
+      };
       diff-change = mkOption {
         type = types.int;
         default = 9;
         description = ''
           color number for diff-change
+          default: 9
+        '';
+      };
+      diff-remove-moved = mkOption {
+        type = types.int;
+        default = 9;
+        description = ''
+          color number for diff-remove-moved
           default: 9
         '';
       };

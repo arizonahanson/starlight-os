@@ -48,10 +48,10 @@
         commit = ${toString theme.number}
         frag = ${toString theme.foreground-alt}
         meta = ${toString theme.background-alt}
-        newMoved = ${toString theme.diff-add} bold
         new = ${toString theme.diff-add}
+        newMoved = ${toString theme.diff-add-moved}
         old = ${toString theme.diff-remove}
-        oldMoved = ${toString theme.diff-remove} bold
+        oldMoved = ${toString theme.diff-remove-moved}
       [color "branch"]
         current = ${toString theme.currentBranch}
         local = ${toString theme.localBranch}
