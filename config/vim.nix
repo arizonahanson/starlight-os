@@ -143,6 +143,10 @@
         hi! link Debug SpecialComment
         hi! link Ignore Comment
         " grays (other)
+        hi! link diffLine CursorLineNr
+        hi! link diffFile LineNr
+        hi! link diffIndexLine diffFile
+        hi! link gitcommitHeader Comment
         hi! link gitcommitSummary Normal
         hi! link zshDereferencing Identifier
         hi! link csBraces Noise
@@ -204,7 +208,12 @@
         hi! link diffAdded DiffAdd
         hi! link diffRemoved DiffDelete
         hi! link diffChanged DiffChange
-        hi! link gitcommitFile DiffChange
+        hi! link gitcommitSelectedFile InfoMsg
+        hi! link gitcommitSelectedType InfoMsg
+        hi! link gitcommitDiscardedFile DiffChange
+        hi! link gitcommitDiscardedType DiffChange
+        hi! link gitcommitUntrackedFile DiffDelete
+        hi! link gitcommitUntrackedType DiffDelete
         hi gitcommitBranch ctermbg=NONE ctermfg=${toString theme.currentBranch}
       '';
       plug.plugins = let
