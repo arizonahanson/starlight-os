@@ -113,6 +113,11 @@
         " no sound on errors
         set noerrorbells
         set novisualbell
+        " auto-origami fold column setup
+        augroup auto_origami
+          au!
+          au CursorHold,BufWinEnter,WinEnter * let &foldcolumn = auto_origami#Foldcolumn()
+        augroup END
         " colorscheme
         set background=dark
         " grays (general)
@@ -143,7 +148,7 @@
         hi! link SpecialComment Noise
         hi! link Debug SpecialComment
         hi! link Ignore Comment
-        hi! link FoldColumn Folded
+        hi! link FoldColumn LineNr
         hi! link VertSplit StatusLine
         " grays (other)
         hi! link diffLine CursorLineNr
@@ -202,8 +207,9 @@
         hi! link SpellRare Warning
         hi! link SpellBad Error
         hi DiffAdd    ctermbg=NONE ctermfg=${toString theme.diff-add}
-        hi DiffChange ctermbg=NONE ctermfg=${toString theme.warning}
+        hi DiffChange ctermbg=NONE ctermfg=${toString theme.diff-change}
         hi DiffDelete ctermbg=NONE ctermfg=${toString theme.diff-remove}
+        hi DiffText   ctermbg=${toString theme.background-alt} ctermfg=${toString theme.diff-change} cterm=NONE
         hi! link GitGutterAdd DiffAdd
         hi! link GitGutterChange DiffChange
         hi! link GitGutterAddDelete DiffDelete
@@ -229,9 +235,18 @@
             rev = "v1.4.0";
             sha256 = "0rl4ijz2asyrhr2s72j1y06js0yizzir414q6fznvgvmic4wjcj9";
           };
+        };
+        vim-auto-origami = pkgs.vimUtils.buildVimPlugin {
+          name = "vim-auto-origami";
+          src = pkgs.fetchFromGitHub {
+            owner = "benknoble";
+            repo = "vim-auto-origami";
+            rev = "v1.0.0";
+            sha256 = "1zlrafb4lp7rw8kdnaw6spiys6xi3ayamfyzzp0wzl5jy7mv2ayw";
+          };
         }; in
       with pkgs.vimPlugins; [
-        vim-sensible vim-polyglot vim-nix editorconfig-vim fugitive gitgutter vim-gutentags ale (vim-mucomplete)
+        vim-sensible vim-polyglot vim-nix editorconfig-vim fugitive gitgutter vim-gutentags ale (vim-mucomplete) (vim-auto-origami)
       ];
     };
   });
