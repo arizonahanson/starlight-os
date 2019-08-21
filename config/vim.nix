@@ -113,6 +113,12 @@
         " no sound on errors
         set noerrorbells
         set novisualbell
+        " auto-fold on indent, then switch back to manual and open all folds
+        augroup auto_fold
+          au BufReadPre * setlocal foldmethod=indent
+          au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+          au BufWinEnter * silent! :%foldopen!
+        augroup END
         " auto-origami fold column setup
         augroup auto_origami
           au!
