@@ -122,7 +122,7 @@ with lib;
       # fzf with tmux
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh
       source ${pkgs.fzf}/share/fzf/completion.zsh
-      zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS} ma='${toANSI theme.select}'
+      zstyle ':completion:*:default' list-colors ''${(s.:.)LS_COLORS} ma='${toANSI theme.select}'
 
       # last to pickup other zsh-widgets
       source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
