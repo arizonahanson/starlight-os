@@ -31,7 +31,7 @@
         htmlpath = "https://git-scm.com/docs"
       [merge]
         conflictstyle = diff3
-        tool = vimdiff3
+        tool = vimdiff
       [mergetool]
         keepBackup = false
         prompt = false
