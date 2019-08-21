@@ -45,9 +45,8 @@
     sudo mount -o compress=lzo $device $mntpnt
     pushd $mntpnt >/dev/null
     sudo duperemove -Ardhv --hash=xxhash $(ls -d */nix) | grep "net change"
-    sudo nix-store --optimise
     echo -e "\n\e[${toANSI theme.path}m\e[0m Rebalancing filesystem..."
-    sudo btrfs balance start -dusage=38 -musage=38 $mntpnt
+    sudo btrfs balance start -dusage=33 -musage=33 $mntpnt
     popd >/dev/null
     sudo umount $mntpnt
     rmdir $mntpnt

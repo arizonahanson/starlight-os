@@ -30,7 +30,7 @@ with lib;
     nix.gc = {
       automatic = true;
       dates = "*-*-* 00/4:00:00";
-      options = "--delete-older-than 14d";
+      options = "--delete-older-than 30d";
     };
     nix.autoOptimiseStore = true;
     nixpkgs.config.allowUnfree = true;
