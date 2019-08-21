@@ -18,6 +18,7 @@
       [diff]
         algorithm = minimal
         colorMoved = blocks
+        colorMovedWS = allow-indentation-change
       [difftool]
         prompt = false
       [fetch]
