@@ -144,6 +144,7 @@
         hi! link Debug SpecialComment
         hi! link Ignore Comment
         hi! link FoldColumn Folded
+        hi! link VertSplit StatusLine
         " grays (other)
         hi! link diffLine CursorLineNr
         hi! link diffFile LineNr
