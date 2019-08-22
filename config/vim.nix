@@ -97,6 +97,16 @@
         set showtabline=1
         " turn-on numbers
         set number
+        " folding commands
+        augroup auto_fold
+          au!
+          " foldmethod syntax, then switch to manual
+          au BufReadPre * setlocal foldmethod=indent
+          au BufReadPre *.js setlocal foldmethod=syntax
+          au BufReadPost * setlocal foldmethod=manual
+          au BufWinEnter * silent! :%foldopen!
+          au CursorHold,BufWinEnter,WinEnter * let &foldcolumn = auto_origami#Foldcolumn()
+        augroup END
         " activate spell check for some types
         autocmd FileType gitcommit set spell spelllang=en_us
         autocmd FileType gitcommit set nonumber
@@ -113,18 +123,6 @@
         " no sound on errors
         set noerrorbells
         set novisualbell
-        " folding commands
-        augroup auto_fold
-          au!
-          " foldmethod indent, then syntax, finally switch to manual
-          au BufReadPre * syntax sync fromstart
-          au BufReadPre * setlocal foldmethod=syntax
-          au BufReadPre * setlocal foldmethod=indent
-          au BufWinEnter * if &fdm != 'manual' | setlocal foldmethod=manual | endif
-          " foldcolumn activation, open all folds
-          au CursorHold,BufWinEnter,WinEnter * let &foldcolumn = auto_origami#Foldcolumn()
-          au BufWinEnter * silent! :%foldopen!
-        augroup END
         " colorscheme
         set background=dark
         " grays (general)
