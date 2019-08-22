@@ -46,148 +46,6 @@ with lib;
     };
   };
   config = lib.mkIf config.starlight.desktop {
-    environment.systemPackages = 
-      let 
-        cliprofi = (with import <nixpkgs> {}; writeShellScriptBin "cliprofi" ''
-          ${rofi-unwrapped}/bin/rofi -p  -dmenu -normal-window $@
-        '');
-        reload-desktop = (with import <nixpkgs> {}; writeShellScriptBin "reload-desktop" ''
-          ${procps}/bin/pkill -USR1 -x sxhkd
-          ${procps}/bin/pkill -TERM -x compton
-          ${procps}/bin/pkill -TERM -x polybar
-          ${bspwm}/bin/bspc wm -r
-          say 'Reloaded desktop' 'Desktop components have been reloaded'
-        '');
-        flatpak-alt = (with import <nixpkgs> {}; writeShellScriptBin "flatpak" ''
-          ${flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-          ${flatpak}/bin/flatpak "$@"
-        '');
-        say = (with import <nixpkgs> {}; writeShellScriptBin "say" ''
-          ${libnotify}/bin/notify-send -i star "$@"
-        '');
-      in with pkgs; [
-        sxhkd rofi-unwrapped libnotify feh clipmenu networkmanagerapplet
-        xdg-desktop-portal-gtk xorg.xkill xdo xsel chromium
-        (cliprofi) (reload-desktop) (flatpak-alt) (say)
-      ];
-    # flatpak
-    services.flatpak = {
-      enable = true;
-    };
-    systemd.user.services = {
-      clipmenud = {
-       serviceConfig.Type = "simple";
-       wantedBy = [ "default.target" ];
-       environment = {
-         DISPLAY = ":0";
-       };
-       path = [ pkgs.clipmenu ];
-       script = ''
-         ${pkgs.clipmenu}/bin/clipmenud
-       '';
-      };
-    };
-    # chromium profile
-    programs.chromium = {
-      enable = true;
-      extraOpts = {
-        DiskCacheDir = "/tmp/.chromium-\${user_name}";
-      };
-    };
-    # keyring
-    services.gnome3.seahorse.enable = true;
-    services.gnome3.gnome-keyring.enable = true;
-    environment.variables = {
-      BROWSER = "chromium";
-      CM_LAUNCHER = "cliprofi";
-      SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
-      XCURSOR_THEME="Bibata_Oil";
-    };
-    # SSH_ASKPASS already defined
-    programs.zsh.interactiveShellInit = ''
-      export SSH_ASKPASS="${pkgs.gnome3.seahorse}/libexec/seahorse/ssh-askpass"
-    '';
-    xdg = {
-      autostart.enable = true;
-      icons.enable = true;
-      menus.enable = true;
-      mime.enable = true;
-      portal = {
-        enable = true;
-        extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
-      };
-    };
-    fonts.fonts = with pkgs; [
-      font-awesome_5
-      google-fonts
-      noto-fonts-emoji
-    ];
-    fonts.fontconfig = {
-      enable = true;
-      localConf = ''
-        <fontconfig>
-          <match target="pattern">
-              <edit name="family" mode="prepend_first">
-                    <string>DejaVu Sans</string>
-              </edit>
-          </match>
-          <match target="pattern">
-              <edit name="family" mode="prepend_first">
-                    <string>Noto Emoji</string>
-              </edit>
-          </match>
-          <match target="pattern">
-              <edit name="family" mode="prepend_first">
-                    <string>Font Awesome 5 Free Solid</string>
-              </edit>
-          </match>
-        </fontconfig>
-      '';
-      useEmbeddedBitmaps = false;
-    };
-    i18n.inputMethod = {
-      enabled = "ibus";
-      ibus.engines = with pkgs.ibus-engines; [ uniemoji ];
-    };
-    # more entropy
-    services.haveged.enable = true;
-    # Enable the X11 windowing system.
-    hardware.opengl.driSupport32Bit = true;
-    services.xserver = {
-      enable = true;
-      layout = "us";
-      # Enable touchpad support.
-      libinput.enable = true;
-      updateDbusEnvironment = true;
-      displayManager = {
-        sddm = {
-          enable = true;
-          autoNumlock = true;
-          autoLogin = {
-            enable = true;
-            user = "admin";
-            relogin = false;
-          };
-        };
-        setupCommands = ''
-          xset -dpms
-          xset s off
-        '';
-      };
-    };
-    services.compton = let shadowRadius = config.starlight.shadowRadius; in {
-      enable = true;
-      shadow = true;
-      shadowOffsets = [ (shadowRadius * -1) (shadowRadius / -2) ];
-      shadowExclude = [
-        "name = 'Polybar tray window'"
-        "_GTK_FRAME_EXTENTS@:c"
-      ];
-      shadowOpacity = "0.5";
-      settings = {
-        shadow-radius = shadowRadius;
-      };
-    };
     environment.etc."X11/Xresources" = let palette = config.starlight.palette; in {
       text = ''
         ! Xcursor
@@ -267,6 +125,149 @@ with lib;
         *.color7:       ${palette.color7}
         *.color15:      ${palette.color15}
       '';
+    };
+    environment.variables = {
+      BROWSER = "chromium";
+      CM_LAUNCHER = "cliprofi";
+      SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
+      XCURSOR_THEME="Bibata_Oil";
+    };
+    environment.systemPackages = 
+      let 
+        cliprofi = (with import <nixpkgs> {}; writeShellScriptBin "cliprofi" ''
+          ${rofi-unwrapped}/bin/rofi -p  -dmenu -normal-window $@
+        '');
+        reload-desktop = (with import <nixpkgs> {}; writeShellScriptBin "reload-desktop" ''
+          ${procps}/bin/pkill -USR1 -x sxhkd
+          ${procps}/bin/pkill -TERM -x compton
+          ${procps}/bin/pkill -TERM -x polybar
+          ${bspwm}/bin/bspc wm -r
+          say 'Reloaded desktop' 'Desktop components have been reloaded'
+        '');
+        flatpak-alt = (with import <nixpkgs> {}; writeShellScriptBin "flatpak" ''
+          ${flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          ${flatpak}/bin/flatpak "$@"
+        '');
+        say = (with import <nixpkgs> {}; writeShellScriptBin "say" ''
+          ${libnotify}/bin/notify-send -i star "$@"
+        '');
+      in with pkgs; [
+        sxhkd rofi-unwrapped libnotify feh clipmenu networkmanagerapplet
+        xdg-desktop-portal-gtk xorg.xkill xdo xsel chromium
+        (cliprofi) (reload-desktop) (flatpak-alt) (say)
+      ];
+    systemd.user.services = {
+      clipmenud = {
+       serviceConfig.Type = "simple";
+       wantedBy = [ "default.target" ];
+       environment = {
+         DISPLAY = ":0";
+       };
+       path = [ pkgs.clipmenu ];
+       script = ''
+         ${pkgs.clipmenu}/bin/clipmenud
+       '';
+      };
+    };
+    # chromium profile
+    programs.chromium = {
+      enable = true;
+      extraOpts = {
+        DiskCacheDir = "/tmp/.chromium-\${user_name}";
+      };
+    };
+    services = {
+      compton = let shadowRadius = config.starlight.shadowRadius; in {
+        enable = true;
+        shadow = true;
+        shadowOffsets = [ (shadowRadius * -1) (shadowRadius / -2) ];
+        shadowExclude = [
+          "name = 'Polybar tray window'"
+          "_GTK_FRAME_EXTENTS@:c"
+        ];
+        shadowOpacity = "0.5";
+        settings = {
+          shadow-radius = shadowRadius;
+        };
+      };
+      flatpak = {
+        enable = true;
+      };
+      # keyring
+      gnome3.seahorse.enable = true;
+      gnome3.gnome-keyring.enable = true;
+      # more entropy
+      haveged.enable = true;
+      xserver = {
+        enable = true;
+        layout = "us";
+        # Enable touchpad support.
+        libinput.enable = true;
+        updateDbusEnvironment = true;
+        displayManager = {
+          sddm = {
+            enable = true;
+            autoNumlock = true;
+            autoLogin = {
+              enable = true;
+              user = "admin";
+              relogin = false;
+            };
+          };
+          setupCommands = ''
+            xset -dpms
+            xset s off
+          '';
+        };
+      };
+    };
+    # Enable the X11 windowing system.
+    hardware.opengl.driSupport32Bit = true;
+    # SSH_ASKPASS already defined
+    programs.zsh.interactiveShellInit = ''
+      export SSH_ASKPASS="${pkgs.gnome3.seahorse}/libexec/seahorse/ssh-askpass"
+    '';
+    xdg = {
+      autostart.enable = true;
+      icons.enable = true;
+      menus.enable = true;
+      mime.enable = true;
+      portal = {
+        enable = true;
+        extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+      };
+    };
+    fonts.fonts = with pkgs; [
+      font-awesome_5
+      google-fonts
+      noto-fonts-emoji
+    ];
+    fonts.fontconfig = {
+      enable = true;
+      localConf = ''
+        <fontconfig>
+          <match target="pattern">
+              <edit name="family" mode="prepend_first">
+                    <string>DejaVu Sans</string>
+              </edit>
+          </match>
+          <match target="pattern">
+              <edit name="family" mode="prepend_first">
+                    <string>Noto Emoji</string>
+              </edit>
+          </match>
+          <match target="pattern">
+              <edit name="family" mode="prepend_first">
+                    <string>Font Awesome 5 Free Solid</string>
+              </edit>
+          </match>
+        </fontconfig>
+      '';
+      useEmbeddedBitmaps = false;
+    };
+    i18n.inputMethod = {
+      enabled = "ibus";
+      ibus.engines = with pkgs.ibus-engines; [ uniemoji ];
     };
   };
 }
