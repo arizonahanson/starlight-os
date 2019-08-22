@@ -139,7 +139,6 @@
         hi Underlined   ctermbg=NONE ctermfg=${toString theme.path} cterm=underline
         hi IncSearch    ctermbg=NONE ctermfg=${toString theme.match} cterm=underline
         hi Search       ctermbg=NONE ctermfg=${toString theme.match} cterm=NONE
-        hi Folded       ctermbg=${toString theme.background-alt} ctermfg=${toString theme.background} cterm=NONE
         hi! link MatchParen Search
         hi! link LineNr Comment
         hi! link CursorLineNr Noise
@@ -204,6 +203,7 @@
         hi ErrorMsg     ctermbg=NONE ctermfg=${toString theme.error}
         hi WarningMsg   ctermbg=NONE ctermfg=${toString theme.warning}
         hi InfoMsg      ctermbg=NONE ctermfg=${toString theme.info}
+        hi! link Folded InfoMsg
         hi! link ModeMsg InfoMsg
         hi! link MoreMsg InfoMsg
         hi! link AleErrorSign ErrorMsg
