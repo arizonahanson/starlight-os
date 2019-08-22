@@ -142,6 +142,9 @@
         hi! link MatchParen Search
         hi! link LineNr Comment
         hi! link CursorLineNr Noise
+        hi! link SpecialComment Noise
+        hi! link Folded Noise
+        hi! link FoldColumn LineNr
         hi! link SignColumn CursorLine
         hi! link TabLine Comment
         hi! link TabLineSel StatusLine
@@ -149,10 +152,8 @@
         hi! link Pmenu StatusLineNC
         hi! link PmenuSbar StatusLineNC
         hi! link PmenuSel StatusLine
-        hi! link SpecialComment Noise
         hi! link Debug SpecialComment
         hi! link Ignore Comment
-        hi! link FoldColumn LineNr
         hi! link VertSplit LineNr
         hi! link NonText Comment
         " grays (other)
@@ -203,7 +204,6 @@
         hi ErrorMsg     ctermbg=NONE ctermfg=${toString theme.error}
         hi WarningMsg   ctermbg=NONE ctermfg=${toString theme.warning}
         hi InfoMsg      ctermbg=NONE ctermfg=${toString theme.info}
-        hi! link Folded InfoMsg
         hi! link ModeMsg InfoMsg
         hi! link MoreMsg InfoMsg
         hi! link AleErrorSign ErrorMsg
