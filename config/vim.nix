@@ -116,9 +116,11 @@
         " folding commands
         augroup auto_fold
           au!
-          " foldmethod indent, then switch to manual
+          " foldmethod indent, then syntax, finally switch to manual
+          au BufReadPre * syntax sync fromstart
+          au BufReadPre * setlocal foldmethod=syntax
           au BufReadPre * setlocal foldmethod=indent
-          au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+          au BufWinEnter * if &fdm != 'manual' | setlocal foldmethod=manual | endif
           " foldcolumn activation, open all folds
           au CursorHold,BufWinEnter,WinEnter * let &foldcolumn = auto_origami#Foldcolumn()
           au BufWinEnter * silent! :%foldopen!
