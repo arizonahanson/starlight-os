@@ -41,11 +41,6 @@
         " keep buffers, large shada, relocate shada file
         let shada_file=g:vimcache.'shada'
         let &shada="%,!,'1000,s1024,n".shada_file
-        " return to last edit position when opening files
-        autocmd BufReadPost *
-          \ if line("'\"") > 0 && line("'\"") <= line("$") |
-          \   exe "normal! g`\"" |
-          \ endif
         " ctags
         let g:gutentags_cache_dir=g:vimcache.'ctags//'
         let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
@@ -103,8 +98,12 @@
           au BufReadPre * setlocal foldmethod=indent
           au BufWinEnter * setlocal foldmethod=manual
           au BufWinEnter * silent! :%foldopen!
+          au BufWinEnter * silent! loadview
           au CursorHold,BufWinEnter,WinEnter * let &foldcolumn = auto_origami#Foldcolumn()
+          au BufWinLeave * mkview!
         augroup END
+        set viewoptions=folds,cursor
+        let &viewdir=g:vimcache.'view//'
         " activate spell check for some types
         autocmd FileType gitcommit set spell spelllang=en_us
         autocmd FileType gitcommit set nonumber
