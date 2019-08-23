@@ -100,10 +100,8 @@
         " folding commands
         augroup auto_fold
           au!
-          " foldmethod syntax, then switch to manual
           au BufReadPre * setlocal foldmethod=indent
-          au BufReadPre *.js setlocal foldmethod=syntax
-          au BufReadPost * setlocal foldmethod=manual
+          au BufWinEnter * setlocal foldmethod=manual
           au BufWinEnter * silent! :%foldopen!
           au CursorHold,BufWinEnter,WinEnter * let &foldcolumn = auto_origami#Foldcolumn()
         augroup END
