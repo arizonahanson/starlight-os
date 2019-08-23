@@ -93,17 +93,14 @@
         " turn-on numbers
         set number
         " folding commands
-        augroup auto_fold
-          au!
-          au BufReadPre * setlocal foldmethod=indent
-          au BufWinEnter * setlocal foldmethod=manual
-          au BufWinEnter * silent! :%foldopen!
-          au BufWinEnter * silent! loadview
-          au CursorHold,BufWinEnter,WinEnter * let &foldcolumn = auto_origami#Foldcolumn()
-          au BufWinLeave * mkview!
-        augroup END
         set viewoptions=folds,cursor
         let &viewdir=g:vimcache.'view//'
+        augroup autofold
+          au!
+          au BufWinEnter * silent! loadview
+          au CursorHold,BufWinEnter,WinEnter * let &foldcolumn = auto_origami#Foldcolumn()
+          au BufWinLeave * silent! mkview!
+        augroup END
         " activate spell check for some types
         autocmd FileType gitcommit set spell spelllang=en_us
         autocmd FileType gitcommit set nonumber
