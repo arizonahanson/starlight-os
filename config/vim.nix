@@ -102,10 +102,11 @@
           au BufWinLeave * silent! mkview!
         augroup END
         " activate spell check for some types
-        autocmd FileType gitcommit set spell spelllang=en_us
-        autocmd FileType gitcommit set nonumber
-        autocmd FileType markdown set spell spelllang=en_us
-        autocmd FileType markdown set nonumber
+        autocmd FileType gitcommit setlocal spell spelllang=en_us
+        autocmd FileType gitcommit setlocal nonumber
+        autocmd FileType gitcommit setlocal foldmethod=syntax
+        autocmd FileType markdown setlocal spell spelllang=en_us
+        autocmd FileType markdown setlocal nonumber
         " vimdiff layout
         set diffopt=filler,vertical
         " lines to the cursor when moving vertically using j/k
