@@ -5,45 +5,11 @@
     vimAlias = true;
     configure = let theme = config.starlight.theme; in {
       customRC = ''
-        " temp cache directory
-        let g:vimcache='/tmp/.vim-'.$USER.'/'
-        call mkdir(g:vimcache, 'p', 0700)
         " no startup message
         set shortmess+=I
         " recursive pathfinding
         set path+=**
-        " visual theme
-        let g:gitgutter_override_sign_column_highlight=0
-        let g:gitgutter_sign_modified=' '
-        let g:gitgutter_sign_modified_removed=' '
-        let g:gitgutter_sign_added=' '
-        let g:gitgutter_sign_removed=' '
-        let g:ale_sign_error=' '
-        let g:ale_sign_warning=' '
-        let g:ale_sign_info=' '
         set updatetime=500
-        set guicursor=n-v-c-sm:block-blinkwait500-blinkon500-blinkoff500,i-ci-ve:ver25-blinkwait500-blinkon500-blinkoff500,r-cr-o:hor20-blinkwait500-blinkon500-blinkoff500
-        set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
-        " swapfile
-        set swapfile
-        let &directory=g:vimcache.'swap//'
-        " backup during write
-        set writebackup
-        " no backup after write
-        set nobackup
-        " rename/write new when safe
-        set backupcopy=auto
-        let &backupdir=g:vimcache.'backup//'
-        call mkdir(&backupdir, 'p', 0700)
-        " persist undo tree
-        set undofile
-        let &undodir=g:vimcache.'undo//'
-        " keep buffers, large shada, relocate shada file
-        let shada_file=g:vimcache.'shada'
-        let &shada="%,!,'1000,s1024,n".shada_file
-        " ctags
-        let g:gutentags_cache_dir=g:vimcache.'ctags//'
-        let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
         " encoding
         set encoding=utf-8
         set fileencoding=utf-8
@@ -67,6 +33,27 @@
         " ignore files in menu
         set wildignore=*.o,*~,*.pyc,*.so,*.class,.DS_Store
         set wildmode=longest:full,full
+        " behavior when switching buffers
+        try
+          set switchbuf=useopen,usetab,newtab
+          set stal=2
+        catch
+        endtry
+        " show tabline when tabs >1
+        set showtabline=1
+        " turn-on numbers
+        set number
+        " vimdiff layout
+        set diffopt=filler,vertical
+        " lines to the cursor when moving vertically using j/k
+        set so=6
+        " height of command bar
+        set cmdheight=1
+        " buffer becomes hidden when abandoned
+        set hid
+        " no sound on errors
+        set noerrorbells
+        set novisualbell
         " turn on completion
         let g:mucomplete#enable_auto_at_startup = 1
         let g:mucomplete#no_mappings = 1
@@ -82,16 +69,29 @@
         set shortmess+=c
         " no beeps during completion
         set belloff+=ctrlg
-        " behavior when switching buffers
-        try
-          set switchbuf=useopen,usetab,newtab
-          set stal=2
-        catch
-        endtry
-        " show tabline when tabs >1
-        set showtabline=1
-        " turn-on numbers
-        set number
+        " temp cache directory
+        let g:vimcache='/tmp/.vim-'.$USER.'/'
+        call mkdir(g:vimcache, 'p', 0700)
+        " swapfile
+        set swapfile
+        let &directory=g:vimcache.'swap//'
+        " backup during write
+        set writebackup
+        " no backup after write
+        set nobackup
+        " rename/write new when safe
+        set backupcopy=auto
+        let &backupdir=g:vimcache.'backup//'
+        call mkdir(&backupdir, 'p', 0700)
+        " persist undo tree
+        set undofile
+        let &undodir=g:vimcache.'undo//'
+        " keep buffers, large shada, relocate shada file
+        let shada_file=g:vimcache.'shada'
+        let &shada="%,!,'1000,s1024,n".shada_file
+        " ctags
+        let g:gutentags_cache_dir=g:vimcache.'ctags//'
+        let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
         " folding commands
         set viewoptions=folds,cursor
         let &viewdir=g:vimcache.'view//'
@@ -101,23 +101,22 @@
           au CursorHold,BufWinEnter,WinEnter * let &foldcolumn = auto_origami#Foldcolumn()
           au BufWinLeave * silent! mkview!
         augroup END
-        " activate spell check for some types
         autocmd FileType gitcommit setlocal spell spelllang=en_us
         autocmd FileType gitcommit setlocal nonumber
         autocmd FileType gitcommit setlocal foldmethod=syntax
         autocmd FileType markdown setlocal spell spelllang=en_us
         autocmd FileType markdown setlocal nonumber
-        " vimdiff layout
-        set diffopt=filler,vertical
-        " lines to the cursor when moving vertically using j/k
-        set so=6
-        " height of command bar
-        set cmdheight=1
-        " buffer becomes hidden when abandoned
-        set hid
-        " no sound on errors
-        set noerrorbells
-        set novisualbell
+        " visual theme
+        set guicursor=n-v-c-sm:block-blinkwait500-blinkon500-blinkoff500,i-ci-ve:ver25-blinkwait500-blinkon500-blinkoff500,r-cr-o:hor20-blinkwait500-blinkon500-blinkoff500
+        set statusline=%<\ %f\ %m%r%=%y\ %-2.(%l,%c%V%)\ 
+        let g:gitgutter_override_sign_column_highlight=0
+        let g:gitgutter_sign_modified=' '
+        let g:gitgutter_sign_modified_removed=' '
+        let g:gitgutter_sign_added=' '
+        let g:gitgutter_sign_removed=' '
+        let g:ale_sign_error=' '
+        let g:ale_sign_warning=' '
+        let g:ale_sign_info=' '
         " colorscheme
         set background=dark
         " grays (general)
