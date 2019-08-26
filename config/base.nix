@@ -46,21 +46,17 @@ with lib;
       duperemove
       nox w3m
       (with import <nixpkgs> {}; writeShellScriptBin "palette" ''
-        # ansi order
-        for bold in 0 1; do
-          for col in {0..7}; do
-            echo -en "\e[$bold;3''${col}m "
-          done
-          echo
-        done
-        echo
-        # color order
-        for col in 1 3 2 6 4 5 0 7; do
+        for col in 1 3 2 6 4 5; do
           for bold in 0 1; do
             echo -en "\e[$bold;3''${col}m "
           done
         done
         echo
+        for col in 7 0; do
+          for bold in 1 0; do
+            echo -e "\e[$bold;3''${col}m "
+          done
+        done
       '')
     ];
     services.journald.extraConfig = ''
