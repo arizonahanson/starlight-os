@@ -9,7 +9,6 @@
         set shortmess+=I
         " recursive pathfinding
         set path+=**
-        set updatetime=500
         " encoding
         set encoding=utf-8
         set fileencoding=utf-8
@@ -19,17 +18,30 @@
         " no timeout
         set notimeout
         set ttimeout
+        " no sound on errors
+        set noerrorbells
+        set novisualbell
         " case insensitivity
         set ignorecase
         set smartcase
         " highlight search
         set hlsearch
+        " show matching brackets
+        set showmatch
+        " turn-on numbers
+        set number
         " minimum column width
         set numberwidth=1
         " highlight current line
         set cursorline
-        " show matching brackets
-        set showmatch
+        " height of command bar
+        set cmdheight=1
+        " lines to the cursor when moving vertically using j/k
+        set so=6
+        " buffer becomes hidden when abandoned
+        set hid
+        " vimdiff layout
+        set diffopt=filler,vertical
         " ignore files in menu
         set wildignore=*.o,*~,*.pyc,*.so,*.class,.DS_Store
         set wildmode=longest:full,full
@@ -41,19 +53,6 @@
         endtry
         " show tabline when tabs >1
         set showtabline=1
-        " turn-on numbers
-        set number
-        " vimdiff layout
-        set diffopt=filler,vertical
-        " lines to the cursor when moving vertically using j/k
-        set so=6
-        " height of command bar
-        set cmdheight=1
-        " buffer becomes hidden when abandoned
-        set hid
-        " no sound on errors
-        set noerrorbells
-        set novisualbell
         " turn on completion
         let g:mucomplete#enable_auto_at_startup = 1
         let g:mucomplete#no_mappings = 1
@@ -75,6 +74,8 @@
         " swapfile
         set swapfile
         let &directory=g:vimcache.'swap//'
+        " swap/cursor-hold timer
+        set updatetime=500
         " backup during write
         set writebackup
         " no backup after write
