@@ -1,0 +1,8 @@
+TODO:
+* window-switching with rofi buggy
+* boot splash
+* sddm theme
+* emoji selector buggy (gtk theme?)
+* gtk theme using nixos vars?
+* better workspace glyphs
+
