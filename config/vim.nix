@@ -97,8 +97,10 @@
         let &viewdir=g:vimcache.'view//'
         augroup autofold
           au!
-          au BufWinEnter * silent! loadview
+          au BufReadPost * silent! loadview
+          au BufReadPost * if auto_origami#Foldcolumn() <= 0 | setl fdm=indent | endif
           au CursorHold,BufWinEnter,WinEnter * let &foldcolumn = auto_origami#Foldcolumn()
+          au BufWinEnter * if &fdm == "indent" | setl fdm=manual | :%foldopen! | endif
           au BufWinLeave * silent! mkview!
         augroup END
         autocmd FileType gitcommit setlocal spell spelllang=en_us
