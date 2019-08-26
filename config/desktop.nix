@@ -224,16 +224,14 @@ with lib;
         enable = true;
       };
       # keyring
-      gnome3.seahorse.enable = true;
-      gnome3.gnome-keyring.enable = true;
+      gnome3 = {
+        seahorse.enable = true;
+        gnome-keyring.enable = true;
+      };
       # more entropy
       haveged.enable = true;
       xserver = {
         enable = true;
-        layout = "us";
-        # Enable touchpad support.
-        libinput.enable = true;
-        updateDbusEnvironment = true;
         displayManager = {
           sddm = {
             enable = true;
@@ -249,6 +247,10 @@ with lib;
             xset s off
           '';
         };
+        layout = "us";
+        # Enable touchpad support.
+        libinput.enable = true;
+        updateDbusEnvironment = true;
       };
     };
     systemd.user.services = {
