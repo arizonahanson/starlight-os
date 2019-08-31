@@ -1,20 +1,39 @@
 #!/usr/bin/env bash
 
-sfdisk /dev/sda <<EOF
-,$(($(blockdev --getsz /dev/sda)-4194304)),L,*
-,,S;
-EOF
-mkfs.btrfs -f -L storage /dev/sda1
-mkswap -L swap /dev/sda2
+if [ -d /sys/firmware/efi ]; then
+	parted --script -a optimal /dev/sda -- \
+		mklabel gpt \
+		mkpart primary fat32 1MiB 261MiB \
+		set 1 esp on \
+		mkpart primary btrfs 260MiB -2GiB \
+		mkpart primary swap -2GiB -1s
+	SYS=/dev/sda2
+	SWAP=/dev/sda3
+else
+	parted --script -a optimal /dev/sda -- \
+		mklabel msdos \
+		mkpart primary btrfs 1MiB -2GiB \
+		mkpart primary linux-swap -2GiB 100%
+	SYS=/dev/sda1
+	SWAP=/dev/sda2
+fi
 
-mount -o compress=lzo,noatime,nodiratime,space_cache /dev/sda1 /mnt
+mkfs.btrfs -f -L btrfs $SYS
+mkswap -L swap $SWAP
+mount -o compress=lzo,noatime,nodiratime,space_cache $SYS /mnt
 cd /mnt
 btrfs subvolume create system
 btrfs subvolume create home
 cd ~
 umount /mnt
 
-mount -o compress=lzo,noatime,nodiratime,space_cache,subvol=system /dev/sda1 /mnt
+if [ -d /sys/firmware/efi ]; then
+	mkdir /mnt/boot
+	mount /dev/sda1 /mnt/boot
+fi
+
+mount -o compress=lzo,noatime,nodiratime,space_cache,subvol=system $SYS /mnt
 mkdir /mnt/home
-mount -o compress=lzo,noatime,nodiratime,space_cache,subvol=home /dev/sda1 /mnt/home
-swapon -o discard=once /dev/sda2
+mount -o compress=lzo,noatime,nodiratime,space_cache,subvol=home $SYS /mnt/home
+swapon -o discard=once $SWAP
+
