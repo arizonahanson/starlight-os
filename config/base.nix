@@ -58,7 +58,7 @@ with lib;
           done
         done
       '')
-    ];
+    ] ++ optional config.starlight.efi gptfdisk;
     services.journald.extraConfig = ''
       Storage=volatile
     '';
