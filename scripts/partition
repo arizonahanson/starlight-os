@@ -5,10 +5,11 @@ if [ -d /sys/firmware/efi ]; then
 		mklabel gpt \
 		mkpart primary fat32 1MiB 261MiB \
 		set 1 esp on \
-		mkpart primary btrfs 260MiB -2GiB \
-		mkpart primary swap -2GiB -1s
+		mkpart primary btrfs 261MiB -2GiB \
+		mkpart primary linux-swap -2GiB 100%
 	SYS=/dev/sda2
 	SWAP=/dev/sda3
+	mkfs.vfat -n efi /dev/sda1
 else
 	parted --script -a optimal /dev/sda -- \
 		mklabel msdos \
@@ -27,12 +28,12 @@ btrfs subvolume create home
 cd ~
 umount /mnt
 
+
+mount -o compress=lzo,noatime,nodiratime,space_cache,subvol=system $SYS /mnt
 if [ -d /sys/firmware/efi ]; then
 	mkdir /mnt/boot
 	mount /dev/sda1 /mnt/boot
 fi
-
-mount -o compress=lzo,noatime,nodiratime,space_cache,subvol=system $SYS /mnt
 mkdir /mnt/home
 mount -o compress=lzo,noatime,nodiratime,space_cache,subvol=home $SYS /mnt/home
 swapon -o discard=once $SWAP
