@@ -8,7 +8,7 @@ with lib;
       type = types.bool;
       default = false;
       description = ''
-        If enabled, will boot ufi mode
+        If enabled, will boot uefi mode
       '';
     };
   };
