@@ -160,8 +160,8 @@ with lib;
     };
     fonts = {
       fonts = with pkgs; [
-        font-awesome_5
         google-fonts
+        font-awesome_5
         noto-fonts-emoji
       ];
       fontconfig = {
@@ -185,7 +185,6 @@ with lib;
             </match>
           </fontconfig>
         '';
-        useEmbeddedBitmaps = false;
       };
     };
     hardware.opengl.driSupport32Bit = true;
