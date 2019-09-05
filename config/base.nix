@@ -10,6 +10,15 @@ with lib;
     ./tmux.nix
     ./vim.nix
   ];
+  options.starlight = {
+    localTime = mkOption {
+      type = types.bool;
+      default = false;
+      description = ''
+        If enabled, will use local time (dual boot)
+      '';
+    };
+  };
   config = mkMerge [{
     boot = {
       tmpOnTmpfs = true;
@@ -62,6 +71,7 @@ with lib;
     services.journald.extraConfig = ''
       Storage=volatile
     '';
+    time.hardwareClockInLocalTime = config.starlight.localTime;
     # default user account
     users.users.admin = {
       isNormalUser = true;
