@@ -6,3 +6,4 @@ TODO:
 * emoji font config (colorless not default)
 * gtk theme using nixos vars?
 * better workspace glyphs
+* server-only version of os
