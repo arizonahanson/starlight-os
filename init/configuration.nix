@@ -5,7 +5,9 @@
 
   starlight = {
     hostname = "myhost";
-   # logo = "• ";
+   # efi = false;
+   # localTime = false;
+   # logo = " ";
    # desktop = true;
    # docker = false;
    # proaudio = {
