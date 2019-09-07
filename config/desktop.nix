@@ -200,6 +200,7 @@ with lib;
           DiskCacheDir = "/tmp/.chromium-\${user_name}";
         };
       };
+      seahorse.enable = true;
       # SSH_ASKPASS already defined
       zsh.interactiveShellInit = ''
         export SSH_ASKPASS="${pkgs.gnome3.seahorse}/libexec/seahorse/ssh-askpass"
@@ -224,7 +225,6 @@ with lib;
       };
       # keyring
       gnome3 = {
-        seahorse.enable = true;
         gnome-keyring.enable = true;
       };
       # more entropy
