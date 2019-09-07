@@ -185,6 +185,10 @@ with lib;
             </match>
           </fontconfig>
         '';
+        defaultFonts = {
+          monospace = [ "Sharetech Mono" ];
+          emoji = [ "Noto Emoji" ];
+        };
       };
     };
     hardware.opengl.driSupport32Bit = true;
