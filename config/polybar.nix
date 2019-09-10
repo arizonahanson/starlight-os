@@ -101,7 +101,7 @@ with lib;
           label-occupied-padding = 0
           label-occupied-foreground = ''${colors.foreground-alt}
 
-          label-urgent = " "
+          label-urgent = " "
           label-urgent-foreground = ''${colors.info}
           label-urgent-padding = 0
 
