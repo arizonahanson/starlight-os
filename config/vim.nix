@@ -230,6 +230,15 @@
         hi gitcommitBranch ctermbg=NONE ctermfg=${toString theme.currentBranch}
       '';
       plug.plugins = let
+        vim-gdscript3 = pkgs.vimUtils.buildVimPlugin {
+          name = "vim-gdscript3";
+          src = pkgs.fetchFromGitHub {
+            owner = "calviken";
+            repo = "vim-gdscript3";
+            rev = "master";
+            sha256 = "0b9ghcjiwkkldvg1zwyhi8163dcbg6sh64zrd8nk081qlbrs4shb";
+          };
+        };
         vim-mucomplete = pkgs.vimUtils.buildVimPlugin {
           name = "vim-mucomplete";
           src = pkgs.fetchFromGitHub {
@@ -249,7 +258,7 @@
           };
         }; in
       with pkgs.vimPlugins; [
-        vim-sensible vim-polyglot vim-nix editorconfig-vim fugitive gitgutter vim-gutentags ale (vim-mucomplete) (vim-auto-origami)
+        vim-sensible vim-polyglot vim-nix editorconfig-vim fugitive gitgutter vim-gutentags ale (vim-mucomplete) (vim-auto-origami) (vim-gdscript3)
       ];
     };
   });
