@@ -53,7 +53,7 @@ with lib;
       tree ag fzf
       zip unzip
       duperemove
-      nox w3m
+      nox w3m ncdu stow
       (with import <nixpkgs> {}; writeShellScriptBin "palette" ''
         for col in 1 3 2 6 4 5; do
           for bold in 0 1; do
