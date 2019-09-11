@@ -48,7 +48,7 @@ with lib;
     };
     environment.pathsToLink = [ "/include" ];
     environment.systemPackages = with pkgs; [
-      gnumake bc gcc
+      gnumake bc gcc binutils
       psmisc pciutils
       tree ag fzf
       zip unzip
