@@ -258,7 +258,7 @@
           };
         }; in
       with pkgs.vimPlugins; [
-        vim-sensible vim-polyglot vim-nix editorconfig-vim fugitive gitgutter vim-gutentags ale (vim-mucomplete) (vim-auto-origami) (vim-gdscript3)
+        vim-sensible vim-polyglot vim-nix editorconfig-vim ale fugitive gitgutter vim-gutentags (vim-mucomplete) (vim-auto-origami) (vim-gdscript3)
       ];
     };
   });
