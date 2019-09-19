@@ -166,6 +166,7 @@ with lib;
       ];
       fontconfig = {
         enable = true;
+        penultimate.enable = true;
         localConf = ''
           <fontconfig>
             <match target="pattern">
