@@ -3,6 +3,5 @@ TODO:
 * boot splash
 * sddm theme
 * emoji selector buggy (gtk theme?)
-* emoji font config (colorless not default)
 * gtk theme using nixos vars?
 * server-only version of os
