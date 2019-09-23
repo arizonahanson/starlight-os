@@ -63,9 +63,10 @@ with lib;
         echo
         for col in 7 0; do
           for bold in 1 0; do
-            echo -e "\e[$bold;3''${col}m "
+            echo -en "\e[$bold;3''${col}m "
           done
         done
+        echo
       '')
     ] ++ optional config.starlight.efi gptfdisk;
     services.journald.extraConfig = ''
