@@ -344,7 +344,7 @@ with lib;
         ZSH_THEME_AHEAD_PROMPT=''
         ZSH_THEME_BEHIND_PROMPT=''
         ZSH_THEME_UNTRACKED_PROMPT=" "
-        ZSH_THEME_NOUPSTREAM_PROMPT=" "
+        ZSH_THEME_NOUPSTREAM_PROMPT=""
         ZSH_THEME_STASHED_PROMPT=" "
         ZSH_THEME_STAGED_PROMPT=" "
         ZSH_THEME_CHANGED_PROMPT=" "
@@ -783,7 +783,7 @@ with lib;
 
                 local f="$u$w$i$s"
                 #local gitstring="''${f:+$z$f}$r$p $c$b"
-          local gitstring="$f$r$c$p $b "
+                local gitstring="$f$r$c$p $b "
 
                 if [ $pcmode = yes ]; then
                         if [ "''${__git_printf_supports_v-}" != yes ]; then
