@@ -174,6 +174,7 @@
         hi! link Boolean Constant
         hi! link shOption Constant
         hi! link jsNull Constant
+        hi! link jsThis Constant
         " functions
         hi Function     ctermfg=${toString theme.function}
         hi! link Question Function
