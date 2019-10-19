@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  environment = let system_vim = (pkgs.neovim.override {
-    vimAlias = true;
-    configure = let theme = config.starlight.theme; in {
+  environment = let system_vim = (pkgs.vim_configurable.customize {
+    name = "vim";
+    vimrcConfig = let theme = config.starlight.theme; in {
       customRC = ''
         " no startup message
         set shortmess+=I
@@ -70,10 +70,11 @@
         set belloff+=ctrlg
         " temp cache directory
         let g:vimcache='/tmp/.vim-'.$USER.'/'
-        call mkdir(g:vimcache, 'p', 0700)
+        let g:vimswap=g:vimcache.'swap//'
+        call mkdir(g:vimswap, 'p', 0700)
         " swapfile
         set swapfile
-        let &directory=g:vimcache.'swap//'
+        let &directory=g:vimswap
         " swap/cursor-hold timer
         set updatetime=500
         " backup during write
@@ -88,8 +89,11 @@
         set undofile
         let &undodir=g:vimcache.'undo//'
         " keep buffers, large shada, relocate shada file
-        let shada_file=g:vimcache.'shada'
-        let &shada="%,!,'1000,s1024,n".shada_file
+        "let shada_file=g:vimcache.'shada'
+        "let &shada="%,!,'1000,s1024,n".shada_file
+        " viminfo version of above
+        let info_file=g:vimcache.'viminfo'
+        let &viminfo="%,!,'1000,s1024,n".info_file
         " ctags
         let g:gutentags_cache_dir=g:vimcache.'ctags//'
         let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
