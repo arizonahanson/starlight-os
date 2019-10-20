@@ -88,10 +88,10 @@
         " persist undo tree
         set undofile
         let &undodir=g:vimcache.'undo//'
-        " keep buffers, large shada, relocate shada file
+        " neovim: keep buffers, large shada, relocate shada file
         "let shada_file=g:vimcache.'shada'
         "let &shada="%,!,'1000,s1024,n".shada_file
-        " viminfo version of above
+        " vim8: keep buffers, large viminfo, reloacet viminfo file
         let info_file=g:vimcache.'viminfo'
         let &viminfo="%,!,'1000,s1024,n".info_file
         " ctags
