@@ -36,6 +36,14 @@ with lib;
         Text logo
       '';
     };
+    borderRadius = mkOption {
+      type = types.int;
+      default = 2;
+      description = ''
+        bspwm border radius
+        (default 2)
+      '';
+    };
     shadowRadius = mkOption {
       type = types.int;
       default = 16;

@@ -14,7 +14,7 @@ with lib;
       };
       default = "bspwm";
     };
-    environment.etc.bspwmrc = let palette = config.starlight.palette; in {
+    environment.etc.bspwmrc = let cfg = config.starlight; in {
       mode = "0645";
       text = ''
         #!/usr/bin/env bash
@@ -44,9 +44,9 @@ with lib;
         xset s noblank
 
         # border color
-        bspc config focused_border_color "${palette.foreground-alt}"
-        bspc config normal_border_color "${palette.background-alt}"
-        bspc config border_width         2
+        bspc config focused_border_color "${cfg.palette.foreground-alt}"
+        bspc config normal_border_color  "${cfg.palette.background-alt}"
+        bspc config border_width         "${toString cfg.borderRadius}"
         bspc config window_gap           0
         bspc config split_ratio          0.50
         bspc config borderless_monocle   true
