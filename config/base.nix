@@ -52,8 +52,8 @@ with lib;
       psmisc pciutils
       tree ag fzf
       zip unzip
-      duperemove
-      nox w3m ncdu stow
+      duperemove compsize
+      nox w3m ncdu stow bind highlight
       (with import <nixpkgs> {}; writeShellScriptBin "palette" ''
         for col in 1 3 2 6 4 5; do
           for bold in 0 1; do
