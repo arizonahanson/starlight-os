@@ -29,14 +29,14 @@ with lib;
       };
       background-alt = mkOption {
         type = types.str;
-        default = "#545454";
+        default = "#585858";
         description = ''
           Alternate Background color
         '';
       };
       cursor = mkOption {
         type = types.str;
-        default = "#A8A8A8";
+        default = "#A1A1A1";
         description = ''
           Cursor color
         '';
@@ -106,7 +106,7 @@ with lib;
       };
       color8 = mkOption {
         type = types.str;
-        default = "#545454";
+        default = "#585858";
         description = ''
           color 8 (dark gray)
         '';
