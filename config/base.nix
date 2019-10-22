@@ -29,8 +29,8 @@ with lib;
       };
     };
     fileSystems = {
-      "/".options = [ "compress=lzo" ];
-      "/home".options = [ "compress=lzo" ];
+      "/".options = [ "compress-force=lzo" "noatime" ];
+      "/home".options = [ "compress-force=lzo" "noatime" ];
     };
     services.btrfs.autoScrub = {
       enable = true;
