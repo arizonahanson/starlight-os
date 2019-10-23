@@ -129,7 +129,7 @@ with lib;
     theme = {
       accent = mkOption {
         type = types.int;
-        default = 4;
+        default = 7;
         description = ''
           color number for accent
           default: 4
