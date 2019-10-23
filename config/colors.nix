@@ -36,14 +36,14 @@ with lib;
       };
       accent = mkOption {
         type = types.str;
-        default = "#A1A1A1";
+        default = "#4F9E77";
         description = ''
           Accent color
         '';
       };
       cursor = mkOption {
         type = types.str;
-        default = "#A1A1A1";
+        default = "#9E9E9E";
         description = ''
           Cursor color
         '';

@@ -289,7 +289,11 @@ with lib;
             if [ $KEYMAP = vicmd ]; then
               echo -ne "\e[1 q"
             else
-              echo -ne "\e[3 q"
+              if [[ $ZLE_STATE == *insert* ]]; then
+                echo -ne "\e[5 q"
+              else
+                echo -ne "\e[4 q"
+              fi
             fi
           fi
           () { return $__prompt_status }
@@ -845,7 +849,7 @@ with lib;
 
         precmd() {
           if [ ! "$TERM" = "linux" ]; then
-            echo -ne "\e[3 q"
+            echo -ne "\e[5 q"
           fi
           if [ -z "$TMUX" ]; then
             spc=" "
