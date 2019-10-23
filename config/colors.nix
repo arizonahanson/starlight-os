@@ -36,7 +36,7 @@ with lib;
       };
       accent = mkOption {
         type = types.str;
-        default = "#4F9E77";
+        default = "#9E9E9E";
         description = ''
           Accent color
         '';
