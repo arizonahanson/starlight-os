@@ -6,119 +6,70 @@ with lib;
   options.starlight = {
     # system colors
     palette = {
-      foreground = mkOption {
-        type = types.str;
-        default = "#BFBFBF";
-        description = ''
-          Foreground color
-        '';
-      };
-      foreground-alt = mkOption {
-        type = types.str;
-        default = "#808080";
-        description = ''
-          Alternate foreground color
-        '';
-      };
-      background = mkOption {
-        type = types.str;
-        default = "#1A1A1A";
-        description = ''
-          Background color
-        '';
-      };
-      background-alt = mkOption {
-        type = types.str;
-        default = "#585858";
-        description = ''
-          Alternate Background color
-        '';
-      };
-      accent = mkOption {
-        type = types.str;
-        default = "#9E9E9E";
-        description = ''
-          Accent color
-        '';
-      };
-      cursor = mkOption {
-        type = types.str;
-        default = "#9E9E9E";
-        description = ''
-          Cursor color
-        '';
-      };
-      info = mkOption {
-        type = types.str;
-        default = "#BFBF60";
-        description = ''
-          Info color
-        '';
-      };
-      color0 = mkOption {
+      color00 = mkOption {
         type = types.str;
         default = "#1A1A1A";
         description = ''
           color 0 (black)
         '';
       };
-      color1 = mkOption {
+      color01 = mkOption {
         type = types.str;
         default = "#BF6060";
         description = ''
           color 1 (red)
         '';
       };
-      color2 = mkOption {
+      color02 = mkOption {
         type = types.str;
         default = "#60BF60";
         description = ''
           color 2 (green)
         '';
       };
-      color3 = mkOption {
+      color03 = mkOption {
         type = types.str;
         default = "#BFBF60";
         description = ''
           color 3 (yellow)
         '';
       };
-      color4 = mkOption {
+      color04 = mkOption {
         type = types.str;
         default = "#6060BF";
         description = ''
           color 4 (blue)
         '';
       };
-      color5 = mkOption {
+      color05 = mkOption {
         type = types.str;
         default = "#BF60BF";
         description = ''
           color 5 (magenta)
         '';
       };
-      color6 = mkOption {
+      color06 = mkOption {
         type = types.str;
         default = "#60BFBF";
         description = ''
           color 6 (cyan)
         '';
       };
-      color7 = mkOption {
+      color07 = mkOption {
         type = types.str;
         default = "#808080";
         description = ''
           color 7 (white)
         '';
       };
-      color8 = mkOption {
+      color08 = mkOption {
         type = types.str;
         default = "#585858";
         description = ''
           color 8 (dark gray)
         '';
       };
-      color9 = mkOption {
+      color09 = mkOption {
         type = types.str;
         default = "#BF8F60";
         description = ''
@@ -167,8 +118,23 @@ with lib;
           color 15 (bright white)
         '';
       };
+      cursor = mkOption {
+        type = types.str;
+        default = "#9E9E9E";
+        description = ''
+          Cursor color
+        '';
+      };
     };
     theme = {
+      accent = mkOption {
+        type = types.int;
+        default = 4;
+        description = ''
+          color number for accent
+          default: 4
+        '';
+      };
       background = mkOption {
         type = types.int;
         default = 0;

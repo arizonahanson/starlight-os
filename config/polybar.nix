@@ -7,7 +7,6 @@ with lib;
     environment = {
       systemPackages = with pkgs; [ polybar ];
       etc."polybar.conf" = let
-        palette = config.starlight.palette;
         theme = config.starlight.theme;
       in {
         text = ''
@@ -16,7 +15,7 @@ with lib;
           foreground-alt = ''${xrdb:color${toString theme.foreground-alt}}
           background = ''${xrdb:color${toString theme.background}}
           background-alt = ''${xrdb:color${toString theme.background-alt}}
-          accent = ${toString palette.accent}
+          accent = ''${xrdb:color${toString theme.accent}}
           info = ''${xrdb:color${toString theme.info}}
           warn = ''${xrdb:color${toString theme.warning}}
 

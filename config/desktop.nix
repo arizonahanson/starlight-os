@@ -55,7 +55,11 @@ with lib;
   };
   config = lib.mkIf config.starlight.desktop {
     environment = {
-      etc."X11/Xresources" = let palette = config.starlight.palette; in {
+      etc."X11/Xresources" = let
+        palette = config.starlight.palette;
+        theme = config.starlight.theme;
+        toRGB = num: elemAt (attrValues palette) num;
+      in {
         text = ''
           ! Xcursor
           Xcursor.theme: Bibata_Oil
@@ -95,10 +99,10 @@ with lib;
           ! "scrolling method. (0: Page, 1: Centered)"
           rofi.scroll-method:     1
           ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
-          rofi.color-normal: ${palette.background},${palette.background-alt},${palette.background},${palette.background},${palette.foreground}
-          rofi.color-urgent: ${palette.background},${palette.info},${palette.background},${palette.background},${palette.info}
-          rofi.color-active: ${palette.background},${palette.foreground-alt},${palette.background},${palette.background},${palette.foreground}
-          rofi.color-window: ${palette.background},${palette.background},${palette.background}
+          rofi.color-normal: ${toRGB theme.background},${toRGB theme.background-alt},${toRGB theme.background},${toRGB theme.background},${toRGB theme.foreground}
+          rofi.color-urgent: ${toRGB theme.background},${toRGB theme.info},${toRGB theme.background},${toRGB theme.background},${toRGB theme.info}
+          rofi.color-active: ${toRGB theme.background},${toRGB theme.foreground-alt},${toRGB theme.background},${toRGB theme.background},${toRGB theme.foreground}
+          rofi.color-window: ${toRGB theme.background},${toRGB theme.background},${toRGB theme.background}
           rofi.display-drun: 
           rofi.display-run: 
           rofi.display-window: 
@@ -107,31 +111,31 @@ with lib;
           rofi.combi-modi: window,run,drun
           rofi.monitor: -1
     
-          *.foreground:   ${palette.foreground}
+          *.foreground:   ${toRGB theme.foreground}
+          *.background:   ${toRGB theme.background}
           *.cursorColor:  ${palette.cursor}
-          *.background:   ${palette.background}
-          *.color0:       ${palette.color0}
-          *.color8:       ${palette.color8}
+          *.color0:       ${palette.color00}
+          *.color8:       ${palette.color08}
           ! red
-          *.color1:       ${palette.color1}
-          *.color9:       ${palette.color9}
+          *.color1:       ${palette.color01}
+          *.color9:       ${palette.color09}
           ! green
-          *.color2:       ${palette.color2}
+          *.color2:       ${palette.color02}
           *.color10:      ${palette.color10}
           ! yellow
-          *.color3:       ${palette.color3}
+          *.color3:       ${palette.color03}
           *.color11:      ${palette.color11}
           ! blue
-          *.color4:       ${palette.color4}
+          *.color4:       ${palette.color04}
           *.color12:      ${palette.color12}
           ! magenta
-          *.color5:       ${palette.color5}
+          *.color5:       ${palette.color05}
           *.color13:      ${palette.color13}
           ! cyan
-          *.color6:       ${palette.color6}
+          *.color6:       ${palette.color06}
           *.color14:      ${palette.color14}
           ! white
-          *.color7:       ${palette.color7}
+          *.color7:       ${palette.color07}
           *.color15:      ${palette.color15}
         '';
       };

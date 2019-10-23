@@ -3,7 +3,10 @@
 with lib;
 
 {
-  config = let cfg = config.starlight; in lib.mkIf config.starlight.desktop {
+  config = let 
+    cfg = config.starlight;
+    toRGB = num: elemAt (attrValues cfg.palette) num;
+  in lib.mkIf config.starlight.desktop {
     environment = {
       etc.dconf_keyfile = {
         target = "dconf/db/site.d/keyfile";
@@ -163,7 +166,7 @@ with lib;
           [desktop/ibus/panel]
           show=0
           show-icon-on-systray=true
-          xkb-icon-rgba='${cfg.palette.foreground}'
+          xkb-icon-rgba='${toRGB cfg.theme.foreground}'
 
           [org/mate/marco/general]
           theme='starlight'

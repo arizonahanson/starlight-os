@@ -28,7 +28,11 @@ with lib;
       variables = {
         TERMINAL = "${term}/bin/termite";
       };
-      etc."termite.conf" = let palette = config.starlight.palette; in {
+      etc."termite.conf" = let
+        palette = config.starlight.palette;
+        theme = config.starlight.theme;
+        toRGB = num: elemAt (attrValues palette) num;
+      in {
         text = ''
           [options]
           font = Share Tech Mono 16
@@ -38,41 +42,41 @@ with lib;
           [colors]
     
           # special
-          foreground      = ${palette.foreground}
-          foreground_bold = ${palette.foreground}
+          foreground      = ${toRGB theme.foreground}
+          foreground_bold = ${toRGB theme.foreground}
+          background      = ${toRGB theme.background}
           cursor          = ${palette.cursor}
-          background      = ${palette.background}
     
           # black
-          color0  = ${palette.color0}
-          color8  = ${palette.color8}
+          color0  = ${palette.color00}
+          color8  = ${palette.color08}
     
           # red
-          color1  = ${palette.color1}
-          color9  = ${palette.color9}
+          color1  = ${palette.color01}
+          color9  = ${palette.color09}
     
           # green
-          color2  = ${palette.color2}
+          color2  = ${palette.color02}
           color10 = ${palette.color10}
     
           # yellow
-          color3  = ${palette.color3}
+          color3  = ${palette.color03}
           color11 = ${palette.color11}
     
           # blue
-          color4  = ${palette.color4}
+          color4  = ${palette.color04}
           color12 = ${palette.color12}
     
           # magenta
-          color5  = ${palette.color5}
+          color5  = ${palette.color05}
           color13 = ${palette.color13}
     
           # cyan
-          color6  = ${palette.color6}
+          color6  = ${palette.color06}
           color14 = ${palette.color14}
     
           # white
-          color7  = ${palette.color7}
+          color7  = ${palette.color07}
           color15 = ${palette.color15}
         '';
       };
