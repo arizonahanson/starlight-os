@@ -88,6 +88,7 @@
         " persist undo tree
         set undofile
         let &undodir=g:vimcache.'undo//'
+        call mkdir(&undodir, 'p', 0700)
         " neovim: keep buffers, large shada, relocate shada file
         "let shada_file=g:vimcache.'shada'
         "let &shada="%,!,'1000,s1024,n".shada_file
