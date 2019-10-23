@@ -44,7 +44,7 @@ with lib;
         xset s noblank
 
         # border color
-        bspc config focused_border_color "${cfg.palette.foreground-alt}"
+        bspc config focused_border_color "${cfg.palette.accent}"
         bspc config normal_border_color  "${cfg.palette.background-alt}"
         bspc config border_width         "${toString cfg.borderRadius}"
         bspc config window_gap           0

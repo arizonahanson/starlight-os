@@ -16,6 +16,7 @@ with lib;
           foreground-alt = ''${xrdb:color${toString theme.foreground-alt}}
           background = ''${xrdb:color${toString theme.background}}
           background-alt = ''${xrdb:color${toString theme.background-alt}}
+          accent = ${toString palette.accent}
           info = ''${xrdb:color${toString theme.info}}
           warn = ''${xrdb:color${toString theme.warning}}
 
@@ -94,7 +95,7 @@ with lib;
           format-foreground = ''${colors.foreground}
 
           label-focused = " "
-          label-focused-foreground = ''${colors.foreground}
+          label-focused-foreground = ''${colors.accent}
           label-focused-padding = 0
 
           label-occupied = " "

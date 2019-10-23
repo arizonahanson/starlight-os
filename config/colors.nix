@@ -34,6 +34,13 @@ with lib;
           Alternate Background color
         '';
       };
+      accent = mkOption {
+        type = types.str;
+        default = "#A1A1A1";
+        description = ''
+          Accent color
+        '';
+      };
       cursor = mkOption {
         type = types.str;
         default = "#A1A1A1";
