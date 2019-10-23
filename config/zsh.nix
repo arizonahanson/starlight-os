@@ -6,6 +6,7 @@ with lib;
   config = let
     theme = config.starlight.theme;
     toANSI = num: if num <= 7 then "00;3${toString num}" else "01;3${toString (num - 8)}";
+    cfg = config.starlight;
   in {
     environment = {
       etc.dircolors = {
@@ -287,12 +288,12 @@ with lib;
         zle-keymap-select () {
           if [ ! "$TERM" = "linux" ]; then
             if [ $KEYMAP = vicmd ]; then
-              echo -ne "\e[1 q"
+              echo -ne "\e[${toString cfg.commandCursor} q"
             else
               if [[ $ZLE_STATE == *insert* ]]; then
-                echo -ne "\e[5 q"
+                echo -ne "\e[${toString cfg.insertCursor} q"
               else
-                echo -ne "\e[4 q"
+                echo -ne "\e[${toString cfg.replaceCursor} q"
               fi
             fi
           fi
@@ -849,7 +850,7 @@ with lib;
 
         precmd() {
           if [ ! "$TERM" = "linux" ]; then
-            echo -ne "\e[5 q"
+            echo -ne "\e[${toString cfg.insertCursor} q"
           fi
           if [ -z "$TMUX" ]; then
             spc=" "

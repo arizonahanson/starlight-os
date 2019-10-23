@@ -3,7 +3,7 @@
 {
   environment = let system_vim = (pkgs.vim_configurable.customize {
     name = "vim";
-    vimrcConfig = let theme = config.starlight.theme; in {
+    vimrcConfig = let theme = config.starlight.theme; cfg = config.starlight; in {
       customRC = ''
         "--- local variables
         let g:vimcache='/tmp/.vim-'.$USER.'/'
@@ -133,9 +133,9 @@
         set showtabline=1
         "--- terminal
         set guicursor=n-v-c-sm:block-blinkwait500-blinkon500-blinkoff500,i-ci-ve:ver25-blinkwait500-blinkon500-blinkoff500,r-cr-o:hor20-blinkwait500-blinkon500-blinkoff500
-        let &t_SI="\e[5 q"
-        let &t_SR="\e[4 q"
-        let &t_EI="\e[1 q"
+        let &t_SI="\e[${toString cfg.insertCursor} q"
+        let &t_SR="\e[${toString cfg.replaceCursor} q"
+        let &t_EI="\e[${toString cfg.commandCursor} q"
         "--- messages and info
         set shortmess+=I
         set shortmess+=c

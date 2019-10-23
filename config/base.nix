@@ -18,6 +18,27 @@ with lib;
         If enabled, will use local time (dual boot)
       '';
     };
+    insertCursor = mkOption {
+      type = types.int;
+      default = 5;
+      description = ''
+        cursor code for insert mode
+      '';
+    };
+    replaceCursor = mkOption {
+      type = types.int;
+      default = 3;
+      description = ''
+        cursor code for replace mode
+      '';
+    };
+    commandCursor = mkOption {
+      type = types.int;
+      default = 1;
+      description = ''
+        cursor code for command mode
+      '';
+    };
   };
   config = mkMerge [{
     boot = {
