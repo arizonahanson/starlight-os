@@ -11,13 +11,14 @@
     text = ''
       set -g default-terminal "screen-256color"
       set -g set-titles on
-      set -g set-titles-string "#S #W"
+      set -g set-titles-string "#W"
       set -g monitor-activity on
       set -g escape-time 0
       set -g status "on"
+      set -g status-keys "vi"
       set -g status-left-length "100"
       set -g status-right-length "100"
-      set -g status-right "#S"
+      set -g status-right ""
       set -g status-left ""
       set -g renumber-windows on
       setw -g window-status-separator ""
