@@ -29,6 +29,14 @@ with lib;
         (default 32)
       '';
     };
+    fontSize = mkOption {
+      type = types.int;
+      default = 16;
+      description = ''
+        terminal font size
+        (default 16)
+      '';
+    };
     logo = mkOption {
       type = types.str;
       default = " ";
@@ -56,6 +64,7 @@ with lib;
   config = lib.mkIf config.starlight.desktop {
     environment = {
       etc."X11/Xresources" = let
+        cfg = config.starlight;
         palette = config.starlight.palette;
         theme = config.starlight.theme;
         toRGB = num: elemAt (attrValues palette) num;
@@ -75,7 +84,7 @@ with lib;
           Xft.rgba: rgb
     
           ! ROFI
-          rofi.font:              Share Tech 16
+          rofi.font:              Share Tech ${toString cfg.fontSize}
           rofi.modi:              window,run,drun,combi
           rofi.width:             38
           rofi.lines:             5
@@ -199,7 +208,7 @@ with lib;
           </fontconfig>
         '';
         defaultFonts = {
-          monospace = [ "Sharetech Mono" ];
+          monospace = [ "Share Tech Mono" ];
           emoji = [ "Noto Emoji" ];
         };
       };

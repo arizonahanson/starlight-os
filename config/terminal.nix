@@ -29,13 +29,14 @@ with lib;
         TERMINAL = "${term}/bin/termite";
       };
       etc."termite.conf" = let
+        cfg = config.starlight;
         palette = config.starlight.palette;
         theme = config.starlight.theme;
         toRGB = num: elemAt (attrValues palette) num;
       in {
         text = ''
           [options]
-          font = Share Tech Mono 16
+          font = Share Tech Mono ${toString cfg.fontSize}
           allow_bold = false
           mouse_autohide = true
     
