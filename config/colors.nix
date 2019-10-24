@@ -127,14 +127,6 @@ with lib;
       };
     };
     theme = {
-      accent = mkOption {
-        type = types.int;
-        default = 15;
-        description = ''
-          color number for accent
-          default: 15
-        '';
-      };
       background = mkOption {
         type = types.int;
         default = 0;
@@ -167,6 +159,14 @@ with lib;
           default: 7
         '';
       };
+      accent = mkOption {
+        type = types.int;
+        default = 15;
+        description = ''
+          color number for accent
+          default: 15
+        '';
+      };
       error = mkOption {
         type = types.int;
         default = 1;
@@ -191,6 +191,14 @@ with lib;
           default: 3
         '';
       };
+      pattern = mkOption {
+        type = types.int;
+        default = 12;
+        description = ''
+          color number for patterns
+          default: 12
+        '';
+      };
       match = mkOption {
         type = types.int;
         default = 9;
@@ -199,12 +207,132 @@ with lib;
           default: 9
         '';
       };
+      substitution = mkOption {
+        type = types.int;
+        default = 7;
+        description = ''
+          color number for substitutions
+          default: 7
+        '';
+      };
       select = mkOption {
         type = types.int;
         default = 3;
         description = ''
           color number for selections
           default: 3
+        '';
+      };
+      executable = mkOption {
+        type = types.int;
+        default = 3;
+        description = ''
+          color number for executable
+          default: 3
+        '';
+      };
+      function = mkOption {
+        type = types.int;
+        default = 11;
+        description = ''
+          color number for functions
+          default: 11
+        '';
+      };
+      keyword = mkOption {
+        type = types.int;
+        default = 13;
+        description = ''
+          color number for keywords
+          default: 13
+        '';
+      };
+      statement = mkOption {
+        type = types.int;
+        default = 5;
+        description = ''
+          color number for statements
+          default: 5
+        '';
+      };
+      type = mkOption {
+        type = types.int;
+        default = 12;
+        description = ''
+          color number for types
+          default: 12
+        '';
+      };
+      constant = mkOption {
+        type = types.int;
+        default = 6;
+        description = ''
+          color number for constants
+          default: 6
+        '';
+      };
+      character = mkOption {
+        type = types.int;
+        default = 2;
+        description = ''
+          color number for characters
+          default: 2
+        '';
+      };
+      string = mkOption {
+        type = types.int;
+        default = 10;
+        description = ''
+          color number for strings
+          default: 10
+        '';
+      };
+      number = mkOption {
+        type = types.int;
+        default = 14;
+        description = ''
+          color number for numbers
+          default: 14
+        '';
+      };
+      path = mkOption {
+        type = types.int;
+        default = 4;
+        description = ''
+          color number for paths
+          default: 4
+        '';
+      };
+      socket = mkOption {
+        type = types.int;
+        default = 12;
+        description = ''
+          color number for sockets
+          default: 12
+        '';
+      };
+      localBranch = mkOption {
+        type = types.int;
+        default = 4;
+        description = ''
+          color number for local branches
+          default: 4
+        '';
+      };
+      currentBranch = mkOption {
+        type = types.int;
+        default = 12;
+        description = ''
+          color number for current branch
+          default: 12
+        '';
+      };
+      remoteBranch = mkOption {
+        type = types.int;
+        default = 5;
+        description = ''
+          color number for remote branches
+          default: 5
         '';
       };
       staged = mkOption {
@@ -253,134 +381,6 @@ with lib;
         description = ''
           color number for diff-remove
           default: 1
-        '';
-      };
-      executable = mkOption {
-        type = types.int;
-        default = 3;
-        description = ''
-          color number for executable
-          default: 3
-        '';
-      };
-      function = mkOption {
-        type = types.int;
-        default = 11;
-        description = ''
-          color number for functions
-          default: 11
-        '';
-      };
-      substitution = mkOption {
-        type = types.int;
-        default = 7;
-        description = ''
-          color number for substitutions
-          default: 7
-        '';
-      };
-      character = mkOption {
-        type = types.int;
-        default = 2;
-        description = ''
-          color number for characters
-          default: 2
-        '';
-      };
-      string = mkOption {
-        type = types.int;
-        default = 10;
-        description = ''
-          color number for strings
-          default: 10
-        '';
-      };
-      constant = mkOption {
-        type = types.int;
-        default = 6;
-        description = ''
-          color number for constants
-          default: 6
-        '';
-      };
-      number = mkOption {
-        type = types.int;
-        default = 14;
-        description = ''
-          color number for numbers
-          default: 14
-        '';
-      };
-      path = mkOption {
-        type = types.int;
-        default = 4;
-        description = ''
-          color number for paths
-          default: 4
-        '';
-      };
-      socket = mkOption {
-        type = types.int;
-        default = 12;
-        description = ''
-          color number for sockets
-          default: 12
-        '';
-      };
-      type = mkOption {
-        type = types.int;
-        default = 12;
-        description = ''
-          color number for types
-          default: 12
-        '';
-      };
-      pattern = mkOption {
-        type = types.int;
-        default = 12;
-        description = ''
-          color number for patterns
-          default: 12
-        '';
-      };
-      localBranch = mkOption {
-        type = types.int;
-        default = 4;
-        description = ''
-          color number for local branches
-          default: 4
-        '';
-      };
-      currentBranch = mkOption {
-        type = types.int;
-        default = 12;
-        description = ''
-          color number for current branch
-          default: 12
-        '';
-      };
-      remoteBranch = mkOption {
-        type = types.int;
-        default = 5;
-        description = ''
-          color number for remote branches
-          default: 5
-        '';
-      };
-      keyword = mkOption {
-        type = types.int;
-        default = 13;
-        description = ''
-          color number for keywords
-          default: 13
-        '';
-      };
-      statement = mkOption {
-        type = types.int;
-        default = 5;
-        description = ''
-          color number for statements
-          default: 5
         '';
       };
     };
