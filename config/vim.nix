@@ -3,7 +3,10 @@
 {
   environment = let system_vim = (pkgs.vim_configurable.customize {
     name = "vim";
-    vimrcConfig = let theme = config.starlight.theme; cfg = config.starlight; in {
+    vimrcConfig = let
+      theme = config.starlight.theme;
+      cfg = config.starlight;
+    in {
       customRC = ''
         "--- local variables
         let g:vimcache='/tmp/.vim-'.$USER.'/'
