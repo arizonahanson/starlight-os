@@ -29,7 +29,7 @@ with lib;
       };
       color03 = mkOption {
         type = types.str;
-        default = "#BFBF60";
+        default = "#8FBF60";
         description = ''
           color 3 (yellow)
         '';
@@ -85,7 +85,7 @@ with lib;
       };
       color11 = mkOption {
         type = types.str;
-        default = "#8FBF60";
+        default = "#BFBF60";
         description = ''
           color 11 (bright yellow)
         '';
@@ -185,10 +185,10 @@ with lib;
       };
       info = mkOption {
         type = types.int;
-        default = 3;
+        default = 11;
         description = ''
           color number for info
-          default: 3
+          default: 11
         '';
       };
       pattern = mkOption {
@@ -217,26 +217,26 @@ with lib;
       };
       select = mkOption {
         type = types.int;
-        default = 3;
+        default = 11;
         description = ''
           color number for selections
-          default: 3
+          default: 11
         '';
       };
       executable = mkOption {
         type = types.int;
-        default = 3;
+        default = 11;
         description = ''
           color number for executable
-          default: 3
+          default: 11
         '';
       };
       function = mkOption {
         type = types.int;
-        default = 11;
+        default = 3;
         description = ''
           color number for functions
-          default: 11
+          default: 3
         '';
       };
       keyword = mkOption {
@@ -337,10 +337,10 @@ with lib;
       };
       staged = mkOption {
         type = types.int;
-        default = 3;
+        default = 11;
         description = ''
           color number for staged items
-          default: 3
+          default: 11
         '';
       };
       diff-add = mkOption {

@@ -76,18 +76,11 @@ with lib;
       duperemove compsize
       nox w3m ncdu stow bind highlight
       (with import <nixpkgs> {}; writeShellScriptBin "palette" ''
-        for col in 1 3 2 6 4 5; do
-          for bold in 0 1; do
+        for bold in 0 1; do
+          for col in {0..7}; do
             echo -en "\e[$bold;3''${col}m "
-          done
+          done; echo
         done
-        echo
-        for col in 7 0; do
-          for bold in 1 0; do
-            echo -en "\e[$bold;3''${col}m "
-          done
-        done
-        echo
       '')
     ] ++ optional config.starlight.efi gptfdisk;
     services.journald.extraConfig = ''
