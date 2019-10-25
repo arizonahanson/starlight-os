@@ -137,6 +137,22 @@
         set switchbuf=useopen,usetab,newtab
         "--- multiple tab pages
         set showtabline=1
+        function! Tabline()
+          let s = '''
+          for i in range(tabpagenr('$'))
+            let tab = i + 1
+            let winnr = tabpagewinnr(tab)
+            let buflist = tabpagebuflist(tab)
+            let bufnr = buflist[winnr - 1]
+            let bufname = bufname(bufnr)
+            let s .= '%' . tab . 'T'
+            let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
+            let s .= (bufname != ''' ? ' '.fnamemodify(bufname, ':t').' ' : '[No Name] ')
+          endfor
+          let s .= '%#TabLineFill#'
+          return s
+        endfunction
+        set tabline=%!Tabline()
         "--- terminal
         set guicursor=n-v-c-sm:block-blinkwait500-blinkon500-blinkoff500,i-ci-ve:ver25-blinkwait500-blinkon500-blinkoff500,r-cr-o:hor20-blinkwait500-blinkon500-blinkoff500
         let &t_SI="\e[${toString cfg.insertCursor} q"
