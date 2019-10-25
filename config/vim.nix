@@ -62,7 +62,6 @@
         highlight DiffText ctermbg=${toString theme.background-alt} ctermfg=${toString theme.diff-change} cterm=NONE
         highlight gitcommitSelectedType ctermbg=NONE ctermfg=${toString theme.staged} cterm=NONE
         highlight gitcommitBranch ctermbg=NONE ctermfg=${toString theme.currentBranch}
-        highlight User${toString theme.diff-change} ctermbg=${toString theme.background-alt} ctermfg=${toString theme.diff-change} cterm=NONE
         highlight! link MatchParen Search
         highlight! link LineNr Comment
         highlight! link CursorLineNr Noise
@@ -129,8 +128,11 @@
         highlight! link goBuiltins Function
         highlight! link csBraces Noise
         highlight! link csLogicSymbols Operator
+        highlight User1 ctermbg=${toString theme.background-alt} ctermfg=${toString theme.info} cterm=NONE
+        highlight User2 ctermbg=${toString theme.background-alt} ctermfg=${toString theme.diff-change} cterm=NONE
+        highlight User3 ctermbg=${toString theme.background-alt} ctermfg=${toString theme.type} cterm=NONE
         "--- multiple windows
-        set statusline=%<\ %f\ %${toString cfg.theme.diff-change}*%m%r%*%=%y\ %l,%c%V\ 
+        set statusline=%<\ %f\ %1*%r%*%2*%m%*%=%3*%y%*\ %l,%c%V\ 
         set hidden
         set switchbuf=useopen,usetab,newtab
         "--- multiple tab pages
