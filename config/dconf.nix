@@ -79,10 +79,10 @@ with lib;
           [org/mate/desktop/interface]
           menus-have-icons=true
           gtk-decoration-layout='menu:close'
-          font-name='Share Tech ${toString cfg.fontSize}'
+          font-name='Share Tech 16'
           gtk-im-module='ibus'
           cursor-blink-time=1000
-          monospace-font-name='Share Tech Mono ${toString cfg.fontSize}'
+          monospace-font-name='Share Tech Mono 16'
           accessibility=true
           gtk-theme='starlight'
           icon-theme='starlight'
@@ -160,7 +160,7 @@ with lib;
           partial-match-condition=2
           has-partial-match=true
           lang='en'
-          font='Noto Emoji ${toString cfg.fontSize}'
+          font='Noto Emoji 16'
           hotkey=['<Control><Shift>e']
 
           [desktop/ibus/panel]
