@@ -529,14 +529,14 @@ with lib;
                             case "$count" in
                             "") # no upstream
                                     p="%{${toFG theme.error}%}$ZSH_THEME_NOUPSTREAM_PROMPT%{$reset_color%}" ;;
-                            "0  0") # equal to upstream
+                            "0	0") # equal to upstream
                                     p="" ;;
-                            "0  "*) # ahead of upstream
+                            "0	"*) # ahead of upstream
                                     p="%{${toFG theme.diff-add}%}''${count#0  }$ZSH_THEME_AHEAD_PROMPT%{$reset_color%}" ;;
-                            *"  0") # behind upstream
-                                    p="%{${toFG theme.diff-change}%}''${count%  0}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
+                            *"	0") # behind upstream
+                                    p="%{${toFG theme.diff-change}%}''${count%	0}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
                             *)      # diverged from upstream
-                                    p="%{${toFG theme.diff-remove}%}''${count#*  }''${ZSH_THEME_AHEAD_PROMPT/ /}''${count%  *}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
+                                    p="%{${toFG theme.diff-remove}%}''${count#*	}''${ZSH_THEME_AHEAD_PROMPT/ /}''${count% *}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
                             esac
                             if [[ -n "$count" && -n "$name" ]]; then
                                     __git_ps1_upstream_name=$(git rev-parse \
@@ -858,7 +858,7 @@ with lib;
                 spc=" "
               fi
               PROMPT='%(?.${toFG theme.foreground-alt}.${toFG theme.error})%(!.$ZSH_THEME_PROMPT_ROOT.$ZSH_THEME_PROMPT)%{$reset_color%}$spc '
-              RPROMPT=" \$(git_prompt_info)${toFG theme.path}$(get_pwd)$(host_info)%{\$reset_color%}"
+              RPROMPT=" $(git_prompt_info)${toFG theme.path}$(get_pwd)$(host_info)%{$reset_color%}"
               PS2="%{$reset_color%}${toFG theme.warning}$ZSH_THEME_PROMPT2$spc %{$reset_color%}"
             }
 
