@@ -4,7 +4,8 @@ with lib;
 
 let
   cfg = config.starlight;
-in {
+in
+{
   # imports...
   # options...
   options.starlight = {
@@ -23,4 +24,3 @@ in {
     services.nixosManual.showManual = true;
   };
 }
-

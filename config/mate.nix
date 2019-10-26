@@ -15,9 +15,19 @@ with lib;
         gnome3.dconf-editor
       ];
       mate.excludePackages = with pkgs.mate; [
-        engrampa eom mate-applets mate-backgrounds mate-calc mate-indicator-applet
-        mate-netbook mate-screensaver mate-sensors-applet mate-system-monitor
-        mate-user-guide mozo pluma
+        engrampa
+        eom
+        mate-applets
+        mate-backgrounds
+        mate-calc
+        mate-indicator-applet
+        mate-netbook
+        mate-screensaver
+        mate-sensors-applet
+        mate-system-monitor
+        mate-user-guide
+        mozo
+        pluma
       ];
     };
     # Enable the X11 windowing system.
@@ -27,5 +37,3 @@ with lib;
     };
   };
 }
-
-

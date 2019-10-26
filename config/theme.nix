@@ -15,7 +15,7 @@ with lib;
           rev = "v1.0";
           sha256 = "0pcrfdaw35s6yfq83f33rif4i5w3xpcarg7dhn2w45ip16b7ss9a";
         };
-            
+
         dontBuild = true;
         installPhase = ''
           mkdir -p $out/share/themes/starlight/
@@ -30,7 +30,7 @@ with lib;
           rev = "v1.0";
           sha256 = "1bqydmzkialx95wf5s9vz3nqgmmajwacbwcrm3c98r1bddfyw3a7";
         };
-            
+
         dontBuild = true;
         installPhase = ''
           mkdir -p $out/share/icons/starlight/
@@ -48,12 +48,13 @@ with lib;
       #    "--with-destruction_color=${toRGB cfg.theme.warning}"
       #  ];
       #}));
-    in with pkgs; [
-      bibata-cursors gtk-engine-murrine
-      #(adapta-gtk-theme)
-      (starlight-icon-theme)
-      (starlight-gtk-theme)
-    ];
+    in
+      with pkgs; [
+        bibata-cursors
+        gtk-engine-murrine
+        #(adapta-gtk-theme)
+        (starlight-icon-theme)
+        (starlight-gtk-theme)
+      ];
   };
 }
-

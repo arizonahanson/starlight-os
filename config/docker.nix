@@ -2,7 +2,10 @@
 
 with lib;
 
-let cfg = config.starlight; in {
+let
+  cfg = config.starlight;
+in
+{
   # docker option
   options.starlight = {
     docker = mkOption {

@@ -4,13 +4,15 @@
   environment = let
     theme = config.starlight.theme;
     toANSI = num: if num <= 7 then "00;3${toString num}" else "01;3${toString (num - 8)}";
-    git-minimal = ((pkgs.git.overrideAttrs (oldAttrs: rec { doInstallCheck = false; })).override {
-      guiSupport = false;
-      pythonSupport = false;
-      perlSupport = false;
-      withManual = false; # time consuming
-      withLibsecret = true;
-    });
+    git-minimal = (
+      (pkgs.git.overrideAttrs (oldAttrs: rec { doInstallCheck = false; })).override {
+        guiSupport = false;
+        pythonSupport = false;
+        perlSupport = false;
+        withManual = false; # time consuming
+        withLibsecret = true;
+      }
+    );
     git-config = ''
       [core]
         autocrlf = false
@@ -88,29 +90,31 @@
         title-blur = ${toString theme.background-alt} default
         title-focus = ${toString theme.foreground} ${toString theme.background-alt}
     '';
-    git-all = (with import <nixpkgs> {}; writeShellScriptBin "git-all" ''
-      echo
-      for repo in $(find -L . -maxdepth 7 -iname '.git' -type d -printf '%P\0' 2>/dev/null | xargs -0 dirname | sort); do
-        echo -e "\e[${toANSI theme.executable}m  \e[${toANSI theme.path}m$repo \e[0m(\e[${toANSI theme.function}m$@\e[0m)"
-        pushd $repo >/dev/null
-        ${git-minimal}/bin/git "$@"
-        popd >/dev/null
+    git-all = (
+      with import <nixpkgs> {}; writeShellScriptBin "git-all" ''
         echo
-      done
-    '');
-    in
+        for repo in $(find -L . -maxdepth 7 -iname '.git' -type d -printf '%P\0' 2>/dev/null | xargs -0 dirname | sort); do
+          echo -e "\e[${toANSI theme.executable}m  \e[${toANSI theme.path}m$repo \e[0m(\e[${toANSI theme.function}m$@\e[0m)"
+          pushd $repo >/dev/null
+          ${git-minimal}/bin/git "$@"
+          popd >/dev/null
+          echo
+        done
+      ''
+    );
+  in
     {
       systemPackages = [ (git-minimal) (git-all) pkgs.tig ];
       etc.gitconfig = if config.services.xserver.enable then
-      {
-        text = ''
-          [credential]
-            helper = ${git-minimal}/bin/git-credential-libsecret
-          [web]
-            browser = "chromium"
-          ${git-config}
-        '';
-      } else {
+        {
+          text = ''
+            [credential]
+              helper = ${git-minimal}/bin/git-credential-libsecret
+            [web]
+              browser = "chromium"
+            ${git-config}
+          '';
+        } else {
         text = ''
           [web]
             browser = "w3m"
@@ -129,4 +133,3 @@
     gdt = "git difftool";
   };
 }
-

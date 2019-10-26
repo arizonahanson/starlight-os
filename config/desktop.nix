@@ -68,116 +68,138 @@ with lib;
         palette = config.starlight.palette;
         theme = config.starlight.theme;
         toRGB = num: elemAt (attrValues palette) num;
-      in {
-        text = ''
-          ! Xcursor
-          Xcursor.theme: Bibata_Oil
-          Xcursor.size:  ${toString config.starlight.cursorSize}
+      in
+        {
+          text = ''
+            ! Xcursor
+            Xcursor.theme: Bibata_Oil
+            Xcursor.size:  ${toString config.starlight.cursorSize}
 
-          ! XFT
-          Xft.antialias: 1
-          Xft.autohint: 1
-          Xft.dpi: 96
-          Xft.hinting: 1
-          Xft.hintstyle: hintslight
-          Xft.lcdfilter: lcddefault
-          Xft.rgba: rgb
+            ! XFT
+            Xft.antialias: 1
+            Xft.autohint: 1
+            Xft.dpi: 96
+            Xft.hinting: 1
+            Xft.hintstyle: hintslight
+            Xft.lcdfilter: lcddefault
+            Xft.rgba: rgb
     
-          ! ROFI
-          rofi.font:              Share Tech ${toString cfg.fontSize}
-          rofi.modi:              window,run,drun,combi
-          rofi.width:             38
-          rofi.lines:             5
-          rofi.columns:           1
-          ! "border width"
-          rofi.bw:                2
-          rofi.location:          0
-          rofi.padding:           12
-          rofi.yoffset:           0
-          rofi.xoffset:           0
-          rofi.fixed-num-lines:   true
-          rofi.terminal:          termite
-          rofi.run-shell-command:  {terminal} -e '{cmd}'
-          ! "margin between rows"
-          rofi.line-margin:       2
-          ! "separator style (none, dash, solid)"
-          rofi.separator-style:   none
-          rofi.hide-scrollbar:    true
-          rofi.fullscreen:        false
-          rofi.fake-transparency: false
-          ! "scrolling method. (0: Page, 1: Centered)"
-          rofi.scroll-method:     1
-          ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
-          rofi.color-normal: ${toRGB theme.background},${toRGB theme.background-alt},${toRGB theme.background},${toRGB theme.background},${toRGB theme.foreground}
-          rofi.color-urgent: ${toRGB theme.background},${toRGB theme.info},${toRGB theme.background},${toRGB theme.background},${toRGB theme.info}
-          rofi.color-active: ${toRGB theme.background},${toRGB theme.foreground-alt},${toRGB theme.background},${toRGB theme.background},${toRGB theme.foreground}
-          rofi.color-window: ${toRGB theme.background},${toRGB theme.background},${toRGB theme.background}
-          rofi.display-drun: 
-          rofi.display-run: 
-          rofi.display-window: 
-          rofi.display-ssh: 
-          rofi.display-combi: 
-          rofi.combi-modi: window,run,drun
-          rofi.monitor: -1
+            ! ROFI
+            rofi.font:              Share Tech ${toString cfg.fontSize}
+            rofi.modi:              window,run,drun,combi
+            rofi.width:             38
+            rofi.lines:             5
+            rofi.columns:           1
+            ! "border width"
+            rofi.bw:                2
+            rofi.location:          0
+            rofi.padding:           12
+            rofi.yoffset:           0
+            rofi.xoffset:           0
+            rofi.fixed-num-lines:   true
+            rofi.terminal:          termite
+            rofi.run-shell-command:  {terminal} -e '{cmd}'
+            ! "margin between rows"
+            rofi.line-margin:       2
+            ! "separator style (none, dash, solid)"
+            rofi.separator-style:   none
+            rofi.hide-scrollbar:    true
+            rofi.fullscreen:        false
+            rofi.fake-transparency: false
+            ! "scrolling method. (0: Page, 1: Centered)"
+            rofi.scroll-method:     1
+            ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
+            rofi.color-normal: ${toRGB theme.background},${toRGB theme.background-alt},${toRGB theme.background},${toRGB theme.background},${toRGB theme.foreground}
+            rofi.color-urgent: ${toRGB theme.background},${toRGB theme.info},${toRGB theme.background},${toRGB theme.background},${toRGB theme.info}
+            rofi.color-active: ${toRGB theme.background},${toRGB theme.foreground-alt},${toRGB theme.background},${toRGB theme.background},${toRGB theme.foreground}
+            rofi.color-window: ${toRGB theme.background},${toRGB theme.background},${toRGB theme.background}
+            rofi.display-drun: 
+            rofi.display-run: 
+            rofi.display-window: 
+            rofi.display-ssh: 
+            rofi.display-combi: 
+            rofi.combi-modi: window,run,drun
+            rofi.monitor: -1
     
-          *.foreground:   ${toRGB theme.foreground}
-          *.background:   ${toRGB theme.background}
-          *.cursorColor:  ${palette.cursor}
-          *.color0:       ${palette.color00}
-          *.color8:       ${palette.color08}
-          ! red
-          *.color1:       ${palette.color01}
-          *.color9:       ${palette.color09}
-          ! green
-          *.color2:       ${palette.color02}
-          *.color10:      ${palette.color10}
-          ! yellow
-          *.color3:       ${palette.color03}
-          *.color11:      ${palette.color11}
-          ! blue
-          *.color4:       ${palette.color04}
-          *.color12:      ${palette.color12}
-          ! magenta
-          *.color5:       ${palette.color05}
-          *.color13:      ${palette.color13}
-          ! cyan
-          *.color6:       ${palette.color06}
-          *.color14:      ${palette.color14}
-          ! white
-          *.color7:       ${palette.color07}
-          *.color15:      ${palette.color15}
-        '';
-      };
+            *.foreground:   ${toRGB theme.foreground}
+            *.background:   ${toRGB theme.background}
+            *.cursorColor:  ${palette.cursor}
+            *.color0:       ${palette.color00}
+            *.color8:       ${palette.color08}
+            ! red
+            *.color1:       ${palette.color01}
+            *.color9:       ${palette.color09}
+            ! green
+            *.color2:       ${palette.color02}
+            *.color10:      ${palette.color10}
+            ! yellow
+            *.color3:       ${palette.color03}
+            *.color11:      ${palette.color11}
+            ! blue
+            *.color4:       ${palette.color04}
+            *.color12:      ${palette.color12}
+            ! magenta
+            *.color5:       ${palette.color05}
+            *.color13:      ${palette.color13}
+            ! cyan
+            *.color6:       ${palette.color06}
+            *.color14:      ${palette.color14}
+            ! white
+            *.color7:       ${palette.color07}
+            *.color15:      ${palette.color15}
+          '';
+        };
       variables = {
         BROWSER = "chromium";
         CM_LAUNCHER = "cliprofi";
         SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
-        XCURSOR_THEME="Bibata_Oil";
+        XCURSOR_THEME = "Bibata_Oil";
       };
-      systemPackages = 
-        let 
-          cliprofi = (with import <nixpkgs> {}; writeShellScriptBin "cliprofi" ''
-            ${rofi-unwrapped}/bin/rofi -p  -dmenu -normal-window $@
-          '');
-          reload-desktop = (with import <nixpkgs> {}; writeShellScriptBin "reload-desktop" ''
-            ${procps}/bin/pkill -USR1 -x sxhkd
-            ${procps}/bin/pkill -TERM -x compton
-            ${procps}/bin/pkill -TERM -x polybar
-            ${bspwm}/bin/bspc wm -r
-            say 'Reloaded desktop' 'Desktop components have been reloaded'
-          '');
-          flatpak-alt = (with import <nixpkgs> {}; writeShellScriptBin "flatpak" ''
-            ${flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-            ${flatpak}/bin/flatpak "$@"
-          '');
-          say = (with import <nixpkgs> {}; writeShellScriptBin "say" ''
-            ${libnotify}/bin/notify-send -i star "$@"
-          '');
-        in with pkgs; [
-          sxhkd rofi-unwrapped libnotify feh clipmenu networkmanagerapplet
-          xdg-desktop-portal-gtk xorg.xkill xdo xsel chromium
-          (cliprofi) (reload-desktop) (flatpak-alt) (say)
-        ];
+      systemPackages =
+        let
+          cliprofi = (
+            with import <nixpkgs> {}; writeShellScriptBin "cliprofi" ''
+              ${rofi-unwrapped}/bin/rofi -p  -dmenu -normal-window $@
+            ''
+          );
+          reload-desktop = (
+            with import <nixpkgs> {}; writeShellScriptBin "reload-desktop" ''
+              ${procps}/bin/pkill -USR1 -x sxhkd
+              ${procps}/bin/pkill -TERM -x compton
+              ${procps}/bin/pkill -TERM -x polybar
+              ${bspwm}/bin/bspc wm -r
+              say 'Reloaded desktop' 'Desktop components have been reloaded'
+            ''
+          );
+          flatpak-alt = (
+            with import <nixpkgs> {}; writeShellScriptBin "flatpak" ''
+              ${flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+              ${flatpak}/bin/flatpak "$@"
+            ''
+          );
+          say = (
+            with import <nixpkgs> {}; writeShellScriptBin "say" ''
+              ${libnotify}/bin/notify-send -i star "$@"
+            ''
+          );
+        in
+          with pkgs; [
+            sxhkd
+            rofi-unwrapped
+            libnotify
+            feh
+            clipmenu
+            networkmanagerapplet
+            xdg-desktop-portal-gtk
+            xorg.xkill
+            xdo
+            xsel
+            chromium
+            (cliprofi)
+            (reload-desktop)
+            (flatpak-alt)
+            (say)
+          ];
     };
     fonts = {
       fonts = with pkgs; [
@@ -233,19 +255,22 @@ with lib;
       '';
     };
     services = {
-      compton = let shadowRadius = config.starlight.shadowRadius; in {
-        enable = true;
-        shadow = true;
-        shadowOffsets = [ (shadowRadius * -1) (shadowRadius / -2) ];
-        shadowExclude = [
-          "name = 'Polybar tray window'"
-          "_GTK_FRAME_EXTENTS@:c"
-        ];
-        shadowOpacity = "0.5";
-        settings = {
-          shadow-radius = shadowRadius;
+      compton = let
+        shadowRadius = config.starlight.shadowRadius;
+      in
+        {
+          enable = true;
+          shadow = true;
+          shadowOffsets = [ (shadowRadius * -1) (shadowRadius / -2) ];
+          shadowExclude = [
+            "name = 'Polybar tray window'"
+            "_GTK_FRAME_EXTENTS@:c"
+          ];
+          shadowOpacity = "0.5";
+          settings = {
+            shadow-radius = shadowRadius;
+          };
         };
-      };
       flatpak = {
         enable = true;
       };
@@ -280,15 +305,15 @@ with lib;
     };
     systemd.user.services = {
       clipmenud = {
-       serviceConfig.Type = "simple";
-       wantedBy = [ "default.target" ];
-       environment = {
-         DISPLAY = ":0";
-       };
-       path = [ pkgs.clipmenu ];
-       script = ''
-         ${pkgs.clipmenu}/bin/clipmenud
-       '';
+        serviceConfig.Type = "simple";
+        wantedBy = [ "default.target" ];
+        environment = {
+          DISPLAY = ":0";
+        };
+        path = [ pkgs.clipmenu ];
+        script = ''
+          ${pkgs.clipmenu}/bin/clipmenud
+        '';
       };
     };
     xdg = {
