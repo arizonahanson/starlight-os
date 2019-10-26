@@ -167,8 +167,7 @@
               set novisualbell
               set belloff+=ctrlg
               "--- editing text
-              set completeopt+=menuone
-              set completeopt+=noselect
+              set completeopt=menu,preview,noinsert,noselect
               set showmatch
               set undofile
               let &undodir=g:vimcache.'undo//'
@@ -266,12 +265,12 @@
                 vim-nix
                 (vim-gdscript3)
                 editorconfig-vim
+                (vim-auto-origami)
                 fugitive
                 gitgutter
                 vim-gutentags
                 ale
                 (vim-mucomplete)
-                (vim-auto-origami)
               ];
           };
       }
