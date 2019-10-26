@@ -31,10 +31,10 @@ with lib;
     };
     fontSize = mkOption {
       type = types.int;
-      default = 16;
+      default = 20;
       description = ''
         terminal font size
-        (default 16)
+        (default 20)
       '';
     };
     logo = mkOption {
