@@ -3,10 +3,7 @@
 {
   environment = let system_vim = (pkgs.vim_configurable.customize {
     name = "vim";
-    vimrcConfig = let
-      theme = config.starlight.theme;
-      cfg = config.starlight;
-    in {
+    vimrcConfig = let cfg = config.starlight; in {
       customRC = ''
         "--- local variables
         let g:vimcache='/tmp/.vim-'.$USER.'/'
@@ -29,39 +26,39 @@
         set cursorline
         autocmd FileType gitcommit setlocal spell spelllang=en_us
         autocmd FileType markdown setlocal spell spelllang=en_us
-        highlight Normal ctermbg=NONE ctermfg=${toString theme.foreground} cterm=NONE
-        highlight Noise ctermbg=NONE ctermfg=${toString theme.foreground-alt} cterm=NONE
-        highlight Identifier ctermbg=NONE ctermfg=${toString theme.substitution} cterm=NONE
-        highlight Comment ctermbg=NONE ctermfg=${toString theme.background-alt} cterm=NONE
+        highlight Normal ctermbg=NONE ctermfg=${toString cfg.theme.foreground} cterm=NONE
+        highlight Noise ctermbg=NONE ctermfg=${toString cfg.theme.foreground-alt} cterm=NONE
+        highlight Identifier ctermbg=NONE ctermfg=${toString cfg.theme.substitution} cterm=NONE
+        highlight Comment ctermbg=NONE ctermfg=${toString cfg.theme.background-alt} cterm=NONE
         highlight CursorLine ctermbg=NONE ctermfg=NONE cterm=NONE
-        highlight Visual ctermbg=${toString theme.background-alt} cterm=NONE
-        highlight StatusLine ctermbg=${toString theme.background-alt} ctermfg=${toString theme.foreground} cterm=NONE
-        highlight StatusLineNC ctermbg=${toString theme.background-alt} ctermfg=${toString theme.foreground-alt} cterm=NONE
-        highlight WildMenu ctermbg=${toString theme.background-alt} ctermfg=${toString theme.select} cterm=NONE
-        highlight PmenuThumb ctermfg=${toString theme.foreground-alt}
-        highlight Underlined ctermbg=NONE ctermfg=${toString theme.path} cterm=underline
-        highlight IncSearch ctermbg=NONE ctermfg=${toString theme.match} cterm=underline
-        highlight Search ctermbg=NONE ctermfg=${toString theme.match} cterm=NONE
-        highlight String ctermfg=${toString theme.string}
-        highlight Character ctermfg=${toString theme.character}
-        highlight Number ctermfg=${toString theme.number}
-        highlight Constant ctermfg=${toString theme.constant}
-        highlight Function ctermfg=${toString theme.function}
-        highlight Type ctermfg=${toString theme.type}
-        highlight Statement ctermfg=${toString theme.statement}
-        highlight Keyword ctermfg=${toString theme.keyword}
-        highlight Error ctermbg=${toString theme.background-alt} ctermfg=${toString theme.error}
-        highlight Warning ctermbg=${toString theme.background-alt} ctermfg=${toString theme.warning}
-        highlight Todo ctermbg=${toString theme.background-alt} ctermfg=${toString theme.info}
-        highlight ErrorMsg ctermbg=NONE ctermfg=${toString theme.error}
-        highlight WarningMsg ctermbg=NONE ctermfg=${toString theme.warning}
-        highlight InfoMsg ctermbg=NONE ctermfg=${toString theme.info}
-        highlight DiffAdd ctermbg=NONE ctermfg=${toString theme.diff-add}
-        highlight DiffChange ctermbg=NONE ctermfg=${toString theme.diff-change}
-        highlight DiffDelete ctermbg=NONE ctermfg=${toString theme.diff-remove}
-        highlight DiffText ctermbg=${toString theme.background-alt} ctermfg=${toString theme.diff-change} cterm=NONE
-        highlight gitcommitSelectedType ctermbg=NONE ctermfg=${toString theme.staged} cterm=NONE
-        highlight gitcommitBranch ctermbg=NONE ctermfg=${toString theme.currentBranch}
+        highlight Visual ctermbg=${toString cfg.theme.background-alt} cterm=NONE
+        highlight StatusLine ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.foreground} cterm=NONE
+        highlight StatusLineNC ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.foreground-alt} cterm=NONE
+        highlight WildMenu ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.select} cterm=NONE
+        highlight PmenuThumb ctermfg=${toString cfg.theme.foreground-alt}
+        highlight Underlined ctermbg=NONE ctermfg=${toString cfg.theme.path} cterm=underline
+        highlight IncSearch ctermbg=NONE ctermfg=${toString cfg.theme.match} cterm=underline
+        highlight Search ctermbg=NONE ctermfg=${toString cfg.theme.match} cterm=NONE
+        highlight String ctermfg=${toString cfg.theme.string}
+        highlight Character ctermfg=${toString cfg.theme.character}
+        highlight Number ctermfg=${toString cfg.theme.number}
+        highlight Constant ctermfg=${toString cfg.theme.constant}
+        highlight Function ctermfg=${toString cfg.theme.function}
+        highlight Type ctermfg=${toString cfg.theme.type}
+        highlight Statement ctermfg=${toString cfg.theme.statement}
+        highlight Keyword ctermfg=${toString cfg.theme.keyword}
+        highlight Error ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.error}
+        highlight Warning ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.warning}
+        highlight Todo ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.info}
+        highlight ErrorMsg ctermbg=NONE ctermfg=${toString cfg.theme.error}
+        highlight WarningMsg ctermbg=NONE ctermfg=${toString cfg.theme.warning}
+        highlight InfoMsg ctermbg=NONE ctermfg=${toString cfg.theme.info}
+        highlight DiffAdd ctermbg=NONE ctermfg=${toString cfg.theme.diff-add}
+        highlight DiffChange ctermbg=NONE ctermfg=${toString cfg.theme.diff-change}
+        highlight DiffDelete ctermbg=NONE ctermfg=${toString cfg.theme.diff-remove}
+        highlight DiffText ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.diff-change} cterm=NONE
+        highlight gitcommitSelectedType ctermbg=NONE ctermfg=${toString cfg.theme.staged} cterm=NONE
+        highlight gitcommitBranch ctermbg=NONE ctermfg=${toString cfg.theme.currentBranch}
         highlight! link MatchParen Search
         highlight! link LineNr Comment
         highlight! link CursorLineNr Noise
@@ -128,9 +125,9 @@
         highlight! link goBuiltins Function
         highlight! link csBraces Noise
         highlight! link csLogicSymbols Operator
-        highlight User1 ctermbg=${toString theme.background-alt} ctermfg=${toString theme.info} cterm=NONE
-        highlight User2 ctermbg=${toString theme.background-alt} ctermfg=${toString theme.diff-change} cterm=NONE
-        highlight User3 ctermbg=${toString theme.background-alt} ctermfg=${toString theme.type} cterm=NONE
+        highlight User1 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.info} cterm=NONE
+        highlight User2 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.diff-change} cterm=NONE
+        highlight User3 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.type} cterm=NONE
         "--- multiple windows
         set statusline=%<\ %f\ %1*%r%*%2*%m%*%=%3*%y%*\ %l,%c%V\ 
         set hidden
