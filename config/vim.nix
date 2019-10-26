@@ -170,7 +170,7 @@
         call mkdir(&undodir, 'p', 0700)
         autocmd FileType *
           \ if &omnifunc == "" || &omnifunc == "styledcomplete#CompleteSC" |
-          \   setlocal omnifunc=syntaxcomplete#Complete |
+          \   setlocal omnifunc=ale#completion#OmniFunc |
           \ endif
         "--- folding
         augroup autofold
@@ -255,7 +255,7 @@
           };
         }; in
       with pkgs.vimPlugins; [
-        vim-sensible vim-polyglot vim-nix editorconfig-vim ale fugitive gitgutter vim-gutentags (vim-mucomplete) (vim-auto-origami) (vim-gdscript3)
+        vim-sensible vim-polyglot vim-nix (vim-gdscript3) editorconfig-vim fugitive gitgutter vim-gutentags ale (vim-mucomplete) (vim-auto-origami) 
       ];
     };
   });
