@@ -133,8 +133,9 @@
               highlight User1 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.info} cterm=NONE
               highlight User2 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.diff-change} cterm=NONE
               highlight User3 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.type} cterm=NONE
+              highlight User4 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.number} cterm=NONE
               "--- multiple windows
-              set statusline=%<\ %f\ %1*%r%*%2*%m%*%=%3*%y%*\ %l,%c%V\ %B\ 
+              set statusline=%<\ %f\ %1*%r%*%2*%m%*%=%3*%y%*\ %l,%c%V\ %4*%B%*\ 
               set hidden
               set switchbuf=useopen,usetab,newtab
               "--- multiple tab pages
