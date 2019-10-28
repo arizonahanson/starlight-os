@@ -7,8 +7,22 @@
         name = "vim";
         vimrcConfig = let
           cfg = config.starlight;
-        in
-          {
+        in {
+            beforePlugins = ''
+              let g:mucomplete#enable_auto_at_startup = 1
+              let g:mucomplete#no_mappings = 1
+              let g:mucomplete#completion_delay = 500
+              let g:gutentags_cache_dir=g:vimcache.'ctags//'
+              let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
+              let g:gitgutter_override_sign_column_highlight=0
+              let g:gitgutter_sign_modified=' '
+              let g:gitgutter_sign_modified_removed=' '
+              let g:gitgutter_sign_added=' '
+              let g:gitgutter_sign_removed=' '
+              let g:ale_sign_error=' '
+              let g:ale_sign_warning=' '
+              let g:ale_sign_info=' '
+            '';
             customRC = ''
               "--- local variables
               let g:vimcache='/tmp/.vim-'.$USER.'/'
@@ -168,14 +182,14 @@
               set novisualbell
               set belloff+=ctrlg
               "--- editing text
-              set completeopt=menu,preview,noinsert,noselect
+              set completeopt=menu,menuone,preview,noinsert,noselect
               set showmatch
               set undofile
               let &undodir=g:vimcache.'undo//'
               call mkdir(&undodir, 'p', 0700)
               autocmd FileType *
                 \ if &omnifunc == "" || &omnifunc == "styledcomplete#CompleteSC" |
-                \   setlocal omnifunc=ale#completion#OmniFunc |
+                \   setlocal omnifunc=syntaxcomplete#Complete |
                 \ endif
               "--- folding
               augroup autofold
@@ -216,20 +230,6 @@
               set viewoptions=folds,cursor
               let &viewdir=g:vimcache.'view//'
               call mkdir(&viewdir, 'p', 0700)
-              "--- plugin options
-              let g:mucomplete#enable_auto_at_startup = 1
-              let g:mucomplete#no_mappings = 1
-              let g:mucomplete#completion_delay = 500
-              let g:gutentags_cache_dir=g:vimcache.'ctags//'
-              let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
-              let g:gitgutter_override_sign_column_highlight=0
-              let g:gitgutter_sign_modified=' '
-              let g:gitgutter_sign_modified_removed=' '
-              let g:gitgutter_sign_added=' '
-              let g:gitgutter_sign_removed=' '
-              let g:ale_sign_error=' '
-              let g:ale_sign_warning=' '
-              let g:ale_sign_info=' '
             '';
             plug.plugins = let
               vim-gdscript3 = pkgs.vimUtils.buildVimPlugin {
