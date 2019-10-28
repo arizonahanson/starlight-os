@@ -8,18 +8,18 @@ with lib;
       systemPackages = with pkgs; [ polybar ];
       etc."polybar.conf" = let
         cfg = config.starlight;
-        theme = config.starlight.theme;
+        toRGB = num: elemAt (attrValues cfg.palette) num;
       in
         {
           text = ''
             [colors]
-            foreground = ''${xrdb:color${toString theme.foreground}}
-            foreground-alt = ''${xrdb:color${toString theme.foreground-alt}}
-            background = ''${xrdb:color${toString theme.background}}
-            background-alt = ''${xrdb:color${toString theme.background-alt}}
-            accent = ''${xrdb:color${toString theme.accent}}
-            info = ''${xrdb:color${toString theme.info}}
-            warn = ''${xrdb:color${toString theme.warning}}
+            foreground = ${toRGB cfg.theme.foreground}
+            foreground-alt = ${toRGB cfg.theme.foreground-alt}
+            background = ${toRGB cfg.theme.background}
+            background-alt = ${toRGB cfg.theme.background-alt}
+            accent = ${toRGB cfg.theme.accent}
+            info = ${toRGB cfg.theme.info}
+            warn = ${toRGB cfg.theme.warning}
 
             [bar/default]
             monitor = ''${env:MONITOR:VGA-1}
