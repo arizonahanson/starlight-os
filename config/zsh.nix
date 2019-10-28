@@ -532,7 +532,7 @@ with lib;
                             "0	0") # equal to upstream
                                     p="" ;;
                             "0	"*) # ahead of upstream
-                                    p="%{${toFG theme.diff-add}%}''${count#0  }$ZSH_THEME_AHEAD_PROMPT%{$reset_color%}" ;;
+                                    p="%{${toFG theme.diff-add}%}''${count#0	}$ZSH_THEME_AHEAD_PROMPT%{$reset_color%}" ;;
                             *"	0") # behind upstream
                                     p="%{${toFG theme.diff-change}%}''${count%	0}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
                             *)      # diverged from upstream
