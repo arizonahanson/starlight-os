@@ -536,7 +536,7 @@ with lib;
                             *"	0") # behind upstream
                                     p="%{${toFG theme.diff-change}%}''${count%	0}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
                             *)      # diverged from upstream
-                                    p="%{${toFG theme.diff-remove}%}''${count#*	}''${ZSH_THEME_AHEAD_PROMPT/ /}''${count% *}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
+                                    p="%{${toFG theme.diff-remove}%}''${count#*	}''${ZSH_THEME_AHEAD_PROMPT/ /}''${count%	*}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
                             esac
                             if [[ -n "$count" && -n "$name" ]]; then
                                     __git_ps1_upstream_name=$(git rev-parse \
