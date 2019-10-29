@@ -28,15 +28,17 @@ with lib;
           patchShebangs .
           sed -i 's/\$HOME\/\./$out\/share\//' ./change_color.sh
           ./change_color.sh -o Starlight <(echo -e "
+            MATERIA_STYLE_COMPACT=True\n
             BG=${toRGB cfg.theme.background}\n
             FG=${toRGB cfg.theme.foreground}\n
             MATERIA_VIEW=${toRGB cfg.theme.background}\n
-            MATERIA_SURFACE=${toRGB cfg.theme.background}\n
-            HDR_BG=${toRGB cfg.theme.background}\n
+            MATERIA_SURFACE=${toRGB cfg.theme.background-alt}\n
+            HDR_BG=${toRGB cfg.theme.background-alt}\n
             HDR_FG=${toRGB cfg.theme.foreground}\n
-            SEL_BG=${toRGB cfg.theme.accent}\n")
+            SEL_BG=${toRGB cfg.theme.accent}\n
+            INACTIVE_FG=${toRGB cfg.theme.foreground-alt}\n")
           echo ".termite {
-            padding: ${toString cfg.fontSize}px;
+            padding: ${toString (cfg.fontSize - cfg.borderRadius)}px;
           }" >> $out/share/themes/Starlight/gtk-3.0/gtk.css
         '';
       }));
