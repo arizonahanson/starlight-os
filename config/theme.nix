@@ -31,14 +31,15 @@ with lib;
             MATERIA_STYLE_COMPACT=True\n
             BG=${toRGB cfg.theme.background}\n
             FG=${toRGB cfg.theme.foreground}\n
-            MATERIA_VIEW=${toRGB cfg.theme.background}\n
-            MATERIA_SURFACE=${toRGB cfg.theme.background-alt}\n
-            HDR_BG=${toRGB cfg.theme.background-alt}\n
+            HDR_BG=${toRGB cfg.theme.background}\n
             HDR_FG=${toRGB cfg.theme.foreground}\n
             SEL_BG=${toRGB cfg.theme.accent}\n
-            INACTIVE_FG=${toRGB cfg.theme.foreground-alt}\n")
-          echo ".termite {
-            padding: ${toString (cfg.fontSize - cfg.borderRadius)}px;
+            INACTIVE_FG=${toRGB cfg.theme.foreground-alt}\n
+            MATERIA_VIEW=${toRGB cfg.theme.background}\n
+            MATERIA_SURFACE=${toRGB cfg.theme.background}\n")
+          echo "/* terminal padding */
+          .termite {
+            padding: ${toString (cfg.fontSize / 2)}px;
           }" >> $out/share/themes/Starlight/gtk-3.0/gtk.css
         '';
       }));
