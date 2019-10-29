@@ -85,7 +85,7 @@ with lib;
             cursor-blink-time=1000
             monospace-font-name='Share Tech Mono 16'
             accessibility=true
-            gtk-theme='starlight'
+            gtk-theme='Starlight'
             icon-theme='starlight'
 
             [org/mate/desktop/applications/browser]
@@ -170,7 +170,7 @@ with lib;
             xkb-icon-rgba='${toRGB cfg.theme.foreground}'
 
             [org/mate/marco/general]
-            theme='starlight'
+            theme='Starlight'
           ''
           + optionalString config.starlight.touchscreen.enable ''
             [org/gnome/desktop/a11y/applications]
