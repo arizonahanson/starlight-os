@@ -33,7 +33,7 @@ with lib;
             FG=${toRGB cfg.theme.foreground}\n
             MATERIA_VIEW=${toRGB cfg.theme.background}\n
             MATERIA_SURFACE=${toRGB cfg.theme.background-alt}\n
-            HDR_BG=${toRGB cfg.theme.background-alt}\n
+            HDR_BG=${toRGB cfg.theme.background}\n
             HDR_FG=${toRGB cfg.theme.foreground}\n
             SEL_BG=${toRGB cfg.theme.accent}\n
             INACTIVE_FG=${toRGB cfg.theme.foreground-alt}\n")
