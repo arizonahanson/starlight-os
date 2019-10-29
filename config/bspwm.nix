@@ -48,15 +48,16 @@ with lib;
           xset s noblank
 
           # border color
-          bspc config focused_border_color "${toRGB cfg.theme.accent}"
-          bspc config normal_border_color  "${toRGB cfg.theme.background-alt}"
-          bspc config border_width         "${toString cfg.borderRadius}"
-          bspc config window_gap           0
-          bspc config split_ratio          0.50
-          bspc config borderless_monocle   true
-          bspc config gapless_monocle      true
-          bspc config single_monocle       false
+          bspc config focused_border_color  "${toRGB cfg.theme.accent}"
+          bspc config normal_border_color   "${toRGB cfg.theme.background-alt}"
+          bspc config border_width          "${toString cfg.borderRadius}"
+          bspc config window_gap            0
+          bspc config split_ratio           0.50
+          bspc config borderless_monocle    true
+          bspc config gapless_monocle       true
+          bspc config single_monocle        false
           bspc config focus_follows_pointer false
+          bspc config automatic_scheme      spiral
 
           bspc rule -a "-c" state=floating
           bspc rule -a Rofi state=floating
