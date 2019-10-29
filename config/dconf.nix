@@ -22,7 +22,7 @@ with lib;
 
             [org/mate/notification-daemon]
             popup-location='top_right'
-            theme='slider'
+            theme='standard'
 
             [org/mate/settings-daemon/plugins/keyboard]
             active=false
