@@ -44,8 +44,8 @@
               set number
               set numberwidth=1
               set lazyredraw
-              set fillchars=vert:│,fold:╌
-              let &showbreak=' '
+              set fillchars=vert:┃,fold:╌,diff:╍
+              let &showbreak=' '
               autocmd FileType gitcommit setlocal nonumber
               autocmd FileType markdown setlocal nonumber
               "--- syntax, highlighting and spelling
@@ -214,7 +214,7 @@
               function FoldLine()
                 let line=getline(v:foldstart)
                 let txt=substitute(line, '/\*\|\*/\|{{{\d\=', ''', 'g')
-                let pre=' '.(v:foldend - v:foldstart + 1).' '
+                let pre=''.(v:foldend - v:foldstart + 1).' '
                 let strip=substitute(txt, '^\s\+', ''', 'g').' '
                 let padlen=strchars(txt)-strchars(pre)-strchars(strip)
                 let pad=padlen > 0 ? repeat('╌', padlen).' ': '''
