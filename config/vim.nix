@@ -22,6 +22,8 @@
               let g:gitgutter_sign_added=' '
               let g:gitgutter_sign_removed=' '
               let g:gitgutter_sign_removed_first_line=' '
+              let g:ale_lint_delay=500
+              let g:ale_cache_executable_check_failures=1
               let g:ale_sign_error=' '
               let g:ale_sign_warning=' '
               let g:ale_sign_info=' '
@@ -156,13 +158,13 @@
               "--- multiple tab pages
               set showtabline=1
               function! Tabline()
-                let s = '''
+                let s='''
                 for i in range(tabpagenr('$'))
-                  let tab = i + 1
-                  let winnr = tabpagewinnr(tab)
-                  let buflist = tabpagebuflist(tab)
-                  let bufnr = buflist[winnr - 1]
-                  let bufname = bufname(bufnr)
+                  let tab=i + 1
+                  let winnr=tabpagewinnr(tab)
+                  let buflist=tabpagebuflist(tab)
+                  let bufnr=buflist[winnr - 1]
+                  let bufname=bufname(bufnr)
                   let s .= '%' . tab . 'T'
                   let s .= (tab == tabpagenr() ? '%#TabLineSel#' : '%#TabLine#')
                   let s .= (bufname != ''' ? ' '.fnamemodify(bufname, ':t').' ' : '[No Name] ')
@@ -197,7 +199,7 @@
                 au!
                 au BufReadPost * silent! loadview
                 au BufReadPost * if auto_origami#Foldcolumn() <= 0 | setlocal foldmethod=indent | endif
-                au CursorHold,BufWinEnter,WinEnter * let &foldcolumn = auto_origami#Foldcolumn()
+                au CursorHold,BufWinEnter,WinEnter * let &foldcolumn=auto_origami#Foldcolumn()
                 au BufWinEnter * if &foldmethod == "indent" | setlocal foldmethod=manual | silent! :%foldopen! | endif
                 au BufWinLeave * silent! mkview!
               augroup END

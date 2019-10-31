@@ -90,6 +90,7 @@ with lib;
         stow
         bind
         highlight
+        shellcheck
         (
           with import <nixpkgs> {}; writeShellScriptBin "palette" ''
             for bold in 0 1; do
