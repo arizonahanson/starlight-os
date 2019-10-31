@@ -15,6 +15,7 @@
               let g:ale_sign_warning=' '
               let g:ale_sign_info=' '
               let g:gitgutter_override_sign_column_highlight=0
+              let g:gitgutter_sign_priority=1
               let g:gitgutter_sign_allow_clobber=0
               let g:gitgutter_sign_added=' '
               let g:gitgutter_sign_modified=' '
