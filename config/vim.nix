@@ -10,16 +10,18 @@
         in {
             beforePlugins = ''
               let g:vimcache='/tmp/.vim-'.$USER.'/'
-              let g:mucomplete#enable_auto_at_startup = 1
-              let g:mucomplete#no_mappings = 1
-              let g:mucomplete#completion_delay = 500
+              let g:mucomplete#enable_auto_at_startup=1
+              let g:mucomplete#no_mappings=1
+              let g:mucomplete#completion_delay=500
               let g:gutentags_cache_dir=g:vimcache.'ctags//'
               let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
               let g:gitgutter_override_sign_column_highlight=0
+              let g:gitgutter_sign_allow_clobber=0
               let g:gitgutter_sign_modified=' '
               let g:gitgutter_sign_modified_removed=' '
               let g:gitgutter_sign_added=' '
               let g:gitgutter_sign_removed=' '
+              let g:gitgutter_sign_removed_first_line=' '
               let g:ale_sign_error=' '
               let g:ale_sign_warning=' '
               let g:ale_sign_info=' '
@@ -145,10 +147,11 @@
               highlight! link csLogicSymbols Operator
               highlight User1 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.info} cterm=NONE
               highlight User2 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.diff-change} cterm=NONE
-              highlight User3 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.type} cterm=NONE
-              highlight User4 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.number} cterm=NONE
+              highlight User3 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.currentBranch} cterm=NONE
+              highlight User4 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.type} cterm=NONE
+              highlight User5 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.number} cterm=NONE
               "--- multiple windows
-              set statusline=%<\ %f\ %1*%r%*%2*%m%*%=%3*%y%*\ %l,%c%V\ %4*%B%*\ 
+              set statusline=%<\ %f\ %1*%r%*%2*%(%m\ %)%*%3*%{FugitiveHead()}%*%=%4*%y%*\ %l,%c%V\ %5*%B%*\ 
               set hidden
               set switchbuf=useopen,usetab,newtab
               "--- multiple tab pages
