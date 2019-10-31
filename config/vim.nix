@@ -7,7 +7,8 @@
         name = "vim";
         vimrcConfig = let
           cfg = config.starlight;
-        in {
+        in
+          {
             beforePlugins = ''
               let g:ale_cache_executable_check_failures=1
               let g:ale_lint_delay=500
@@ -212,8 +213,12 @@
               autocmd FileType gitcommit setlocal foldmethod=syntax
               function FoldLine()
                 let line=getline(v:foldstart)
-                let sub=substitute(line, '/\*\|\*/\|{{{\d\=', ''', 'g')
-                return ' '.(v:foldend - v:foldstart + 1).' '.sub.' '
+                let txt=substitute(line, '/\*\|\*/\|{{{\d\=', ''', 'g')
+                let pre=' '.(v:foldend - v:foldstart + 1).' '
+                let strip=substitute(txt, '^\s\+', ''', 'g').' '
+                let padlen=strchars(txt)-strchars(pre)-strchars(strip)
+                let pad=padlen > 0 ? repeat('╌', padlen).' ': '''
+                return pre.pad.strip
               endfunction
               set foldtext=FoldLine()
               "--- diff mode
