@@ -28,15 +28,15 @@ with lib;
           patchShebangs .
           sed -i 's/\$HOME\/\./$out\/share\//' ./change_color.sh
           ./change_color.sh -o Starlight <(echo -e "
-            MATERIA_STYLE_COMPACT=True\n
-            BG=${toRGB cfg.theme.background}\n
-            FG=${toRGB cfg.theme.foreground}\n
-            HDR_BG=${toRGB cfg.theme.background}\n
-            HDR_FG=${toRGB cfg.theme.foreground}\n
-            SEL_BG=${toRGB cfg.theme.accent}\n
-            INACTIVE_FG=${toRGB cfg.theme.foreground-alt}\n
-            MATERIA_VIEW=${toRGB cfg.theme.background}\n
-            MATERIA_SURFACE=${toRGB cfg.theme.background}\n")
+            ROUNDNESS=4
+            BG=${toRGB cfg.theme.background}
+            FG=${toRGB cfg.theme.foreground}
+            HDR_BG=${toRGB cfg.theme.background}
+            HDR_FG=${toRGB cfg.theme.foreground}
+            SEL_BG=${toRGB cfg.theme.accent}
+            INACTIVE_FG=${toRGB cfg.theme.foreground-alt}
+            MATERIA_VIEW=${toRGB cfg.theme.background}
+            MATERIA_SURFACE=${toRGB cfg.theme.background}")
           echo "/* terminal padding */
           .termite {
             padding: ${toString ((cfg.fontSize * 2) / 3)}px;
