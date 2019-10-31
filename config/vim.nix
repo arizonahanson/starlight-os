@@ -30,9 +30,11 @@
               let g:mucomplete#no_mappings=1
             '';
             customRC = ''
+              "--- important
+              set pastetoggle=<F2>
               "--- moving around, searching and patterns
               set whichwrap+=<,>,h,l
-              set path+=**
+              set path=.,**
               set ignorecase
               set smartcase
               "--- displaying text
@@ -42,6 +44,7 @@
               set numberwidth=1
               set lazyredraw
               set fillchars=vert:│,fold:╌
+              let &showbreak=' '
               autocmd FileType gitcommit setlocal nonumber
               autocmd FileType markdown setlocal nonumber
               "--- syntax, highlighting and spelling
@@ -207,6 +210,12 @@
                 au BufWinLeave * silent! mkview!
               augroup END
               autocmd FileType gitcommit setlocal foldmethod=syntax
+              function FoldLine()
+                let line=getline(v:foldstart)
+                let sub=substitute(line, '/\*\|\*/\|{{{\d\=', ''', 'g')
+                return ' '.(v:foldend - v:foldstart + 1).' '.sub.' '
+              endfunction
+              set foldtext=FoldLine()
               "--- diff mode
               set diffopt=filler,vertical
               "--- mapping
