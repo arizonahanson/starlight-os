@@ -9,24 +9,24 @@
           cfg = config.starlight;
         in {
             beforePlugins = ''
-              let g:vimcache='/tmp/.vim-'.$USER.'/'
-              let g:mucomplete#enable_auto_at_startup=1
-              let g:mucomplete#no_mappings=1
-              let g:mucomplete#completion_delay=500
-              let g:gutentags_cache_dir=g:vimcache.'ctags//'
-              let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
-              let g:gitgutter_override_sign_column_highlight=0
-              let g:gitgutter_sign_allow_clobber=0
-              let g:gitgutter_sign_modified=' '
-              let g:gitgutter_sign_modified_removed=' '
-              let g:gitgutter_sign_added=' '
-              let g:gitgutter_sign_removed=' '
-              let g:gitgutter_sign_removed_first_line=' '
-              let g:ale_lint_delay=500
               let g:ale_cache_executable_check_failures=1
+              let g:ale_lint_delay=500
               let g:ale_sign_error=' '
               let g:ale_sign_warning=' '
               let g:ale_sign_info=' '
+              let g:gitgutter_override_sign_column_highlight=0
+              let g:gitgutter_sign_allow_clobber=0
+              let g:gitgutter_sign_added=' '
+              let g:gitgutter_sign_modified=' '
+              let g:gitgutter_sign_modified_removed=' '
+              let g:gitgutter_sign_removed=' '
+              let g:gitgutter_sign_removed_first_line=' '
+              let g:vimcache='/tmp/.vim-'.$USER.'/'
+              let g:gutentags_cache_dir=g:vimcache.'ctags//'
+              let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
+              let g:mucomplete#completion_delay=500
+              let g:mucomplete#enable_auto_at_startup=1
+              let g:mucomplete#no_mappings=1
             '';
             customRC = ''
               "--- moving around, searching and patterns
@@ -40,6 +40,7 @@
               set number
               set numberwidth=1
               set lazyredraw
+              set fillchars=vert:│,fold:╌
               autocmd FileType gitcommit setlocal nonumber
               autocmd FileType markdown setlocal nonumber
               "--- syntax, highlighting and spelling
