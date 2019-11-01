@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 
 if [ -d /sys/firmware/efi ]; then
-	parted --script -a optimal /dev/sda -- \
-		mklabel gpt \
-		mkpart primary fat32 1MiB 261MiB \
-		set 1 esp on \
-		mkpart primary btrfs 261MiB -2GiB \
-		mkpart primary linux-swap -2GiB 100%
-	SYS=/dev/sda2
-	SWAP=/dev/sda3
-	mkfs.vfat -n efi /dev/sda1
+  parted --script -a optimal /dev/sda -- \
+    mklabel gpt \
+    mkpart primary fat32 1MiB 261MiB \
+    set 1 esp on \
+    mkpart primary btrfs 261MiB -2GiB \
+    mkpart primary linux-swap -2GiB 100%
+  SYS=/dev/sda2
+  SWAP=/dev/sda3
+  mkfs.vfat -n efi /dev/sda1
 else
-	parted --script -a optimal /dev/sda -- \
-		mklabel msdos \
-		mkpart primary btrfs 1MiB -2GiB \
-		mkpart primary linux-swap -2GiB 100%
-	SYS=/dev/sda1
-	SWAP=/dev/sda2
+  parted --script -a optimal /dev/sda -- \
+    mklabel msdos \
+    mkpart primary btrfs 1MiB -2GiB \
+    mkpart primary linux-swap -2GiB 100%
+  SYS=/dev/sda1
+  SWAP=/dev/sda2
 fi
 
 mkfs.btrfs -f -L btrfs $SYS
@@ -28,11 +28,10 @@ btrfs subvolume create home
 cd ~ || exit
 umount /mnt
 
-
 mount -o compress-force=lzo,noatime,nodiratime,space_cache,subvol=system $SYS /mnt
 if [ -d /sys/firmware/efi ]; then
-	mkdir /mnt/boot
-	mount /dev/sda1 /mnt/boot
+  mkdir /mnt/boot
+  mount /dev/sda1 /mnt/boot
 fi
 mkdir /mnt/home
 mount -o compress-force=lzo,noatime,nodiratime,space_cache,subvol=home $SYS /mnt/home
