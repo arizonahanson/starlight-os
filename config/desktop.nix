@@ -83,7 +83,7 @@ with lib;
             Xft.hintstyle: hintslight
             Xft.lcdfilter: lcddefault
             Xft.rgba: rgb
-    
+
             ! ROFI
             rofi.font:              Share Tech ${toString cfg.fontSize}
             rofi.modi:              window,run,drun,combi
@@ -120,7 +120,7 @@ with lib;
             rofi.display-combi: 
             rofi.combi-modi: window,run,drun
             rofi.monitor: -1
-    
+
             *.foreground:   ${toRGB theme.foreground}
             *.background:   ${toRGB theme.background}
             *.cursorColor:  ${palette.cursor}
@@ -309,6 +309,7 @@ with lib;
         wantedBy = [ "default.target" ];
         environment = {
           DISPLAY = ":0";
+          CM_DIR = "/tmp";
         };
         path = [ pkgs.clipmenu ];
         script = ''
