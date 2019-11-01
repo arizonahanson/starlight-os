@@ -250,6 +250,9 @@
               set viewoptions=folds,cursor
               let &viewdir=g:vimcache.'view//'
               call mkdir(&viewdir, 'p', 0700)
+              "--- mappings
+              nmap <silent> [r <Plug>(ale_previous_wrap)
+              nmap <silent> ]r <Plug>(ale_next_wrap)
             '';
             plug.plugins = let
               vim-gdscript3 = pkgs.vimUtils.buildVimPlugin {
