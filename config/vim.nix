@@ -256,7 +256,7 @@
                 for i in range(1, a:count)
                   let line = line('.')
                   silent GitGutterPrevHunk
-                  if line('.') == line && !empty(GitGutterGetHunks())
+                  if line('.') == line && len(GitGutterGetHunks())>1
                     normal G
                     silent GitGutterPrevHunk
                   endif
@@ -266,7 +266,7 @@
                 for i in range(1, a:count)
                   let line = line('.')
                   silent GitGutterNextHunk
-                  if line('.') == line && !empty(GitGutterGetHunks())
+                  if line('.') == line && len(GitGutterGetHunks())>1
                     normal 1G
                     silent GitGutterNextHunk
                   endif
