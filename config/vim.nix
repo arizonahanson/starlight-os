@@ -251,10 +251,30 @@
               let &viewdir=g:vimcache.'view//'
               call mkdir(&viewdir, 'p', 0700)
               "--- mappings
-              nmap <silent> [c :silent GitGutterPrevHunk<CR>
-              nmap <silent> ]c :silent GitGutterNextHunk<CR>
-              nmap <silent> [r <Plug>(ale_previous_wrap)
-              nmap <silent> ]r <Plug>(ale_next_wrap)
+              function! GitGutterPrevHunkWrap(count)
+                for i in range(1, a:count)
+                  let line = line('.')
+                  silent GitGutterPrevHunk
+                  if line('.') == line && !empty(GitGutterGetHunks())
+                    normal G
+                    silent GitGutterPrevHunk
+                  endif
+                endfor
+              endfunction
+              function! GitGutterNextHunkWrap(count)
+                for i in range(1, a:count)
+                  let line = line('.')
+                  silent GitGutterNextHunk
+                  if line('.') == line && !empty(GitGutterGetHunks())
+                    normal 1G
+                    silent GitGutterNextHunk
+                  endif
+                endfor
+              endfunction
+              nnoremap <silent> [c :<C-u>call GitGutterPrevHunkWrap(v:count1)<CR>
+              nnoremap <silent> ]c :<C-u>call GitGutterNextHunkWrap(v:count1)<CR>
+              nnoremap <silent> [r <Plug>(ale_previous_wrap)
+              nnoremap <silent> ]r <Plug>(ale_next_wrap)
             '';
             plug.plugins = let
               vim-gdscript3 = pkgs.vimUtils.buildVimPlugin {
