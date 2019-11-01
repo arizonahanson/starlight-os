@@ -21,7 +21,7 @@ with lib;
         If enabled, will treat as desktop machine
       '';
     };
-    cursorSize = mkOption {
+    pointerSize = mkOption {
       type = types.int;
       default = 32;
       description = ''
@@ -73,7 +73,7 @@ with lib;
           text = ''
             ! Xcursor
             Xcursor.theme: Bibata_Oil
-            Xcursor.size:  ${toString config.starlight.cursorSize}
+            Xcursor.size:  ${toString config.starlight.pointerSize}
 
             ! XFT
             Xft.antialias: 1
