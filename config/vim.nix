@@ -213,13 +213,12 @@
               augroup END
               autocmd FileType gitcommit setlocal foldmethod=syntax
               function FoldLine()
+                let pre=''.(v:foldend - v:foldstart + 1)
                 let line=getline(v:foldstart)
-                let txt=substitute(line, '/\*\|\*/\|{{{\d\=', ''', 'g')
-                let pre=''.(v:foldend - v:foldstart + 1).' '
-                let strip=substitute(txt, '^\s\+', ''', 'g').' '
-                let padlen=strchars(txt)-strchars(pre)-strchars(strip)
-                let pad=padlen > 0 ? repeat('╌', padlen).' ': '''
-                return pre.pad.strip
+                let txt=substitute(line, '^\s\+', ''', 'g')
+                let padlen=strchars(line)-strchars(txt)-strchars(pre)
+                let pad=padlen > 1 ? ' '.repeat('╌', padlen-2).' ' : ' '
+                return pre.pad.txt.' '
               endfunction
               set foldtext=FoldLine()
               "--- diff mode
