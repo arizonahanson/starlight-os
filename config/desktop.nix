@@ -83,7 +83,7 @@ with lib;
             Xft.hintstyle: hintslight
             Xft.lcdfilter: lcddefault
             Xft.rgba: rgb
-    
+
             ! ROFI
             rofi.font:              Share Tech ${toString cfg.fontSize}
             rofi.modi:              window,run,drun,combi
@@ -120,7 +120,7 @@ with lib;
             rofi.display-combi: 
             rofi.combi-modi: window,run,drun
             rofi.monitor: -1
-    
+
             *.foreground:   ${toRGB theme.foreground}
             *.background:   ${toRGB theme.background}
             *.cursorColor:  ${palette.cursor}
@@ -152,6 +152,7 @@ with lib;
       variables = {
         BROWSER = "chromium";
         CM_LAUNCHER = "cliprofi";
+        CM_DIR = "/tmp/.clipmenu-$USER/";
         SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
         XCURSOR_THEME = "Bibata_Oil";
       };
