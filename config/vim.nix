@@ -183,7 +183,6 @@
               endfunction
               set tabline=%!Tabline()
               "--- terminal
-              set guicursor=n-v-c-sm:block-blinkwait500-blinkon500-blinkoff500,i-ci-ve:ver25-blinkwait500-blinkon500-blinkoff500,r-cr-o:hor20-blinkwait500-blinkon500-blinkoff500
               let &t_SI="\e[${toString cfg.insertCursor} q"
               let &t_SR="\e[${toString cfg.replaceCursor} q"
               let &t_EI="\e[${toString cfg.commandCursor} q"
