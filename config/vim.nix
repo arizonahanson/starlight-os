@@ -186,6 +186,8 @@
               let &t_SI="\e[${toString cfg.insertCursor} q"
               let &t_SR="\e[${toString cfg.replaceCursor} q"
               let &t_EI="\e[${toString cfg.commandCursor} q"
+              "--- using the mouse
+              set mouse=a
               "--- messages and info
               set shortmess+=I
               set shortmess+=c
