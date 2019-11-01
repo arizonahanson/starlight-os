@@ -159,7 +159,7 @@
               highlight User4 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.foreground-alt} cterm=NONE
               highlight User5 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.number} cterm=NONE
               "--- multiple windows
-              set statusline=%<\ %f\ %1*%r%*%2*%(%m\ %)%*%=%3*%{FugitiveHead()}%*\ %4*%l,%c%V%*\ %5*%B%*\ 
+              set statusline=%<\ %f\ %1*%r%*%2*%(%m\ %)%*%=%3*%{FugitiveHead()}%*\ %4*%l,%c%V%*\ %5*%B\ %*
               set hidden
               set switchbuf=useopen,usetab,newtab
               "--- multiple tab pages
