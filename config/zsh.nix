@@ -337,7 +337,7 @@ with lib;
             export ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=${toString theme.statement}'
             export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=${toString theme.constant}'
             export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=${toString theme.number}'
-        
+
             # fzf with tmux
             source ${pkgs.fzf}/share/fzf/key-bindings.zsh
             source ${pkgs.fzf}/share/fzf/completion.zsh
@@ -526,6 +526,7 @@ with lib;
                   p="<>" ;;
                 esac
               else
+                # NOTE: this next case statement requires TABS in the strings!
                 case "$count" in
                 "") # no upstream
                   p="%{${toFG theme.error}%}$ZSH_THEME_NOUPSTREAM_PROMPT%{$reset_color%}" ;;
