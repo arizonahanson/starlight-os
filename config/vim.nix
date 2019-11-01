@@ -16,6 +16,7 @@
               let g:ale_sign_warning=' '
               let g:ale_sign_info=' '
               let g:gitgutter_override_sign_column_highlight=0
+              let g:gitgutter_map_keys=0
               let g:gitgutter_sign_priority=1
               let g:gitgutter_sign_allow_clobber=0
               let g:gitgutter_sign_added=' '
@@ -251,6 +252,8 @@
               let &viewdir=g:vimcache.'view//'
               call mkdir(&viewdir, 'p', 0700)
               "--- mappings
+              nmap <silent> [c :silent GitGutterPrevHunk<CR>
+              nmap <silent> ]c :silent GitGutterNextHunk<CR>
               nmap <silent> [r <Plug>(ale_previous_wrap)
               nmap <silent> ]r <Plug>(ale_next_wrap)
             '';
