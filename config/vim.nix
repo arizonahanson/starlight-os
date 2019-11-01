@@ -30,6 +30,7 @@
               let g:mucomplete#completion_delay=500
               let g:mucomplete#enable_auto_at_startup=1
               let g:mucomplete#no_mappings=1
+              let g:foldchar='╍'
             '';
             customRC = ''
               "--- important
@@ -45,7 +46,7 @@
               set number
               set numberwidth=1
               set lazyredraw
-              set fillchars=vert:┃,fold:╌,diff:╍
+              let &fillchars='vert:┃,diff:╌,fold:'.g:foldchar
               let &showbreak=' '
               autocmd FileType gitcommit setlocal nonumber
               autocmd FileType markdown setlocal nonumber
@@ -217,7 +218,7 @@
                 let line=getline(v:foldstart)
                 let txt=substitute(line, '^\s\+', ''', 'g')
                 let padlen=strchars(line)-strchars(txt)-strchars(pre)
-                let pad=padlen > 1 ? ' '.repeat('╌', padlen-2).' ' : ' '
+                let pad=padlen > 1 ? ' '.repeat(g:foldchar, padlen-2).' ' : ' '
                 return pre.pad.txt.' '
               endfunction
               set foldtext=FoldLine()
