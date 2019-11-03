@@ -64,7 +64,7 @@ with lib;
       };
       color08 = mkOption {
         type = types.str;
-        default = "#585858";
+        default = "#404040";
         description = ''
           color 8 (dark gray)
         '';
