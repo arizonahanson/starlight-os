@@ -94,14 +94,14 @@ with lib;
             [org/mate/desktop/media-handling]
             automount-open=false
             autorun-never=true
-          
+
             [org/mate/desktop/peripherals/keyboard]
             numlock-state='on'
 
             [org/mate/desktop/peripherals/mouse]
             double-click=600
             cursor-theme='Bibata_Oil'
-            cursor-size=${toString cfg.cursorSize}
+            cursor-size=${toString cfg.pointerSize}
 
             [org/mate/desktop/session]
             auto-save-session=false
@@ -246,8 +246,8 @@ with lib;
         serviceConfig.Type = "oneshot";
         wantedBy = [ "multi-user.target" ];
         path = [ pkgs.gnome3.dconf ];
-        script = '' 
-         dconf update 
+        script = ''
+         dconf update
        '';
       };
     };

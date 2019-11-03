@@ -21,7 +21,7 @@ with lib;
         If enabled, will treat as desktop machine
       '';
     };
-    cursorSize = mkOption {
+    pointerSize = mkOption {
       type = types.int;
       default = 32;
       description = ''
@@ -73,7 +73,7 @@ with lib;
           text = ''
             ! Xcursor
             Xcursor.theme: Bibata_Oil
-            Xcursor.size:  ${toString config.starlight.cursorSize}
+            Xcursor.size:  ${toString config.starlight.pointerSize}
 
             ! XFT
             Xft.antialias: 1
@@ -151,8 +151,8 @@ with lib;
         };
       variables = {
         BROWSER = "chromium";
+        CM_DIR = "/tmp";
         CM_LAUNCHER = "cliprofi";
-        CM_DIR = "/tmp/.clipmenu-$USER/";
         SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
         XCURSOR_THEME = "Bibata_Oil";
       };
@@ -310,6 +310,7 @@ with lib;
         wantedBy = [ "default.target" ];
         environment = {
           DISPLAY = ":0";
+          CM_DIR = "/tmp";
         };
         path = [ pkgs.clipmenu ];
         script = ''

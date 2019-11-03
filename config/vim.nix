@@ -275,8 +275,8 @@
               endfunction
               nnoremap <silent> [c :<C-u>call GitGutterPrevHunkWrap(v:count1)<CR>
               nnoremap <silent> ]c :<C-u>call GitGutterNextHunkWrap(v:count1)<CR>
-              nnoremap <silent> [r <Plug>(ale_previous_wrap)
-              nnoremap <silent> ]r <Plug>(ale_next_wrap)
+              nnoremap <silent> [r :ALEPreviousWrap<CR>
+              nnoremap <silent> ]r :ALENextWrap<CR>
             '';
             plug.plugins = let
               vim-gdscript3 = pkgs.vimUtils.buildVimPlugin {
