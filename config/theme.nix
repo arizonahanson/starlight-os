@@ -28,7 +28,8 @@ with lib;
           patchShebangs .
           sed -i 's/\$HOME\/\./$out\/share\//' ./change_color.sh
           ./change_color.sh -o Starlight <(echo -e "
-            ROUNDNESS=4
+            ROUNDNESS=8
+            SPACING=8
             BG=${toRGB cfg.theme.background}
             FG=${toRGB cfg.theme.foreground}
             HDR_BG=${toRGB cfg.theme.background}
