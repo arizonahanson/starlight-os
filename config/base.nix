@@ -97,7 +97,10 @@ with lib;
               for col in {0..7}; do
                 echo -en "\e[$bold;3''${col}m "
               done; echo
-            done
+            done; echo
+            for col in 0 7 1 3 2 6 4 5; do
+              echo -en "\e[0;3''${col}m \e[1;3''${col}m "
+            done; echo
           ''
         )
       ] ++ optional config.starlight.efi gptfdisk;
