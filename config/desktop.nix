@@ -151,6 +151,7 @@ with lib;
         };
       variables = {
         BROWSER = "chromium";
+        CM_DIR = "/tmp";
         CM_LAUNCHER = "cliprofi";
         SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
         XCURSOR_THEME = "Bibata_Oil";
