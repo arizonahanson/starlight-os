@@ -31,7 +31,7 @@ with lib;
         type = types.str;
         default = "#807040";
         description = ''
-          color 3 (yellow/brown)
+          color 3 (amber)
         '';
       };
       color04 = mkOption {
@@ -59,7 +59,7 @@ with lib;
         type = types.str;
         default = "#808080";
         description = ''
-          color 7 (white)
+          color 7 (gray)
         '';
       };
       color08 = mkOption {
@@ -73,49 +73,49 @@ with lib;
         type = types.str;
         default = "#BF8F60";
         description = ''
-          color 9 (bright red)
+          color 9 (orange)
         '';
       };
       color10 = mkOption {
         type = types.str;
         default = "#60BF8F";
         description = ''
-          color 10 (bright green)
+          color 10 (aquamarine)
         '';
       };
       color11 = mkOption {
         type = types.str;
         default = "#BFBF60";
         description = ''
-          color 11 (bright yellow)
+          color 11 (yellow)
         '';
       };
       color12 = mkOption {
         type = types.str;
         default = "#8F60BF";
         description = ''
-          color 12 (bright blue)
+          color 12 (violet)
         '';
       };
       color13 = mkOption {
         type = types.str;
         default = "#BF608F";
         description = ''
-          color 13 (bright magenta)
+          color 13 (rose)
         '';
       };
       color14 = mkOption {
         type = types.str;
         default = "#608FBF";
         description = ''
-          color 14 (bright cyan)
+          color 14 (azure)
         '';
       };
       color15 = mkOption {
         type = types.str;
         default = "#BFBFBF";
         description = ''
-          color 15 (bright white)
+          color 15 (white)
         '';
       };
       cursor = mkOption {
