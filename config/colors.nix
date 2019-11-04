@@ -31,7 +31,7 @@ with lib;
         type = types.str;
         default = "#807040";
         description = ''
-          color 3 (amber)
+          color 3 (medium amber)
         '';
       };
       color04 = mkOption {
@@ -59,7 +59,7 @@ with lib;
         type = types.str;
         default = "#808080";
         description = ''
-          color 7 (gray)
+          color 7 (medium gray)
         '';
       };
       color08 = mkOption {
