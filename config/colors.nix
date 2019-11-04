@@ -8,7 +8,7 @@ with lib;
     palette = {
       color00 = mkOption {
         type = types.str;
-        default = "#1A1A1A";
+        default = "#101010";
         description = ''
           color 0 (black)
         '';
