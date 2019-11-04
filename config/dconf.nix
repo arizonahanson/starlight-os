@@ -108,7 +108,6 @@ with lib;
             idle-delay=10
             required-components-list=['windowmanager', 'filemanager']
 
-
             [org/mate/desktop/session/required-components]
             windowmanager='bspwm'
             panel='''

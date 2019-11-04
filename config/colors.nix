@@ -120,7 +120,7 @@ with lib;
       };
       cursor = mkOption {
         type = types.str;
-        default = "#9E9E9E";
+        default = "#9F9F9F";
         description = ''
           Cursor color
         '';
