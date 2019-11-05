@@ -45,13 +45,13 @@
         ui = auto
       [color "grep"]
         filename = ${toString theme.path}
-        linenumber = ${toString theme.background-alt}
+        linenumber = ${toString theme.bg-alt}
         match = ${toString theme.match}
-        separator = ${toString theme.foreground-alt}
+        separator = ${toString theme.fg-alt}
       [color "diff"]
         commit = ${toString theme.number}
-        frag = ${toString theme.foreground-alt}
-        meta = ${toString theme.background-alt}
+        frag = ${toString theme.fg-alt}
+        meta = ${toString theme.bg-alt}
         new = ${toString theme.diff-add}
         newMoved = ${toString theme.diff-add-moved}
         old = ${toString theme.diff-remove}
@@ -67,12 +67,12 @@
         stash = ${toString theme.localBranch}
         tag = ${toString theme.remoteBranch}
       [color "remote"]
-        hint = ${toString theme.foreground-alt}
+        hint = ${toString theme.fg-alt}
         success = ${toString theme.info}
         warning = ${toString theme.warning}
         error = ${toString theme.error}
       [color "status"]
-        header = ${toString theme.background-alt}
+        header = ${toString theme.bg-alt}
         added = ${toString theme.staged}
         changed = ${toString theme.diff-change}
         untracked = ${toString theme.diff-remove}
@@ -81,14 +81,14 @@
         remoteBranch = ${toString theme.remoteBranch}
       [tig "color"]
         cursor = ${toString theme.select} default
-        date = ${toString theme.background-alt} default
+        date = ${toString theme.bg-alt} default
         graph-commit = ${toString theme.number} default
-        line-number = ${toString theme.background-alt} default
+        line-number = ${toString theme.bg-alt} default
         main-tracked = ${toString theme.currentBranch} default
         search-result = ${toString theme.match} default
         status = ${toString theme.info} default
-        title-blur = ${toString theme.background-alt} default
-        title-focus = ${toString theme.foreground} ${toString theme.background-alt}
+        title-blur = ${toString theme.bg-alt} default
+        title-focus = ${toString theme.fg} ${toString theme.bg-alt}
     '';
     git-all = (
       with import <nixpkgs> {}; writeShellScriptBin "git-all" ''

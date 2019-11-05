@@ -51,9 +51,9 @@ with lib;
               [colors]
     
               # special
-              foreground      = ${toRGB theme.foreground}
-              foreground_bold = ${toRGB theme.foreground}
-              background      = ${toRGB theme.background}
+              foreground      = ${toRGB theme.fg}
+              foreground_bold = ${toRGB theme.fg}
+              background      = ${toRGB theme.bg}
               cursor          = ${palette.cursor}
     
               # black

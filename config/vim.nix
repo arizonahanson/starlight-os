@@ -56,16 +56,16 @@
               set cursorline
               autocmd FileType gitcommit setlocal spell spelllang=en_us
               autocmd FileType markdown setlocal spell spelllang=en_us
-              highlight Normal ctermbg=NONE ctermfg=${toString cfg.theme.foreground} cterm=NONE
-              highlight Noise ctermbg=NONE ctermfg=${toString cfg.theme.foreground-alt} cterm=NONE
+              highlight Normal ctermbg=NONE ctermfg=${toString cfg.theme.fg} cterm=NONE
+              highlight Noise ctermbg=NONE ctermfg=${toString cfg.theme.fg-alt} cterm=NONE
               highlight Identifier ctermbg=NONE ctermfg=${toString cfg.theme.substitution} cterm=NONE
-              highlight Comment ctermbg=NONE ctermfg=${toString cfg.theme.background-alt} cterm=NONE
+              highlight Comment ctermbg=NONE ctermfg=${toString cfg.theme.bg-alt} cterm=NONE
               highlight CursorLine ctermbg=NONE ctermfg=NONE cterm=NONE
-              highlight Visual ctermbg=${toString cfg.theme.background-alt} cterm=NONE
-              highlight StatusLine ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.foreground} cterm=NONE
-              highlight StatusLineNC ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.foreground-alt} cterm=NONE
-              highlight WildMenu ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.select} cterm=NONE
-              highlight PmenuThumb ctermfg=${toString cfg.theme.foreground-alt}
+              highlight Visual ctermbg=${toString cfg.theme.bg-alt} cterm=NONE
+              highlight StatusLine ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.fg} cterm=NONE
+              highlight StatusLineNC ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.fg-alt} cterm=NONE
+              highlight WildMenu ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.select} cterm=NONE
+              highlight PmenuThumb ctermfg=${toString cfg.theme.fg-alt}
               highlight Underlined ctermbg=NONE ctermfg=${toString cfg.theme.path} cterm=underline
               highlight IncSearch ctermbg=NONE ctermfg=${toString cfg.theme.match} cterm=underline
               highlight Search ctermbg=NONE ctermfg=${toString cfg.theme.match} cterm=NONE
@@ -77,16 +77,16 @@
               highlight Type ctermfg=${toString cfg.theme.type}
               highlight Statement ctermfg=${toString cfg.theme.statement}
               highlight Keyword ctermfg=${toString cfg.theme.keyword}
-              highlight Error ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.error}
-              highlight Warning ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.warning}
-              highlight Todo ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.info}
+              highlight Error ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.error}
+              highlight Warning ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.warning}
+              highlight Todo ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.info}
               highlight ErrorMsg ctermbg=NONE ctermfg=${toString cfg.theme.error}
               highlight WarningMsg ctermbg=NONE ctermfg=${toString cfg.theme.warning}
               highlight InfoMsg ctermbg=NONE ctermfg=${toString cfg.theme.info}
               highlight DiffAdd ctermbg=NONE ctermfg=${toString cfg.theme.diff-add}
               highlight DiffChange ctermbg=NONE ctermfg=${toString cfg.theme.diff-change}
               highlight DiffDelete ctermbg=NONE ctermfg=${toString cfg.theme.diff-remove}
-              highlight DiffText ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.diff-change} cterm=NONE
+              highlight DiffText ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.diff-change} cterm=NONE
               highlight gitcommitSelectedType ctermbg=NONE ctermfg=${toString cfg.theme.staged} cterm=NONE
               highlight gitcommitBranch ctermbg=NONE ctermfg=${toString cfg.theme.currentBranch}
               highlight! link MatchParen Search
@@ -155,11 +155,11 @@
               highlight! link goBuiltins Function
               highlight! link csBraces Noise
               highlight! link csLogicSymbols Operator
-              highlight User1 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.info} cterm=NONE
-              highlight User2 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.diff-change} cterm=NONE
-              highlight User3 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.currentBranch} cterm=NONE
-              highlight User4 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.foreground-alt} cterm=NONE
-              highlight User5 ctermbg=${toString cfg.theme.background-alt} ctermfg=${toString cfg.theme.number} cterm=NONE
+              highlight User1 ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.info} cterm=NONE
+              highlight User2 ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.diff-change} cterm=NONE
+              highlight User3 ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.currentBranch} cterm=NONE
+              highlight User4 ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.fg-alt} cterm=NONE
+              highlight User5 ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.number} cterm=NONE
               "--- multiple windows
               set statusline=%<\ %f\ %1*%r%*%2*%(%m\ %)%*%=%3*%{FugitiveHead()}%*\ %4*%l,%c%V%*\ %5*%B\ %*
               set hidden

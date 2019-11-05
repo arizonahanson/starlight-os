@@ -49,7 +49,7 @@ with lib;
 
           # border color
           bspc config focused_border_color  "${toRGB cfg.theme.accent}"
-          bspc config normal_border_color   "${toRGB cfg.theme.background-alt}"
+          bspc config normal_border_color   "${toRGB cfg.theme.bg-alt}"
           bspc config border_width          "${toString cfg.borderRadius}"
           bspc config window_gap            0
           bspc config split_ratio           0.50

@@ -68,7 +68,7 @@ with lib;
             BLK ${toANSI theme.string} # block device driver
             CHR ${toANSI theme.character} # character device driver
             ORPHAN ${toANSI theme.error} # symlink to nonexistent file, or non-stat'able file ...
-            MISSING ${toANSI theme.background-alt} # ... and the files they point to
+            MISSING ${toANSI theme.bg-alt} # ... and the files they point to
             SETUID ${toANSI theme.warning} # file that is setuid (u+s)
             SETGID ${toANSI theme.warning};4 # file that is setgid (g+s)
             CAPABILITY ${toANSI theme.warning};7 # file with capability
@@ -207,9 +207,9 @@ with lib;
             .spx 00;36
             .xspf 00;36
             # additional highlighting
-            .pid ${toANSI theme.background-alt}
-            *~ ${toANSI theme.background-alt}
-            .gitignore ${toANSI theme.foreground-alt}
+            .pid ${toANSI theme.bg-alt}
+            *~ ${toANSI theme.bg-alt}
+            .gitignore ${toANSI theme.fg-alt}
           '';
         };
         # zshrc (start)
@@ -245,9 +245,9 @@ with lib;
           FZF_TMUX = "1";
           FZF_DEFAULT_COMMAND = "ag -f -g '' --hidden --depth 16 --ignore dosdevices";
           FZF_CTRL_T_COMMAND = "ag -f -g '' --hidden --depth 16 --ignore dosdevices";
-          FZF_DEFAULT_OPTS = "-m --ansi --no-bold --color=dark,fg:${toString theme.foreground},bg:${toString theme.background},hl:${toString theme.match},fg+:${toString theme.select},bg+:${toString theme.background},hl+:${toString theme.match},info:${toString theme.background-alt},border:${toString theme.foreground-alt},prompt:${toString theme.foreground-alt},pointer:${toString theme.select},marker:${toString theme.select},spinner:${toString theme.info},header:${toString theme.foreground-alt} --tac";
+          FZF_DEFAULT_OPTS = "-m --ansi --no-bold --color=dark,fg:${toString theme.fg},bg:${toString theme.bg},hl:${toString theme.match},fg+:${toString theme.select},bg+:${toString theme.bg},hl+:${toString theme.match},info:${toString theme.bg-alt},border:${toString theme.fg-alt},prompt:${toString theme.fg-alt},pointer:${toString theme.select},marker:${toString theme.select},spinner:${toString theme.info},header:${toString theme.fg-alt} --tac";
           FZF_ALT_C_COMMAND = "find -L . -maxdepth 16 -type d 2>/dev/null";
-          GREP_COLORS = "mt=${toANSI theme.match}:sl=:cx=:fn=${toANSI theme.path}:ln=${toANSI theme.background-alt}:bn=${toANSI theme.number}:se=${toANSI theme.foreground-alt}";
+          GREP_COLORS = "mt=${toANSI theme.match}:sl=:cx=:fn=${toANSI theme.path}:ln=${toANSI theme.bg-alt}:bn=${toANSI theme.number}:se=${toANSI theme.fg-alt}";
           # shorter delay on cmd-mode
           KEYTIMEOUT = "1";
           LESS = "-erFX";
@@ -259,7 +259,7 @@ with lib;
         autosuggestions = {
           enable = true;
           strategy = "match_prev_cmd";
-          highlightStyle = "fg=${toString theme.background-alt}";
+          highlightStyle = "fg=${toString theme.bg-alt}";
         };
         # zprofile (once, before zshrc)
         loginShellInit = ''
@@ -857,7 +857,7 @@ with lib;
               if [ -z "$TMUX" ]; then
                 spc=" "
               fi
-              PROMPT='%(?.${toFG theme.foreground-alt}.${toFG theme.error})%(!.$ZSH_THEME_PROMPT_ROOT.$ZSH_THEME_PROMPT)%{$reset_color%}$spc '
+              PROMPT='%(?.${toFG theme.fg-alt}.${toFG theme.error})%(!.$ZSH_THEME_PROMPT_ROOT.$ZSH_THEME_PROMPT)%{$reset_color%}$spc '
               RPROMPT=" $(git_prompt_info)${toFG theme.path}$(get_pwd)$(host_info)%{$reset_color%}"
               PS2="%{$reset_color%}${toFG theme.warning}$ZSH_THEME_PROMPT2$spc %{$reset_color%}"
             }
@@ -869,7 +869,7 @@ with lib;
           ll = "ls -lAhF";
           cp = "cp --reflink=auto";
           xz = "xz --threads=0";
-          ag = "${pkgs.ag}/bin/ag --color-line-number '${toANSI theme.background-alt}' --color-path '${toANSI theme.path}' --color-match '${toANSI theme.match}'";
+          ag = "${pkgs.ag}/bin/ag --color-line-number '${toANSI theme.bg-alt}' --color-path '${toANSI theme.path}' --color-match '${toANSI theme.match}'";
           ":q" = "exit";
         };
         syntaxHighlighting = {

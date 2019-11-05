@@ -33,28 +33,28 @@
         setw -g pane-base-index 1
 
         # default statusbar colors
-        set-option -g status-style bg=colour${toString theme.background},fg=colour${toString theme.foreground}
+        set-option -g status-style bg=colour${toString theme.bg},fg=colour${toString theme.fg}
         # default window title colors
-        set-window-option -g window-status-style fg=colour${toString theme.background-alt},bg=colour${toString theme.background}
+        set-window-option -g window-status-style fg=colour${toString theme.bg-alt},bg=colour${toString theme.bg}
         # active window title colors
-        set-window-option -g window-status-current-style fg=colour${toString theme.foreground},bg=colour${toString theme.background}
+        set-window-option -g window-status-current-style fg=colour${toString theme.fg},bg=colour${toString theme.bg}
         # inactive window activity colors
-        set-window-option -g window-status-activity-style fg=colour${toString theme.foreground-alt},bg=colour${toString theme.background}
-        set-window-option -g window-status-bell-style fg=colour${toString theme.info},bg=colour${toString theme.background}
+        set-window-option -g window-status-activity-style fg=colour${toString theme.fg-alt},bg=colour${toString theme.bg}
+        set-window-option -g window-status-bell-style fg=colour${toString theme.info},bg=colour${toString theme.bg}
 
         # pane border
-        set-option -g pane-border-style fg=colour${toString theme.background-alt}
-        set-option -g pane-active-border-style fg=colour${toString theme.foreground-alt}
+        set-option -g pane-border-style fg=colour${toString theme.bg-alt}
+        set-option -g pane-active-border-style fg=colour${toString theme.fg-alt}
 
         # message text
-        set-option -g message-style bg=colour${toString theme.background},fg=colour${toString theme.foreground}
+        set-option -g message-style bg=colour${toString theme.bg},fg=colour${toString theme.fg}
 
         # pane number display
-        set-option -g display-panes-active-colour colour${toString theme.foreground}
-        set-option -g display-panes-colour colour${toString theme.foreground-alt}
+        set-option -g display-panes-active-colour colour${toString theme.fg}
+        set-option -g display-panes-colour colour${toString theme.fg-alt}
 
         # clock
-        set-window-option -g clock-mode-colour colour${toString theme.foreground}
+        set-window-option -g clock-mode-colour colour${toString theme.fg}
       '';
     };
 }

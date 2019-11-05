@@ -127,7 +127,7 @@ with lib;
       };
     };
     theme = {
-      background = mkOption {
+      bg = mkOption {
         type = types.int;
         default = 0;
         description = ''
@@ -135,7 +135,7 @@ with lib;
           default: 0
         '';
       };
-      foreground = mkOption {
+      fg = mkOption {
         type = types.int;
         default = 15;
         description = ''
@@ -143,7 +143,7 @@ with lib;
           default: 15
         '';
       };
-      background-alt = mkOption {
+      bg-alt = mkOption {
         type = types.int;
         default = 8;
         description = ''
@@ -151,7 +151,7 @@ with lib;
           default: 8
         '';
       };
-      foreground-alt = mkOption {
+      fg-alt = mkOption {
         type = types.int;
         default = 7;
         description = ''

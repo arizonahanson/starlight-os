@@ -166,7 +166,7 @@ with lib;
             [desktop/ibus/panel]
             show=0
             show-icon-on-systray=true
-            xkb-icon-rgba='${toRGB cfg.theme.foreground}'
+            xkb-icon-rgba='${toRGB cfg.theme.fg}'
 
             [org/mate/marco/general]
             theme='Starlight'

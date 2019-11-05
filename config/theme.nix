@@ -30,14 +30,14 @@ with lib;
           ./change_color.sh -o Starlight <(echo -e "
             ROUNDNESS=8
             SPACING=8
-            BG=${toRGB cfg.theme.background}
-            FG=${toRGB cfg.theme.foreground}
-            HDR_BG=${toRGB cfg.theme.background}
-            HDR_FG=${toRGB cfg.theme.foreground}
+            BG=${toRGB cfg.theme.bg}
+            FG=${toRGB cfg.theme.fg}
+            HDR_BG=${toRGB cfg.theme.bg}
+            HDR_FG=${toRGB cfg.theme.fg}
             SEL_BG=${toRGB cfg.theme.accent}
-            INACTIVE_FG=${toRGB cfg.theme.foreground-alt}
-            MATERIA_VIEW=${toRGB cfg.theme.background}
-            MATERIA_SURFACE=${toRGB cfg.theme.background}")
+            INACTIVE_FG=${toRGB cfg.theme.fg-alt}
+            MATERIA_VIEW=${toRGB cfg.theme.bg}
+            MATERIA_SURFACE=${toRGB cfg.theme.bg}")
           echo "/* terminal padding */
           .termite {
             padding: ${toString ((cfg.fontSize * 2) / 3)}px;

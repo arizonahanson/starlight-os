@@ -109,10 +109,10 @@ with lib;
             ! "scrolling method. (0: Page, 1: Centered)"
             rofi.scroll-method:     1
             ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
-            rofi.color-normal: ${toRGB theme.background},${toRGB theme.background-alt},${toRGB theme.background},${toRGB theme.background},${toRGB theme.foreground}
-            rofi.color-urgent: ${toRGB theme.background},${toRGB theme.info},${toRGB theme.background},${toRGB theme.background},${toRGB theme.info}
-            rofi.color-active: ${toRGB theme.background},${toRGB theme.foreground-alt},${toRGB theme.background},${toRGB theme.background},${toRGB theme.foreground}
-            rofi.color-window: ${toRGB theme.background},${toRGB theme.background},${toRGB theme.background}
+            rofi.color-normal: ${toRGB theme.bg},${toRGB theme.bg-alt},${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.fg}
+            rofi.color-urgent: ${toRGB theme.bg},${toRGB theme.info},${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.info}
+            rofi.color-active: ${toRGB theme.bg},${toRGB theme.fg-alt},${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.fg}
+            rofi.color-window: ${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.bg}
             rofi.display-drun: 
             rofi.display-run: 
             rofi.display-window: 
@@ -121,8 +121,8 @@ with lib;
             rofi.combi-modi: window,run,drun
             rofi.monitor: -1
 
-            *.foreground:   ${toRGB theme.foreground}
-            *.background:   ${toRGB theme.background}
+            *.foreground:   ${toRGB theme.fg}
+            *.background:   ${toRGB theme.bg}
             *.cursorColor:  ${palette.cursor}
             *.color0:       ${palette.color00}
             *.color8:       ${palette.color08}

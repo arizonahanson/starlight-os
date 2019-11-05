@@ -13,10 +13,10 @@ with lib;
         {
           text = ''
             [colors]
-            foreground = ${toRGB cfg.theme.foreground}
-            foreground-alt = ${toRGB cfg.theme.foreground-alt}
-            background = ${toRGB cfg.theme.background}
-            background-alt = ${toRGB cfg.theme.background-alt}
+            foreground = ${toRGB cfg.theme.fg}
+            foreground-alt = ${toRGB cfg.theme.fg-alt}
+            background = ${toRGB cfg.theme.bg}
+            background-alt = ${toRGB cfg.theme.bg-alt}
             accent = ${toRGB cfg.theme.accent}
             info = ${toRGB cfg.theme.info}
             warn = ${toRGB cfg.theme.warning}
