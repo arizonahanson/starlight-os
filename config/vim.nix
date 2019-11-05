@@ -216,7 +216,7 @@
               autocmd FileType gitcommit setlocal foldmethod=syntax
               function FoldLine()
                 let pre=''.(v:foldend - v:foldstart + 1)
-                let line=getline(v:foldstart)
+                let line=substitute(getline(v:foldstart), '\t', repeat(' ', &tabstop), 'g')
                 let txt=substitute(line, '^\s\+', ''', 'g')
                 let padlen=strchars(line)-strchars(txt)-strchars(pre)
                 let pad=padlen > 1 ? ' '.repeat(g:foldchar, padlen-2).' ' : ' '
