@@ -40,7 +40,12 @@ with lib;
       '';
     };
   };
-  config = mkMerge [
+  config = let
+    theme = config.starlight.theme;
+    colorIndex = num: if num <= 7 then (num * 2) else (((num - 8) * 2) + 1);
+    colorSort = a: b: lessThan (colorIndex theme.${a}) (colorIndex theme.${b});
+    toANSI = num: if num <= 7 then "00;3${toString num}" else "01;3${toString (num - 8)}"; in
+    mkMerge [
     {
       boot = {
         tmpOnTmpfs = true;
@@ -102,6 +107,12 @@ with lib;
               echo -en "\e[0;3''${col}m \e[1;3''${col}m "
             done; echo
           ''
+        )
+        (
+          with import <nixpkgs> {}; writeShellScriptBin "theme"
+          (concatStringsSep "\n" (map (
+            name: "echo -en '\\e[${toANSI theme.${name}}m" + name + "\\e[0m '"
+          ) (sort colorSort (attrNames theme))))
         )
       ] ++ optional config.starlight.efi gptfdisk;
       services.journald.extraConfig = ''
