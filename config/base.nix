@@ -42,99 +42,106 @@ with lib;
   };
   config = let
     theme = config.starlight.theme;
-    colorIndex = num: if num <= 7 then (num * 2) else (((num - 8) * 2) + 1);
+    colorMap = {
+      "0" = 0; "8" = 1; "7" = 2; "15" = 3; "1" = 4; "9" = 5; "3" = 6; "11" = 7;
+      "2" = 8; "10" = 9; "6" = 10; "14" = 11; "4" = 12; "12" = 13; "5" = 14; "13" = 15;
+    };
+    colorIndex = num: colorMap.${toString num};
     colorSort = a: b: lessThan (colorIndex theme.${a}) (colorIndex theme.${b});
-    toANSI = num: if num <= 7 then "00;3${toString num}" else "01;3${toString (num - 8)}"; in
+    toANSI = num: if num <= 7 then "00;3${toString num}" else "01;3${toString (num - 8)}";
+  in
     mkMerge [
-    {
-      boot = {
-        tmpOnTmpfs = true;
-        kernelParams = [ "quiet" ];
-        consoleLogLevel = 0;
-        kernel.sysctl = {
-          "vm.max_map_count" = 262144;
+      {
+        boot = {
+          tmpOnTmpfs = true;
+          kernelParams = [ "quiet" ];
+          consoleLogLevel = 0;
+          kernel.sysctl = {
+            "vm.max_map_count" = 262144;
+          };
         };
-      };
-      fileSystems = {
-        "/".options = [ "compress-force=lzo" "noatime" ];
-        "/home".options = [ "compress-force=lzo" "noatime" ];
-      };
-      services.btrfs.autoScrub = {
-        enable = true;
-        fileSystems = [ "/" ];
-      };
-      nix.gc = {
-        automatic = true;
-        dates = "*-*-* 00/4:00:00";
-        options = "--delete-older-than 30d";
-      };
-      nix.autoOptimiseStore = true;
-      nixpkgs.config.allowUnfree = true;
-      environment.variables = {
-        NIX_CFLAGS_COMPILE = "-march=native";
-      };
-      environment.pathsToLink = [ "/include" ];
-      environment.systemPackages = with pkgs; [
-        gnumake
-        bc
-        gcc
-        binutils
-        psmisc
-        pciutils
-        tree
-        ag
-        fzf
-        zip
-        unzip
-        duperemove
-        compsize
-        nixpkgs-fmt
-        nox
-        w3m
-        ncdu
-        stow
-        bind
-        highlight
-        shellcheck
-        (
-          with import <nixpkgs> {}; writeShellScriptBin "palette" ''
-            for bold in 0 1; do
-              for col in {0..7}; do
-                echo -en "\e[$bold;3''${col}m "
+        fileSystems = {
+          "/".options = [ "compress-force=lzo" "noatime" ];
+          "/home".options = [ "compress-force=lzo" "noatime" ];
+        };
+        services.btrfs.autoScrub = {
+          enable = true;
+          fileSystems = [ "/" ];
+        };
+        nix.gc = {
+          automatic = true;
+          dates = "*-*-* 00/4:00:00";
+          options = "--delete-older-than 30d";
+        };
+        nix.autoOptimiseStore = true;
+        nixpkgs.config.allowUnfree = true;
+        environment.variables = {
+          NIX_CFLAGS_COMPILE = "-march=native";
+        };
+        environment.pathsToLink = [ "/include" ];
+        environment.systemPackages = with pkgs; [
+          gnumake
+          bc
+          gcc
+          binutils
+          psmisc
+          pciutils
+          tree
+          ag
+          fzf
+          zip
+          unzip
+          duperemove
+          compsize
+          nixpkgs-fmt
+          nox
+          w3m
+          ncdu
+          stow
+          bind
+          highlight
+          shellcheck
+          (
+            with import <nixpkgs> {}; writeShellScriptBin "palette" ''
+              for bold in 0 1; do
+                for col in {0..7}; do
+                  echo -en "\e[$bold;3''${col}m "
+                done; echo
               done; echo
-            done; echo
-            for col in 0 7 1 3 2 6 4 5; do
-              echo -en "\e[0;3''${col}m \e[1;3''${col}m "
-            done; echo
-          ''
-        )
-        (
-          with import <nixpkgs> {}; writeShellScriptBin "theme"
-          (concatStringsSep "\n" (map (
-            name: "echo -en '\\e[${toANSI theme.${name}}m" + name + "\\e[0m '"
-          ) (sort colorSort (attrNames theme))))
-        )
-      ] ++ optional config.starlight.efi gptfdisk;
-      services.journald.extraConfig = ''
-        Storage=volatile
-      '';
-      time.hardwareClockInLocalTime = config.starlight.localTime;
-      # default user account
-      users.users.admin = {
-        isNormalUser = true;
-        uid = 1000;
-        description = "Administrator";
-        extraGroups = [ "wheel" ];
-        initialHashedPassword = "$6$D85LJu3AY7$CSbcP8wY9qNgp6zA.PXAmZo6JMy4nHDldvfUDzom7XglfgRUPW6wnLJ1l0dRUQAy4SReAO85GEISAs6tZE6TV/";
-      };
-      users.defaultUserShell = "/run/current-system/sw/bin/zsh";
-      users.mutableUsers = true;
+              for col in 0 7 1 3 2 6 4 5; do
+                echo -en "\e[0;3''${col}m \e[1;3''${col}m "
+              done; echo
+            ''
+          )
+          (
+            with import <nixpkgs> {}; writeShellScriptBin "theme"
+              ((concatStringsSep "\n" (
+                map (name: "echo -en '\\e[${toANSI theme.${name}}m" + name + "\\e[0m '")
+                (sort colorSort (attrNames theme))))
+                + "\necho"
+              )
+          )
+        ] ++ optional config.starlight.efi gptfdisk;
+        services.journald.extraConfig = ''
+          Storage=volatile
+        '';
+        time.hardwareClockInLocalTime = config.starlight.localTime;
+        # default user account
+        users.users.admin = {
+          isNormalUser = true;
+          uid = 1000;
+          description = "Administrator";
+          extraGroups = [ "wheel" ];
+          initialHashedPassword = "$6$D85LJu3AY7$CSbcP8wY9qNgp6zA.PXAmZo6JMy4nHDldvfUDzom7XglfgRUPW6wnLJ1l0dRUQAy4SReAO85GEISAs6tZE6TV/";
+        };
+        users.defaultUserShell = "/run/current-system/sw/bin/zsh";
+        users.mutableUsers = true;
 
-      # This value determines the NixOS release with which your system is to be
-      # compatible, in order to avoid breaking some software such as database
-      # servers. You should change this only after NixOS release notes say you
-      # should.
-      system.stateVersion = "19.09"; # Did you read the comment?
-    }
-  ];
+        # This value determines the NixOS release with which your system is to be
+        # compatible, in order to avoid breaking some software such as database
+        # servers. You should change this only after NixOS release notes say you
+        # should.
+        system.stateVersion = "19.09"; # Did you read the comment?
+      }
+    ];
 }
