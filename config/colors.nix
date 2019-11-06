@@ -265,18 +265,18 @@ with lib;
       };
       boolean = mkOption {
         type = types.int;
-        default = 13;
+        default = 12;
         description = ''
           color number for booleans
-          default: 13
+          default: 12
         '';
       };
       constant = mkOption {
         type = types.int;
-        default = 5;
+        default = 13;
         description = ''
           color number for constants
-          default: 5
+          default: 13
         '';
       };
       character = mkOption {
@@ -297,10 +297,10 @@ with lib;
       };
       number = mkOption {
         type = types.int;
-        default = 13;
+        default = 5;
         description = ''
           color number for numbers
-          default: 13
+          default: 5
         '';
       };
       path = mkOption {
