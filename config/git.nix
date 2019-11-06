@@ -82,7 +82,7 @@
       [tig "color"]
         cursor = ${toString theme.select} default
         date = ${toString theme.bg-alt} default
-        graph-commit = ${toString theme.number} default
+        graph-commit = ${toString theme.fg-alt} default
         line-number = ${toString theme.bg-alt} default
         main-tracked = ${toString theme.currentBranch} default
         search-result = ${toString theme.match} default
