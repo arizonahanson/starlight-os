@@ -336,7 +336,7 @@ with lib;
             export ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=${toString theme.keyword}'
             export ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=${toString theme.statement}'
             export ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=${toString theme.constant}'
-            export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=${toString theme.number}'
+            export ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=${toString theme.constant}'
 
             # fzf with tmux
             source ${pkgs.fzf}/share/fzf/key-bindings.zsh
