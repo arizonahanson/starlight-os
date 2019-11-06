@@ -225,74 +225,82 @@ with lib;
       };
       executable = mkOption {
         type = types.int;
-        default = 11;
+        default = 2;
         description = ''
           color number for executable
-          default: 11
+          default: 2
         '';
       };
       function = mkOption {
         type = types.int;
-        default = 3;
+        default = 10;
         description = ''
           color number for functions
-          default: 3
+          default: 10
         '';
       };
       keyword = mkOption {
         type = types.int;
-        default = 13;
+        default = 6;
         description = ''
           color number for keywords
-          default: 13
+          default: 6
         '';
       };
       statement = mkOption {
         type = types.int;
-        default = 5;
+        default = 14;
         description = ''
           color number for statements
-          default: 5
+          default: 14
         '';
       };
       type = mkOption {
         type = types.int;
-        default = 12;
+        default = 4;
         description = ''
           color number for types
-          default: 12
+          default: 4
+        '';
+      };
+      boolean = mkOption {
+        type = types.int;
+        default = 13;
+        description = ''
+          color number for booleans
+          default: 13
         '';
       };
       constant = mkOption {
         type = types.int;
-        default = 6;
+        default = 5;
         description = ''
           color number for constants
-          default: 6
+          default: 5
         '';
       };
       character = mkOption {
         type = types.int;
-        default = 2;
+        default = 11;
         description = ''
           color number for characters
-          default: 2
+          default: 11
         '';
       };
       string = mkOption {
         type = types.int;
-        default = 10;
+        default = 3;
         description = ''
           color number for strings
-          default: 10
+          default: 3
         '';
       };
       number = mkOption {
         type = types.int;
-        default = 14;
+        default = 13;
         description = ''
           color number for numbers
-          default: 14
+          default: 13
         '';
       };
       path = mkOption {

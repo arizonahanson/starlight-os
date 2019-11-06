@@ -72,6 +72,7 @@
               highlight String ctermfg=${toString cfg.theme.string}
               highlight Character ctermfg=${toString cfg.theme.character}
               highlight Number ctermfg=${toString cfg.theme.number}
+              highlight Boolean ctermfg=${toString cfg.theme.boolean}
               highlight Constant ctermfg=${toString cfg.theme.constant}
               highlight Function ctermfg=${toString cfg.theme.function}
               highlight Type ctermfg=${toString cfg.theme.type}
@@ -108,7 +109,6 @@
               highlight! link NonText Comment
               highlight! link Special Character
               highlight! link Integer Number
-              highlight! link Boolean Constant
               highlight! link Question Function
               highlight! link Include Type
               highlight! link Exception Keyword
