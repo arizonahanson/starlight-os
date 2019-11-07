@@ -49,7 +49,7 @@
         match = ${toString theme.match}
         separator = ${toString theme.fg-alt}
       [color "diff"]
-        commit = ${toString theme.number}
+        commit = ${toString theme.fg-alt}
         frag = ${toString theme.fg-alt}
         meta = ${toString theme.bg-alt}
         new = ${toString theme.diff-add}
