@@ -317,7 +317,7 @@ with lib;
             export ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='fg=${toString theme.match}'
             export ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=${toString theme.error}'
             export ZSH_HIGHLIGHT_STYLES[path]='fg=${toString theme.path}'
-            export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=${toString theme.pattern}'
+            export ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=${toString theme.match}'
             export ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=${toString theme.pattern}'
             export ZSH_HIGHLIGHT_STYLES[globbing]='fg=${toString theme.pattern}'
             export ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=${toString theme.character}'
