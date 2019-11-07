@@ -273,8 +273,8 @@
                   endif
                 endfor
               endfunction
-              nnoremap <silent> [c :<C-u>call GitGutterPrevHunkWrap(v:count1)<CR>
-              nnoremap <silent> ]c :<C-u>call GitGutterNextHunkWrap(v:count1)<CR>
+              nnoremap <silent> [g :<C-u>call GitGutterPrevHunkWrap(v:count1)<CR>
+              nnoremap <silent> ]g :<C-u>call GitGutterNextHunkWrap(v:count1)<CR>
               nnoremap <silent> [r :ALEPreviousWrap<CR>
               nnoremap <silent> ]r :ALENextWrap<CR>
             '';
