@@ -90,6 +90,7 @@
               highlight DiffText ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.diff-change} cterm=NONE
               highlight gitcommitSelectedType ctermbg=NONE ctermfg=${toString cfg.theme.staged} cterm=NONE
               highlight gitcommitBranch ctermbg=NONE ctermfg=${toString cfg.theme.currentBranch}
+              highlight! link helpHyperTextJump Tag
               highlight! link MatchParen Search
               highlight! link LineNr Comment
               highlight! link CursorLineNr Noise
@@ -110,14 +111,14 @@
               highlight! link Special Character
               highlight! link Integer Number
               highlight! link Question Function
-              highlight! link Include Type
+              highlight! link PreProc Type
+              highlight! link Include PreProc
               highlight! link Exception Keyword
               highlight! link Operator Keyword
               highlight! link Repeat Statement
               highlight! link StorageClass Statement
               highlight! link Structure Statement
               highlight! link Typedef Statement
-              highlight! link PreProc Statement
               highlight! link Label Statement
               highlight! link ModeMsg InfoMsg
               highlight! link MoreMsg InfoMsg
