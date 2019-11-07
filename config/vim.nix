@@ -211,7 +211,7 @@
                 au BufReadPost * if auto_origami#Foldcolumn() <= 0 | setlocal foldmethod=indent | endif
                 au CursorHold,BufWinEnter,WinEnter * let &foldcolumn=auto_origami#Foldcolumn()
                 au BufWinEnter * if &foldmethod == "indent" | setlocal foldmethod=manual | silent! :%foldopen! | endif
-                au BufWinLeave * silent! mkview!
+                au CursorHold * silent! mkview!
               augroup END
               autocmd FileType gitcommit setlocal foldmethod=syntax
               function FoldLine()
@@ -237,7 +237,7 @@
               call mkdir(&backupdir, 'p', 0700)
               "--- the swap file
               set swapfile
-              set updatetime=500
+              set updatetime=1000
               let &directory=g:vimcache.'swap//'
               call mkdir(&directory, 'p', 0700)
               "--- command line editing
@@ -250,7 +250,7 @@
               "--- various
               let &viminfo="%,!,'1000,s1024,n".g:vimcache.'viminfo'
               set viewoptions=folds,cursor
-              let &viewdir=g:vimcache.'view//'
+              let &viewdir=g:vimcache.'view'
               call mkdir(&viewdir, 'p', 0700)
               "--- mappings
               function! GitGutterPrevHunkWrap(count)
