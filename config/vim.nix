@@ -211,7 +211,7 @@
                 au BufReadPost * if auto_origami#Foldcolumn() <= 0 | setlocal foldmethod=indent | endif
                 au CursorHold,BufWinEnter,WinEnter * let &foldcolumn=auto_origami#Foldcolumn()
                 au BufWinEnter * if &foldmethod == "indent" | setlocal foldmethod=manual | silent! :%foldopen! | endif
-                au CursorHold * silent! mkview!
+                au BufUnload * silent! mkview!
               augroup END
               autocmd FileType gitcommit setlocal foldmethod=syntax
               function FoldLine()
