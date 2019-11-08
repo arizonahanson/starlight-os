@@ -46,7 +46,7 @@
               set number
               set numberwidth=1
               set lazyredraw
-              let &fillchars='vert:┃,diff:╌,fold:'.g:foldchar
+              let &fillchars='vert:║,diff:╌,fold:'.g:foldchar
               let &showbreak=' '
               autocmd FileType gitcommit setlocal nonumber
               autocmd FileType markdown setlocal nonumber
@@ -212,7 +212,7 @@
                 au BufReadPost * if auto_origami#Foldcolumn() <= 0 | setlocal foldmethod=indent | endif
                 au CursorHold,BufWinEnter,WinEnter * let &foldcolumn=auto_origami#Foldcolumn()
                 au BufWinEnter * if &foldmethod == "indent" | setlocal foldmethod=manual | silent! :%foldopen! | endif
-                au CursorHold * silent! mkview!
+                au BufUnload * silent! mkview!
               augroup END
               autocmd FileType gitcommit setlocal foldmethod=syntax
               function FoldLine()
@@ -274,8 +274,8 @@
                   endif
                 endfor
               endfunction
-              nnoremap <silent> [c :<C-u>call GitGutterPrevHunkWrap(v:count1)<CR>
-              nnoremap <silent> ]c :<C-u>call GitGutterNextHunkWrap(v:count1)<CR>
+              nnoremap <silent> [g :<C-u>call GitGutterPrevHunkWrap(v:count1)<CR>
+              nnoremap <silent> ]g :<C-u>call GitGutterNextHunkWrap(v:count1)<CR>
               nnoremap <silent> [r :ALEPreviousWrap<CR>
               nnoremap <silent> ]r :ALENextWrap<CR>
             '';
