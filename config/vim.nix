@@ -30,6 +30,11 @@
               let g:mucomplete#completion_delay=500
               let g:mucomplete#enable_auto_at_startup=1
               let g:mucomplete#no_mappings=1
+              let g:go_highlight_structs = 1
+              let g:go_highlight_methods = 1
+              let g:go_highlight_functions = 1
+              let g:go_highlight_operators = 1
+              let g:go_highlight_build_constraints = 1
               let g:foldchar='╍'
             '';
             customRC = ''
@@ -278,6 +283,7 @@
               nnoremap <silent> ]g :<C-u>call GitGutterNextHunkWrap(v:count1)<CR>
               nnoremap <silent> [r :ALEPreviousWrap<CR>
               nnoremap <silent> ]r :ALENextWrap<CR>
+              nnoremap <silent> <F3> :ALEToggle<CR>
             '';
             plug.plugins = let
               vim-gdscript3 = pkgs.vimUtils.buildVimPlugin {
