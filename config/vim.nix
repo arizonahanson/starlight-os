@@ -313,6 +313,15 @@
                   sha256 = "1zlrafb4lp7rw8kdnaw6spiys6xi3ayamfyzzp0wzl5jy7mv2ayw";
                 };
               };
+              vim-openscad = pkgs.vimUtils.buildVimPlugin {
+                name = "vim-openscad";
+                src = pkgs.fetchFromGitHub {
+                  owner = "sirtaj";
+                  repo = "vim-openscad";
+                  rev = "master";
+                  sha256 = "0x3g9h0cnk7hfpqx8x92xy7mhvq2piwy3mhwds8nnn2rsa5jj0cf";
+                };
+              };
             in
               with pkgs.vimPlugins; [
                 vim-sensible
@@ -321,6 +330,7 @@
                 (vim-gdscript3)
                 editorconfig-vim
                 (vim-auto-origami)
+                (vim-openscad)
                 fugitive
                 gitgutter
                 vim-gutentags
