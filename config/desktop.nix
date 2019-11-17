@@ -155,6 +155,7 @@ with lib;
         CM_LAUNCHER = "cliprofi";
         SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
         XCURSOR_THEME = "Bibata_Oil";
+        QT_QPA_PLATFORMTHEME = "gtk2";
       };
       systemPackages =
         let
@@ -195,6 +196,8 @@ with lib;
             xorg.xkill
             xdo
             xsel
+            qt5ct
+            libsForQt5.qtstyleplugins
             chromium
             (cliprofi)
             (reload-desktop)
