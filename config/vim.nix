@@ -15,6 +15,7 @@
               let g:ale_sign_error=' '
               let g:ale_sign_warning=' '
               let g:ale_sign_info=' '
+              let g:foldchar='╍'
               let g:gitgutter_override_sign_column_highlight=0
               let g:gitgutter_map_keys=0
               let g:gitgutter_sign_priority=1
@@ -24,18 +25,18 @@
               let g:gitgutter_sign_modified_removed=' '
               let g:gitgutter_sign_removed=' '
               let g:gitgutter_sign_removed_first_line=' '
+              let g:go_highlight_structs = 1
+              let g:go_highlight_methods = 1
+              let g:go_highlight_functions = 1
+              let g:go_highlight_operators = 1
+              let g:go_highlight_build_constraints = 1
               let g:vimcache='/tmp/.vim-'.$USER.'/'
               let g:gutentags_cache_dir=g:vimcache.'ctags//'
               let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
               let g:mucomplete#completion_delay=500
               let g:mucomplete#enable_auto_at_startup=1
               let g:mucomplete#no_mappings=1
-              let g:go_highlight_structs = 1
-              let g:go_highlight_methods = 1
-              let g:go_highlight_functions = 1
-              let g:go_highlight_operators = 1
-              let g:go_highlight_build_constraints = 1
-              let g:foldchar='╍'
+              let g:netrw_home=g:vimcache.'netrw'
             '';
             customRC = ''
               "--- important
