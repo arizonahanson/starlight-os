@@ -230,6 +230,7 @@
                 return pre.pad.txt.' '
               endfunction
               set foldtext=FoldLine()
+              set nofoldenable
               "--- diff mode
               set diffopt=filler,vertical
               "--- mapping
@@ -284,7 +285,10 @@
               nnoremap <silent> ]g :<C-u>call GitGutterNextHunkWrap(v:count1)<CR>
               nnoremap <silent> [r :ALEPreviousWrap<CR>
               nnoremap <silent> ]r :ALENextWrap<CR>
-              nnoremap <silent> <F3> :ALEToggle<CR>
+              nnoremap <silent> <F3> :set number!<CR>
+              nnoremap <silent> <F4> :set foldenable!<CR>
+              nnoremap <silent> <F5> :ALEToggle<CR>
+              nnoremap <silent> <F6> :GitGutterToggle<CR>
             '';
             plug.plugins = let
               vim-gdscript3 = pkgs.vimUtils.buildVimPlugin {
