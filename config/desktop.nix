@@ -199,6 +199,7 @@ with lib;
             qt5ct
             libsForQt5.qtstyleplugins
             chromium
+            qalculate-gtk
             (cliprofi)
             (reload-desktop)
             (flatpak-alt)
