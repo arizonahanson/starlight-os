@@ -80,16 +80,13 @@ with lib;
             # List any file extensions like '.gz' or '.tar' that you would like ls
             # to colorize below. Put the extension, a space, and the color init string.
             # (and any comments you want to add after a '#')
-            # If you use DOS-style suffixes, you may want to uncomment the following:
-            #.cmd ${toANSI theme.executable} # executables
-            #.exe ${toANSI theme.executable}
-            #.com ${toANSI theme.executable}
-            #.btm ${toANSI theme.executable}
-            #.bat ${toANSI theme.executable}
             # Or if you want to colorize scripts even if they do not have the
             # executable bit actually set.
             .sh ${toANSI theme.executable}
             .csh ${toANSI theme.executable}
+            .py ${toANSI theme.function}
+            .js ${toANSI theme.function}
+            .go ${toANSI theme.function}
              # archives or compressed
             .tar 01;31
             .tgz 01;31
@@ -867,6 +864,7 @@ with lib;
           l = "ls -hF";
           la = "ls -AhF";
           ll = "ls -lAhF";
+          lt = "tree -aFC -I .git";
           cp = "cp --reflink=auto";
           xz = "xz --threads=0";
           ag = "${pkgs.ag}/bin/ag --color-line-number '${toANSI theme.bg-alt}' --color-path '${toANSI theme.path}' --color-match '${toANSI theme.match}'";
