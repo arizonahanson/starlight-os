@@ -21,19 +21,19 @@ fi
 
 mkfs.btrfs -f -L btrfs $SYS
 mkswap -L swap $SWAP
-mount -o compress-force=lzo,noatime,nodiratime,space_cache $SYS /mnt
+mount -o compress-force=zstd,noatime,space_cache $SYS /mnt
 cd /mnt || exit
 btrfs subvolume create system
 btrfs subvolume create home
 cd ~ || exit
 umount /mnt
 
-mount -o compress-force=lzo,noatime,nodiratime,space_cache,subvol=system $SYS /mnt
+mount -o compress-force=zstd,noatime,space_cache,subvol=system $SYS /mnt
 if [ -d /sys/firmware/efi ]; then
   mkdir /mnt/boot
   mount /dev/sda1 /mnt/boot
 fi
 mkdir /mnt/home
-mount -o compress-force=lzo,noatime,nodiratime,space_cache,subvol=home $SYS /mnt/home
+mount -o compress-force=zstd,noatime,space_cache,subvol=home $SYS /mnt/home
 swapon -o discard=once $SWAP
 
