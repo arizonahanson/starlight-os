@@ -83,6 +83,7 @@ with lib;
           gnumake
           bc
           gcc
+          julia_11
           binutils
           psmisc
           pciutils
