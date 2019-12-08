@@ -336,6 +336,7 @@
                 editorconfig-vim
                 (vim-auto-origami)
                 (vim-openscad)
+                julia-vim
                 fugitive
                 gitgutter
                 vim-gutentags
