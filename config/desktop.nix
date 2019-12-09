@@ -219,17 +219,22 @@ with lib;
           <fontconfig>
             <match target="pattern">
                 <edit name="family" mode="prepend_first">
-                      <string>DejaVu Sans</string>
-                </edit>
-            </match>
-            <match target="pattern">
-                <edit name="family" mode="prepend_first">
                       <string>Noto Emoji</string>
                 </edit>
             </match>
             <match target="pattern">
                 <edit name="family" mode="prepend_first">
                       <string>Font Awesome 5 Free Solid</string>
+                </edit>
+            </match>
+            <match target="pattern">
+                <edit name="family" mode="prepend_first">
+                      <string>DejaVu Sans</string>
+                </edit>
+            </match>
+            <match target="pattern">
+                <edit name="family" mode="prepend_first">
+                      <string>DejaVu Math TeX Gyre</string>
                 </edit>
             </match>
           </fontconfig>
