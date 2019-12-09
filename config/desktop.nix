@@ -207,6 +207,8 @@ with lib;
     };
     fonts = {
       fonts = with pkgs; [
+        corefonts
+        vistafonts
         google-fonts
         font-awesome_5
         noto-fonts-emoji
@@ -235,7 +237,6 @@ with lib;
               </edit>
             </match>
             <match target="pattern">
-              <test qual="any" name="family"><string>emoji</string></test>
               <edit name="family" mode="prepend_first">
                 <string>Noto Emoji</string>
               </edit>
