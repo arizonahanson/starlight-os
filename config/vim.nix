@@ -33,10 +33,7 @@
               let g:vimcache='/tmp/.vim-'.$USER.'/'
               let g:gutentags_cache_dir=g:vimcache.'ctags//'
               let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
-              let g:latex_to_unicode_file_types=".*"
-              let g:mucomplete#completion_delay=500
-              let g:mucomplete#enable_auto_at_startup=0
-              let g:mucomplete#no_mappings=1
+              let g:latex_to_unicode_file_types=["gitcommit", "gitrebase", "julia", "nix"]
               let g:netrw_home=g:vimcache.'netrw'
             '';
             customRC = ''
@@ -302,15 +299,6 @@
                   sha256 = "0b9ghcjiwkkldvg1zwyhi8163dcbg6sh64zrd8nk081qlbrs4shb";
                 };
               };
-              vim-mucomplete = pkgs.vimUtils.buildVimPlugin {
-                name = "vim-mucomplete";
-                src = pkgs.fetchFromGitHub {
-                  owner = "lifepillar";
-                  repo = "vim-mucomplete";
-                  rev = "v1.4.0";
-                  sha256 = "0rl4ijz2asyrhr2s72j1y06js0yizzir414q6fznvgvmic4wjcj9";
-                };
-              };
               vim-auto-origami = pkgs.vimUtils.buildVimPlugin {
                 name = "vim-auto-origami";
                 src = pkgs.fetchFromGitHub {
@@ -332,7 +320,6 @@
             in
               with pkgs.vimPlugins; [
                 vim-sensible
-                (vim-mucomplete)
                 vim-polyglot
                 vim-nix
                 (vim-openscad)
