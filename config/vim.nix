@@ -212,6 +212,7 @@
                 \ if &omnifunc == "" || &omnifunc == "styledcomplete#CompleteSC" |
                 \   setlocal omnifunc=syntaxcomplete#Complete |
                 \ endif
+              set completefunc=syntaxcomplete#Complete
               "--- folding
               augroup autofold
                 au!
