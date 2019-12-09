@@ -210,38 +210,48 @@ with lib;
         google-fonts
         font-awesome_5
         noto-fonts-emoji
+        xits-math
       ];
       fontconfig = {
         enable = true;
         penultimate.enable = true;
         localConf = ''
           <fontconfig>
+            <alias>
+              <family>monospace</family>
+              <prefer>
+                <family>Share Tech Mono</family>
+              </prefer>
+            </alias>
             <match target="pattern">
-                <edit name="family" mode="prepend_first">
-                      <string>Noto Emoji</string>
-                </edit>
+              <test qual="any" name="family"><string>monospace</string></test>
+              <edit name="family" mode="assign" binding="same">
+                <string>Share Tech Mono</string>
+              </edit>
             </match>
             <match target="pattern">
-                <edit name="family" mode="prepend_first">
-                      <string>Font Awesome 5 Free Solid</string>
-                </edit>
+              <edit name="family" mode="prepend_first">
+                <string>XITS Math</string>
+              </edit>
             </match>
             <match target="pattern">
-                <edit name="family" mode="prepend_first">
-                      <string>DejaVu Sans</string>
-                </edit>
+              <test qual="any" name="family"><string>emoji</string></test>
+              <edit name="family" mode="prepend_first">
+                <string>Noto Emoji</string>
+              </edit>
             </match>
             <match target="pattern">
-                <edit name="family" mode="prepend_first">
-                      <string>DejaVu Math TeX Gyre</string>
-                </edit>
+              <edit name="family" mode="prepend_first">
+                <string>DejaVu Sans</string>
+              </edit>
+            </match>
+            <match target="pattern">
+              <edit name="family" mode="prepend_first">
+                <string>Font Awesome 5 Free Solid</string>
+              </edit>
             </match>
           </fontconfig>
         '';
-        defaultFonts = {
-          monospace = [ "Share Tech Mono" ];
-          emoji = [ "Noto Emoji" ];
-        };
       };
     };
     hardware.opengl.driSupport32Bit = true;
