@@ -33,7 +33,9 @@
               let g:vimcache='/tmp/.vim-'.$USER.'/'
               let g:gutentags_cache_dir=g:vimcache.'ctags//'
               let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
-              let g:latex_to_unicode_file_types = ".*"
+              let g:latex_to_unicode_file_types=".*"
+              let g:latex_to_unicode_keymap=1
+              let g:latex_to_unicode_tab=0
               let g:mucomplete#completion_delay=500
               let g:mucomplete#enable_auto_at_startup=1
               let g:mucomplete#no_mappings=1
