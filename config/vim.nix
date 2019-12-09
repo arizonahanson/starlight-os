@@ -34,10 +34,8 @@
               let g:gutentags_cache_dir=g:vimcache.'ctags//'
               let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
               let g:latex_to_unicode_file_types=".*"
-              let g:latex_to_unicode_keymap=1
-              let g:latex_to_unicode_tab=0
               let g:mucomplete#completion_delay=500
-              let g:mucomplete#enable_auto_at_startup=1
+              let g:mucomplete#enable_auto_at_startup=0
               let g:mucomplete#no_mappings=1
               let g:netrw_home=g:vimcache.'netrw'
             '';
@@ -333,18 +331,17 @@
             in
               with pkgs.vimPlugins; [
                 vim-sensible
+                (vim-mucomplete)
                 vim-polyglot
                 vim-nix
-                (vim-gdscript3)
-                editorconfig-vim
-                (vim-auto-origami)
                 (vim-openscad)
                 julia-vim
+                editorconfig-vim
+                (vim-auto-origami)
                 fugitive
                 gitgutter
                 vim-gutentags
                 ale
-                (vim-mucomplete)
               ];
           };
       }
