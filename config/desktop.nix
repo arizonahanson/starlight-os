@@ -218,8 +218,28 @@ with lib;
         enable = true;
         penultimate.enable = true;
         localConf = ''
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
           <fontconfig>
-            <alias>
+            <alias binding="same">
+              <family>Helvetica</family>
+              <accept>
+                <family>Arial</family>
+              </accept>
+            </alias>
+            <alias binding="same">
+              <family>Times</family>
+              <accept>
+                <family>Times New Roman</family>
+              </accept>
+            </alias>
+            <alias binding="same">
+              <family>Courier</family>
+              <accept>
+                <family>Courier New</family>
+              </accept>
+            </alias>
+            <alias binding="same">
               <family>monospace</family>
               <prefer>
                 <family>Share Tech Mono</family>
@@ -227,7 +247,7 @@ with lib;
             </alias>
             <match target="pattern">
               <test qual="any" name="family"><string>monospace</string></test>
-              <edit name="family" mode="assign" binding="same">
+              <edit name="family" mode="assign" binding="strong">
                 <string>Share Tech Mono</string>
               </edit>
             </match>
