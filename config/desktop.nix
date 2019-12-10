@@ -240,17 +240,23 @@ with lib;
               </accept>
             </alias>
             <alias binding="same">
+              <family>sans-serif</family>
+              <prefer>
+                <family>DejaVu Sans</family>
+              </prefer>
+            </alias>
+            <alias binding="same">
+              <family>serif</family>
+              <prefer>
+                <family>DejaVu Serif</family>
+              </prefer>
+            </alias>
+            <alias binding="same">
               <family>monospace</family>
               <prefer>
                 <family>Share Tech Mono</family>
               </prefer>
             </alias>
-            <match target="pattern">
-              <test qual="any" name="family"><string>monospace</string></test>
-              <edit name="family" mode="assign" binding="strong">
-                <string>Share Tech Mono</string>
-              </edit>
-            </match>
             <match target="pattern">
               <edit name="family" mode="prepend_first">
                 <string>XITS Math</string>
