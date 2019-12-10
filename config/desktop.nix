@@ -259,17 +259,17 @@ with lib;
             </alias>
             <match target="pattern">
               <edit name="family" mode="prepend_first">
-                <string>XITS Math</string>
-              </edit>
-            </match>
-            <match target="pattern">
-              <edit name="family" mode="prepend_first">
                 <string>Noto Emoji</string>
               </edit>
             </match>
             <match target="pattern">
               <edit name="family" mode="prepend_first">
                 <string>DejaVu Sans</string>
+              </edit>
+            </match>
+            <match target="pattern">
+              <edit name="family" mode="prepend_first">
+                <string>XITS Math</string>
               </edit>
             </match>
             <match target="pattern">
