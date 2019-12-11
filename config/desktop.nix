@@ -212,7 +212,7 @@ with lib;
         google-fonts
         font-awesome_5
         noto-fonts-emoji
-        xits-math
+        stix-two
       ];
       fontconfig = {
         enable = true;
@@ -264,17 +264,17 @@ with lib;
             </match>
             <match target="pattern">
               <edit name="family" mode="prepend_first">
+                <string>Font Awesome 5 Free Solid</string>
+              </edit>
+            </match>
+            <match target="pattern">
+              <edit name="family" mode="prepend_first">
                 <string>DejaVu Sans</string>
               </edit>
             </match>
             <match target="pattern">
               <edit name="family" mode="prepend_first">
-                <string>XITS Math</string>
-              </edit>
-            </match>
-            <match target="pattern">
-              <edit name="family" mode="prepend_first">
-                <string>Font Awesome 5 Free Solid</string>
+                <string>STIX Two Math</string>
               </edit>
             </match>
           </fontconfig>
