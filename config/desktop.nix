@@ -258,6 +258,38 @@ with lib;
               </prefer>
             </alias>
             <match target="pattern">
+              <test qual="any" name="family">
+                <string>-apple-system</string>
+              </test>
+              <edit name="family" mode="assign" binding="strong">
+                <string>Share Tech</string>
+              </edit>
+            </match>
+            <match target="pattern">
+              <test qual="any" name="family">
+                <string>BlinkMacSystemFont</string>
+              </test>
+              <edit name="family" mode="assign" binding="strong">
+                <string>Share Tech</string>
+              </edit>
+            </match>
+            <match target="pattern">
+              <test qual="any" name="family">
+                <string>Segoe UI</string>
+              </test>
+              <edit name="family" mode="assign" binding="strong">
+                <string>Share Tech</string>
+              </edit>
+            </match>
+            <match target="pattern">
+              <test qual="any" name="family">
+                <string>Menlo</string>
+              </test>
+              <edit name="family" mode="assign" binding="strong">
+                <string>Share Tech Mono</string>
+              </edit>
+            </match>
+            <match target="pattern">
               <edit name="family" mode="prepend_first">
                 <string>Noto Emoji</string>
               </edit>
