@@ -38,6 +38,7 @@ with lib;
                 <family>Courier New</family>
               </accept>
             </alias>
+
             <alias binding="same">
               <family>sans-serif</family>
               <prefer>
@@ -56,6 +57,7 @@ with lib;
                 <family>Share Tech Mono</family>
               </prefer>
             </alias>
+
             <match target="pattern">
               <test qual="any" name="family">
                 <string>-apple-system</string>
@@ -88,6 +90,7 @@ with lib;
                 <string>Share Tech Mono</string>
               </edit>
             </match>
+
             <match target="pattern">
               <edit name="family" mode="prepend_first">
                 <string>Noto Emoji</string>
