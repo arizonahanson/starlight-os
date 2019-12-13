@@ -20,25 +20,7 @@ with lib;
           <?xml version="1.0" encoding="UTF-8"?>
           <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
           <fontconfig>
-            <alias binding="same">
-              <family>Helvetica</family>
-              <accept>
-                <family>Arial</family>
-              </accept>
-            </alias>
-            <alias binding="same">
-              <family>Times</family>
-              <accept>
-                <family>Times New Roman</family>
-              </accept>
-            </alias>
-            <alias binding="same">
-              <family>Courier</family>
-              <accept>
-                <family>Courier New</family>
-              </accept>
-            </alias>
-
+            <!-- standard families -->
             <alias binding="same">
               <family>sans-serif</family>
               <prefer>
@@ -58,6 +40,27 @@ with lib;
               </prefer>
             </alias>
 
+            <!-- remapppings -->
+            <alias binding="same">
+              <family>Helvetica</family>
+              <accept>
+                <family>Arial</family>
+              </accept>
+            </alias>
+            <alias binding="same">
+              <family>Times</family>
+              <accept>
+                <family>Times New Roman</family>
+              </accept>
+            </alias>
+            <alias binding="same">
+              <family>Courier</family>
+              <accept>
+                <family>Courier New</family>
+              </accept>
+            </alias>
+
+            <!-- overrides -->
             <match target="pattern">
               <test qual="any" name="family">
                 <string>-apple-system</string>
@@ -91,6 +94,7 @@ with lib;
               </edit>
             </match>
 
+            <!-- fallbacks for missing glyphs -->
             <match target="pattern">
               <edit name="family" mode="prepend_first">
                 <string>Noto Emoji</string>
