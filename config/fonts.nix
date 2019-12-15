@@ -36,7 +36,7 @@ with lib;
             <alias binding="same">
               <family>monospace</family>
               <prefer>
-                <family>Consolas</family>
+                <family>Roboto Mono</family>
               </prefer>
             </alias>
 
@@ -90,7 +90,7 @@ with lib;
                 <string>SFMono-Regular</string>
               </test>
               <edit name="family" mode="assign" binding="strong">
-                <string>Consolas</string>
+                <string>Roboto Mono</string>
               </edit>
             </match>
             <match target="pattern">
@@ -98,7 +98,7 @@ with lib;
                 <string>Menlo</string>
               </test>
               <edit name="family" mode="assign" binding="strong">
-                <string>Consolas</string>
+                <string>Roboto Mono</string>
               </edit>
             </match>
 
