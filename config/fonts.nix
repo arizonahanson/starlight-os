@@ -36,7 +36,7 @@ with lib;
             <alias binding="same">
               <family>monospace</family>
               <prefer>
-                <family>Share Tech Mono</family>
+                <family>Consolas</family>
               </prefer>
             </alias>
 
@@ -87,10 +87,18 @@ with lib;
             </match>
             <match target="pattern">
               <test qual="any" name="family">
+                <string>SFMono-Regular</string>
+              </test>
+              <edit name="family" mode="assign" binding="strong">
+                <string>Consolas</string>
+              </edit>
+            </match>
+            <match target="pattern">
+              <test qual="any" name="family">
                 <string>Menlo</string>
               </test>
               <edit name="family" mode="assign" binding="strong">
-                <string>Share Tech Mono</string>
+                <string>Consolas</string>
               </edit>
             </match>
 
@@ -113,6 +121,11 @@ with lib;
             <match target="pattern">
               <edit name="family" mode="prepend_first">
                 <string>STIX Two Math</string>
+              </edit>
+            </match>
+            <match target="pattern">
+              <edit name="family" mode="prepend_first">
+                <string>Share Tech</string>
               </edit>
             </match>
           </fontconfig>
