@@ -71,6 +71,11 @@ with lib;
           <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
           <fontconfig>
 
+            <match target="font">
+              <edit name="autohint" mode="assign">
+                <bool>false</bool>
+              </edit>
+            </match>
             <!-- remapppings -->
             <alias binding="same">
               <family>Helvetica</family>

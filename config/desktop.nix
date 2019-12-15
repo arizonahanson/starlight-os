@@ -70,7 +70,7 @@ with lib;
 
             ! XFT
             Xft.antialias: 1
-            Xft.autohint: 1
+            Xft.autohint: 0
             Xft.dpi: 96
             Xft.hinting: 1
             Xft.hintstyle: hintslight
