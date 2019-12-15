@@ -52,7 +52,7 @@ with lib;
                     <key_fill_gradient>6.0</key_fill_gradient>
                     <key_stroke_gradient>0.0</key_stroke_gradient>
                     <key_gradient_direction>-23.0</key_gradient_direction>
-                    <key_label_font>Share Tech bold</key_label_font>
+                    <key_label_font>${cfg.fonts.uiFont} bold</key_label_font>
                     <key_label_overrides>
                       <key group="super" id="LWIN" label="${removeSuffix " " cfg.logo}"/>
                       <key group="super" id="RWIN" label="${removeSuffix " " cfg.logo}"/>

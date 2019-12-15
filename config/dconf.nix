@@ -80,10 +80,10 @@ with lib;
             [org/mate/desktop/interface]
             menus-have-icons=true
             gtk-decoration-layout='menu:close'
-            font-name='Share Tech 16'
+            font-name='${cfg.fonts.uiFont} Tech 16'
             gtk-im-module='ibus'
             cursor-blink-time=1000
-            monospace-font-name='Share Tech Mono 16'
+            monospace-font-name='${cfg.fonts.monoFont} 16'
             accessibility=true
             gtk-theme='Starlight'
             icon-theme='starlight'
@@ -192,7 +192,7 @@ with lib;
             roundrect-radius=12.0
             key-gradient-direction=0.0
             key-stroke-gradient=0.0
-            key-label-font='Share Tech bold'
+            key-label-font='${cfg.fonts.uiFont} bold'
             key-label-overrides=['LWIN:${removeSuffix " " cfg.logo}:super', 'RWIN:${removeSuffix " " cfg.logo}:super']
             key-shadow-size=50.0
             key-shadow-strength=50.0

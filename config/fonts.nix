@@ -3,6 +3,56 @@
 with lib;
 
 {
+  options.starlight.fonts = {
+    fontSize = mkOption {
+      type = types.int;
+      default = 18;
+      description = ''
+        terminal font size
+        (default 18)
+      '';
+    };
+    serifFont = mkOption {
+      type = types.str;
+      default = "Roboto Slab";
+      description = ''
+        serif font
+        (default 'Roboto Slab')
+      '';
+    };
+    sansFont = mkOption {
+      type = types.str;
+      default = "Roboto";
+      description = ''
+        sans font
+        (default 'Roboto')
+      '';
+    };
+    monoFont = mkOption {
+      type = types.str;
+      default = "Share Tech Mono";
+      description = ''
+        monospace font
+        (default 'Share Tech Mono')
+      '';
+    };
+    uiFont = mkOption {
+      type = types.str;
+      default = "Share Tech";
+      description = ''
+        ui font
+        (default 'Share Tech')
+      '';
+    };
+    terminalFont = mkOption {
+      type = types.str;
+      default = "Share Tech Mono";
+      description = ''
+        terminal font
+        (default 'Share Tech Mono')
+      '';
+    };
+  };
   config = lib.mkIf config.starlight.desktop {
     fonts = {
       fonts = with pkgs; [
@@ -13,7 +63,7 @@ with lib;
         noto-fonts-emoji
         stix-two
       ];
-      fontconfig = {
+      fontconfig = let cfg = config.starlight; in {
         enable = true;
         penultimate.enable = true;
         localConf = ''
@@ -43,19 +93,19 @@ with lib;
             <alias binding="same">
               <family>-apple-system</family>
               <prefer>
-                <family>Share Tech</family>
+                <family>${cfg.fonts.uiFont}</family>
               </prefer>
             </alias>
             <alias binding="same">
               <family>BlinkMacSystemFont</family>
               <prefer>
-                <family>Share Tech</family>
+                <family>${cfg.fonts.uiFont}</family>
               </prefer>
             </alias>
             <alias binding="same">
               <family>Segoe UI</family>
               <prefer>
-                <family>Share Tech</family>
+                <family>${cfg.fonts.uiFont}</family>
               </prefer>
             </alias>
             <alias binding="same">
@@ -75,26 +125,26 @@ with lib;
             <alias binding="same">
               <family>sans-serif</family>
               <prefer>
-                <family>DejaVu Sans</family>
+                <family>${cfg.fonts.sansFont}</family>
               </prefer>
             </alias>
             <alias binding="same">
               <family>serif</family>
               <prefer>
-                <family>DejaVu Serif</family>
+                <family>${cfg.fonts.serifFont}</family>
               </prefer>
             </alias>
             <alias binding="same">
               <family>monospace</family>
               <prefer>
-                <family>Share Tech Mono</family>
+                <family>${cfg.fonts.monoFont}</family>
               </prefer>
             </alias>
 
             <!-- fallbacks for missing glyphs -->
             <match target="pattern">
               <edit name="family" mode="append">
-                <string>Share Tech</string>
+                <string>${cfg.fonts.uiFont}</string>
               </edit>
             </match>
             <match target="pattern">

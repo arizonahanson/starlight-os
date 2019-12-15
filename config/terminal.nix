@@ -44,46 +44,46 @@ with lib;
           {
             text = ''
               [options]
-              font = Share Tech Mono ${toString cfg.fontSize}
+              font = ${cfg.fonts.terminalFont} ${toString cfg.fonts.fontSize}
               allow_bold = false
               mouse_autohide = true
-    
+
               [colors]
-    
+
               # special
               foreground      = ${toRGB theme.fg}
               foreground_bold = ${toRGB theme.fg}
               background      = ${toRGB theme.bg}
               cursor          = ${palette.cursor}
-    
+
               # black
               color0  = ${palette.color00}
               color8  = ${palette.color08}
-    
+
               # red
               color1  = ${palette.color01}
               color9  = ${palette.color09}
-    
+
               # green
               color2  = ${palette.color02}
               color10 = ${palette.color10}
-    
+
               # yellow
               color3  = ${palette.color03}
               color11 = ${palette.color11}
-    
+
               # blue
               color4  = ${palette.color04}
               color12 = ${palette.color12}
-    
+
               # magenta
               color5  = ${palette.color05}
               color13 = ${palette.color13}
-    
+
               # cyan
               color6  = ${palette.color06}
               color14 = ${palette.color14}
-    
+
               # white
               color7  = ${palette.color07}
               color15 = ${palette.color15}

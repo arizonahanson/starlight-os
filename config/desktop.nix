@@ -30,14 +30,6 @@ with lib;
         (default 32)
       '';
     };
-    fontSize = mkOption {
-      type = types.int;
-      default = 20;
-      description = ''
-        terminal font size
-        (default 20)
-      '';
-    };
     logo = mkOption {
       type = types.str;
       default = " ";
@@ -86,7 +78,7 @@ with lib;
             Xft.rgba: rgb
 
             ! ROFI
-            rofi.font:              Share Tech ${toString cfg.fontSize}
+            rofi.font:              ${cfg.fonts.uiFont} ${toString cfg.fonts.fontSize}
             rofi.modi:              window,run,drun,combi
             rofi.width:             38
             rofi.lines:             5

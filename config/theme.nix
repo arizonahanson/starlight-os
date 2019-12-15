@@ -40,7 +40,7 @@ with lib;
             MATERIA_SURFACE=${toRGB cfg.theme.bg}")
           echo "/* terminal padding */
           .termite {
-            padding: ${toString ((cfg.fontSize * 2) / 3)}px;
+            padding: ${toString ((cfg.fonts.fontSize * 2) / 3)}px;
           }" >> $out/share/themes/Starlight/gtk-3.0/gtk.css
         '';
       }));
