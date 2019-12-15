@@ -14,26 +14,26 @@ with lib;
     };
     serifFont = mkOption {
       type = types.str;
-      default = "Roboto Slab";
+      default = "Noto Serif";
       description = ''
         serif font
-        (default 'Roboto Slab')
+        (default 'Noto Serif')
       '';
     };
     sansFont = mkOption {
       type = types.str;
-      default = "Roboto";
+      default = "Noto Sans";
       description = ''
         sans font
-        (default 'Roboto')
+        (default 'Noto Sans')
       '';
     };
     monoFont = mkOption {
       type = types.str;
-      default = "Share Tech Mono";
+      default = "Roboto Mono";
       description = ''
         monospace font
-        (default 'Share Tech Mono')
+        (default 'Roboto Mono')
       '';
     };
     uiFont = mkOption {
@@ -89,36 +89,6 @@ with lib;
               <accept>
                 <family>Courier New</family>
               </accept>
-            </alias>
-            <alias binding="same">
-              <family>-apple-system</family>
-              <prefer>
-                <family>${cfg.fonts.uiFont}</family>
-              </prefer>
-            </alias>
-            <alias binding="same">
-              <family>BlinkMacSystemFont</family>
-              <prefer>
-                <family>${cfg.fonts.uiFont}</family>
-              </prefer>
-            </alias>
-            <alias binding="same">
-              <family>Segoe UI</family>
-              <prefer>
-                <family>${cfg.fonts.uiFont}</family>
-              </prefer>
-            </alias>
-            <alias binding="same">
-              <family>SFMono-Regular</family>
-              <prefer>
-                <family>monospace</family>
-              </prefer>
-            </alias>
-            <alias binding="same">
-              <family>Menlo</family>
-              <prefer>
-                <family>monospace</family>
-              </prefer>
             </alias>
 
             <!-- standard families -->
