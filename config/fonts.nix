@@ -36,7 +36,7 @@ with lib;
             <alias binding="same">
               <family>monospace</family>
               <prefer>
-                <family>Roboto Mono</family>
+                <family>Share Tech Mono</family>
               </prefer>
             </alias>
 
@@ -90,7 +90,7 @@ with lib;
                 <string>SFMono-Regular</string>
               </test>
               <edit name="family" mode="assign" binding="strong">
-                <string>Roboto Mono</string>
+                <string>monospace</string>
               </edit>
             </match>
             <match target="pattern">
@@ -98,34 +98,34 @@ with lib;
                 <string>Menlo</string>
               </test>
               <edit name="family" mode="assign" binding="strong">
-                <string>Roboto Mono</string>
+                <string>monospace</string>
               </edit>
             </match>
 
             <!-- fallbacks for missing glyphs -->
             <match target="pattern">
-              <edit name="family" mode="prepend_first">
-                <string>Noto Emoji</string>
+              <edit name="family" mode="append">
+                <string>Share Tech</string>
               </edit>
             </match>
             <match target="pattern">
-              <edit name="family" mode="prepend_first">
-                <string>Font Awesome 5 Free Solid</string>
-              </edit>
-            </match>
-            <match target="pattern">
-              <edit name="family" mode="prepend_first">
-                <string>DejaVu Sans</string>
-              </edit>
-            </match>
-            <match target="pattern">
-              <edit name="family" mode="prepend_first">
+              <edit name="family" mode="append">
                 <string>STIX Two Math</string>
               </edit>
             </match>
             <match target="pattern">
-              <edit name="family" mode="prepend_first">
-                <string>Share Tech</string>
+              <edit name="family" mode="append">
+                <string>DejaVu Sans</string>
+              </edit>
+            </match>
+            <match target="pattern">
+              <edit name="family" mode="append">
+                <string>Font Awesome 5 Free Solid</string>
+              </edit>
+            </match>
+            <match target="pattern">
+              <edit name="family" mode="append">
+                <string>Noto Emoji</string>
               </edit>
             </match>
           </fontconfig>
