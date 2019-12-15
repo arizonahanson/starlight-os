@@ -161,10 +161,10 @@ with lib;
       };
       accent = mkOption {
         type = types.int;
-        default = 15;
+        default = 10;
         description = ''
           color number for accent
-          default: 15
+          default: 10
         '';
       };
       error = mkOption {
