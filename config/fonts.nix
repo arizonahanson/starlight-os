@@ -20,25 +20,6 @@ with lib;
           <?xml version="1.0" encoding="UTF-8"?>
           <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
           <fontconfig>
-            <!-- standard families -->
-            <alias binding="same">
-              <family>sans-serif</family>
-              <prefer>
-                <family>DejaVu Sans</family>
-              </prefer>
-            </alias>
-            <alias binding="same">
-              <family>serif</family>
-              <prefer>
-                <family>DejaVu Serif</family>
-              </prefer>
-            </alias>
-            <alias binding="same">
-              <family>monospace</family>
-              <prefer>
-                <family>Share Tech Mono</family>
-              </prefer>
-            </alias>
 
             <!-- remapppings -->
             <alias binding="same">
@@ -59,48 +40,56 @@ with lib;
                 <family>Courier New</family>
               </accept>
             </alias>
+            <alias binding="same">
+              <family>-apple-system</family>
+              <prefer>
+                <family>Share Tech</family>
+              </prefer>
+            </alias>
+            <alias binding="same">
+              <family>BlinkMacSystemFont</family>
+              <prefer>
+                <family>Share Tech</family>
+              </prefer>
+            </alias>
+            <alias binding="same">
+              <family>Segoe UI</family>
+              <prefer>
+                <family>Share Tech</family>
+              </prefer>
+            </alias>
+            <alias binding="same">
+              <family>SFMono-Regular</family>
+              <prefer>
+                <family>monospace</family>
+              </prefer>
+            </alias>
+            <alias binding="same">
+              <family>Menlo</family>
+              <prefer>
+                <family>monospace</family>
+              </prefer>
+            </alias>
 
-            <!-- overrides -->
-            <match target="pattern">
-              <test qual="any" name="family">
-                <string>-apple-system</string>
-              </test>
-              <edit name="family" mode="assign" binding="strong">
-                <string>Share Tech</string>
-              </edit>
-            </match>
-            <match target="pattern">
-              <test qual="any" name="family">
-                <string>BlinkMacSystemFont</string>
-              </test>
-              <edit name="family" mode="assign" binding="strong">
-                <string>Share Tech</string>
-              </edit>
-            </match>
-            <match target="pattern">
-              <test qual="any" name="family">
-                <string>Segoe UI</string>
-              </test>
-              <edit name="family" mode="assign" binding="strong">
-                <string>Share Tech</string>
-              </edit>
-            </match>
-            <match target="pattern">
-              <test qual="any" name="family">
-                <string>SFMono-Regular</string>
-              </test>
-              <edit name="family" mode="assign" binding="strong">
-                <string>monospace</string>
-              </edit>
-            </match>
-            <match target="pattern">
-              <test qual="any" name="family">
-                <string>Menlo</string>
-              </test>
-              <edit name="family" mode="assign" binding="strong">
-                <string>monospace</string>
-              </edit>
-            </match>
+            <!-- standard families -->
+            <alias binding="same">
+              <family>sans-serif</family>
+              <prefer>
+                <family>DejaVu Sans</family>
+              </prefer>
+            </alias>
+            <alias binding="same">
+              <family>serif</family>
+              <prefer>
+                <family>DejaVu Serif</family>
+              </prefer>
+            </alias>
+            <alias binding="same">
+              <family>monospace</family>
+              <prefer>
+                <family>Share Tech Mono</family>
+              </prefer>
+            </alias>
 
             <!-- fallbacks for missing glyphs -->
             <match target="pattern">
