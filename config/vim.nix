@@ -12,8 +12,8 @@
             beforePlugins = ''
               let g:ale_cache_executable_check_failures=1
               let g:ale_lint_delay=500
-              let g:ale_sign_error=' '
-              let g:ale_sign_warning=' '
+              let g:ale_sign_error=' '
+              let g:ale_sign_warning=' '
               let g:ale_sign_info=' '
               let g:foldchar='╍'
               let g:gitgutter_override_sign_column_highlight=0
