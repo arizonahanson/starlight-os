@@ -96,7 +96,7 @@ with lib;
             format = <label-mode><label-state>
             format-foreground = ''${colors.foreground}
 
-            label-focused = " "
+            label-focused = " "
             label-focused-foreground = ''${colors.accent}
             label-focused-padding = 0
 
@@ -118,7 +118,7 @@ with lib;
             label-empty-font = 5
             label-dimmed-font = 2
 
-            label-dimmed-focused = " "
+            label-dimmed-focused = " "
             label-dimmed-focused-foreground = ''${colors.foreground-alt}
 
             label-floating = "  "
