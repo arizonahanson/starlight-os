@@ -48,6 +48,7 @@ with lib;
             font-1 = Font Awesome 5 Free Solid:size=14;3
             font-2 = Noto Emoji:size=14;4
             font-3 = DejaVu Sans:size=14;2
+            font-4 = Font Awesome 5 Free Regular:size=14;3
 
             modules-left = xwindow
             modules-center =
@@ -111,12 +112,13 @@ with lib;
             label-empty-foreground = ''${colors.background-alt}
             label-empty-padding = 0
 
-            label-focused-font = 4
-            label-occupied-font = 4
-            label-urgent-font = 4
-            label-empty-font = 4
+            label-focused-font = 2
+            label-occupied-font = 5
+            label-urgent-font = 2
+            label-empty-font = 5
+            label-dimmed-font = 2
 
-            label-dimmed-focused = " "
+            label-dimmed-focused = " "
             label-dimmed-focused-foreground = ''${colors.foreground-alt}
 
             label-floating = "  "
