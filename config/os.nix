@@ -53,7 +53,7 @@
         pushd $mntpnt >/dev/null
         sudo duperemove -Ardhv --hash=xxhash $(ls -d */nix) | grep "net change"
         echo -e "\n\e[${toANSI theme.path}m\e[0m Rebalancing filesystem..."
-        sudo btrfs balance start -dusage=33 -musage=33 $mntpnt
+        sudo btrfs balance start -dusage=50 -musage=50 $mntpnt
         popd >/dev/null
         sudo umount $mntpnt
         rmdir $mntpnt
