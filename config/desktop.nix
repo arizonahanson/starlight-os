@@ -45,6 +45,14 @@ with lib;
         (default 2)
       '';
     };
+    shadowOpacity = mkOption {
+      type = types.float;
+      default = 0.7;
+      description = ''
+        compton shadow opacity
+        (default 0.7)
+      '';
+    };
     shadowRadius = mkOption {
       type = types.int;
       default = 16;
@@ -218,20 +226,18 @@ with lib;
       '';
     };
     services = {
-      compton = let
-        shadowRadius = config.starlight.shadowRadius;
-      in
+      compton = let cfg = config.starlight; in
         {
           enable = true;
           shadow = true;
-          shadowOffsets = [ (shadowRadius * -1) (shadowRadius / -2) ];
+          shadowOffsets = [ (cfg.shadowRadius * -1) (cfg.shadowRadius / -2) ];
           shadowExclude = [
             "name = 'Polybar tray window'"
             "_GTK_FRAME_EXTENTS@:c"
           ];
-          shadowOpacity = "0.5";
+          shadowOpacity = toString cfg.shadowOpacity;
           settings = {
-            shadow-radius = shadowRadius;
+            shadow-radius = cfg.shadowRadius;
           };
         };
       flatpak = {
