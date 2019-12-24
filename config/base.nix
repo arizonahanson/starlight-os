@@ -129,11 +129,13 @@ with lib;
         '';
         time.hardwareClockInLocalTime = config.starlight.localTime;
         # default user account
-        users.users.admin = {
+        users.users.admin = let
+          virtual = config.virtualisation.virtualbox.guest.enable;
+        in {
           isNormalUser = true;
           uid = 1000;
           description = "Administrator";
-          extraGroups = [ "wheel" ];
+          extraGroups = [ "wheel" ] ++ optional virtual "vboxsf";
           initialHashedPassword = "$6$D85LJu3AY7$CSbcP8wY9qNgp6zA.PXAmZo6JMy4nHDldvfUDzom7XglfgRUPW6wnLJ1l0dRUQAy4SReAO85GEISAs6tZE6TV/";
         };
         users.defaultUserShell = "/run/current-system/sw/bin/zsh";
