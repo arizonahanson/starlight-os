@@ -6,7 +6,7 @@ with lib;
   options.starlight.fonts = {
     fontSize = mkOption {
       type = types.int;
-      default = 18;
+      default = 20;
       description = ''
         terminal font size
         (default 18)
