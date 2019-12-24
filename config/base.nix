@@ -100,6 +100,7 @@ with lib;
           ncdu
           stow
           bind
+          jq
           highlight
           shellcheck
           (
