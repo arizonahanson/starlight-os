@@ -40,8 +40,8 @@ with lib;
           FG=${toRGB cfg.theme.fg}
           HDR_BG=${toRGB cfg.theme.bg}
           HDR_FG=${toRGB cfg.theme.fg}
-          SEL_BG=${toRGB cfg.theme.bg-alt}
-          SEL_FG=${toRGB cfg.theme.fg}
+          SEL_BG=${toRGB cfg.theme.accent}
+          SEL_FG=${toRGB cfg.theme.bg}
           TXT_BG=${toRGB cfg.theme.bg}
           TXT_FG=${toRGB cfg.theme.fg}
           BTN_BG=${toRGB cfg.theme.bg}
@@ -50,15 +50,15 @@ with lib;
           HDR_BTN_FG=${toRGB cfg.theme.fg}
           WM_BORDER_WIDTH=0
           ROUNDNESS=8
-          SPACING=6
-          GRADIENT=0.5
+          SPACING=8
+          GRADIENT=0.6
           GTK3_GENERATE_DARK=False
           CARET1_FG=${toRGB cfg.theme.accent}
           CARET2_FG=${toRGB cfg.theme.select}
-          CARET_SIZE=0.04
+          CARET_SIZE=0.08
           OUTLINE_WIDTH=4
           BTN_OUTLINE_WIDTH=4
-          BTN_OUTLINE_OFFSET=-2
+          BTN_OUTLINE_OFFSET=-3
           " > /build/source/starlight.colors
           HOME=/build/source ./change_color.sh -o Starlight -t $out/share/themes /build/source/starlight.colors
           echo ".termite {
