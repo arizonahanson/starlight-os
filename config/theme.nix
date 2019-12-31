@@ -8,27 +8,35 @@ with lib;
       cfg = config.starlight;
       toRGB = num: removePrefix "#" (elemAt (attrValues cfg.palette) num);
       toPx = pt: pt * 4 / 3;
-      starlight-icon-theme = with pkgs; stdenv.mkDerivation rec {
-        name = "starlight-icon-theme-v1.0";
+      starlight-oomox-theme = with pkgs; stdenv.mkDerivation rec {
+        name = "starlight-oomox-theme-v1.0";
         src = fetchFromGitHub {
-          owner = "isaacwhanson";
-          repo = "starlight-icon-theme";
-          rev = "v1.0";
-          sha256 = "1bqydmzkialx95wf5s9vz3nqgmmajwacbwcrm3c98r1bddfyw3a7";
+          owner = "themix-project";
+          repo = "oomox";
+          rev = "1.12.5.3";
+          sha256 = "0xz2j6x8zf44bjsq2h1b5105h35z8mbrh8b97i5z5j0zb8k5zhj2";
+          fetchSubmodules = true;
         };
         dontBuild = true;
+        nativeBuildInputs = [ glib libxml2 bc ];
+        buildInputs = [ gnome3.gnome-themes-extra gdk-pixbuf librsvg pkgs.sassc pkgs.inkscape pkgs.optipng ];
+        propagatedUserEnvPkgs = [ gtk-engine-murrine ];
         installPhase = ''
-          mkdir -p $out/share/icons/starlight/
-          cp -r . $out/share/icons/starlight/
-        '';
-      };
-      materia-theme = (pkgs.materia-theme.overrideAttrs (oldAttrs: rec {
-        dontBuild = false;
-        buildInputs = oldAttrs.buildInputs ++ [ pkgs.sassc pkgs.inkscape pkgs.optipng ];
-        buildPhase = ''
+          # icon theme
+          mkdir -p $out/share/icons/Starlight
+          pushd plugins/icons_suruplus_aspromauros
+          patchShebangs .
+          export SURUPLUS_GRADIENT_ENABLED=True
+          export SURUPLUS_GRADIENT1=${toRGB cfg.theme.fg}
+          export SURUPLUS_GRADIENT2=${toRGB cfg.theme.accent}
+          ./change_color.sh -o Starlight -d $out/share/icons/Starlight -c ${toRGB cfg.theme.fg}
+          popd
+          # gtk theme
+          mkdir -p $out/share/themes/Starlight
+          pushd plugins/theme_materia/materia-theme
           patchShebangs .
           sed -i 's/\$HOME\/\./$out\/share\//' ./change_color.sh
-          ./change_color.sh -o Starlight <(echo -e "
+          HOME=/build/source ./change_color.sh -o Starlight <(echo -e "
             ROUNDNESS=8
             SPACING=8
             BG=${toRGB cfg.theme.bg}
@@ -43,14 +51,14 @@ with lib;
           .termite {
             padding: ${toString ((toPx cfg.fonts.fontSize) / 2)}px;
           }" >> $out/share/themes/Starlight/gtk-3.0/gtk.css
+          popd
         '';
-      }));
+      };
     in
       with pkgs; [
         bibata-cursors
         gtk-engine-murrine
-        (materia-theme)
-        (starlight-icon-theme)
+        (starlight-oomox-theme)
       ];
   };
 }

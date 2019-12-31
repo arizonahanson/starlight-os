@@ -86,7 +86,7 @@ with lib;
             monospace-font-name='${cfg.fonts.monoFont} 16'
             accessibility=true
             gtk-theme='Starlight'
-            icon-theme='starlight'
+            icon-theme='Starlight'
 
             [org/mate/desktop/applications/browser]
             exec='chromium'
