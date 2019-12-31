@@ -44,7 +44,7 @@
 
         # pane border
         set-option -g pane-border-style fg=colour${toString theme.bg-alt}
-        set-option -g pane-active-border-style fg=colour${toString theme.fg-alt}
+        set-option -g pane-active-border-style fg=colour${toString theme.accent}
 
         # message text
         set-option -g message-style bg=colour${toString theme.bg},fg=colour${toString theme.fg}

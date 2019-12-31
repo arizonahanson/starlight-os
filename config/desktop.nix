@@ -39,7 +39,7 @@ with lib;
     };
     borderRadius = mkOption {
       type = types.int;
-      default = 4;
+      default = 2;
       description = ''
         bspwm border radius
         (default 2)
