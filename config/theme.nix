@@ -33,24 +33,37 @@ with lib;
           popd
           # gtk theme
           mkdir -p $out/share/themes/Starlight
-          pushd plugins/theme_materia/materia-theme
+          pushd plugins/theme_oomox/gtk-theme
           patchShebangs .
-          sed -i 's/\$HOME\/\./$out\/share\//' ./change_color.sh
-          HOME=/build/source ./change_color.sh -o Starlight <(echo -e "
-            ROUNDNESS=8
-            SPACING=8
-            BG=${toRGB cfg.theme.bg}
-            FG=${toRGB cfg.theme.fg}
-            HDR_BG=${toRGB cfg.theme.bg}
-            HDR_FG=${toRGB cfg.theme.fg}
-            SEL_BG=${toRGB cfg.theme.accent}
-            INACTIVE_FG=${toRGB cfg.theme.fg-alt}
-            MATERIA_VIEW=${toRGB cfg.theme.bg}
-            MATERIA_SURFACE=${toRGB cfg.theme.bg}")
-          echo "/* terminal padding */
-          .termite {
+          echo "
+          BG=${toRGB cfg.theme.bg}
+          FG=${toRGB cfg.theme.fg}
+          HDR_BG=${toRGB cfg.theme.bg}
+          HDR_FG=${toRGB cfg.theme.fg}
+          SEL_BG=${toRGB cfg.theme.bg-alt}
+          SEL_FG=${toRGB cfg.theme.fg}
+          TXT_BG=${toRGB cfg.theme.bg}
+          TXT_FG=${toRGB cfg.theme.fg}
+          BTN_BG=${toRGB cfg.theme.bg}
+          BTN_FG=${toRGB cfg.theme.fg}
+          HDR_BTN_BG=${toRGB cfg.theme.bg}
+          HDR_BTN_FG=${toRGB cfg.theme.fg}
+          WM_BORDER_WIDTH=0
+          ROUNDNESS=8
+          SPACING=6
+          GRADIENT=0.5
+          GTK3_GENERATE_DARK=False
+          CARET1_FG=${toRGB cfg.theme.accent}
+          CARET2_FG=${toRGB cfg.theme.select}
+          CARET_SIZE=0.04
+          OUTLINE_WIDTH=4
+          BTN_OUTLINE_WIDTH=4
+          BTN_OUTLINE_OFFSET=-2
+          " > /build/source/starlight.colors
+          HOME=/build/source ./change_color.sh -o Starlight -t $out/share/themes /build/source/starlight.colors
+          echo ".termite {
             padding: ${toString ((toPx cfg.fonts.fontSize) / 2)}px;
-          }" >> $out/share/themes/Starlight/gtk-3.0/gtk.css
+          }" >> $out/share/themes/Starlight/gtk-3.20/gtk.css
           popd
         '';
       };
