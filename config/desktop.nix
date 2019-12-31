@@ -182,7 +182,7 @@ with lib;
           );
           say = (
             with import <nixpkgs> {}; writeShellScriptBin "say" ''
-              ${libnotify}/bin/notify-send -i star "$@"
+              ${libnotify}/bin/notify-send -i info "$@"
             ''
           );
         in
