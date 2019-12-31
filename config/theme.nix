@@ -7,6 +7,7 @@ with lib;
     environment.systemPackages = let
       cfg = config.starlight;
       toRGB = num: removePrefix "#" (elemAt (attrValues cfg.palette) num);
+      toPx = pt: pt * 4 / 3;
       starlight-icon-theme = with pkgs; stdenv.mkDerivation rec {
         name = "starlight-icon-theme-v1.0";
         src = fetchFromGitHub {
@@ -40,7 +41,7 @@ with lib;
             MATERIA_SURFACE=${toRGB cfg.theme.bg}")
           echo "/* terminal padding */
           .termite {
-            padding: ${toString ((cfg.fonts.fontSize * 2) / 3)}px;
+            padding: ${toString ((toPx cfg.fonts.fontSize) / 2)}px;
           }" >> $out/share/themes/Starlight/gtk-3.0/gtk.css
         '';
       }));
