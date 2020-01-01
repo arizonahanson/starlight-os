@@ -37,7 +37,7 @@ with lib;
         Text logo
       '';
     };
-    borderRadius = mkOption {
+    borderWidth = mkOption {
       type = types.int;
       default = 2;
       description = ''
