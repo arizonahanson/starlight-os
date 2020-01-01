@@ -56,9 +56,9 @@ with lib;
           CARET1_FG=${removePrefix "#" cfg.palette.cursor}
           CARET2_FG=${toRGB cfg.theme.bg-alt}
           CARET_SIZE=0.08
-          OUTLINE_WIDTH=4
-          BTN_OUTLINE_WIDTH=4
-          BTN_OUTLINE_OFFSET=-3
+          OUTLINE_WIDTH=${toString cfg.borderWidth}
+          BTN_OUTLINE_WIDTH=${toString cfg.borderWidth}
+          BTN_OUTLINE_OFFSET=-${toString cfg.borderWidth}
           " > /build/source/starlight.colors
           HOME=/build/source ./change_color.sh -o Starlight -t $out/share/themes /build/source/starlight.colors
           echo ".termite {
