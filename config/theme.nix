@@ -54,7 +54,7 @@ with lib;
           GRADIENT=0.6
           GTK3_GENERATE_DARK=False
           CARET1_FG=${toRGB cfg.theme.accent}
-          CARET2_FG=${toRGB cfg.theme.select}
+          CARET2_FG=${toRGB cfg.theme.bg-alt}
           CARET_SIZE=0.08
           OUTLINE_WIDTH=4
           BTN_OUTLINE_WIDTH=4
