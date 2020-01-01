@@ -53,7 +53,7 @@ with lib;
           SPACING=8
           GRADIENT=0.6
           GTK3_GENERATE_DARK=False
-          CARET1_FG=${toRGB cfg.theme.accent}
+          CARET1_FG=${removePrefix "#" cfg.palette.cursor}
           CARET2_FG=${toRGB cfg.theme.bg-alt}
           CARET_SIZE=0.08
           OUTLINE_WIDTH=4
