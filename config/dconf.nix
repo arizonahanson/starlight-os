@@ -80,7 +80,7 @@ with lib;
             [org/mate/desktop/interface]
             menus-have-icons=true
             gtk-decoration-layout='menu:close'
-            font-name='${cfg.fonts.uiFont} Tech 16'
+            font-name='${cfg.fonts.uiFont} 16'
             gtk-im-module='ibus'
             cursor-blink-time=1000
             monospace-font-name='${cfg.fonts.monoFont} 16'
