@@ -54,7 +54,7 @@
         set-option -g display-panes-colour colour${toString theme.fg-alt}
 
         # clock
-        set-window-option -g clock-mode-colour colour${toString theme.fg}
+        set-window-option -g clock-mode-colour colour${toString theme.accent}
       '';
     };
 }
