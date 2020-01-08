@@ -47,10 +47,10 @@ with lib;
     };
     shadowOpacity = mkOption {
       type = types.float;
-      default = 0.7;
+      default = 0.75;
       description = ''
         compton shadow opacity
-        (default 0.7)
+        (default 0.75)
       '';
     };
     shadowRadius = mkOption {
