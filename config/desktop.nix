@@ -248,7 +248,7 @@ with lib;
             "_GTK_FRAME_EXTENTS@:c"
           ];
           fade = true;
-          fadeDelta = 2;
+          fadeDelta = 3;
           fadeSteps = [ "0.03125" "0.03125" ];
           opacityRules = [
             "${toString cfg.terminalOpacity}:class_g = 'terminal'"
