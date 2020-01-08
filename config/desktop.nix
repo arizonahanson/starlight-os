@@ -231,17 +231,20 @@ with lib;
           enable = true;
           shadow = true;
           shadowOffsets = [ (cfg.shadowRadius * -1) (cfg.shadowRadius / -2) ];
-          shadowExclude = [
-            "name = 'Polybar tray window'"
-            "_GTK_FRAME_EXTENTS@:c"
-          ];
           shadowOpacity = toString cfg.shadowOpacity;
           settings = {
             shadow-radius = cfg.shadowRadius;
           };
+          shadowExclude = [
+            "name = 'Polybar tray window'"
+            "_GTK_FRAME_EXTENTS@:c"
+          ];
           fade = true;
           fadeDelta = 2;
           fadeSteps = [ "0.03125" "0.03125" ];
+          opacityRules = [
+            "95:class_g = 'terminal'"
+          ];
         };
       flatpak = {
         enable = true;
