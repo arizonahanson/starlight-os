@@ -239,6 +239,9 @@ with lib;
           settings = {
             shadow-radius = cfg.shadowRadius;
           };
+          fade = true;
+          fadeDelta = 2;
+          fadeSteps = [ "0.03125" "0.03125" ];
         };
       flatpak = {
         enable = true;
