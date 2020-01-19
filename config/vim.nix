@@ -33,7 +33,8 @@
               let g:vimcache='/tmp/.vim-'.$USER.'/'
               let g:gutentags_cache_dir=g:vimcache.'ctags//'
               let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
-              let g:latex_to_unicode_file_types=["gitcommit", "gitrebase", "julia", "nix"]
+              let g:latex_to_unicode_file_types = ".*"
+              let g:latex_to_unicode_file_types_blacklist = ["python"]
               let g:netrw_home=g:vimcache.'netrw'
             '';
             customRC = ''
