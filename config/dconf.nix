@@ -96,6 +96,7 @@ with lib;
             autorun-never=true
 
             [org/mate/desktop/peripherals/keyboard]
+            remember-numlock-state=false
             numlock-state='on'
 
             [org/mate/desktop/peripherals/mouse]

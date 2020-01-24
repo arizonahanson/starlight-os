@@ -205,6 +205,7 @@ with lib;
             xorg.xkill
             xdo
             xsel
+            numlockx
             qt5ct
             libsForQt5.qtstyleplugins
             chromium
@@ -270,7 +271,6 @@ with lib;
         displayManager = {
           sddm = {
             enable = true;
-            autoNumlock = true;
             autoLogin = {
               enable = true;
               user = "admin";

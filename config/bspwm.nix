@@ -29,7 +29,7 @@ with lib;
           if [ -e "$HOME/.Xresources" ]; then
             xrdb -merge "$HOME/.Xresources"
           fi
-        
+
           # spread desktops
           desktops=10
           count=$(xrandr -q | grep ' connected' | wc -l)
@@ -46,6 +46,7 @@ with lib;
           xset -dpms
           xset s off
           xset s noblank
+          numlockx on
 
           # border color
           bspc config focused_border_color  "${toRGB cfg.theme.accent}"
