@@ -32,12 +32,12 @@ with lib;
 
           # spread desktops
           desktops=10
-          count=$(xrandr -q | grep ' connected' | wc -l)
+          count=$(xrandr -q | grep -c ' connected')
           i=1
           for m in $(xrandr -q | grep ' connected' | awk '{print $1}'); do
-            sequence=$(seq $(((1+($i-1)*$desktops/$count))) $(($i*$desktops/$count)))
-            bspc monitor $m -d $(echo ''${sequence} | sed 's/10/0/')
-            i=$(($i+1))
+            sequence=$(seq -s ' ' $(((1+(i-1)*desktops/count))) $((i*desktops/count)))
+            bspc monitor "$m" -d $(echo ''${sequence//10/0})
+            i=$((i+1))
           done
 
           # pointer
