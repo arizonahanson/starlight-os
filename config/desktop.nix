@@ -39,10 +39,10 @@ with lib;
     };
     borderWidth = mkOption {
       type = types.int;
-      default = 2;
+      default = 4;
       description = ''
         bspwm border radius
-        (default 2)
+        (default 4)
       '';
     };
     shadowOpacity = mkOption {

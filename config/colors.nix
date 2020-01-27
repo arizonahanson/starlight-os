@@ -8,7 +8,7 @@ with lib;
     palette = {
       color00 = mkOption {
         type = types.str;
-        default = "#080A10";
+        default = "#0C0810";
         description = ''
           color 0 (black)
         '';
@@ -64,7 +64,7 @@ with lib;
       };
       color08 = mkOption {
         type = types.str;
-        default = "#202840";
+        default = "#312040";
         description = ''
           color 8 (dark gray)
         '';
@@ -161,10 +161,10 @@ with lib;
       };
       accent = mkOption {
         type = types.int;
-        default = 3;
+        default = 4;
         description = ''
           color number for accent
-          default: 3
+          default: 4
         '';
       };
       error = mkOption {
