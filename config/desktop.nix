@@ -209,6 +209,7 @@ with lib;
             qt5ct
             libsForQt5.qtstyleplugins
             chromium
+            qutebrowser
             (cliprofi)
             (reload-desktop)
             (flatpak-alt)
