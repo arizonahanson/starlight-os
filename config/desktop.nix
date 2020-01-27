@@ -254,7 +254,6 @@ with lib;
           fadeSteps = [ "0.03125" "0.03125" ];
           opacityRules = [
             "${toString cfg.opacity}:class_g = 'terminal'"
-            "${toString cfg.opacity}:class_g = 'Polybar'"
             "${toString ((cfg.opacity + 100) / 2)}:class_g = 'Rofi'"
           ];
         };
