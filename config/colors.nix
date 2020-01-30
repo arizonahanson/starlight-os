@@ -36,7 +36,7 @@ with lib;
       };
       color04 = mkOption {
         type = types.str;
-        default = "#6060C0";
+        default = "#606DC0";
         description = ''
           color 4 (blue)
         '';
