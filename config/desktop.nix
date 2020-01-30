@@ -159,7 +159,7 @@ with lib;
           '';
         };
       variables = {
-        BROWSER = "chromium";
+        BROWSER = "google-chrome-unstable";
         CM_DIR = "/tmp";
         CM_LAUNCHER = "cliprofi";
         SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
@@ -208,7 +208,8 @@ with lib;
             numlockx
             qt5ct
             libsForQt5.qtstyleplugins
-            chromium
+            google-chrome-dev # chromium fail
+            qutebrowser
             (cliprofi)
             (reload-desktop)
             (flatpak-alt)
@@ -253,7 +254,6 @@ with lib;
           fadeSteps = [ "0.03125" "0.03125" ];
           opacityRules = [
             "${toString cfg.opacity}:class_g = 'terminal'"
-            "${toString cfg.opacity}:class_g = 'Polybar'"
             "${toString ((cfg.opacity + 100) / 2)}:class_g = 'Rofi'"
           ];
         };

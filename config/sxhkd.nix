@@ -16,7 +16,9 @@ with lib;
         # terminal
         super + Return
           terminal &
-        
+        super + w
+          qutebrowser
+
         # switch, move window
         super + {_,shift + }{Left,Down,Up,Right}
           bspc node -{f,s} {west,south,north,east}
@@ -36,7 +38,7 @@ with lib;
         # logout, shutdown
         super + {shift,ctrl} + q
           mate-session-save --{logout,shutdown}-dialog
-        
+
         # monocle toggle
         super + m
           bspc desktop -l next
@@ -46,43 +48,43 @@ with lib;
         # floating/fullscreen toggle
         super + {_,shift + }f
           bspc node -t {floating,fullscreen}
-        
+
         # screen/window/selection shot
         super + {_,shift +,ctrl +} + @Print
           mate-screenshot {_,-wB -e shadow,-a}
-        
+
         # clipboard select
         super + Insert
           clipmenu
         # clear clipboard history
         super + shift + Insert
           clipdel -d '.*'
-        
+
         # reload keybindings
         super + shift + BackSpace
           reload-desktop &
-        
+
         # music controls
         XF86AudioRaiseVolume
           pactl set-sink-volume 1 '+10%'
-        
+
         XF86AudioLowerVolume
           pactl set-sink-volume 1 '-10%'
-        
+
         XF86AudioMute
           pactl set-sink-mute 1 toggle
-        
+
         XF86AudioPrev
           playerctl previous
-        
+
         XF86AudioNext
           playerctl next
-        
+
         XF86AudioPlay
           playerctl play-pause
-        
+
         XF86AudioStop
-          playerctl stop   
+          playerctl stop
       '';
     };
   };
