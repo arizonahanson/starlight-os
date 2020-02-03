@@ -29,9 +29,9 @@ with lib;
       };
       color03 = mkOption {
         type = types.str;
-        default = "#807040";
+        default = "#8F7D47";
         description = ''
-          color 3 (medium amber)
+          color 3 (amber)
         '';
       };
       color04 = mkOption {
@@ -106,7 +106,7 @@ with lib;
       };
       color14 = mkOption {
         type = types.str;
-        default = "#6090C0";
+        default = "#6096C0";
         description = ''
           color 14 (azure)
         '';
