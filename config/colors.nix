@@ -71,7 +71,7 @@ with lib;
       };
       color09 = mkOption {
         type = types.str;
-        default = "#C09060";
+        default = "#C08960";
         description = ''
           color 9 (orange)
         '';
