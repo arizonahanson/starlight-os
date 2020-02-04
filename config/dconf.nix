@@ -89,7 +89,7 @@ with lib;
             icon-theme='Starlight'
 
             [org/mate/desktop/applications/browser]
-            exec='chromium'
+            exec='google-chrome-unstable'
 
             [org/mate/desktop/media-handling]
             automount-open=false

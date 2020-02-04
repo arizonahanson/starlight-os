@@ -224,7 +224,7 @@ with lib;
     programs = {
       # chromium profile
       chromium = {
-        enable = true;
+        enable = false;
         extraOpts = {
           DiskCacheDir = "/tmp/.chromium-\${user_name}";
         };
