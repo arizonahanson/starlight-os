@@ -111,7 +111,9 @@
             [credential]
               helper = ${git-minimal}/bin/git-credential-libsecret
             [web]
-              browser = "google-chrome-unstable"
+              browser = "chrome"
+            [browser "chrome"]
+              path = "google-chrome-unstable"
             ${git-config}
           '';
         } else {
