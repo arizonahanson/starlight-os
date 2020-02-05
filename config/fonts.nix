@@ -95,6 +95,12 @@ with lib;
                 <family>Courier New</family>
               </accept>
             </alias>
+            <alias binding="same">
+              <family>Symbol</family>
+              <accept>
+                <family>STIX Two Math</family>
+              </accept>
+            </alias>
 
             <!-- standard families -->
             <alias binding="same">
