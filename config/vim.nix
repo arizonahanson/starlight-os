@@ -52,7 +52,7 @@
               set numberwidth=1
               set lazyredraw
               let &fillchars='vert:║,diff:╌,fold:'.g:foldchar
-              let &showbreak=' '
+              let &showbreak=' '
               autocmd FileType gitcommit setlocal nonumber
               autocmd FileType markdown setlocal nonumber
               "--- syntax, highlighting and spelling
