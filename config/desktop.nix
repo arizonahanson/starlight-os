@@ -172,7 +172,7 @@ with lib;
             with import <nixpkgs> {}; writeShellScriptBin "cliprofi" ''
               ${rofi-unwrapped}/bin/rofi -p  -dmenu -normal-window $@
             ''
-          );
+            );
           reload-desktop = (
             with import <nixpkgs> {}; writeShellScriptBin "reload-desktop" ''
               ${procps}/bin/pkill -USR1 -x sxhkd
@@ -181,18 +181,21 @@ with lib;
               ${bspwm}/bin/bspc wm -r
               say 'Reloaded desktop' 'Desktop components have been reloaded'
             ''
-          );
+            );
           flatpak-alt = (
             with import <nixpkgs> {}; writeShellScriptBin "flatpak" ''
               ${flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
               ${flatpak}/bin/flatpak "$@"
             ''
-          );
+            );
           say = (
             with import <nixpkgs> {}; writeShellScriptBin "say" ''
               ${libnotify}/bin/notify-send -i info "$@"
             ''
-          );
+            );
+          chrome = (pkgs.google-chrome-dev.override {
+            commandLineArgs = "--disk-cache-dir=/tmp/.chrome-$USER";
+          });
         in
           with pkgs; [
             sxhkd
@@ -208,8 +211,8 @@ with lib;
             numlockx
             qt5ct
             libsForQt5.qtstyleplugins
-            google-chrome-dev # chromium fail
             qutebrowser
+            (chrome)
             (cliprofi)
             (reload-desktop)
             (flatpak-alt)
@@ -223,12 +226,6 @@ with lib;
     };
     programs = {
       # chromium profile
-      chromium = {
-        enable = false;
-        extraOpts = {
-          DiskCacheDir = "/tmp/.chromium-\${user_name}";
-        };
-      };
       seahorse.enable = true;
       # SSH_ASKPASS already defined
       zsh.interactiveShellInit = ''
