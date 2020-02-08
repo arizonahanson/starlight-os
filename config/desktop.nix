@@ -160,267 +160,97 @@ with lib;
         };
         "qute/config.py" = {
           text = ''
-            ## Background color of the completion widget category headers.
-            c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 ${toRGB theme.bg-alt}, stop:1 ${toRGB theme.bg})'
-
-            ## Bottom border color of the completion widget category headers.
+            c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 ${toRGB theme.bg}, stop:1 ${toRGB theme.bg-alt})'
             c.colors.completion.category.border.bottom = '${toRGB theme.bg}'
-
-            ## Top border color of the completion widget category headers.
             c.colors.completion.category.border.top = '${toRGB theme.bg}'
-
-            ## Foreground color of completion widget category headers.
             c.colors.completion.category.fg = '${toRGB theme.fg}'
-
-            ## Text color of the completion widget. May be a single color to use for
-            ## all columns or a list of three colors, one for each column.
             c.colors.completion.fg = ['${toRGB theme.fg}', '${toRGB theme.fg}', '${toRGB theme.fg}']
-
-            ## Background color of the selected completion item.
             c.colors.completion.item.selected.bg = '${toRGB theme.select}'
-
-            ## Bottom border color of the selected completion item.
             c.colors.completion.item.selected.border.bottom = '${toRGB theme.bg-alt}'
-
-            ## Top border color of the selected completion item.
             c.colors.completion.item.selected.border.top = '${toRGB theme.bg-alt}'
-
-            ## Foreground color of the selected completion item.
             c.colors.completion.item.selected.fg = '${toRGB theme.bg}'
-
-            ## Foreground color of the matched text in the selected completion item.
             c.colors.completion.item.selected.match.fg = '${toRGB theme.match}'
-
-            ## Foreground color of the matched text in the completion.
             c.colors.completion.match.fg = '${toRGB theme.match}'
-
-            ## Background color of the completion widget for even rows.
             c.colors.completion.even.bg = '${toRGB theme.bg}'
-
-            ## Background color of the completion widget for odd rows.
             c.colors.completion.odd.bg = '${toRGB theme.bg}'
-
-            ## Color of the scrollbar in the completion view.
             c.colors.completion.scrollbar.bg = '${toRGB theme.bg}'
-
-            ## Color of the scrollbar handle in the completion view.
             c.colors.completion.scrollbar.fg = '${toRGB theme.fg}'
-
-            ## Background color for the download bar.
             c.colors.downloads.bar.bg = '${toRGB theme.bg}'
-
-            ## Background color for downloads with errors.
             c.colors.downloads.error.bg = '${toRGB theme.error}'
-
-            ## Foreground color for downloads with errors.
             c.colors.downloads.error.fg = '${toRGB theme.fg}'
-
-            ## Color gradient start for download backgrounds.
             c.colors.downloads.start.bg = '${toRGB theme.bg}'
-
-            ## Color gradient start for download text.
             c.colors.downloads.start.fg = '${toRGB theme.fg}'
-
-            ## Color gradient stop for download backgrounds.
             c.colors.downloads.stop.bg = '${toRGB theme.bg}'
-
-            ## Color gradient end for download text.
             c.colors.downloads.stop.fg = '${toRGB theme.fg}'
-
-            ## Background color for hints. Note that you can use a `rgba(...)` value
-            ## for transparency.
-            c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 ${toRGB theme.bg-alt}, stop:1 rgba(0,0,0,0.5))'
-
-            ## Font color for hints.
+            c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(192,192,192,0.8), stop:1 rgba(192,192,192,0.7))'
             c.colors.hints.fg = '${toRGB theme.bg}'
-
-            ## Font color for the matched part of hints.
             c.colors.hints.match.fg = '${toRGB theme.match}'
-
-            ## Background color of the keyhint widget.
             # c.colors.keyhint.bg = 'rgba(0, 0, 0, 80%)'
-
-            ## Text color for the keyhint widget.
             c.colors.keyhint.fg = '${toRGB theme.fg}'
-
-            ## Highlight color for keys to complete the current keychain.
             c.colors.keyhint.suffix.fg = '${toRGB theme.accent}'
-
-            ## Background color of an error message.
             c.colors.messages.error.bg = '${toRGB theme.error}'
-
-            ## Border color of an error message.
             c.colors.messages.error.border = '${toRGB theme.error}'
-
-            ## Foreground color of an error message.
             c.colors.messages.error.fg = '${toRGB theme.fg}'
-
-            ## Background color of an info message.
             c.colors.messages.info.bg = '${toRGB theme.bg}'
-
-            ## Border color of an info message.
             c.colors.messages.info.border = '${toRGB theme.bg-alt}'
-
-            ## Foreground color of an info message.
             c.colors.messages.info.fg = '${toRGB theme.fg}'
-
-            ## Background color of a warning message.
             c.colors.messages.warning.bg = '${toRGB theme.warning}'
-
-            ## Border color of a warning message.
             c.colors.messages.warning.border = '${toRGB theme.warning}'
-
-            ## Foreground color of a warning message.
             c.colors.messages.warning.fg = '${toRGB theme.fg}'
-
-            ## Background color for prompts.
             c.colors.prompts.bg = '${toRGB theme.bg-alt}'
-
-            ## Border used around UI elements in prompts.
             c.colors.prompts.border = '1px solid gray'
-
-            ## Foreground color for prompts.
             c.colors.prompts.fg = '${toRGB theme.fg}'
-
-            ## Background color for the selected item in filename prompts.
             # c.colors.prompts.selected.bg = 'grey'
-
-            ## Background color of the statusbar in caret mode.
             # c.colors.statusbar.caret.bg = 'purple'
-
-            ## Foreground color of the statusbar in caret mode.
             c.colors.statusbar.caret.fg = '${toRGB theme.fg}'
-
-            ## Background color of the statusbar in caret mode with a selection.
             # c.colors.statusbar.caret.selection.bg = '#a12dff'
-
-            ## Foreground color of the statusbar in caret mode with a selection.
             c.colors.statusbar.caret.selection.fg = '${toRGB theme.fg}'
-
-            ## Background color of the statusbar in command mode.
             c.colors.statusbar.command.bg = '${toRGB theme.bg}'
-
-            ## Foreground color of the statusbar in command mode.
             c.colors.statusbar.command.fg = '${toRGB theme.fg}'
-
-            ## Background color of the statusbar in private browsing + command mode.
             # c.colors.statusbar.command.private.bg = 'grey'
-
-            ## Foreground color of the statusbar in private browsing + command mode.
             c.colors.statusbar.command.private.fg = '${toRGB theme.fg}'
-
-            ## Background color of the statusbar in insert mode.
             # c.colors.statusbar.insert.bg = 'darkgreen'
-
-            ## Foreground color of the statusbar in insert mode.
             c.colors.statusbar.insert.fg = '${toRGB theme.fg}'
-
-            ## Background color of the statusbar.
             c.colors.statusbar.normal.bg = '${toRGB theme.bg}'
-
-            ## Foreground color of the statusbar.
             c.colors.statusbar.normal.fg = '${toRGB theme.fg}'
-
-            ## Background color of the statusbar in passthrough mode.
             # c.colors.statusbar.passthrough.bg = 'darkblue'
-
-            ## Foreground color of the statusbar in passthrough mode.
             c.colors.statusbar.passthrough.fg = '${toRGB theme.fg}'
-
-            ## Background color of the statusbar in private browsing mode.
             # c.colors.statusbar.private.bg = '#666666'
-
-            ## Foreground color of the statusbar in private browsing mode.
             c.colors.statusbar.private.fg = '${toRGB theme.fg}'
-
-            ## Background color of the progress bar.
             c.colors.statusbar.progress.bg = '${toRGB theme.fg}'
-
-            ## Foreground color of the URL in the statusbar on error.
             # c.colors.statusbar.url.error.fg = 'orange'
-
-            ## Default foreground color of the URL in the statusbar.
             c.colors.statusbar.url.fg = '${toRGB theme.fg}'
-
-            ## Foreground color of the URL in the statusbar for hovered links.
             # c.colors.statusbar.url.hover.fg = 'aqua'
-
-            ## Foreground color of the URL in the statusbar on successful load
-            ## (http).
             c.colors.statusbar.url.success.http.fg = '${toRGB theme.fg}'
-
-            ## Foreground color of the URL in the statusbar on successful load
-            ## (https).
             # c.colors.statusbar.url.success.https.fg = 'lime'
-
-            ## Foreground color of the URL in the statusbar when there's a warning.
             # c.colors.statusbar.url.warn.fg = 'yellow'
-
-            ## Background color of the tab bar.
             c.colors.tabs.bar.bg = '${toRGB theme.bg}'
-
-            ## Background color of unselected even tabs.
             c.colors.tabs.even.bg = '${toRGB theme.bg}'
-
-            ## Foreground color of unselected even tabs.
             c.colors.tabs.even.fg = '${toRGB theme.fg}'
-
-            ## Color for the tab indicator on errors.
             c.colors.tabs.indicator.error = '${toRGB theme.error}'
-
-            ## Color gradient start for the tab indicator.
             # c.colors.tabs.indicator.start = '#0000aa'
-
-            ## Color gradient end for the tab indicator.
             # c.colors.tabs.indicator.stop = '#00aa00'
-
-            ## Background color of unselected odd tabs.
             c.colors.tabs.odd.bg = '${toRGB theme.bg}'
-
-            ## Foreground color of unselected odd tabs.
             c.colors.tabs.odd.fg = '${toRGB theme.fg}'
-
-            ## Background color of pinned unselected even tabs.
             # c.colors.tabs.pinned.even.bg = 'darkseagreen'
-
-            ## Foreground color of pinned unselected even tabs.
             c.colors.tabs.pinned.even.fg = '${toRGB theme.fg}'
-
-            ## Background color of pinned unselected odd tabs.
             # c.colors.tabs.pinned.odd.bg = 'seagreen'
-
-            ## Foreground color of pinned unselected odd tabs.
             c.colors.tabs.pinned.odd.fg = '${toRGB theme.fg}'
-
-            ## Background color of pinned selected even tabs.
             c.colors.tabs.pinned.selected.even.bg = '${toRGB theme.bg-alt}'
-
-            ## Foreground color of pinned selected even tabs.
             c.colors.tabs.pinned.selected.even.fg = '${toRGB theme.fg}'
-
-            ## Background color of pinned selected odd tabs.
             c.colors.tabs.pinned.selected.odd.bg = '${toRGB theme.bg-alt}'
-
-            ## Foreground color of pinned selected odd tabs.
             c.colors.tabs.pinned.selected.odd.fg = '${toRGB theme.fg}'
-
-            ## Background color of selected even tabs.
             c.colors.tabs.selected.even.bg = '${toRGB theme.bg-alt}'
-
-            ## Foreground color of selected even tabs.
             c.colors.tabs.selected.even.fg = '${toRGB theme.fg}'
-
-            ## Background color of selected odd tabs.
             c.colors.tabs.selected.odd.bg = '${toRGB theme.bg-alt}'
-
-            ## Foreground color of selected odd tabs.
             c.colors.tabs.selected.odd.fg = '${toRGB theme.fg}'
-
-            ## Background color for webpages if unset (or empty to use the theme's
-            ## color).
             c.colors.webpage.bg = 'white'
-            c.fonts.tabs = 'Share Tech'
-            c.hints.border = '1px solid ${toRGB theme.accent}'
+            c.fonts.monospace = 'Share Tech Mono'
+            c.hints.border = '1px solid ${toRGB theme.bg-alt}'
+            c.hints.chars = 'aoeuidhtns'
+            c.tabs.show = 'multiple'
+            c.tabs.indicator.width = 0
+            c.statusbar.hide = True
           '';
         };
       };
