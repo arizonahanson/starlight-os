@@ -242,8 +242,11 @@ with lib;
             c.colors.tabs.selected.odd.bg = '${toRGB theme.bg-alt}'
             c.colors.tabs.selected.odd.fg = '${toRGB theme.fg}'
             c.colors.webpage.bg = 'white'
-            c.fonts.monospace = 'Share Tech Mono'
+            c.fonts.monospace = '${cfg.fonts.terminalFont}'
             c.fonts.hints = 'bold 12pt monospace'
+            c.fonts.web.family.fixed = '${cfg.fonts.monoFont}'
+            c.fonts.web.family.cursive = 'Cedarville Cursive'
+            c.fonts.web.family.fantasy = 'Atomic Age'
             c.hints.border = '1px solid ${toRGB theme.bg-alt}'
             c.hints.chars = 'aoeuidhtns'
             c.tabs.show = 'multiple'
@@ -306,6 +309,7 @@ with lib;
             qt5ct
             libsForQt5.qtstyleplugins
             qutebrowser
+            zathura
             (chrome)
             (cliprofi)
             (reload-desktop)
