@@ -68,6 +68,7 @@ with lib;
           bspc rule -a Calfjackhost state=floating
           bspc rule -a calfjackhost state=floating
           bspc rule -a .onboard-settings-wrapped state=floating
+          bspc rule -a Zathura state=tiled
 
           # polybar
           for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do

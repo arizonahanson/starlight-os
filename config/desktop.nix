@@ -158,6 +158,13 @@ with lib;
             *.color15:      ${palette.color15}
           '';
         };
+        "zathurarc" = {
+          text = ''
+            set statusbar-bg "${toRGB theme.bg}"
+            set statusbar-fg "${toRGB theme.fg}"
+            set default-bg "${toRGB theme.bg}"
+          '';
+        };
         "qute/config.py" = {
           text = ''
             c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 ${toRGB theme.bg}, stop:1 ${toRGB theme.bg-alt})'
