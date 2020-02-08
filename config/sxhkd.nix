@@ -17,7 +17,7 @@ with lib;
         super + Return
           terminal &
         super + w
-          qutebrowser
+          qutebrowser -C /etc/qute/config.py
 
         # switch, move window
         super + {_,shift + }{Left,Down,Up,Right}
