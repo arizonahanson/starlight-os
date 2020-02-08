@@ -27,7 +27,6 @@ with lib;
         mate-system-monitor
         mate-user-guide
         mozo
-        pluma
       ];
     };
     # Enable the X11 windowing system.
