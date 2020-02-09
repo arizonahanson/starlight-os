@@ -282,7 +282,7 @@ with lib;
         };
       };
       variables = {
-        BROWSER = "google-chrome-unstable";
+        BROWSER = "qute";
         CM_DIR = "/tmp";
         CM_LAUNCHER = "cliprofi";
         SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
