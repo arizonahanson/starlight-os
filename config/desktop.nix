@@ -168,9 +168,9 @@ with lib;
         "qute/config.py" = {
           text = ''
             c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 ${toRGB theme.bg}, stop:1 ${toRGB theme.bg-alt})'
+            c.colors.completion.category.fg = '${toRGB theme.fg}'
             c.colors.completion.category.border.bottom = '${toRGB theme.bg}'
             c.colors.completion.category.border.top = '${toRGB theme.bg}'
-            c.colors.completion.category.fg = '${toRGB theme.fg}'
             c.colors.completion.fg = ['${toRGB theme.fg}', '${toRGB theme.fg}', '${toRGB theme.fg}']
             c.colors.completion.item.selected.bg = '${toRGB theme.select}'
             c.colors.completion.item.selected.border.bottom = '${toRGB theme.bg-alt}'
@@ -196,17 +196,17 @@ with lib;
             c.colors.keyhint.fg = '${toRGB theme.fg}'
             c.colors.keyhint.suffix.fg = '${toRGB theme.accent}'
             c.colors.messages.error.fg = '${toRGB theme.error}'
-            c.colors.messages.error.border = '${toRGB theme.error}'
             c.colors.messages.error.bg = '${toRGB theme.bg}'
+            c.colors.messages.error.border = '${toRGB theme.error}'
             c.colors.messages.info.bg = '${toRGB theme.bg}'
-            c.colors.messages.info.border = '${toRGB theme.bg-alt}'
             c.colors.messages.info.fg = '${toRGB theme.fg}'
+            c.colors.messages.info.border = '${toRGB theme.bg-alt}'
             c.colors.messages.warning.fg = '${toRGB theme.warning}'
             c.colors.messages.warning.border = '${toRGB theme.warning}'
             c.colors.messages.warning.bg = '${toRGB theme.bg}'
             c.colors.prompts.bg = '${toRGB theme.bg}'
-            c.colors.prompts.border = '1px solid ${toRGB theme.bg-alt}'
             c.colors.prompts.fg = '${toRGB theme.fg}'
+            c.colors.prompts.border = '1px solid ${toRGB theme.bg-alt}'
             c.colors.prompts.selected.bg = '${toRGB theme.bg-alt}'
             c.colors.statusbar.caret.bg = '${toRGB theme.accent}'
             c.colors.statusbar.caret.fg = '${toRGB theme.fg}'
@@ -249,16 +249,16 @@ with lib;
             c.colors.tabs.selected.odd.bg = '${toRGB theme.bg-alt}'
             c.colors.tabs.selected.odd.fg = '${toRGB theme.fg}'
             c.colors.webpage.bg = 'white'
-            c.fonts.monospace = '${cfg.fonts.terminalFont}'
             c.fonts.hints = 'bold 12pt monospace'
-            c.fonts.web.family.fixed = '${cfg.fonts.monoFont}'
+            c.fonts.monospace = '${cfg.fonts.terminalFont}'
             c.fonts.web.family.cursive = 'Dancing Script'
             c.fonts.web.family.fantasy = 'Atomic Age'
+            c.fonts.web.family.fixed = '${cfg.fonts.monoFont}'
             c.hints.border = '1px solid ${toRGB theme.bg-alt}'
             c.hints.chars = 'aoeuidhtns'
-            c.tabs.show = 'multiple'
-            c.tabs.indicator.width = 0
             c.statusbar.hide = True
+            c.tabs.indicator.width = 0
+            c.tabs.show = 'multiple'
           '';
         };
       };
