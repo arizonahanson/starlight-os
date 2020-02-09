@@ -55,12 +55,12 @@ with lib;
   };
   config = lib.mkIf config.starlight.desktop {
     fonts = {
+      enableDefaultFonts = true;
       fonts = with pkgs; [
         corefonts
         vistafonts
         google-fonts
         font-awesome_5
-        noto-fonts-emoji
         stix-two
       ];
       fontconfig = let cfg = config.starlight; in {
