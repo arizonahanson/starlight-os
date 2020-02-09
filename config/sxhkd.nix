@@ -18,6 +18,8 @@ with lib;
           terminal &
         super + w
           qute
+        super + z
+          zathura
 
         # switch, move window
         super + {_,shift + }{Left,Down,Up,Right}

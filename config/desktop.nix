@@ -160,9 +160,31 @@ with lib;
         };
         "zathurarc" = {
           text = ''
+            set font "${cfg.fonts.terminalFont} normal 10"
+            set default-bg "${toRGB theme.bg}"
+            set default-fg "${toRGB theme.fg}"
+            set inputbar-bg "${toRGB theme.bg}"
+            set inputbar-fg "${toRGB theme.fg}"
+            set notification-bg "${toRGB theme.bg}"
+            set notification-fg "${toRGB theme.fg}"
+            set notification-error-bg "${toRGB theme.bg}"
+            set notification-error-fg "${toRGB theme.error}"
+            set notification-warning-bg "${toRGB theme.bg}"
+            set notification-warning-fg "${toRGB theme.warning}"
             set statusbar-bg "${toRGB theme.bg}"
             set statusbar-fg "${toRGB theme.fg}"
-            set default-bg "${toRGB theme.bg}"
+            set tabbar-bg "${toRGB theme.bg}"
+            set tabbar-fg "${toRGB theme.fg}"
+            set tabbar-focus-bg "${toRGB theme.bg-alt}"
+            set tabbar-focus-fg "${toRGB theme.fg}"
+            set completion-bg "${toRGB theme.bg}"
+            set completion-fg "${toRGB theme.fg}"
+            set completion-group-bg "${toRGB theme.bg-alt}"
+            set completion-group-fg "${toRGB theme.fg}"
+            set completion-highlight-bg "${toRGB theme.bg}"
+            set completion-highlight-fg "${toRGB theme.select}"
+            set highlight-color "${toRGB theme.match}"
+            set highlight-active-color "${toRGB theme.select}"
           '';
         };
         "qute/config.py" = {
@@ -249,6 +271,7 @@ with lib;
             c.colors.tabs.selected.odd.bg = '${toRGB theme.bg-alt}'
             c.colors.tabs.selected.odd.fg = '${toRGB theme.fg}'
             c.colors.webpage.bg = 'white'
+            c.downloads.location.directory = '$HOME/Downloads'
             c.fonts.hints = 'bold 12pt monospace'
             c.fonts.monospace = '${cfg.fonts.terminalFont}'
             c.fonts.web.family.cursive = 'Dancing Script'
@@ -323,7 +346,7 @@ with lib;
             (flatpak-alt)
             (say)
             (with import <nixpkgs> {}; writeShellScriptBin "qute" ''
-              qutebrowser -B "/tmp/.qute-$USER" -C /etc/qute/config.py "$@"
+              XDG_CACHE_HOME="/tmp/.cache-$USER" qutebrowser  -C /etc/qute/config.py "$@"
             '')
           ];
     };
@@ -333,7 +356,6 @@ with lib;
       ibus.engines = with pkgs.ibus-engines; [ uniemoji ];
     };
     programs = {
-      # chromium profile
       seahorse.enable = true;
       # SSH_ASKPASS already defined
       zsh.interactiveShellInit = ''
