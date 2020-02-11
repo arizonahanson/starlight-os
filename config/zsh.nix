@@ -268,7 +268,7 @@ with lib;
             "git"
             "colored-man-pages"
           ];
-          cacheDir = "/tmp/.ohmyzsh-$USER";
+          cacheDir = "/tmp/.cache-$USER/ohmyzsh";
           customPkgs = [ pkgs.zsh-completions pkgs.nix-zsh-completions ];
         };
         # zshrc (end)

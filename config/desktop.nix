@@ -284,6 +284,7 @@ with lib;
       };
       variables = {
         BROWSER = "qute";
+        XDG_CACHE_HOME = "/tmp/.cache-$USER";
         CM_DIR = "/tmp";
         CM_LAUNCHER = "cliprofi";
         SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
@@ -317,9 +318,6 @@ with lib;
               ${libnotify}/bin/notify-send -i info "$@"
             ''
             );
-          chrome = (pkgs.google-chrome-dev.override {
-            commandLineArgs = "--disk-cache-dir=/tmp/.chrome-$USER";
-          });
         in
           with pkgs; [
             sxhkd
@@ -337,13 +335,13 @@ with lib;
             libsForQt5.qtstyleplugins
             qutebrowser
             zathura
-            (chrome)
+            google-chrome-dev
             (cliprofi)
             (reload-desktop)
             (flatpak-alt)
             (say)
             (with import <nixpkgs> {}; writeShellScriptBin "qute" ''
-              XDG_CACHE_HOME="/tmp/.cache-$USER" qutebrowser  -C /etc/qute/config.py "$@"
+              qutebrowser  -C /etc/qute/config.py "$@"
             '')
           ];
     };
