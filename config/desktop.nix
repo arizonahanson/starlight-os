@@ -181,6 +181,7 @@ with lib;
             set completion-highlight-fg "${toRGB theme.select}"
             set highlight-color "${toRGB theme.match}"
             set highlight-active-color "${toRGB theme.select}"
+            set sandbox "none"
           '';
         };
         "qute/config.py" = {
