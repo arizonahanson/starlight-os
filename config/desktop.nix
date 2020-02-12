@@ -285,7 +285,7 @@ with lib;
       variables = {
         BROWSER = "qute";
         XDG_CACHE_HOME = "/tmp/.cache-$USER";
-        CM_DIR = "/tmp/.cache-$USER";
+        CM_DIR = "/tmp";
         CM_LAUNCHER = "cliprofi";
         SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
         XCURSOR_THEME = "Bibata_Oil";
@@ -416,7 +416,7 @@ with lib;
         wantedBy = [ "default.target" ];
         environment = {
           DISPLAY = ":0";
-          CM_DIR = "/tmp/.cache-$USER";
+          CM_DIR = "/tmp";
         };
         path = [ pkgs.clipmenu ];
         script = ''
