@@ -212,8 +212,8 @@ with lib;
         # zshrc (start)
         interactiveShellInit = ''
           # keep zcompdump in tmpfs
-          mkdir -p "/tmp/.zcompdump-''${USER}"
-          autoload -U compinit && compinit -d "/tmp/.zcompdump-''${USER}/zcompdump"
+          mkdir -p "/tmp/.cache-$USER"
+          autoload -U compinit && compinit -d "/tmp/.cache-$USER/zcompdump"
           bindkey -v
           # spellcheck commands
           setopt correct
