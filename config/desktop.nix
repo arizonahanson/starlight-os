@@ -324,6 +324,7 @@ with lib;
             rofi-unwrapped
             libnotify
             feh
+            imagemagick
             clipmenu
             networkmanagerapplet
             xdg-desktop-portal-gtk
