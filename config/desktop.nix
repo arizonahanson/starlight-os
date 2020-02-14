@@ -283,7 +283,7 @@ with lib;
         };
       };
       variables = {
-        BROWSER = "qute";
+        BROWSER = "google-chrome-unstable";
         XDG_CACHE_HOME = "/tmp/.cache-$USER";
         CM_DIR = "/tmp";
         CM_LAUNCHER = "cliprofi";
