@@ -61,14 +61,6 @@ with lib;
         (default 16)
       '';
     };
-    opacity = mkOption {
-      type = types.int;
-      default = 95;
-      description = ''
-        compton terminal opacity
-        (default 95)
-      '';
-    };
   };
   config = lib.mkIf config.starlight.desktop {
     environment = {
@@ -375,10 +367,6 @@ with lib;
           fade = true;
           fadeDelta = 3;
           fadeSteps = [ "0.03125" "0.03125" ];
-          opacityRules = [
-            "${toString cfg.opacity}:class_g = 'terminal'"
-            "${toString ((cfg.opacity + 100) / 2)}:class_g = 'Rofi'"
-          ];
         };
       flatpak = {
         enable = true;
