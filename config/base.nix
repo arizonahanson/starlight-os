@@ -94,14 +94,9 @@ with lib;
           unzip
           duperemove
           compsize
-          nixpkgs-fmt
           nox
-          w3m
           ncdu
           stow
-          bind
-          jq
-          highlight
           shellcheck
           (
             with import <nixpkgs> {}; writeShellScriptBin "palette" ''

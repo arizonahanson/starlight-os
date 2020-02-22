@@ -5,9 +5,6 @@ with lib;
 {
   config = lib.mkIf config.starlight.desktop {
     services.xserver.windowManager.bspwm.sxhkd.configFile = "/etc/sxhkdrc";
-    environment.systemPackages = with pkgs; [
-      scrot
-    ];
     environment.etc.sxhkdrc = {
       text = ''
         # rofi applications menu
