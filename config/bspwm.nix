@@ -79,7 +79,7 @@ with lib;
           if [ -e "$HOME/.fehbg" ]; then
             source "$HOME/.fehbg"
           else
-            feh --bg-fill /etc/nixos/wallpaper.jpg
+            feh --bg-scale /etc/nixos/wallpaper.jpg
           fi
         '';
       };
