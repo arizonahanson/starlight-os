@@ -66,6 +66,7 @@ with lib;
 
             cursor-click = default
             cursor-scroll = default
+            enable-ipc = true
 
             [module/onboard]
             type = custom/script
