@@ -45,12 +45,14 @@
     );
     os-squish = (
       with import <nixpkgs> {}; writeShellScriptBin "os-squish" ''
-        echo -e "\n\e[${toANSI theme.path}m\e[0m Deduplicating system..."
         device="$(findmnt -nvo SOURCE /)"
         mntpnt="$(mktemp -d --tmpdir duperemove-XXXXXX)"
         mkdir -p $mntpnt
         sudo mount -o compress-force=zstd,noatime $device $mntpnt
         pushd $mntpnt >/dev/null
+        echo -e "\n\e[${toANSI theme.path}m\e[0m Compressing system..."
+        sudo btrfs filesystem defragment -r -v -czstd $mntpnt/*
+        echo -e "\n\e[${toANSI theme.path}m\e[0m Deduplicating system..."
         sudo duperemove -Ardhv --hash=xxhash $(ls -d */nix) | grep "net change"
         echo -e "\n\e[${toANSI theme.path}m\e[0m Rebalancing filesystem..."
         sudo btrfs balance start -dusage=50 -musage=50 $mntpnt
