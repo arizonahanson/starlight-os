@@ -74,6 +74,9 @@ with lib;
           options = "--delete-older-than 14d";
         };
         nix.autoOptimiseStore = true;
+        systemd.tmpfiles.rules = [
+          "e /var/tmp/ - - - 30d"
+        ];
         nixpkgs.config.allowUnfree = true;
         environment.variables = {
           NIX_CFLAGS_COMPILE = "-march=native";
