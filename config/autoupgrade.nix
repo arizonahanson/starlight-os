@@ -28,8 +28,10 @@ with lib;
         description = "NixOS Upgrade Service";
         restartIfChanged = false;
         unitConfig.X-StopOnRemoval = false;
-        serviceConfig.Type = "oneshot";
-
+        serviceConfig = {
+          Type = "oneshot";
+          LimitNICE = "+1";
+        };
         environment = config.nix.envVars //
           { inherit (config.environment.sessionVariables) NIX_PATH;
             HOME = "/root";
