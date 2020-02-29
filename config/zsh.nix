@@ -209,6 +209,7 @@ with lib;
             .gitignore ${toANSI theme.fg-alt}
           '';
         };
+        # in set-environment (earliest sh)
         extraInit = ''
           umask 077
         '';
