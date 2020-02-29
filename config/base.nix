@@ -71,10 +71,10 @@ with lib;
 				systemd.timers.nixos-upgrade = {
 					description = "NixOS Upgrade Timer";
 					wantedBy = [ "timers.target" ];
-					timerConfig.OnStartupSec = "1min";
+					timerConfig.OnStartupSec = "5min";
 				};
         systemd.services.nixos-upgrade = {
-					description = "NixOS Upgrade";
+					description = "NixOS Upgrade Service";
 					restartIfChanged = false;
 					unitConfig.X-StopOnRemoval = false;
 					serviceConfig.Type = "oneshot";
@@ -91,14 +91,14 @@ with lib;
             nixos-rebuild = "${config.system.build.nixos-rebuild}/bin/nixos-rebuild";
 						in
 						''
-              ${nixos-gc} --delete-older-than 4w
+              ${nixos-gc} --delete-older-than 2w
               ${nixos-rebuild} switch --upgrade
 						'';
         };
         nix.autoOptimiseStore = true;
         systemd.tmpfiles.rules = [
           "d /run/cache/ 1771 - users"
-          "d /var/config/ 1771 - users 4w"
+          "d /var/config/ 1771 - users 2w"
           "e /var/tmp/ - - - 2w"
         ];
         nixpkgs.config.allowUnfree = true;
