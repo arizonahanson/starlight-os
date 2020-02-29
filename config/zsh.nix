@@ -210,7 +210,7 @@ with lib;
           '';
         };
         extraInit = ''
-          umask 027
+          umask 077
         '';
         # zshrc (start)
         interactiveShellInit = ''
