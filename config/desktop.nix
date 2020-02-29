@@ -278,6 +278,7 @@ with lib;
       variables = {
         BROWSER = "google-chrome-unstable";
         XDG_CACHE_HOME = "/tmp/.cache-$USER";
+        XDG_CONFIG_HOME = "/var/tmp/.config-$USER";
         CM_DIR = "/tmp";
         CM_LAUNCHER = "cliprofi";
         SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
