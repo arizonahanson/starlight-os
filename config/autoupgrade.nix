@@ -38,7 +38,7 @@ with lib;
     nix.autoOptimiseStore = true;
     systemd.tmpfiles.rules = [
       "d /run/cache/ 1771 - users"
-      "d /var/config/ 1771 - users 2w"
+      "d /var/config/ 1771 - users 12w"
       "e /var/tmp/ - - - 2w"
     ];
   };
