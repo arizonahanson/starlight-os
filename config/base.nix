@@ -87,11 +87,12 @@ with lib;
 					path = with pkgs; [ coreutils gnutar xz.bin gzip gitMinimal config.nix.package.out ];
 
 					script = let
-							nixos-rebuild = "${config.system.build.nixos-rebuild}/bin/nixos-rebuild";
+            nixos-gc = "${config.nix.package.out}/bin/nix-collect-garbage}";
+            nixos-rebuild = "${config.system.build.nixos-rebuild}/bin/nixos-rebuild";
 						in
 						''
+              ${nixos-gc} --delete-older-than 4w
               ${nixos-rebuild} switch --upgrade
-              nix-collect-garbage --delete-older-than 4w
 						'';
         };
         nix.autoOptimiseStore = true;
