@@ -178,6 +178,7 @@ with lib;
         };
         "qute/config.py" = {
           text = ''
+            c.qt.force_software_rendering = 'chromium'
             c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 ${toRGB theme.bg}, stop:1 ${toRGB theme.bg-alt})'
             c.colors.completion.category.fg = '${toRGB theme.fg}'
             c.colors.completion.category.border.bottom = '${toRGB theme.bg}'
