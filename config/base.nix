@@ -102,7 +102,6 @@ with lib;
           "e /var/tmp/ - - - 2w"
         ];
         nixpkgs.config.allowUnfree = true;
-        environment.pathsToLink = [ "/include" ];
         environment.systemPackages = with pkgs; [
           gnumake
           bc
