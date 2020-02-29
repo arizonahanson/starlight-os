@@ -71,7 +71,7 @@ with lib;
 				systemd.timers.nixos-upgrade = {
 					description = "NixOS Upgrade Timer";
 					wantedBy = [ "timers.target" ];
-					timerConfig.OnStartupSec = "10min";
+					timerConfig.OnStartupSec = "1min";
 				};
         systemd.services.nixos-upgrade = {
 					description = "NixOS Upgrade";
