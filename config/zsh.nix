@@ -260,6 +260,8 @@ with lib;
         # zprofile (once, before zshrc)
         loginShellInit = ''
           umask 027
+          chmod 700 "$XDG_CACHE_HOME"
+          chmod 700 "$XDG_CONFIG_HOME"
           eval `dircolors -b /etc/dircolors`
         '';
         ohMyZsh = {
