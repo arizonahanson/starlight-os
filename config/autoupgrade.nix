@@ -16,7 +16,7 @@ with lib;
     systemd = {
       tmpfiles.rules = [
         "d /run/cache/ 1771 - users"
-        "d /var/config/ 1771 - users 12w"
+        "d /var/config/ 1771 - users 8w"
         "e /var/tmp/ - - - 2w"
       ];
       timers.nixos-upgrade = {
