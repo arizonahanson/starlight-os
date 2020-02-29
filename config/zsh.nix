@@ -212,8 +212,8 @@ with lib;
         # zshrc (start)
         interactiveShellInit = ''
           # keep zcompdump in tmpfs
-          mkdir -p "/tmp/.cache-$USER"
-          autoload -U compinit && compinit -d "/tmp/.cache-$USER/zcompdump"
+          mkdir -p "$XDG_CACHE_HOME"
+          autoload -U compinit && compinit -d "$XDG_CACHE_HOME/zcompdump"
           bindkey -v
           # spellcheck commands
           setopt correct
@@ -268,7 +268,7 @@ with lib;
             "git"
             "colored-man-pages"
           ];
-          cacheDir = "/tmp/.cache-$USER/ohmyzsh";
+          cacheDir = "$XDG_CACHE_HOME/ohmyzsh";
           customPkgs = [ pkgs.zsh-completions pkgs.nix-zsh-completions ];
         };
         # zshrc (end)

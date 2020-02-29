@@ -277,11 +277,11 @@ with lib;
       };
       variables = {
         BROWSER = "google-chrome-unstable";
-        XDG_CACHE_HOME = "/tmp/.cache-$USER";
-        XDG_CONFIG_HOME = "/var/tmp/.config-$USER";
+        XDG_CACHE_HOME = "/tmp/cache/$UID";
+        XDG_CONFIG_HOME = "/var/config/$UID";
         CM_DIR = "/tmp";
         CM_LAUNCHER = "cliprofi";
-        SSH_AUTH_SOCK = "/run/user/\${UID}/keyring/ssh";
+        SSH_AUTH_SOCK = "/run/user/$UID/keyring/ssh";
         XCURSOR_THEME = "Bibata_Oil";
         QT_QPA_PLATFORMTHEME = "gtk2";
       };

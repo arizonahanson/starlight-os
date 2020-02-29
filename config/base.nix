@@ -75,7 +75,8 @@ with lib;
         };
         nix.autoOptimiseStore = true;
         systemd.tmpfiles.rules = [
-          "e /var/tmp/ - - - 4w"
+          "e /var/tmp/ - - - 2w"
+          "d /var/config/ 1777 root root 4w"
         ];
         nixpkgs.config.allowUnfree = true;
         environment.pathsToLink = [ "/include" ];
