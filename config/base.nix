@@ -75,12 +75,9 @@ with lib;
         };
         nix.autoOptimiseStore = true;
         systemd.tmpfiles.rules = [
-          "e /var/tmp/ - - - 30d"
+          "e /var/tmp/ - - - 2w"
         ];
         nixpkgs.config.allowUnfree = true;
-        environment.variables = {
-          NIX_CFLAGS_COMPILE = "-march=native";
-        };
         environment.pathsToLink = [ "/include" ];
         environment.systemPackages = with pkgs; [
           gnumake
