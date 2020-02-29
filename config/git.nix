@@ -5,7 +5,10 @@
     theme = config.starlight.theme;
     toANSI = num: if num <= 7 then "00;3${toString num}" else "01;3${toString (num - 8)}";
     git-minimal = (
-      (pkgs.git.overrideAttrs (oldAttrs: rec { doInstallCheck = false; })).override {
+      (pkgs.git.overrideAttrs (oldAttrs: rec {
+        doInstallCheck = false;
+        NIX_CFLAGS_COMPILE = "-march=native";
+      })).override {
         guiSupport = false;
         pythonSupport = false;
         perlSupport = false;
