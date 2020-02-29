@@ -92,6 +92,7 @@ with lib;
         };
         powerManagement.cpuFreqGovernor = "performance";
         fileSystems."/" = { options = [ "noatime" ]; };
+        fileSystems."/home" = { options = [ "noatime" ]; };
         security.pam.loginLimits = [
           { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
           { domain = "@audio"; item = "rtprio"; type = "-"; value = "99"; }

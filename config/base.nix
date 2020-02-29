@@ -62,7 +62,7 @@ with lib;
         };
         fileSystems = {
           "/".options = [ "compress-force=zstd" ];
-          "/home".options = [ "compress-force=zstd" "noatime" ];
+          "/home".options = [ "compress-force=zstd" ];
         };
         services.btrfs.autoScrub = {
           enable = true;
