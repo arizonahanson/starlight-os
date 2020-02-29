@@ -87,7 +87,7 @@ with lib;
 					path = with pkgs; [ coreutils gnutar xz.bin gzip gitMinimal config.nix.package.out ];
 
 					script = let
-            nixos-gc = "${config.nix.package.out}/bin/nix-collect-garbage}";
+            nixos-gc = "${config.nix.package.out}/bin/nix-collect-garbage";
             nixos-rebuild = "${config.system.build.nixos-rebuild}/bin/nixos-rebuild";
 						in
 						''
