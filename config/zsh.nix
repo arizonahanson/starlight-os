@@ -259,6 +259,7 @@ with lib;
         };
         # zprofile (once, before zshrc)
         loginShellInit = ''
+          umask 027
           eval `dircolors -b /etc/dircolors`
         '';
         ohMyZsh = {
