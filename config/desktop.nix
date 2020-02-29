@@ -277,7 +277,7 @@ with lib;
       };
       variables = {
         BROWSER = "google-chrome-unstable";
-        XDG_CACHE_HOME = "/tmp/cache/$UID";
+        XDG_CACHE_HOME = "/run/cache/$UID";
         XDG_CONFIG_HOME = "/var/config/$UID";
         CM_DIR = "/tmp";
         CM_LAUNCHER = "cliprofi";
