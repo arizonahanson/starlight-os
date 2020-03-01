@@ -32,17 +32,15 @@ with lib;
           Type = "oneshot";
           LimitNICE = "+1";
         };
+        path = with pkgs; [ coreutils gnutar xz.bin gzip gitMinimal config.nix.package.out ];
         environment = config.nix.envVars //
           { inherit (config.environment.sessionVariables) NIX_PATH;
             HOME = "/root";
           } // config.networking.proxy.envVars;
-
-        path = with pkgs; [ coreutils gnutar xz.bin gzip gitMinimal config.nix.package.out ];
-
         script = let
           nixos-gc = "${config.nix.package.out}/bin/nix-collect-garbage";
           nixos-rebuild = "${config.system.build.nixos-rebuild}/bin/nixos-rebuild";
-          in
+        in
           ''
             ${nixos-gc} --delete-older-than 2w
             ${nixos-rebuild} switch --upgrade
