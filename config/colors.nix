@@ -29,7 +29,7 @@ with lib;
       };
       color03 = mkOption {
         type = types.str;
-        default = "#8F7D47";
+        default = "#94814A";
         description = ''
           color 3 (amber)
         '';
