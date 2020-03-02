@@ -17,7 +17,7 @@
       with import <nixpkgs> {}; writeShellScriptBin "os-update" ''
         renice 19 -p $$ >/dev/null
         echo -e "Fetching configuration..."
-        gitdir="$(mktemp -d --tmpdir update-XXXX)"
+        gitdir="$(mktemp -d -p /run/cache/$UID update-XXXX)"
         git clone -q --depth 1 https://github.com/isaacwhanson/starlight-os.git "$gitdir"
         cd "$gitdir"
         make upgrade
@@ -29,7 +29,7 @@
       with import <nixpkgs> {}; writeShellScriptBin "os-rebuild" ''
         renice 19 -p $$ >/dev/null
         echo -e "Fetching configuration..."
-        gitdir="$(mktemp -d --tmpdir rebuild-XXXX)"
+        gitdir="$(mktemp -d -p /run/cache/$UID rebuild-XXXX)"
         git clone -q --depth 1 https://github.com/isaacwhanson/starlight-os.git "$gitdir"
         cd "$gitdir"
         make rebuild
@@ -46,7 +46,7 @@
     os-squish = (
       with import <nixpkgs> {}; writeShellScriptBin "os-squish" ''
         device="$(findmnt -nvo SOURCE /)"
-        mntpnt="$(mktemp -d --tmpdir squish-XXXX)"
+        mntpnt="$(mktemp -d -p /run/cache/$UID squish-XXXX)"
         mkdir -p $mntpnt
         sudo mount -o compress-force=zstd,noatime $device $mntpnt
         pushd $mntpnt >/dev/null
