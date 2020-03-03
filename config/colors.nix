@@ -15,7 +15,7 @@ with lib;
       };
       color01 = mkOption {
         type = types.str;
-        default = "#C06060";
+        default = "#C76363";
         description = ''
           color 1 (red)
         '';
@@ -36,7 +36,7 @@ with lib;
       };
       color04 = mkOption {
         type = types.str;
-        default = "#606DC0";
+        default = "#6C7BD9";
         description = ''
           color 4 (blue)
         '';
@@ -92,7 +92,7 @@ with lib;
       };
       color12 = mkOption {
         type = types.str;
-        default = "#9060C0";
+        default = "#9966CC";
         description = ''
           color 12 (violet)
         '';
