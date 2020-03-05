@@ -184,10 +184,10 @@ with lib;
             c.colors.completion.category.border.bottom = '${toRGB theme.bg}'
             c.colors.completion.category.border.top = '${toRGB theme.bg}'
             c.colors.completion.fg = ['${toRGB theme.fg}', '${toRGB theme.fg}', '${toRGB theme.fg}']
-            c.colors.completion.item.selected.bg = '${toRGB theme.select}'
+            c.colors.completion.item.selected.bg = '${toRGB theme.bg}'
             c.colors.completion.item.selected.border.bottom = '${toRGB theme.bg-alt}'
             c.colors.completion.item.selected.border.top = '${toRGB theme.bg-alt}'
-            c.colors.completion.item.selected.fg = '${toRGB theme.bg}'
+            c.colors.completion.item.selected.fg = '${toRGB theme.select}'
             c.colors.completion.item.selected.match.fg = '${toRGB theme.match}'
             c.colors.completion.match.fg = '${toRGB theme.match}'
             c.colors.completion.even.bg = '${toRGB theme.bg}'
