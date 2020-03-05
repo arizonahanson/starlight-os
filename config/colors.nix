@@ -15,42 +15,42 @@ with lib;
       };
       color01 = mkOption {
         type = types.str;
-        default = "#C76363";
+        default = "#CC7E7E";
         description = ''
           color 1 (red)
         '';
       };
       color02 = mkOption {
         type = types.str;
-        default = "#60C060";
+        default = "#72A460";
         description = ''
           color 2 (green)
         '';
       };
       color03 = mkOption {
         type = types.str;
-        default = "#94814A";
+        default = "#A38E4D";
         description = ''
           color 3 (amber)
         '';
       };
       color04 = mkOption {
         type = types.str;
-        default = "#6C7BD9";
+        default = "#6CA1CE";
         description = ''
           color 4 (blue)
         '';
       };
       color05 = mkOption {
         type = types.str;
-        default = "#C060C0";
+        default = "#C08CCB";
         description = ''
           color 5 (magenta)
         '';
       };
       color06 = mkOption {
         type = types.str;
-        default = "#60C0C0";
+        default = "#09ACA0";
         description = ''
           color 6 (cyan)
         '';
@@ -71,42 +71,42 @@ with lib;
       };
       color09 = mkOption {
         type = types.str;
-        default = "#C08960";
+        default = "#C2976D";
         description = ''
           color 9 (orange)
         '';
       };
       color10 = mkOption {
         type = types.str;
-        default = "#60C090";
+        default = "#45AA7F";
         description = ''
           color 10 (aquamarine)
         '';
       };
       color11 = mkOption {
         type = types.str;
-        default = "#C0C060";
+        default = "#B8B851";
         description = ''
           color 11 (yellow)
         '';
       };
       color12 = mkOption {
         type = types.str;
-        default = "#9966CC";
+        default = "#9D96D4";
         description = ''
           color 12 (violet)
         '';
       };
       color13 = mkOption {
         type = types.str;
-        default = "#C06090";
+        default = "#D487B7";
         description = ''
           color 13 (rose)
         '';
       };
       color14 = mkOption {
         type = types.str;
-        default = "#6096C0";
+        default = "#30A9BB";
         description = ''
           color 14 (azure)
         '';
