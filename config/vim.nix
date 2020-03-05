@@ -100,6 +100,7 @@
               highlight! link LineNr Comment
               highlight! link CursorLineNr Noise
               highlight! link SpecialComment Noise
+              highlight! link helpExample SpecialComment
               highlight! link Folded Noise
               highlight! link FoldColumn LineNr
               highlight! link SignColumn CursorLine
