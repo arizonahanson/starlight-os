@@ -319,7 +319,6 @@ with lib;
             imagemagick
             clipmenu
             networkmanagerapplet
-            xdg-desktop-portal-gtk
             xorg.xkill
             xdo
             xsel
@@ -420,7 +419,6 @@ with lib;
       mime.enable = true;
       portal = {
         enable = true;
-        extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
       };
     };
   };
