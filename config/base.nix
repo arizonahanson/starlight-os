@@ -69,6 +69,7 @@ with lib;
         environment.systemPackages = with pkgs; [
           gnumake
           bc
+          calc
           gcc
           julia_11
           binutils
