@@ -89,7 +89,7 @@ with lib;
             label-font = 1
             label-empty = ${config.starlight.logo}
             label-empty-font = 3
-            label-empty-foreground = ''${colors.foreground}
+            label-empty-foreground = ''${colors.accent}
 
             [module/bspwm]
             type = internal/bspwm
