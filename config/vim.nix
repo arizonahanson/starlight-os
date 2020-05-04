@@ -342,6 +342,6 @@
       variables = {
         EDITOR = "vim";
       };
-      systemPackages = [ pkgs.nvi pkgs.universal-ctags (system_vim) ];
+      systemPackages = [ pkgs.universal-ctags (system_vim) ];
     };
 }
