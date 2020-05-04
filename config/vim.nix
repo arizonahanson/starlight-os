@@ -15,6 +15,7 @@
               let g:ale_sign_error=' '
               let g:ale_sign_warning=' '
               let g:ale_sign_info=' '
+              let g:ale_linters_ignore={'javascript':['tsc','tsserver','tslint']}
               let g:foldchar='╍'
               let g:gitgutter_override_sign_column_highlight=0
               let g:gitgutter_map_keys=0
