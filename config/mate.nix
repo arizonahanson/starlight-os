@@ -32,7 +32,6 @@ with lib;
     # Enable the X11 windowing system.
     services.xserver.desktopManager = {
       mate.enable = true;
-      default = "mate";
     };
   };
 }

@@ -12,7 +12,6 @@ with lib;
         enable = true;
         configFile = "/etc/bspwmrc";
       };
-      default = "bspwm";
     };
     environment.etc.bspwmrc = let
       cfg = config.starlight;

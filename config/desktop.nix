@@ -391,6 +391,7 @@ with lib;
             xset -dpms
             xset s off
           '';
+          defaultSession = "mate+bspwm";
         };
         layout = "us";
         # Enable touchpad support.
