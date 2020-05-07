@@ -9,7 +9,7 @@
           cfg = config.starlight;
         in
           {
-            beforePlugins = ''
+            /*beforePlugins = ''
               let g:ale_cache_executable_check_failures=1
               let g:ale_lint_delay=500
               let g:ale_sign_error=' '
@@ -37,7 +37,7 @@
               let g:latex_to_unicode_file_types = ".*"
               let g:latex_to_unicode_file_types_blacklist = ["python"]
               let g:netrw_home=g:vimcache.'netrw'
-            '';
+            '';*/
             customRC = ''
               "--- important
               set pastetoggle=<F2>
