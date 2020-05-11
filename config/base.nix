@@ -71,7 +71,6 @@ with lib;
           bc
           calc
           gcc
-          julia
           binutils
           psmisc
           pciutils

@@ -107,11 +107,9 @@ with lib;
             [org/mate/desktop/session]
             auto-save-session=false
             idle-delay=10
-            required-components-list=['windowmanager', 'filemanager']
+            required-components-list=['filemanager']
 
             [org/mate/desktop/session/required-components]
-            windowmanager='bspwm'
-            panel='''
             filemanager='caja'
 
             [org/mate/desktop/sound]
