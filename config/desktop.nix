@@ -391,7 +391,16 @@ with lib;
             xset -dpms
             xset s off
           '';
-          defaultSession = "none+bspwm";
+          defaultSession = "starlight";
+          session = [{
+              manage = "desktop";
+              name = "starlight";
+              start = ''
+                ${pkgs.sxhkd}/bin/sxhkd -c /etc/sxhkdrc &
+                ${pkgs.bspwm}/bin/bspwm -c /etc/bspwmrc &
+                ${pkgs.mate.mate-session-manager}/bin/mate-session
+              '';
+          }];
         };
         layout = "us";
         # Enable touchpad support.
