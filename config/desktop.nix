@@ -355,7 +355,7 @@ with lib;
           enable = true;
           shadow = true;
           shadowOffsets = [ (cfg.shadowRadius * -1) (cfg.shadowRadius / -2) ];
-          shadowOpacity = toString cfg.shadowOpacity;
+          shadowOpacity = cfg.shadowOpacity;
           settings = {
             shadow-radius = cfg.shadowRadius;
           };
@@ -365,7 +365,7 @@ with lib;
           ];
           fade = true;
           fadeDelta = 3;
-          fadeSteps = [ "0.03125" "0.03125" ];
+          fadeSteps = [ 0.03125 0.03125 ];
         };
       flatpak = {
         enable = true;
