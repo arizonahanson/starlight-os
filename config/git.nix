@@ -41,7 +41,7 @@
         keepBackup = false
         prompt = false
       [pack]
-        threads = ${toString config.nix.maxJobs}
+        threads = 2
       [push]
         default = current
       [color]
