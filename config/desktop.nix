@@ -276,7 +276,7 @@ with lib;
         };
       };
       variables = {
-        BROWSER = "google-chrome-unstable";
+        BROWSER = "google-chrome-stable";
         CM_DIR = "/run/cache";
         CM_LAUNCHER = "cliprofi";
         SSH_AUTH_SOCK = "/run/user/$UID/keyring/ssh";
@@ -327,7 +327,7 @@ with lib;
             libsForQt5.qtstyleplugins
             qutebrowser
             zathura
-            google-chrome-dev
+            google-chrome
             (cliprofi)
             (reload-desktop)
             (flatpak-alt)
