@@ -28,6 +28,8 @@ with lib;
                 strictDeps = false;
                 preInstall = ''
                   mkdir -p $out/etc/xdg/autostart
+                  substituteInPlace build/share/autostart/onboard-autostart.desktop \
+                    --replace "Exec=onboard" "Exec=onboard -t /etc/onboard/starlight.theme"
                   cp build/share/autostart/onboard-autostart.desktop $out/etc/xdg/autostart/
                 '';
               }
@@ -60,72 +62,6 @@ with lib;
                     <key_shadow_strength>50.0</key_shadow_strength>
                     <key_shadow_size>50.0</key_shadow_size>
                   </theme>
-                '';
-              };
-              "onboard/starlight.colors" = {
-                text = ''
-                  <?xml version="1.0"?>
-                  <color_scheme name="starlight" format="2.1">
-                  <window type="key-popup">
-                    <color element="fill" rgb="${toRGB cfg.theme.fg-alt}" opacity="0.9"/>
-                  </window>
-                  <layer> <color element="background" rgb="#000000" opacity="1.0"/> </layer>
-                  <layer> <color element="background" rgb="${toRGB cfg.theme.bg}" opacity="0.9"/> </layer>
-                  <layer> <color element="background" rgb="${toRGB cfg.theme.bg}" opacity="0.9"/> </layer>
-                  <key_group>
-                    <color element="fill"   rgb="${toRGB cfg.theme.bg}"/>
-                    <color element="stroke" rgb="${toRGB cfg.theme.bg-alt}"/>
-                    <color element="label"  rgb="${toRGB cfg.theme.fg}"/>
-                    <color element="fill" locked="true" rgb="${toRGB cfg.theme.bg-alt}"/>
-                    icon0
-                    <key_group>
-                      <color element="fill" locked="true" rgb="${toRGB cfg.theme.bg-alt}"/>
-                      <color element="fill" rgb="${toRGB cfg.theme.fg}"/>
-                      icon1, icon2
-                    </key_group>
-                    <!-- dark keys -->
-                    <key_group>
-                      <color element="fill" rgb="${toRGB cfg.theme.bg}"/>
-                      <color element="stroke" rgb="${toRGB cfg.theme.bg-alt}"/>
-                      <color element="label" rgb="${toRGB cfg.theme.fg}"/>
-                      <color element="fill" locked="true" rgb="${toRGB cfg.theme.bg-alt}"/>
-                      icon3,
-                      RCTL, LCTL, RALT, LALT, LWIN, CAPS,
-                      LFSH, RTSH, NMLK,
-                      MENU, RWIN, BKSP, TAB, RTRN,
-                      KPDL, KPEN, KPSU, KPDV, KPAD, KPMU,
-                      LEFT, RGHT, UP, DOWN, INS, DELE, HOME, END, PGUP, PGDN,
-                      F1, F2, F3, F4, F5, F6, F7, F8, F9, F10, F11, F12,
-                      Prnt, Pause, ESC, Scroll,
-                      secondaryclick, middleclick, doubleclick, dragclick, hoverclick,
-                      hide, showclick, move, layer,
-                      quit, inputline,
-                      <!-- word suggestions -->
-                      <key_group>
-                        <color element="fill" rgb="${toRGB cfg.theme.bg}"/>
-                        prediction
-                        <key_group>
-                          <color element="fill" rgb="${toRGB cfg.theme.bg}" opacity="0.8"/>
-                          wordlist, pause-learning.wordlist, language.wordlist, hide.wordlist
-                        </key_group>
-                      </key_group>
-                    </key_group>
-                    <!-- snippets -->
-                    <key_group>
-                      <color element="fill" rgb="${toRGB cfg.theme.bg}"/>
-                      <color element="stroke" rgb="${toRGB cfg.theme.bg-alt}"/>
-                      <color element="fill" locked="true" rgb="${toRGB cfg.theme.bg-alt}"/>
-                      m0, m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12, m13, m14, m15
-                    </key_group>
-                    <!-- red preferences -->
-                    <key_group>
-                      <color element="fill" rgb="${toRGB cfg.theme.bg}"/>
-                      <color element="stroke" rgb="${toRGB cfg.theme.bg-alt}"/>
-                      <color element="fill" locked="true" rgb="${toRGB cfg.theme.bg-alt}"/>
-                      settings
-                    </key_group>
-                  </key_group>
-                  </color_scheme>
                 '';
               };
             };
