@@ -43,7 +43,7 @@ with lib;
                 text = ''
                   <?xml version="1.0" ?>
                   <theme format="1.3" name="starlight">
-                    <color_scheme>starlight</color_scheme>
+                    <color_scheme>Black</color_scheme>
                     <background_gradient>0.0</background_gradient>
                     <key_style>gradient</key_style>
                     <roundrect_radius>16.0</roundrect_radius>
