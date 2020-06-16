@@ -21,20 +21,19 @@ with lib;
       (
         mkIf cfg.touchscreen.enable {
           # touchscreen extension enabled!
-          users.users.admin.extraGroups = [ "input" ];
-          nixpkgs.config.packageOverrides = pkgs: {
-            onboard = pkgs.onboard.overrideAttrs (
-              oldAttrs: rec {
-                strictDeps = false;
-                preInstall = ''
-                  mkdir -p $out/etc/xdg/autostart
-                  substituteInPlace build/share/autostart/onboard-autostart.desktop \
-                    --replace "Exec=onboard" "Exec=onboard -t /etc/onboard/starlight.theme"
-                  cp build/share/autostart/onboard-autostart.desktop $out/etc/xdg/autostart/
-                '';
-              }
-            );
+          systemd.user.services = {
+            onboardd = {
+              serviceConfig.Type = "simple";
+              wantedBy = [ "multi-user.target" ];
+              environment = {
+                DISPLAY = ":0";
+              };
+              script = ''
+                ${pkgs.onboard}/bin/onboard -t /etc/onboard/staright.theme
+              '';
+            };
           };
+          users.users.admin.extraGroups = [ "input" ];
           environment = {
             systemPackages = with pkgs; [
               onboard
