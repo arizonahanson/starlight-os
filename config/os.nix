@@ -46,7 +46,7 @@
     os-squish = (
       with import <nixpkgs> {}; writeShellScriptBin "os-squish" ''
         device="$(findmnt -nvo SOURCE /)"
-        mntpnt="$(mktemp -d -p "$XDG_CACHE_HOME" squish-XXXX)"
+        mntpnt="$(mktemp -d -p "$XDG_CONFIG_HOME" squish-XXXX)"
         mkdir -p $mntpnt
         sudo mount -o compress-force=zstd,noatime $device $mntpnt
         pushd $mntpnt >/dev/null
