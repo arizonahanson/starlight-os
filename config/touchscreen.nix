@@ -21,18 +21,6 @@ with lib;
       (
         mkIf cfg.touchscreen.enable {
           # touchscreen extension enabled!
-          systemd.user.services = {
-            onboardd = {
-              serviceConfig.Type = "simple";
-              wantedBy = [ "multi-user.target" ];
-              environment = {
-                DISPLAY = ":0";
-              };
-              script = ''
-                ${pkgs.onboard}/bin/onboard -t /etc/onboard/staright.theme
-              '';
-            };
-          };
           users.users.admin.extraGroups = [ "input" ];
           environment = {
             systemPackages = with pkgs; [
