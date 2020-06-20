@@ -42,6 +42,8 @@
         prompt = false
       [pack]
         threads = 2
+      [pull]
+        ff = only
       [push]
         default = current
       [color]
