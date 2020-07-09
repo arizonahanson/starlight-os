@@ -236,7 +236,7 @@ with lib;
         default = 5;
         description = ''
           color number for functions
-          default: 10
+          default: 5
         '';
       };
       keyword = mkOption {
@@ -244,15 +244,15 @@ with lib;
         default = 12;
         description = ''
           color number for keywords
-          default: 6
+          default: 12
         '';
       };
       statement = mkOption {
         type = types.int;
-        default = 14;
+        default = 10;
         description = ''
           color number for statements
-          default: 14
+          default: 10
         '';
       };
       type = mkOption {
@@ -297,10 +297,10 @@ with lib;
       };
       number = mkOption {
         type = types.int;
-        default = 10;
+        default = 14;
         description = ''
           color number for numbers
-          default: 5
+          default: 14
         '';
       };
       path = mkOption {
