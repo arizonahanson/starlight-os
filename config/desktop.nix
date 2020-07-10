@@ -379,11 +379,13 @@ with lib;
       xserver = {
         enable = true;
         displayManager = {
+          autoLogin = {
+            enable = true;
+            user = "admin";
+          };
           sddm = {
             enable = true;
             autoLogin = {
-              enable = true;
-              user = "admin";
               relogin = false;
             };
           };
