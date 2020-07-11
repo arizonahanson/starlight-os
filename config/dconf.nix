@@ -9,8 +9,7 @@ with lib;
   in
     lib.mkIf config.starlight.desktop {
       environment = {
-        etc.dconf_keyfile = {
-          target = "dconf/db/site.d/keyfile";
+        etc."dconf/db/site.d/keyfile" = {
           text = ''
             [org/gnome/desktop/a11y/mouse]
             click-type-window-style='both'
@@ -227,26 +226,17 @@ with lib;
           '';
         };
 
-        etc.dconf_profile = {
-          target = "dconf/profile/user";
+        etc."dconf/profile/user" = {
           text = ''
             service-db:keyfile/user
             system-db:site
           '';
         };
-        systemPackages = with pkgs; [ gnome3.dconf ];
+        #systemPackages = with pkgs; [ gnome3.dconf ];
       };
       programs.dconf = {
         enable = true;
       };
-      services.dbus.packages = [ pkgs.gnome3.dconf ];
-      systemd.services.dconf-update = {
-        serviceConfig.Type = "oneshot";
-        wantedBy = [ "multi-user.target" ];
-        path = [ pkgs.gnome3.dconf ];
-        script = ''
-         dconf update
-       '';
-      };
+      #services.dbus.packages = [ pkgs.gnome3.dconf ];
     };
 }
