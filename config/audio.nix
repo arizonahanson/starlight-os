@@ -60,7 +60,7 @@ with lib;
       mkIf config.starlight.desktop {
         # Enable sound.
         sound.enable = true;
-        users.users.admin.extraGroups = [ "audio" ];
+        users.users.starlight.extraGroups = [ "audio" ];
         hardware.pulseaudio = {
           enable = true;
           package = pkgs.pulseaudioFull;

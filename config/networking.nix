@@ -12,7 +12,7 @@ with lib;
     };
   };
   config = {
-    users.users.admin.extraGroups = [ "networkmanager" ];
+    users.users.starlight.extraGroups = [ "networkmanager" ];
     networking = {
       hostName = (config.starlight.hostname);
       networkmanager = {

@@ -381,7 +381,7 @@ with lib;
         displayManager = {
           autoLogin = {
             enable = true;
-            user = "admin";
+            user = "starlight";
           };
           sddm = {
             enable = true;

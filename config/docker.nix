@@ -24,6 +24,6 @@ in
       storageDriver = "btrfs";
       logDriver = "json-file";
     };
-    users.users.admin.extraGroups = [ "docker" ];
+    users.users.starlight.extraGroups = [ "docker" ];
   };
 }

@@ -115,7 +115,7 @@ with lib;
         '';
         time.hardwareClockInLocalTime = config.starlight.localTime;
         # default user account
-        users.users.admin = let
+        users.users.starlight = let
           virtual = config.virtualisation.virtualbox.guest.enable;
         in {
           isNormalUser = true;

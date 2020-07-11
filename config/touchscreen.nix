@@ -21,7 +21,7 @@ with lib;
       (
         mkIf cfg.touchscreen.enable {
           # touchscreen extension enabled!
-          users.users.admin.extraGroups = [ "input" ];
+          users.users.starlight.extraGroups = [ "input" ];
           environment = {
             systemPackages = with pkgs; [
               onboard
