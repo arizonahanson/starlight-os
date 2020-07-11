@@ -233,10 +233,10 @@ with lib;
       };
       function = mkOption {
         type = types.int;
-        default = 5;
+        default = 6;
         description = ''
           color number for functions
-          default: 5
+          default: 6
         '';
       };
       keyword = mkOption {
@@ -265,10 +265,10 @@ with lib;
       };
       boolean = mkOption {
         type = types.int;
-        default = 6;
+        default = 5;
         description = ''
           color number for booleans
-          default: 12
+          default: 5
         '';
       };
       constant = mkOption {
