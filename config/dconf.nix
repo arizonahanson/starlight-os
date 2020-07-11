@@ -8,7 +8,7 @@ with lib;
     toRGB = num: elemAt (attrValues cfg.palette) num;
     dconf-keyfile = pkgs.writeTextFile {
       name = "dconf-keyfile";
-      destination = "/etc/dconf/db/user.d/keyfile";
+      destination = "/etc/dconf/db/site.d/keyfile";
       text = ''
         [org/gnome/desktop/a11y/mouse]
         click-type-window-style='both'
@@ -229,7 +229,7 @@ with lib;
       destination = "/etc/dconf/profile/user";
       text = ''
         service-db:keyfile/user
-        system-db:local
+        system-db:site
       '';
     };
   in
