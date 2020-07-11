@@ -7,8 +7,8 @@ with lib;
     cfg = config.starlight;
     toRGB = num: elemAt (attrValues cfg.palette) num;
     dconf-keyfile = pkgs.writeTextFile {
-      name = "local-dconf-keyfile";
-      destination = "/etc/dconf/db/local.d/keyfile";
+      name = "dconf-keyfile";
+      destination = "/etc/dconf/db/user.d/keyfile";
       text = ''
         [org/gnome/desktop/a11y/mouse]
         click-type-window-style='both'
@@ -225,22 +225,18 @@ with lib;
       '';
     };
     dconf-profile = pkgs.writeTextFile {
-      name = "local-dconf-profile";
-      destination = "/etc/dconf/profile/local";
+      name = "dconf-profile";
+      destination = "/etc/dconf/profile/user";
       text = ''
-        user-db:user
+        service-db:keyfile/user
         system-db:local
       '';
     };
   in
       lib.mkIf config.starlight.desktop {
-      environment = {
-        systemPackages = with pkgs; [ gnome3.dconf ];
-      };
       programs.dconf = {
         enable = true;
         packages = [ dconf-keyfile dconf-profile ];
       };
-      services.dbus.packages = [ pkgs.gnome3.dconf ];
     };
 }
