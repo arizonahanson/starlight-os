@@ -89,11 +89,14 @@ with lib;
             with import <nixpkgs> {}; writeShellScriptBin "palette" ''
               for bold in 0 1; do
                 for col in {0..7}; do
-                  echo -en "\e[$bold;3''${col}m "
+                  echo -en "\e[$bold;3''${col}m $(printf '%X' $((col+bold*8))) "
                 done; echo
               done; echo
               for col in 2 6 4 5 1 3 0 7; do
                 echo -en "\e[0;3''${col}m \e[1;3''${col}m "
+              done; echo
+              for col in 2 6 4 5 1 3 0 7; do
+                echo -en "\e[0;3''${col}m$(printf '%X' $col) \e[1;3''${col}m$(printf '%X' $((col+8))) "
               done; echo
             ''
           )
