@@ -70,6 +70,7 @@ with lib;
           gnumake
           bc
           calc
+          units
           gcc
           binutils
           psmisc
