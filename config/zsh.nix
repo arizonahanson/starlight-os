@@ -215,31 +215,33 @@ with lib;
         '';
         # zshrc (start)
         interactiveShellInit = ''
-          # keep zcompdump in tmpfs
-          autoload -U compinit && compinit -d "$XDG_CACHE_HOME/zcompdump"
-          bindkey -v
-          # spellcheck commands
-          setopt correct
-          # backspace
-          bindkey -a '^?' vi-backward-delete-char
-          # home
-          bindkey -a '\e[1~' vi-first-non-blank
-          bindkey '\e[1~' vi-first-non-blank
-          # insert
-          bindkey -a '\e[2~' vi-insert
-          bindkey '\e[2~' vi-insert # noop?
-          # delete
-          bindkey '\e[3~' vi-delete-char
-          bindkey -a '\e[3~' vi-delete-char
-          # end
-          bindkey -a '\e[4~'  vi-end-of-line
-          bindkey '\e[4~'  vi-end-of-line
-          bindkey  "''${terminfo[khome]}" vi-beginning-of-line
-          bindkey -a "''${terminfo[khome]}" vi-beginning-of-line
-          bindkey  "''${terminfo[kend]}" vi-end-of-line
-          bindkey -a "''${terminfo[kend]}" vi-end-of-line
-          # complete word
-          bindkey '^w' vi-forward-word
+          if [ ! -n "$ZSH" ]; then
+            # keep zcompdump in tmpfs
+            autoload -U compinit && compinit -d "$XDG_CACHE_HOME/zcompdump"
+            bindkey -v
+            # spellcheck commands
+            setopt correct
+            # backspace
+            bindkey -a '^?' vi-backward-delete-char
+            # home
+            bindkey -a '\e[1~' vi-first-non-blank
+            bindkey '\e[1~' vi-first-non-blank
+            # insert
+            bindkey -a '\e[2~' vi-insert
+            bindkey '\e[2~' vi-insert # noop?
+            # delete
+            bindkey '\e[3~' vi-delete-char
+            bindkey -a '\e[3~' vi-delete-char
+            # end
+            bindkey -a '\e[4~'  vi-end-of-line
+            bindkey '\e[4~'  vi-end-of-line
+            bindkey  "''${terminfo[khome]}" vi-beginning-of-line
+            bindkey -a "''${terminfo[khome]}" vi-beginning-of-line
+            bindkey  "''${terminfo[kend]}" vi-end-of-line
+            bindkey -a "''${terminfo[kend]}" vi-end-of-line
+            # complete word
+            bindkey '^w' vi-forward-word
+          fi
         '';
         variables = {
           FZF_TMUX = "1";
