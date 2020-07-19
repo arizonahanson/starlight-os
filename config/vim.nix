@@ -317,7 +317,7 @@
                   owner = "sirtaj";
                   repo = "vim-openscad";
                   rev = "master";
-                  sha256 = "0x3g9h0cnk7hfpqx8x92xy7mhvq2piwy3mhwds8nnn2rsa5jj0cf";
+                  sha256 = "1wcdfayjpb9h0lzwdi5nda4c0ch263fdr0379l9k1gf47bgq9cx2";
                 };
               };
             in
