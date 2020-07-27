@@ -65,7 +65,7 @@ with lib;
       ];
       fontconfig = let cfg = config.starlight; in {
         enable = true;
-        penultimate.enable = true;
+        penultimate.enable = false;
         localConf = ''
           <?xml version="1.0" encoding="UTF-8"?>
           <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
