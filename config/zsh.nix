@@ -357,7 +357,7 @@ with lib;
             ZSH_THEME_STASHED_PROMPT=" "
             ZSH_THEME_STAGED_PROMPT=" "
             ZSH_THEME_CHANGED_PROMPT=" "
-            ZSH_THEME_HOME_PROMPT="🏠"
+            ZSH_THEME_HOME_PROMPT=" "
 
             # bash/zsh git prompt support
             #
