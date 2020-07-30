@@ -79,6 +79,12 @@ with lib;
             </match>
             <!-- remapppings -->
             <alias binding="same">
+              <family>Monaco</family>
+              <accept>
+                <family>Meslo LG M</family>
+              </accept>
+            </alias>
+            <alias binding="same">
               <family>Menlo</family>
               <accept>
                 <family>Meslo LG M</family>
