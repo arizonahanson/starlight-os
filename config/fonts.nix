@@ -59,6 +59,7 @@ with lib;
       fonts = with pkgs; [
         corefonts
         vistafonts
+        meslo-lg
         google-fonts
         font-awesome_5
         stix-two
@@ -77,6 +78,12 @@ with lib;
               </edit>
             </match>
             <!-- remapppings -->
+            <alias binding="same">
+              <family>Menlo</family>
+              <accept>
+                <family>Meslo LG M</family>
+              </accept>
+            </alias>
             <alias binding="same">
               <family>Helvetica</family>
               <accept>
@@ -145,7 +152,7 @@ with lib;
             </match>
             <match target="pattern">
               <edit name="family" mode="prepend">
-                <string>${cfg.fonts.uiFont}</string>
+                <string>${cfg.fonts.sansFont}</string>
               </edit>
             </match>
           </fontconfig>
