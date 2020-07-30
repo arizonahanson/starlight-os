@@ -124,28 +124,28 @@ with lib;
 
             <!-- fallbacks for missing glyphs -->
             <match target="pattern">
-              <edit name="family" mode="append">
-                <string>${cfg.fonts.uiFont}</string>
+              <edit name="family" mode="prepend">
+                <string>Noto Emoji</string>
               </edit>
             </match>
             <match target="pattern">
-              <edit name="family" mode="append">
-                <string>STIX Two Math</string>
-              </edit>
-            </match>
-            <match target="pattern">
-              <edit name="family" mode="append">
-                <string>DejaVu Sans</string>
-              </edit>
-            </match>
-            <match target="pattern">
-              <edit name="family" mode="append">
+              <edit name="family" mode="prepend">
                 <string>Font Awesome 5 Free Solid</string>
               </edit>
             </match>
             <match target="pattern">
-              <edit name="family" mode="append">
-                <string>Noto Emoji</string>
+              <edit name="family" mode="prepend">
+                <string>DejaVu Sans</string>
+              </edit>
+            </match>
+            <match target="pattern">
+              <edit name="family" mode="prepend">
+                <string>STIX Two Math</string>
+              </edit>
+            </match>
+            <match target="pattern">
+              <edit name="family" mode="prepend">
+                <string>${cfg.fonts.uiFont}</string>
               </edit>
             </match>
           </fontconfig>
