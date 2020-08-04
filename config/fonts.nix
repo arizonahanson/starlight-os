@@ -114,6 +114,12 @@ with lib;
                 <family>STIX Two Math</family>
               </accept>
             </alias>
+            <alias binding="same">
+              <family>SFMono-Regular</family>
+              <accept>
+                <family>monospace</family>
+              </accept>
+            </alias>
 
             <!-- standard families -->
             <alias binding="same">
