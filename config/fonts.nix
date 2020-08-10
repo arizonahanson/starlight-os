@@ -124,6 +124,17 @@ with lib;
               </default>
             </alias>
 
+            <!-- remove multiple family (first match) -->
+            <match>
+              <test compare="eq" name="family">
+                <string>sans-serif</string>
+              </test>
+              <test compare="eq" name="family">
+                <string>monospace</string>
+              </test>
+              <edit mode="delete" name="family"/>
+            </match>
+
             <!-- fallbacks -->
             <alias binding="same">
               <family>sans-serif</family>
