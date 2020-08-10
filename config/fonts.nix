@@ -77,6 +77,7 @@ with lib;
                 <bool>false</bool>
               </edit>
             </match>
+
             <!-- remapppings -->
             <alias binding="same">
               <family>Monaco</family>
@@ -108,65 +109,52 @@ with lib;
                 <family>Courier New</family>
               </accept>
             </alias>
-            <alias binding="same">
-              <family>Symbol</family>
-              <accept>
-                <family>STIX Two Math</family>
-              </accept>
-            </alias>
+
+            <!-- families -->
             <alias binding="same">
               <family>SFMono-Regular</family>
-              <accept>
+              <default>
                 <family>monospace</family>
-              </accept>
+              </default>
+            </alias>
+            <alias>
+              <family>Share Tech Mono</family>
+              <default>
+                <family>monospace</family>
+              </default>
             </alias>
 
-            <!-- standard families -->
+            <!-- fallbacks -->
             <alias binding="same">
               <family>sans-serif</family>
               <prefer>
                 <family>${cfg.fonts.sansFont}</family>
+                <family>STIX Two Math</family>
+                <family>Font Awesome 5 Free Solid</family>
+                <family>Noto Emoji</family>
+                <family>DejaVu Sans</family>
               </prefer>
             </alias>
             <alias binding="same">
               <family>serif</family>
               <prefer>
                 <family>${cfg.fonts.serifFont}</family>
+                <family>STIX Two Math</family>
+                <family>Font Awesome 5 Free Solid</family>
+                <family>Noto Emoji</family>
+                <family>DejaVu Serif</family>
               </prefer>
             </alias>
             <alias binding="same">
               <family>monospace</family>
               <prefer>
-                <family>${cfg.fonts.monoFont}</family>
+                <family>STIX Two Math</family>
+                <family>Font Awesome 5 Free Solid</family>
+                <family>Noto Emoji</family>
+                <family>DejaVu Sans Mono</family>
               </prefer>
             </alias>
 
-            <!-- fallbacks for missing glyphs -->
-            <match target="pattern">
-              <edit name="family" mode="prepend">
-                <string>Noto Emoji</string>
-              </edit>
-            </match>
-            <match target="pattern">
-              <edit name="family" mode="prepend">
-                <string>Font Awesome 5 Free Solid</string>
-              </edit>
-            </match>
-            <match target="pattern">
-              <edit name="family" mode="prepend">
-                <string>DejaVu Sans</string>
-              </edit>
-            </match>
-            <match target="pattern">
-              <edit name="family" mode="prepend">
-                <string>STIX Two Math</string>
-              </edit>
-            </match>
-            <match target="pattern">
-              <edit name="family" mode="prepend">
-                <string>${cfg.fonts.sansFont}</string>
-              </edit>
-            </match>
           </fontconfig>
         '';
       };
