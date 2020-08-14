@@ -97,30 +97,29 @@ with lib;
             format = <label-mode><label-state>
             format-foreground = ''${colors.foreground}
 
-            label-focused = " "
+            label-focused = " "
             label-focused-foreground = ''${colors.accent}
             label-focused-padding = 0
+            label-focused-font = 2
 
             label-occupied = " "
             label-occupied-padding = 0
             label-occupied-foreground = ''${colors.foreground-alt}
+            label-occupied-font = 5
 
             label-urgent = " "
             label-urgent-foreground = ''${colors.info}
             label-urgent-padding = 0
+            label-urgent-font = 2
 
             label-empty = " "
             label-empty-foreground = ''${colors.background-alt}
             label-empty-padding = 0
-
-            label-focused-font = 2
-            label-occupied-font = 5
-            label-urgent-font = 2
             label-empty-font = 5
-            label-dimmed-font = 2
 
             label-dimmed-focused = " "
             label-dimmed-focused-foreground = ''${colors.foreground-alt}
+            label-dimmed-font = 2
 
             label-floating = "  "
             label-pseudotiled = "  "
