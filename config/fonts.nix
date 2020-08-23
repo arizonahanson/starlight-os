@@ -141,7 +141,6 @@ with lib;
                 <family>${cfg.fonts.sansFont}</family>
                 <family>STIX Two Math</family>
                 <family>Font Awesome 5 Free Solid</family>
-                <family>Noto Emoji</family>
                 <family>DejaVu Sans</family>
               </prefer>
             </alias>
@@ -151,7 +150,6 @@ with lib;
                 <family>${cfg.fonts.serifFont}</family>
                 <family>STIX Two Math</family>
                 <family>Font Awesome 5 Free Solid</family>
-                <family>Noto Emoji</family>
                 <family>DejaVu Serif</family>
               </prefer>
             </alias>
@@ -160,7 +158,6 @@ with lib;
               <prefer>
                 <family>STIX Two Math</family>
                 <family>Font Awesome 5 Free Solid</family>
-                <family>Noto Emoji</family>
                 <family>DejaVu Sans Mono</family>
               </prefer>
             </alias>
