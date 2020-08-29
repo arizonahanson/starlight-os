@@ -874,6 +874,7 @@ with lib;
           xz = "xz --threads=0";
           ag = "${pkgs.ag}/bin/ag --color-line-number '${toANSI theme.bg-alt}' --color-path '${toANSI theme.path}' --color-match '${toANSI theme.match}'";
           ":q" = "exit";
+          fawk = "awk -F: '{print $1}' | sort -u";
         };
         syntaxHighlighting = {
           enable = true;
