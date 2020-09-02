@@ -46,6 +46,7 @@
         ff = only
       [push]
         default = current
+        followTags = true
       [color]
         ui = auto
       [color "grep"]
