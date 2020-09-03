@@ -11,6 +11,7 @@
           {
             beforePlugins = ''
               let g:ale_cache_executable_check_failures=1
+              let g:ale_completion_enabled=1
               let g:ale_lint_delay=500
               let g:ale_sign_error=' '
               let g:ale_sign_warning=' '
@@ -203,16 +204,16 @@
               set novisualbell
               set belloff+=ctrlg
               "--- editing text
-              set completeopt=menu,menuone,preview,noinsert,noselect
+              "set completeopt=menu,menuone,preview,noinsert,noselect
               set showmatch
               set undofile
               let &undodir=g:vimcache.'undo//'
               call mkdir(&undodir, 'p', 0700)
-              autocmd FileType *
-                \ if &omnifunc == "" || &omnifunc == "styledcomplete#CompleteSC" |
-                \   setlocal omnifunc=syntaxcomplete#Complete |
-                \ endif
-              set completefunc=syntaxcomplete#Complete
+              "autocmd FileType *
+              "  \ if &omnifunc == "" || &omnifunc == "styledcomplete#CompleteSC" |
+              "  \   setlocal omnifunc=syntaxcomplete#Complete |
+              "  \ endif
+              "set completefunc=syntaxcomplete#Complete
               "--- folding
               augroup autofold
                 au!
