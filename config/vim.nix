@@ -13,7 +13,6 @@
               let g:ale_cache_executable_check_failures=1
               let g:ale_completion_enabled=1
               let g:ale_close_preview_on_insert=1
-              let g:ale_cursor_detail=1
               let g:ale_fixers={
                 \ 'typescript': ['eslint'],
                 \ 'javascript': ['eslint'],
@@ -22,7 +21,6 @@
               let g:ale_fix_on_save=1
               let g:ale_hover_to_preview=1
               let g:ale_lint_delay=400
-              "let g:ale_linters_ignore={'javascript':['tsc','tsserver','tslint']}
               let g:ale_sign_error=' '
               let g:ale_sign_warning=' '
               let g:ale_sign_info=' '
