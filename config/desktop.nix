@@ -121,6 +121,8 @@ with lib;
             rofi.display-combi: 
             rofi.combi-modi: window,run,drun
             rofi.monitor: -1
+            rofi.icon-theme: Starlight
+            rofi.show-icons: true
 
             *.foreground:   ${toRGB theme.fg}
             *.background:   ${toRGB theme.bg}
