@@ -33,16 +33,16 @@
               let g:gitgutter_sign_modified_removed=' '
               let g:gitgutter_sign_removed=' '
               let g:gitgutter_sign_removed_first_line=' '
-              let g:go_highlight_structs = 1
-              let g:go_highlight_methods = 1
-              let g:go_highlight_functions = 1
-              let g:go_highlight_operators = 1
-              let g:go_highlight_build_constraints = 1
+              let g:go_highlight_structs=1
+              let g:go_highlight_methods=1
+              let g:go_highlight_functions=1
+              let g:go_highlight_operators=1
+              let g:go_highlight_build_constraints=1
               let g:vimcache=len($XDG_CACHE_HOME) ? $XDG_CACHE_HOME.'/vim/' : '/tmp/.vim-root/'
               let g:gutentags_cache_dir=g:vimcache.'ctags//'
               let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
-              let g:latex_to_unicode_file_types = ".*"
-              let g:latex_to_unicode_file_types_blacklist = ["python"]
+              let g:latex_to_unicode_file_types=".*"
+              let g:latex_to_unicode_file_types_blacklist=["python"]
               let g:netrw_home=g:vimcache.'netrw'
             '';
             customRC = ''
@@ -268,7 +268,7 @@
               "--- mappings
               function! GitGutterPrevHunkWrap(count)
                 for i in range(1, a:count)
-                  let line = line('.')
+                  let line=line('.')
                   silent GitGutterPrevHunk
                   if line('.') == line && len(GitGutterGetHunks())>1
                     normal G
@@ -278,7 +278,7 @@
               endfunction
               function! GitGutterNextHunkWrap(count)
                 for i in range(1, a:count)
-                  let line = line('.')
+                  let line=line('.')
                   silent GitGutterNextHunk
                   if line('.') == line && len(GitGutterGetHunks())>1
                     normal 1G
