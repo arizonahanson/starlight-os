@@ -330,6 +330,7 @@
                 gitgutter
                 vim-gutentags
                 ale
+                vim-cool
               ];
           };
       }
