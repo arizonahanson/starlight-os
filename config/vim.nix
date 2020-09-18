@@ -296,6 +296,7 @@
               nnoremap <silent> <F6> :ALEToggle<CR>
               nnoremap <silent> <F7> :ALEHover<CR>
               nnoremap <silent> <F8> :ALEDetail<CR>
+              nnoremap <silent> <F9> :ALEGoToDefinition<CR>
             '';
             plug.plugins = let
               vim-auto-origami = pkgs.vimUtils.buildVimPlugin {
