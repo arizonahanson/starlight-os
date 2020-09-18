@@ -41,8 +41,7 @@
               let g:vimcache=len($XDG_CACHE_HOME) ? $XDG_CACHE_HOME.'/vim/' : '/tmp/.vim-root/'
               let g:gutentags_cache_dir=g:vimcache.'ctags//'
               let g:gutentags_exclude_filetypes=["gitcommit", "gitrebase"]
-              let g:latex_to_unicode_file_types=".*"
-              let g:latex_to_unicode_file_types_blacklist=["python"]
+              let g:latex_to_unicode_file_types=["gitcommit", "gitrebase", "markdown", "julia", ""]
               let g:netrw_home=g:vimcache.'netrw'
             '';
             customRC = ''
@@ -211,7 +210,7 @@
               set belloff+=ctrlg
               "--- editing text
               set completeopt=menu,menuone,preview,noinsert,noselect
-              set completefunc=ale#completion#OmniFunc
+              set omnifunc=ale#completion#OmniFunc
               set showmatch
               set undofile
               let &undodir=g:vimcache.'undo//'
