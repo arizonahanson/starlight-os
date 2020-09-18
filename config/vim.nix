@@ -298,15 +298,6 @@
               nnoremap <silent> <F8> :ALEDetail<CR>
             '';
             plug.plugins = let
-              vim-gdscript3 = pkgs.vimUtils.buildVimPlugin {
-                name = "vim-gdscript3";
-                src = pkgs.fetchFromGitHub {
-                  owner = "calviken";
-                  repo = "vim-gdscript3";
-                  rev = "master";
-                  sha256 = "0b9ghcjiwkkldvg1zwyhi8163dcbg6sh64zrd8nk081qlbrs4shb";
-                };
-              };
               vim-auto-origami = pkgs.vimUtils.buildVimPlugin {
                 name = "vim-auto-origami";
                 src = pkgs.fetchFromGitHub {
