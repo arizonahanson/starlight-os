@@ -37,6 +37,14 @@ with lib;
         Text logo
       '';
     };
+    numDesktops = mkOption {
+      type = types.int;
+      default = 5;
+      description = ''
+        number of desktops
+        (default 5)
+      '';
+    };
     borderWidth = mkOption {
       type = types.int;
       default = 4;

@@ -30,7 +30,7 @@ with lib;
           fi
 
           # spread desktops
-          desktops=10
+          desktops=${toString cfg.numDesktops}
           count=$(xrandr -q | grep -c ' connected')
           i=1
           for m in $(xrandr -q | grep ' connected' | awk '{print $1}'); do
