@@ -54,11 +54,11 @@ with lib;
       '';
     };
     shadowOpacity = mkOption {
-      type = types.float;
-      default = 0.75;
+      type = types.int;
+      default = 75;
       description = ''
         picom shadow opacity
-        (default 0.75)
+        (default 75)
       '';
     };
     shadowRadius = mkOption {
@@ -67,6 +67,14 @@ with lib;
       description = ''
         picom shadow radius
         (default 16)
+      '';
+    };
+    terminalOpacity = mkOption {
+      type = types.int;
+      default = 95;
+      description = ''
+        picom terminal opacity
+        (default 95)
       '';
     };
   };
@@ -366,33 +374,33 @@ with lib;
           backend = "glx";
           activeOpacity = 1.0;
           inactiveOpacity = 1.0;
+          fade = false;
           opacityRules = [
-            "95:class_g = 'terminal'"
+            "${toString cfg.terminalOpacity}:class_g = 'terminal'"
           ];
+          settings = {
+            blur-background = true;
+            blur-background-fixed = true;
+            blur-background-frame = false;
+            blur-kern = "7x7box";
+            blur-method = "kernel";
+            detect-client-leader = true;
+            detect-client-opacity = true;
+            detect-rounded-corners = true;
+            detect-transient = true;
+            frame-opacity = 1.0;
+            mark-ovredir-focused = true;
+            mark-wmwin-focused = true;
+            shadow-radius = cfg.shadowRadius;
+            unredir-if-possible = false;
+          };
           shadow = true;
-          shadowOffsets = [ (cfg.shadowRadius * -1) (cfg.shadowRadius / -2) ];
-          shadowOpacity = cfg.shadowOpacity;
           shadowExclude = [
             "name = 'Polybar tray window'"
             "_GTK_FRAME_EXTENTS@:c"
           ];
-          fade = false;
-          settings = {
-            shadow-radius = cfg.shadowRadius;
-            frame-opacity = 1.0;
-            blur-method = "kernel";
-            blur-kern = "7x7box";
-            blur-background = true;
-            blur-background-fixed = true;
-            blur-background-frame = false;
-            detect-rounded-corners = true;
-            detect-client-opacity = true;
-            detect-transient = true;
-            detect-client-leader = true;
-            mark-wmwin-focused = true;
-            mark-ovredir-focused = true;
-            unredir-if-possible = false;
-          };
+          shadowOffsets = [ (cfg.shadowRadius * -1) (cfg.shadowRadius / -2) ];
+          shadowOpacity = cfg.shadowOpacity * 0.01;
         };
       flatpak = {
         enable = true;
