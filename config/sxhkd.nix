@@ -13,8 +13,6 @@ with lib;
         # terminal
         super + Return
           terminal &
-        super + w
-          qute
         super + z
           zathura
 

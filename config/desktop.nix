@@ -194,104 +194,6 @@ with lib;
             set sandbox "none"
           '';
         };
-        "qute/config.py" = {
-          text = ''
-            c.qt.force_software_rendering = 'chromium'
-            c.colors.completion.category.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 ${toRGB theme.bg}, stop:1 ${toRGB theme.bg-alt})'
-            c.colors.completion.category.fg = '${toRGB theme.fg}'
-            c.colors.completion.category.border.bottom = '${toRGB theme.bg}'
-            c.colors.completion.category.border.top = '${toRGB theme.bg}'
-            c.colors.completion.fg = ['${toRGB theme.fg}', '${toRGB theme.fg}', '${toRGB theme.fg}']
-            c.colors.completion.item.selected.bg = '${toRGB theme.bg}'
-            c.colors.completion.item.selected.border.bottom = '${toRGB theme.bg-alt}'
-            c.colors.completion.item.selected.border.top = '${toRGB theme.bg-alt}'
-            c.colors.completion.item.selected.fg = '${toRGB theme.select}'
-            c.colors.completion.item.selected.match.fg = '${toRGB theme.match}'
-            c.colors.completion.match.fg = '${toRGB theme.match}'
-            c.colors.completion.even.bg = '${toRGB theme.bg}'
-            c.colors.completion.odd.bg = '${toRGB theme.bg}'
-            c.colors.completion.scrollbar.bg = '${toRGB theme.bg}'
-            c.colors.completion.scrollbar.fg = '${toRGB theme.fg}'
-            c.colors.downloads.bar.bg = '${toRGB theme.bg}'
-            c.colors.downloads.error.bg = '${toRGB theme.error}'
-            c.colors.downloads.error.fg = '${toRGB theme.fg}'
-            c.colors.downloads.start.bg = '${toRGB theme.bg}'
-            c.colors.downloads.start.fg = '${toRGB theme.fg}'
-            c.colors.downloads.stop.bg = '${toRGB theme.bg}'
-            c.colors.downloads.stop.fg = '${toRGB theme.fg}'
-            c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(148,148,192,0.9), stop:1 rgba(148,148,192,0.6))'
-            c.colors.hints.fg = 'black'
-            c.colors.hints.match.fg = '${toRGB theme.match}'
-            # c.colors.keyhint.bg = 'rgba(0, 0, 0, 80%)'
-            c.colors.keyhint.fg = '${toRGB theme.fg}'
-            c.colors.keyhint.suffix.fg = '${toRGB theme.accent}'
-            c.colors.messages.error.fg = '${toRGB theme.error}'
-            c.colors.messages.error.bg = '${toRGB theme.bg}'
-            c.colors.messages.error.border = '${toRGB theme.error}'
-            c.colors.messages.info.bg = '${toRGB theme.bg}'
-            c.colors.messages.info.fg = '${toRGB theme.fg}'
-            c.colors.messages.info.border = '${toRGB theme.bg-alt}'
-            c.colors.messages.warning.fg = '${toRGB theme.warning}'
-            c.colors.messages.warning.border = '${toRGB theme.warning}'
-            c.colors.messages.warning.bg = '${toRGB theme.bg}'
-            c.colors.prompts.bg = '${toRGB theme.bg}'
-            c.colors.prompts.fg = '${toRGB theme.fg}'
-            c.colors.prompts.border = '1px solid ${toRGB theme.bg-alt}'
-            c.colors.prompts.selected.bg = '${toRGB theme.bg-alt}'
-            c.colors.statusbar.caret.bg = '${toRGB theme.accent}'
-            c.colors.statusbar.caret.fg = '${toRGB theme.fg}'
-            c.colors.statusbar.caret.selection.bg = '${toRGB theme.bg-alt}'
-            c.colors.statusbar.caret.selection.fg = '${toRGB theme.fg}'
-            c.colors.statusbar.command.bg = '${toRGB theme.bg}'
-            c.colors.statusbar.command.fg = '${toRGB theme.fg}'
-            c.colors.statusbar.command.private.bg = '${toRGB theme.bg-alt}'
-            c.colors.statusbar.command.private.fg = '${toRGB theme.fg}'
-            c.colors.statusbar.insert.bg = '${toRGB theme.bg}'
-            c.colors.statusbar.insert.fg = '${toRGB theme.fg}'
-            c.colors.statusbar.normal.bg = '${toRGB theme.bg}'
-            c.colors.statusbar.normal.fg = '${toRGB theme.fg}'
-            c.colors.statusbar.passthrough.bg = '${toRGB theme.bg}'
-            c.colors.statusbar.passthrough.fg = '${toRGB theme.fg}'
-            c.colors.statusbar.private.bg = '${toRGB theme.bg-alt}'
-            c.colors.statusbar.private.fg = '${toRGB theme.fg}'
-            c.colors.statusbar.progress.bg = '${toRGB theme.fg}'
-            c.colors.statusbar.url.error.fg = '${toRGB theme.error}'
-            c.colors.statusbar.url.fg = '${toRGB theme.fg}'
-            c.colors.statusbar.url.hover.fg = '${toRGB theme.path}'
-            c.colors.statusbar.url.success.http.fg = '${toRGB theme.fg}'
-            c.colors.statusbar.url.success.https.fg = '${toRGB theme.fg}'
-            c.colors.statusbar.url.warn.fg = '${toRGB theme.warning}'
-            c.colors.tabs.bar.bg = '${toRGB theme.bg}'
-            c.colors.tabs.even.bg = '${toRGB theme.bg}'
-            c.colors.tabs.even.fg = '${toRGB theme.fg}'
-            c.colors.tabs.odd.bg = '${toRGB theme.bg}'
-            c.colors.tabs.odd.fg = '${toRGB theme.fg}'
-            c.colors.tabs.pinned.even.bg = '${toRGB theme.bg}'
-            c.colors.tabs.pinned.even.fg = '${toRGB theme.fg}'
-            c.colors.tabs.pinned.odd.bg = '${toRGB theme.bg}'
-            c.colors.tabs.pinned.odd.fg = '${toRGB theme.fg}'
-            c.colors.tabs.pinned.selected.even.bg = '${toRGB theme.bg-alt}'
-            c.colors.tabs.pinned.selected.even.fg = '${toRGB theme.fg}'
-            c.colors.tabs.pinned.selected.odd.bg = '${toRGB theme.bg-alt}'
-            c.colors.tabs.pinned.selected.odd.fg = '${toRGB theme.fg}'
-            c.colors.tabs.selected.even.bg = '${toRGB theme.bg-alt}'
-            c.colors.tabs.selected.even.fg = '${toRGB theme.fg}'
-            c.colors.tabs.selected.odd.bg = '${toRGB theme.bg-alt}'
-            c.colors.tabs.selected.odd.fg = '${toRGB theme.fg}'
-            c.colors.webpage.bg = 'white'
-            c.downloads.location.directory = '$HOME/Downloads'
-            c.fonts.hints = 'bold 12pt monospace'
-            c.fonts.monospace = '${cfg.fonts.terminalFont}'
-            c.fonts.web.family.cursive = 'Dancing Script'
-            c.fonts.web.family.fantasy = 'Atomic Age'
-            c.fonts.web.family.fixed = '${cfg.fonts.monoFont}'
-            c.hints.border = '1px solid ${toRGB theme.bg-alt}'
-            c.hints.chars = 'aoeuidhtns'
-            c.statusbar.hide = True
-            c.tabs.indicator.width = 0
-            c.tabs.show = 'multiple'
-          '';
-        };
       };
       variables = {
         BROWSER = "google-chrome-stable";
@@ -343,16 +245,12 @@ with lib;
             numlockx
             qt5ct
             libsForQt5.qtstyleplugins
-            qutebrowser
             zathura
             google-chrome
             (cliprofi)
             (reload-desktop)
             (flatpak-alt)
             (say)
-            (with import <nixpkgs> {}; writeShellScriptBin "qute" ''
-              qutebrowser  -C /etc/qute/config.py "$@"
-            '')
           ];
     };
     hardware.opengl.driSupport32Bit = true;
@@ -372,8 +270,6 @@ with lib;
         {
           enable = true;
           backend = "glx";
-          activeOpacity = 1.0;
-          inactiveOpacity = 1.0;
           fade = false;
           opacityRules = [
             "${toString cfg.terminalOpacity}:class_g = 'terminal'"

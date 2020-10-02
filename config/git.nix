@@ -119,7 +119,7 @@
             [web]
               browser = "chrome"
             [browser "chrome"]
-              path = "qute"
+              path = "google-chrome-stable"
             ${git-config}
           '';
         } else {
