@@ -53,7 +53,7 @@ with lib;
               };
             };
           };
-          services.compton.shadowExclude = [
+          services.picom.shadowExclude = [
             "name = 'Onboard'"
           ];
         }

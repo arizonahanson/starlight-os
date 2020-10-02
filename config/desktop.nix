@@ -381,51 +381,19 @@ with lib;
           fadeSteps = [ 0.03125 0.03125 ];
           settings = {
             shadow-radius = cfg.shadowRadius;
-            frame-opacity = 0.9;
-            mark-wmwin-focused = true;
-            mark-ovredir-focused = true;
+            frame-opacity = 1.0;
+            blur-method = "kernel";
+            blur-kern = "7x7box";
+            blur-background = true;
+            blur-background-fixed = true;
+            blur-background-frame = false;
             detect-rounded-corners = true;
             detect-client-opacity = true;
-            unredir-if-possible = false;
             detect-transient = true;
             detect-client-leader = true;
-            blur = {
-              method = "dual_kawase";
-              strength = 8;
-              background = false;
-              background-frame = false;
-              background-fixed = false;
-            };
-            blur-background = true;
-            blur-background-frame = true;
-            blur-kern = "3x3box";
-            blur-background-fixed = true;
-						round-borders = 2;
-						round-borders-rule = [
-							"2:window_type = 'unknown'"
-              "2:window_type = 'toolbar'"
-              "2:window_type = 'utility'"
-							"2:window_type = 'splash'"
-							"2:window_type = 'dialog'"
-							"2:window_type = 'normal'"
-							"2:window_type = 'notification'"
-						];
-						round-borders-exclude = [
-							"class_g = 'mpv'"
-						];
-						corner-radius = 15;
-						rounded-corners-exclude = [
-							"window_type = 'desktop'"
-							"window_type = 'toolbar'"
-							"window_type = 'menu'"
-							"window_type = 'dropdown_menu'"
-							#"window_type = 'popup_menu'",
-							#"window_type = 'notification'",
-							"window_type = 'dnd'"
-							"window_type = 'dock'"
-						  #"class_g = 'Spotify'",
-							"class_g = 'mpv'"
-						];
+            mark-wmwin-focused = true;
+            mark-ovredir-focused = true;
+            unredir-if-possible = false;
           };
         };
       flatpak = {
