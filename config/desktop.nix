@@ -376,9 +376,7 @@ with lib;
             "name = 'Polybar tray window'"
             "_GTK_FRAME_EXTENTS@:c"
           ];
-          fade = true;
-          fadeDelta = 3;
-          fadeSteps = [ 0.03125 0.03125 ];
+          fade = false;
           settings = {
             shadow-radius = cfg.shadowRadius;
             frame-opacity = 1.0;
