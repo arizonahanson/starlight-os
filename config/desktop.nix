@@ -71,10 +71,10 @@ with lib;
     };
     terminalOpacity = mkOption {
       type = types.int;
-      default = 95;
+      default = 90;
       description = ''
         picom terminal opacity
-        (default 95)
+        (default 90)
       '';
     };
   };
