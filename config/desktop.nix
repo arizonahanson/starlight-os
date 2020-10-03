@@ -273,6 +273,7 @@ with lib;
           fade = false;
           opacityRules = [
             "${toString cfg.terminalOpacity}:class_g = 'terminal'"
+            "${toString cfg.terminalOpacity}:class_g = 'Rofi'"
           ];
           settings = {
             blur-background = true;
