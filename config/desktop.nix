@@ -273,6 +273,7 @@ with lib;
           fade = false;
           opacityRules = [
             "${toString cfg.terminalOpacity}:class_g = 'Gcr-prompter'"
+            "${toString cfg.terminalOpacity}:class_g = 'Mate-session'"
             "${toString cfg.terminalOpacity}:class_g = 'Rofi'"
             "${toString cfg.terminalOpacity}:class_g = 'Ssh-askpass'"
             "${toString cfg.terminalOpacity}:class_g = 'terminal'"
