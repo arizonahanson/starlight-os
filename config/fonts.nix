@@ -58,7 +58,6 @@ with lib;
       enableDefaultFonts = true;
       fonts = with pkgs; [
         corefonts
-        vistafonts
         meslo-lg
         google-fonts
         font-awesome_5
