@@ -13,37 +13,20 @@
   config = let
     theme = config.starlight.theme;
     toANSI = num: if num <= 7 then "00;3${toString num}" else "01;3${toString (num - 8)}";
-    os-update = (
-      with import <nixpkgs> {}; writeShellScriptBin "os-update" ''
+    os-cmd = (
+      with import <nixpkgs> {}; writeShellScriptBin "os" ''
+        cmd="$1"
         renice 19 -p $$ >/dev/null
         echo -e "Fetching configuration..."
-        gitdir="$(mktemp -d -p "$XDG_CACHE_HOME" update-XXXX)"
-        git clone -q --depth 1 https://github.com/isaacwhanson/starlight-os.git "$gitdir"
-        cd "$gitdir"
-        make upgrade
-        cd "$HOME"
+        gitdir="$(mktemp -d -p "$XDG_CACHE_HOME" os-XXXX)"
+        git clone -q --depth 1 https://github.com/isaacwhanson/starlight-os.git "$gitdir" || exit 1
+        cd "$gitdir" || exit 1
+        make "$1" || exit 1
+        cd "$HOME" || exit 1
         rm "$gitdir" -rf
       ''
     );
-    os-rebuild = (
-      with import <nixpkgs> {}; writeShellScriptBin "os-rebuild" ''
-        renice 19 -p $$ >/dev/null
-        echo -e "Fetching configuration..."
-        gitdir="$(mktemp -d -p "$XDG_CACHE_HOME" rebuild-XXXX)"
-        git clone -q --depth 1 https://github.com/isaacwhanson/starlight-os.git "$gitdir"
-        cd "$gitdir"
-        make rebuild
-        cd "$HOME"
-        rm "$gitdir" -rf
-      ''
-    );
-    os-drop = (
-      with import <nixpkgs> {}; writeShellScriptBin "os-drop" ''
-        sudo nix-collect-garbage -d
-        nix-env --delete-generations old
-      ''
-    );
-    os-squish = (
+    squish = (
       with import <nixpkgs> {}; writeShellScriptBin "os-squish" ''
         device="$(findmnt -nvo SOURCE /)"
         mntpnt="$(mktemp -d -p "$XDG_CONFIG_HOME" squish-XXXX)"
@@ -52,10 +35,13 @@
         pushd $mntpnt >/dev/null
         echo -e "\n\e[${toANSI theme.path}m\e[0m Compressing system..."
         sudo btrfs filesystem defragment -r -v -czstd $mntpnt/*
+        sync
         echo -e "\n\e[${toANSI theme.path}m\e[0m Deduplicating system..."
         sudo duperemove -Ardhv --hash=xxhash $(ls -d */nix) | grep "net change"
+        sync
         echo -e "\n\e[${toANSI theme.path}m\e[0m Rebalancing filesystem..."
         sudo btrfs balance start -dusage=50 -musage=50 $mntpnt
+        sync
         popd >/dev/null
         sudo umount $mntpnt
         rmdir $mntpnt
@@ -66,10 +52,8 @@
   in
     {
       environment.systemPackages = with pkgs; [
-        (os-update)
-        (os-rebuild)
-        (os-drop)
-        (os-squish)
+        (os-cmd)
+        (squish)
       ];
     };
 }

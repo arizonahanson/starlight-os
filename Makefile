@@ -39,3 +39,9 @@ upgrade: copy
 	@echo -e "Updating system..."
 	@sudo nixos-rebuild --upgrade switch
 	@nix-env -u
+
+.PHONY: drop
+drop:
+	@echo -e "Dropping old derivations..."
+	@sudo nix-collect-garbage -d
+	@nix-env --delete-generations old
