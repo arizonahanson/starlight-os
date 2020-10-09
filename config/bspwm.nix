@@ -22,13 +22,6 @@ with lib;
         text = ''
           #!/usr/bin/env bash
 
-          if [ -e "/etc/X11/Xresources" ]; then
-            xrdb /etc/X11/Xresources
-          fi
-          if [ -e "$HOME/.Xresources" ]; then
-            xrdb -merge "$HOME/.Xresources"
-          fi
-
           # spread desktops
           desktops=${toString cfg.numDesktops}
           count=$(xrandr -q | grep -c ' connected')
@@ -37,6 +30,17 @@ with lib;
             sequence=$(seq -s ' ' $(((1+(i-1)*desktops/count))) $((i*desktops/count)))
             bspc monitor "$m" -d $(echo ''${sequence//10/0})
             i=$((i+1))
+          done
+
+          if [ -e "/etc/X11/Xresources" ]; then
+            xrdb /etc/X11/Xresources
+          fi
+          if [ -e "$HOME/.Xresources" ]; then
+            xrdb -merge "$HOME/.Xresources"
+          fi
+          # polybar
+          for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+            MONITOR=$m ${pkgs.polybar}/bin/polybar --reload default -c /etc/polybar.conf &
           done
 
           # pointer
@@ -68,11 +72,6 @@ with lib;
           bspc rule -a calfjackhost state=floating
           bspc rule -a .onboard-settings-wrapped state=floating
           bspc rule -a Zathura state=tiled
-
-          # polybar
-          for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-            MONITOR=$m ${pkgs.polybar}/bin/polybar --reload default -c /etc/polybar.conf &
-          done
 
           # background image
           if [ -e "$HOME/.fehbg" ]; then
