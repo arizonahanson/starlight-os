@@ -80,6 +80,7 @@ with lib;
           fzf
           zip
           unzip
+          unrar
           duperemove
           compsize
           nox
