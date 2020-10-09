@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-if ! sudo nix-channel --list | grep nixos >/dev/null; then
+if ! sudo nix-channel --list | grep 'nixos-20.09' >/dev/null; then
   echo 'adding channel...'
+  sudo nix-channel --remove nixos
   sudo nix-channel --add https://nixos.org/channels/nixos-20.09 nixos
   sudo nix-channel --update nixos
 fi
