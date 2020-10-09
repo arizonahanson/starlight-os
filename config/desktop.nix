@@ -279,19 +279,11 @@ with lib;
             "${toString cfg.terminalOpacity}:class_g = 'terminal'"
           ];
           settings = {
-            blur-background = false;
-            blur-background-fixed = true;
-            blur-background-frame = false;
-            blur-kern = "7x7box";
-            blur-method = "kernel";
-            detect-client-leader = false;
             detect-client-opacity = true;
             detect-rounded-corners = true;
-            detect-transient = false;
             mark-ovredir-focused = true;
             mark-wmwin-focused = true;
             shadow-radius = cfg.shadowRadius;
-            unredir-if-possible = false;
             use-ewmh-active-win = true;
           };
           shadow = true;
