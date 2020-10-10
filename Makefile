@@ -21,7 +21,7 @@ install: $(CONFNIX)
 
 .PHONY: iso
 iso:
-	@nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=$(ISONIX)
+	@nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=$(ISONIX) -o "/var/tmp/starlight-iso"
 
 .PHONY: copy
 copy:
@@ -34,6 +34,8 @@ rebuild: copy
 	@echo "starting rebuild..."
 	@sudo nixos-rebuild switch
 
+.PHONY: update
+update: upgrade
 .PHONY: upgrade
 upgrade: copy
 	@echo -e "Updating system..."
