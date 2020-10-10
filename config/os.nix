@@ -39,9 +39,6 @@
         echo -e "\n\e[${toANSI theme.path}m\e[0m Deduplicating system..."
         sudo duperemove -Ardhv --hash=xxhash $(ls -d */nix) | grep "net change"
         sync
-        echo -e "\n\e[${toANSI theme.path}m\e[0m Rebalancing filesystem..."
-        sudo btrfs balance start -dusage=50 -musage=50 $mntpnt
-        sync
         popd >/dev/null
         sudo umount $mntpnt
         rmdir $mntpnt
