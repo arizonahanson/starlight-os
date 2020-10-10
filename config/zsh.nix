@@ -357,7 +357,11 @@ with lib;
             ZSH_THEME_STASHED_PROMPT=" "
             ZSH_THEME_STAGED_PROMPT=" "
             ZSH_THEME_CHANGED_PROMPT=" "
-            ZSH_THEME_HOME_PROMPT=" "
+            if [ -n "$SSH_TTY" ]; then
+              ZSH_THEME_HOME_PROMPT=" "
+            else
+              ZSH_THEME_HOME_PROMPT=" "
+            fi
 
             # bash/zsh git prompt support
             #
@@ -826,7 +830,7 @@ with lib;
 
             function host_info() {
               if [ -n "$SSH_TTY" ]; then
-                echo ' %{${toFG theme.remoteBranch}%}%n@%m%{$reset_color%}'
+                echo ' %{${toFG theme.remoteBranch}%}%m%{$reset_color%}'
               fi
             }
 
