@@ -26,6 +26,7 @@ in
     services = {
       sshguard = {
         enable = true;
+        detection_time = 86400;
       };
     };
   };
