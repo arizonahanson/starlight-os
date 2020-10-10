@@ -53,7 +53,10 @@
         timers.os-upgrade = {
           description = "StarlightOS Upgrade Timer";
           wantedBy = [ "timers.target" ];
-          timerConfig.OnStartupSec = "5min";
+          timerConfig = {
+            OnStartupSec = "5min";
+            OnUnitActiveSec = "1day";
+          };
         };
         services.os-upgrade = {
           description = "StarlightOS Upgrade Service";
