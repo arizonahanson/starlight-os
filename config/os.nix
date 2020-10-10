@@ -51,6 +51,30 @@
     );
   in
     {
+      systemd = {
+        timers.os-upgrade = {
+          description = "StarlightOS Upgrade Timer";
+          wantedBy = [ "timers.target" ];
+          timerConfig.OnStartupSec = "5min";
+        };
+        services.os-upgrade = {
+          description = "StarlightOS Upgrade Service";
+          restartIfChanged = false;
+          unitConfig.X-StopOnRemoval = false;
+          serviceConfig = {
+            Type = "oneshot";
+            LimitNICE = "+1";
+          };
+          path = with pkgs; [ coreutils gnutar xz.bin gzip gitMinimal config.nix.package.out ];
+          environment = config.nix.envVars //
+            { inherit (config.environment.sessionVariables) NIX_PATH;
+              HOME = "/root";
+            } // config.networking.proxy.envVars;
+          script = ''
+            ${os-cmd}/bin/os upgrade
+          '';
+        };
+      };
       environment.systemPackages = with pkgs; [
         (os-cmd)
         (squish)

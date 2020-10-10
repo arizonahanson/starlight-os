@@ -9,7 +9,6 @@ with lib;
     ./git.nix
     ./tmux.nix
     ./vim.nix
-    ./autoupgrade.nix
   ];
   options.starlight = {
     localTime = mkOption {
@@ -128,6 +127,22 @@ with lib;
         users.defaultUserShell = "/run/current-system/sw/bin/zsh";
         users.mutableUsers = true;
 
+        services.btrfs.autoScrub = {
+          enable = true;
+          fileSystems = [ "/" ];
+        };
+        nix.autoOptimiseStore = true;
+        environment.variables = {
+          XDG_CACHE_HOME = "/run/cache/$UID";
+          XDG_CONFIG_HOME = "/var/config/$UID";
+        };
+        systemd = {
+          tmpfiles.rules = [
+            "d /run/cache/ 1771 - users"
+            "d /var/config/ 1771 - users 8w"
+            "e /var/tmp/ - - - 2w"
+          ];
+        };
         # This value determines the NixOS release with which your system is to be
         # compatible, in order to avoid breaking some software such as database
         # servers. You should change this only after NixOS release notes say you
