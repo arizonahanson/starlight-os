@@ -35,14 +35,14 @@ expire:
 	@nix-env --delete-generations 14d
 
 .PHONY: rebuild
-rebuild: expire copy
+rebuild: copy
 	@echo "starting rebuild..."
 	@sudo nixos-rebuild switch
 
 .PHONY: update
 update: upgrade
 .PHONY: upgrade
-upgrade: expire copy
+upgrade: copy
 	@echo -e "Updating system..."
 	@sudo nixos-rebuild --upgrade switch
 	@nix-env -u

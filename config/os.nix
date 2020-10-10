@@ -65,12 +65,13 @@
             Type = "oneshot";
             LimitNICE = "+1";
           };
-          path = with pkgs; [ coreutils gnutar xz.bin gzip gitMinimal config.nix.package.out ];
+          path = with pkgs; [ config.nix.package.out coreutils utillinux gitMinimal gnumake gnutar xz.bin gzip ];
           environment = config.nix.envVars //
             { inherit (config.environment.sessionVariables) NIX_PATH;
               HOME = "/root";
             } // config.networking.proxy.envVars;
           script = ''
+            ${os-cmd}/bin/os expire
             ${os-cmd}/bin/os upgrade
           '';
         };
