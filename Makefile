@@ -10,18 +10,18 @@ configure: $(CONFNIX)
 
 $(CONFNIX):
 	@bash ./scripts/partition
-	@nixos-generate-config --root /mnt
+	nixos-generate-config --root /mnt
 	@cp -r init/. /mnt/etc/nixos/
 	@cp -r config/. /mnt/etc/nixos/
 	@echo "Edit the file '$(CONFNIX)' then run '$(INSTCMD)'."
 
 .PHONY: install
 install: $(CONFNIX)
-	@nixos-install --no-root-passwd --root /mnt
+	nixos-install --no-root-passwd --root /mnt
 
 .PHONY: iso
 iso:
-	@nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=$(ISONIX) -o "/var/tmp/starlight-iso"
+	nix-build '<nixpkgs/nixos>' -A config.system.build.isoImage -I nixos-config=$(ISONIX) -o "/var/tmp/starlight-iso"
 
 .PHONY: copy
 copy:
@@ -31,8 +31,8 @@ copy:
 
 .PHONY: expire
 expire:
-	@nix-collect-garbage --delete-older-than 2w
-	@nix-env --delete-generations 14d
+	nix-collect-garbage --delete-older-than 2w
+	nix-env --delete-generations 14d
 
 .PHONY: rebuild
 rebuild: copy

@@ -30,9 +30,9 @@
       with import <nixpkgs> {}; writeShellScriptBin "squish" ''
         device="$(findmnt -nvo SOURCE /)"
         mntpnt="$(mktemp -d -p "$XDG_CONFIG_HOME" squish-XXXX)"
-        mkdir -p $mntpnt
-        sudo mount -o compress-force=zstd,noatime $device $mntpnt
-        pushd $mntpnt >/dev/null
+        mkdir -p $mntpnt || exit 1
+        sudo mount -o compress-force=zstd,noatime $device $mntpnt || exit 1
+        pushd $mntpnt >/dev/null || exit 1
         echo -e "\n\e[${toANSI theme.path}m\e[0m Compressing system..."
         sudo btrfs filesystem defragment -r -v -czstd $mntpnt/*
         sync
@@ -40,8 +40,8 @@
         sudo duperemove -Ardhv --hash=xxhash $(ls -d */nix) | grep "net change"
         sync
         popd >/dev/null
-        sudo umount $mntpnt
-        rmdir $mntpnt
+        sudo umount $mntpnt || exit 1
+        rmdir $mntpnt || exit 1
         echo -e "\n\e[${toANSI theme.path}m\e[0m Discarding unused blocks..."
         sudo fstrim -av
       ''
