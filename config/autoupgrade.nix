@@ -19,13 +19,13 @@ with lib;
         "d /var/config/ 1771 - users 8w"
         "e /var/tmp/ - - - 2w"
       ];
-      timers.nixos-upgrade = {
-        description = "NixOS Upgrade Timer";
+      timers.os-upgrade = {
+        description = "StarlightOS Upgrade Timer";
         wantedBy = [ "timers.target" ];
         timerConfig.OnStartupSec = "5min";
       };
-      services.nixos-upgrade = {
-        description = "NixOS Upgrade Service";
+      services.os-upgrade = {
+        description = "StarlightOS Upgrade Service";
         restartIfChanged = false;
         unitConfig.X-StopOnRemoval = false;
         serviceConfig = {
@@ -37,14 +37,9 @@ with lib;
           { inherit (config.environment.sessionVariables) NIX_PATH;
             HOME = "/root";
           } // config.networking.proxy.envVars;
-        script = let
-          nixos-gc = "${config.nix.package.out}/bin/nix-collect-garbage";
-          nixos-rebuild = "${config.system.build.nixos-rebuild}/bin/nixos-rebuild";
-        in
-          ''
-            ${nixos-gc} --delete-older-than 2w
-            ${nixos-rebuild} switch --upgrade
-          '';
+        script = ''
+          os upgrade
+        '';
       };
     };
   };

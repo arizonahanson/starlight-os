@@ -29,15 +29,20 @@ copy:
 	@sudo cp -r config/. /etc/nixos/
 	@bash ./scripts/channel
 
+.PHONY: expire
+expire:
+	@nix-collect-garbage --delete-older-than 2w
+	@nix-env --delete-generations 14d
+
 .PHONY: rebuild
-rebuild: copy
+rebuild: expire copy
 	@echo "starting rebuild..."
 	@sudo nixos-rebuild switch
 
 .PHONY: update
 update: upgrade
 .PHONY: upgrade
-upgrade: copy
+upgrade: expire copy
 	@echo -e "Updating system..."
 	@sudo nixos-rebuild --upgrade switch
 	@nix-env -u

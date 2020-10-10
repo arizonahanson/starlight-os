@@ -27,7 +27,7 @@
       ''
     );
     squish = (
-      with import <nixpkgs> {}; writeShellScriptBin "os-squish" ''
+      with import <nixpkgs> {}; writeShellScriptBin "squish" ''
         device="$(findmnt -nvo SOURCE /)"
         mntpnt="$(mktemp -d -p "$XDG_CONFIG_HOME" squish-XXXX)"
         mkdir -p $mntpnt
