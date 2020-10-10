@@ -62,7 +62,17 @@
             Type = "oneshot";
             LimitNICE = "+1";
           };
-          path = with pkgs; [ config.nix.package.out coreutils utillinux gitMinimal gnumake gnutar xz.bin gzip ];
+          path = with pkgs; [
+            config.nix.package.out
+            coreutils
+            gitMinimal
+            gnumake
+            gnutar
+            gzip
+            sudo
+            utillinux
+            xz.bin
+          ];
           environment = config.nix.envVars //
             { inherit (config.environment.sessionVariables) NIX_PATH;
               HOME = "/root";
