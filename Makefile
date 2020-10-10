@@ -1,23 +1,6 @@
 ISONIX=iso/iso.nix
-CONFNIX=/mnt/etc/nixos/configuration.nix
-INSTCMD=os-install
 
 default: upgrade
-
-# WARNING: WILL PARTITION YOUR DISK DRIVE!!!
-.PHONY: configure
-configure: $(CONFNIX)
-
-$(CONFNIX):
-	@bash ./scripts/partition
-	nixos-generate-config --root /mnt
-	@cp -r init/. /mnt/etc/nixos/
-	@cp -r config/. /mnt/etc/nixos/
-	@echo "Edit the file '$(CONFNIX)' then run '$(INSTCMD)'."
-
-.PHONY: install
-install: $(CONFNIX)
-	nixos-install --no-root-passwd --root /mnt
 
 .PHONY: iso
 iso:

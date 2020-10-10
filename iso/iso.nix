@@ -11,16 +11,16 @@
   environment.systemPackages = let
     os-config = (
       with import <nixpkgs> {}; writeShellScriptBin "os-config" ''
-        cd ~
-        git clone --depth 1 'https://github.com/isaacwhanson/starlight-os.git' starlight-os
-        cd starlight-os
-        make configure
+        git clone -q --depth 1 https://github.com/isaacwhanson/starlight-os.git ~/starlight-os || exit 1
+        cd ~/starlight-os || exit 1
+        bash scripts/partition
+        bash scripts/config
+        echo "Edit the file '/mnt/etc/nixos/configuration.nix' then run 'os-install'."
       ''
     );
     os-install = (
       with import <nixpkgs> {}; writeShellScriptBin "os-install" ''
-        cd ~/starlight-os
-        make install
+        nixos-install --no-root-passwd --root /mnt
       ''
     );
   in

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+nixos-generate-config --root /mnt
+cp -r ../init/. /mnt/etc/nixos/
+cp -r ../config/. /mnt/etc/nixos/
