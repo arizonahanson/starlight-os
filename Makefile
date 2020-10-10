@@ -2,7 +2,7 @@ ISONIX=iso/iso.nix
 CONFNIX=/mnt/etc/nixos/configuration.nix
 INSTCMD=os-install
 
-default: iso
+default: upgrade
 
 # WARNING: WILL PARTITION YOUR DISK DRIVE!!!
 .PHONY: configure
