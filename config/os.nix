@@ -21,7 +21,7 @@
         gitdir="$(mktemp -d -p "$XDG_CACHE_HOME" os-XXXX)"
         git clone -q --depth 1 https://github.com/isaacwhanson/starlight-os.git "$gitdir" || exit 1
         pushd $gitdir >/dev/null || exit 1
-        make "$1"
+        make $1
         popd >/dev/null
         rm "$gitdir" -rf
       ''
