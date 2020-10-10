@@ -19,6 +19,10 @@ in
   };
   # config...
   config = mkIf cfg.server {
+    environment.systemPackages = with pkgs; [
+      w3m
+      iftop
+    ];
     services = {
       sshguard = {
         enable = true;
