@@ -19,6 +19,7 @@
           cmd="$1"
           renice 19 -p $$ >/dev/null
           echo -e "Fetching configuration..."
+          mkdir -p "$XDG_CACHE_HOME"
           gitdir="$(mktemp -d -p "$XDG_CACHE_HOME" os-XXXX)"
           git clone -q --depth 1 https://github.com/isaacwhanson/starlight-os.git "$gitdir" || exit 1
           pushd $gitdir >/dev/null || exit 1
@@ -30,8 +31,8 @@
       squish = (
         with import <nixpkgs> { }; writeShellScriptBin "squish" ''
           device="$(findmnt -nvo SOURCE /)"
+          mkdir -p "$XDG_CONFIG_HOME"
           mntpnt="$(mktemp -d -p "$XDG_CONFIG_HOME" squish-XXXX)"
-          mkdir -p $mntpnt || exit 1
           sudo mount -o compress-force=zstd,noatime $device $mntpnt || exit 1
           pushd $mntpnt >/dev/null || exit 1
           echo -e "\n\e[${toANSI theme.path}m\e[0m Compressing system..."
