@@ -20,7 +20,6 @@ in
   # config...
   config = mkIf cfg.server {
     services = {
-      nixosManual.enable = true;
       sshguard = {
         enable = true;
       };
