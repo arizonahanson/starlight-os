@@ -60,6 +60,8 @@ with lib;
             "vm.max_map_count" = 262144;
           };
         };
+        # more entropy
+        services.haveged.enable = true;
         fileSystems = {
           "/".options = [ "compress-force=zstd" ];
           "/home".options = [ "compress-force=zstd" ];

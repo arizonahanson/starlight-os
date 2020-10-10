@@ -301,8 +301,6 @@ with lib;
       gnome3 = {
         gnome-keyring.enable = true;
       };
-      # more entropy
-      haveged.enable = true;
       xserver = {
         enable = true;
         displayManager = {
