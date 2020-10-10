@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-nixos-generate-config --root /mnt
+nixos-generate-config --root /mnt || exit 1
 cp -r ../init/. /mnt/etc/nixos/
 cp -r ../config/. /mnt/etc/nixos/

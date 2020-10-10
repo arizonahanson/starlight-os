@@ -6,34 +6,34 @@ if [ -d /sys/firmware/efi ]; then
     mkpart primary fat32 1MiB 261MiB \
     set 1 esp on \
     mkpart primary btrfs 261MiB -2GiB \
-    mkpart primary linux-swap -2GiB 100%
+    mkpart primary linux-swap -2GiB 100% || exit 1
   SYS=/dev/sda2
   SWAP=/dev/sda3
-  mkfs.vfat -n efi /dev/sda1
+  mkfs.vfat -n efi /dev/sda1 || exit 1
 else
   parted --script -a optimal /dev/sda -- \
     mklabel msdos \
     mkpart primary btrfs 1MiB -2GiB \
-    mkpart primary linux-swap -2GiB 100%
+    mkpart primary linux-swap -2GiB 100% || exit 1
   SYS=/dev/sda1
   SWAP=/dev/sda2
 fi
 
-mkfs.btrfs -f -L btrfs $SYS
-mkswap -L swap $SWAP
-mount -o compress-force=zstd,noatime,space_cache $SYS /mnt
-cd /mnt || exit
-btrfs subvolume create system
-btrfs subvolume create home
-cd ~ || exit
-umount /mnt
+mkfs.btrfs -f -L btrfs $SYS || exit 1
+mkswap -L swap $SWAP || exit 1
+mount -o compress-force=zstd,noatime,space_cache $SYS /mnt || exit 1
+cd /mnt || exit 1
+btrfs subvolume create system || exit 1
+btrfs subvolume create home || exit 1
+cd ~ || exit 1
+umount /mnt || exit 1
 
-mount -o compress-force=zstd,noatime,space_cache,subvol=system $SYS /mnt
+mount -o compress-force=zstd,noatime,space_cache,subvol=system $SYS /mnt || exit 1
 if [ -d /sys/firmware/efi ]; then
-  mkdir /mnt/boot
-  mount /dev/sda1 /mnt/boot
+  mkdir -p /mnt/boot || exit 1
+  mount /dev/sda1 /mnt/boot || exit 1
 fi
-mkdir /mnt/home
-mount -o compress-force=zstd,noatime,space_cache,subvol=home $SYS /mnt/home
-swapon -o discard=once $SWAP
+mkdir /mnt/home || exit 1
+mount -o compress-force=zstd,noatime,space_cache,subvol=home $SYS /mnt/home || exit 1
+swapon -o discard=once $SWAP || exit 1
 
