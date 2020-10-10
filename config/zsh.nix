@@ -825,7 +825,7 @@ with lib;
             }
 
             function host_info() {
-              if [ -n "$SSH" ]; then
+              if [ -n "$SSH_TTY" ]; then
                 echo ' %{${toFG theme.remoteBranch}%}%n@%m%{$reset_color%}'
               fi
             }
