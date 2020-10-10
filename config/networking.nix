@@ -26,8 +26,13 @@ with lib;
       ];
     };
     services = {
-      openssh.enable = true;
-      resolved.enable = true;
+      openssh = {
+        enable = true;
+      };
+      resolved = {
+        enable = true;
+        fallbackDns = [ "8.8.8.8" "2001:4860:4860::8844" ];
+      };
     };
   };
 }
