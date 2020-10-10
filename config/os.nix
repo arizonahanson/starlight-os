@@ -64,6 +64,7 @@
           };
           path = with pkgs; [
             config.nix.package.out
+            bash
             coreutils
             gitMinimal
             gnumake
