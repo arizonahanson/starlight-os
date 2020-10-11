@@ -3,13 +3,17 @@
 with lib;
 
 {
-  config = let
-    theme = config.starlight.theme;
-    toANSI = num: if num <= 7 then "00;3${toString num}" else "01;3${toString (num - 8)}";
-    cfg = config.starlight;
-  in
+  config =
+    let
+      theme = config.starlight.theme;
+      toANSI = num: if num <= 7 then "00;3${toString num}" else "01;3${toString (num - 8)}";
+      cfg = config.starlight;
+    in
     {
       environment = {
+        etc."skel/.zshrc" = {
+          text = "# zshrc skeleton file";
+        };
         etc.dircolors = {
           text = ''
             # Configuration file for dircolors, a utility to help you set the
@@ -277,9 +281,10 @@ with lib;
           customPkgs = [ pkgs.zsh-completions pkgs.nix-zsh-completions ];
         };
         # zshrc (end)
-        promptInit = let
-          toFG = num: "$FG[${fixedWidthString 3 "0" (toString num)}]";
-        in
+        promptInit =
+          let
+            toFG = num: "$FG[${fixedWidthString 3 "0" (toString num)}]";
+          in
           ''
             # vi-like editing
             bindkey -v
@@ -536,14 +541,14 @@ with lib;
                 case "$count" in
                 "") # no upstream
                   p="%{${toFG theme.error}%}$ZSH_THEME_NOUPSTREAM_PROMPT%{$reset_color%}" ;;
-                "0	0") # equal to upstream
+                "0  0") # equal to upstream
                   p="" ;;
-                "0	"*) # ahead of upstream
-                  p="%{${toFG theme.diff-add}%}''${count#0	}$ZSH_THEME_AHEAD_PROMPT%{$reset_color%}" ;;
-                *"	0") # behind upstream
-                  p="%{${toFG theme.diff-change}%}''${count%	0}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
+                "0  "*) # ahead of upstream
+                  p="%{${toFG theme.diff-add}%}''${count#0  }$ZSH_THEME_AHEAD_PROMPT%{$reset_color%}" ;;
+                *"  0") # behind upstream
+                  p="%{${toFG theme.diff-change}%}''${count%  0}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
                 *)      # diverged from upstream
-                  p="%{${toFG theme.diff-remove}%}''${count#*	}''${ZSH_THEME_AHEAD_PROMPT/ /}''${count%	*}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
+                  p="%{${toFG theme.diff-remove}%}''${count#*  }''${ZSH_THEME_AHEAD_PROMPT/ /}''${count%  *}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
                 esac
                 if [[ -n "$count" && -n "$name" ]]; then
                   __git_ps1_upstream_name=$(git rev-parse \

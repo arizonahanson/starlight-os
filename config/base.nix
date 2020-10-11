@@ -67,6 +67,8 @@ with lib;
     in
     mkMerge [
       {
+        nix.autoOptimiseStore = true;
+        nixpkgs.config.allowUnfree = true;
         boot = {
           tmpOnTmpfs = true;
           kernelParams = [ "quiet" ];
@@ -75,91 +77,26 @@ with lib;
             "vm.max_map_count" = 262144;
           };
         };
-        # more entropy
-        services.haveged.enable = true;
+        time.hardwareClockInLocalTime = config.starlight.localTime;
         fileSystems = {
           "/".options = [ "compress-force=zstd" ];
           "/home".options = [ "compress-force=zstd" ];
         };
-        nixpkgs.config.allowUnfree = true;
-        environment.systemPackages = with pkgs; [
-          ag
-          bc
-          binutils
-          calc
-          compsize
-          duperemove
-          fzf
-          gcc
-          gnumake
-          gnupg
-          ncdu
-          nox
-          pciutils
-          psmisc
-          shellcheck
-          stow
-          tree
-          units
-          unrar
-          unzip
-          zip
-          (
-            with import <nixpkgs> { }; writeShellScriptBin "palette" ''
-              for bold in 0 1; do
-                for col in {0..7}; do
-                  echo -en "\e[$bold;3''${col}m $(printf '%X' $((col+bold*8))) "
-                done; echo
-              done; echo
-              for col in 2 6 4 5 1 3 0 7; do
-                echo -en "\e[0;3''${col}m \e[1;3''${col}m "
-              done; echo
-              for col in 2 6 4 5 1 3 0 7; do
-                echo -en "\e[0;3''${col}m$(printf '%X' $col) \e[1;3''${col}m$(printf '%X' $((col+8))) "
-              done; echo
-            ''
-          )
-          (
-            with import <nixpkgs> { }; writeShellScriptBin "theme"
-              ((concatStringsSep "\n" (
-                map (name: "echo -en '\\e[${toANSI theme.${name}}m" + name + "\\e[0m '")
-                  (sort colorSort (attrNames theme))))
-              + "\necho"
-              )
-          )
-        ] ++ optional config.starlight.efi gptfdisk;
-        services.journald.extraConfig = ''
-          Storage=volatile
-        '';
-        time.hardwareClockInLocalTime = config.starlight.localTime;
         # default user account
-        users.users.starlight =
-          let
-            virtual = config.virtualisation.virtualbox.guest.enable;
-          in
-          {
-            isNormalUser = true;
-            uid = 1000;
-            description = "Administrator";
-            extraGroups = [ "wheel" ] ++ optional virtual "vboxsf";
-            initialHashedPassword = "$6$D85LJu3AY7$CSbcP8wY9qNgp6zA.PXAmZo6JMy4nHDldvfUDzom7XglfgRUPW6wnLJ1l0dRUQAy4SReAO85GEISAs6tZE6TV/";
-          };
-        users.defaultUserShell = "/run/current-system/sw/bin/zsh";
-        users.mutableUsers = true;
-        # gpg
-        programs.gnupg.agent = {
-          enable = true;
-          enableSSHSupport = !config.starlight.desktop;
-          pinentryFlavor = if config.starlight.desktop then "gnome3" else "curses";
-        };
-        services.btrfs.autoScrub = {
-          enable = true;
-          fileSystems = [ "/" ];
-        };
-        nix.autoOptimiseStore = true;
-        environment.variables = {
-          XDG_CACHE_HOME = "/run/cache/$UID";
-          XDG_CONFIG_HOME = "/var/config/$UID";
+        users = {
+          users.starlight =
+            let
+              virtual = config.virtualisation.virtualbox.guest.enable;
+            in
+            {
+              isNormalUser = true;
+              uid = 1000;
+              description = "Administrator";
+              extraGroups = [ "wheel" ] ++ optional virtual "vboxsf";
+              initialHashedPassword = "$6$D85LJu3AY7$CSbcP8wY9qNgp6zA.PXAmZo6JMy4nHDldvfUDzom7XglfgRUPW6wnLJ1l0dRUQAy4SReAO85GEISAs6tZE6TV/";
+            };
+          defaultUserShell = "/run/current-system/sw/bin/zsh";
+          mutableUsers = true;
         };
         systemd = {
           tmpfiles.rules = [
@@ -168,11 +105,80 @@ with lib;
             "e /var/tmp/ - - - 2w"
           ];
         };
+        security.pam.makeHomeDir.skelDirectory = "/etc/skel";
+        # more entropy
+        services = {
+          haveged.enable = true;
+          journald.extraConfig = ''
+            Storage=volatile
+          '';
+          btrfs.autoScrub = {
+            enable = true;
+            fileSystems = [ "/" ];
+          };
+        };
+        # gnupg agent
+        programs.gnupg.agent = {
+          enable = true;
+          enableSSHSupport = !config.starlight.desktop;
+          pinentryFlavor = if config.starlight.desktop then "gnome3" else "curses";
+        };
+        environment = {
+          variables = {
+            XDG_CACHE_HOME = "/run/cache/$UID";
+            XDG_CONFIG_HOME = "/var/config/$UID";
+          };
+          systemPackages = with pkgs; [
+            ag
+            bc
+            binutils
+            calc
+            compsize
+            duperemove
+            fzf
+            gcc
+            gnumake
+            gnupg
+            ncdu
+            nox
+            pciutils
+            psmisc
+            shellcheck
+            stow
+            tree
+            units
+            unrar
+            unzip
+            zip
+            (
+              with import <nixpkgs> { }; writeShellScriptBin "palette" ''
+                for bold in 0 1; do
+                  for col in {0..7}; do
+                    echo -en "\e[$bold;3''${col}m $(printf '%X' $((col+bold*8))) "
+                  done; echo
+                done; echo
+                for col in 2 6 4 5 1 3 0 7; do
+                  echo -en "\e[0;3''${col}m \e[1;3''${col}m "
+                done; echo
+                for col in 2 6 4 5 1 3 0 7; do
+                  echo -en "\e[0;3''${col}m$(printf '%X' $col) \e[1;3''${col}m$(printf '%X' $((col+8))) "
+                done; echo
+              ''
+            )
+            (
+              with import <nixpkgs> { }; writeShellScriptBin "theme"
+                ((concatStringsSep "\n" (
+                  map (name: "echo -en '\\e[${toANSI theme.${name}}m" + name + "\\e[0m '")
+                    (sort colorSort (attrNames theme))))
+                + "\necho"
+                )
+            )
+          ] ++ optional config.starlight.efi gptfdisk;
+        };
         # This value determines the NixOS release with which your system is to be
         # compatible, in order to avoid breaking some software such as database
-        # servers. You should change this only after NixOS release notes say you
-        # should.
-        system.stateVersion = "20.09"; # Did you read the comment?
+        # servers. You should change this only after NixOS release notes say you should.
+        system.stateVersion = "20.09";
       }
     ];
 }
