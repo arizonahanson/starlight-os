@@ -12,7 +12,9 @@ with lib;
     {
       environment = {
         etc."skel/.zshrc" = {
-          text = "# zshrc skeleton file";
+          text = ''
+            # zshrc skeleton file
+          '';
         };
         etc.dircolors = {
           text = ''
@@ -541,14 +543,14 @@ with lib;
                 case "$count" in
                 "") # no upstream
                   p="%{${toFG theme.error}%}$ZSH_THEME_NOUPSTREAM_PROMPT%{$reset_color%}" ;;
-                "0  0") # equal to upstream
+                "0${"\t"}0") # equal to upstream
                   p="" ;;
-                "0  "*) # ahead of upstream
-                  p="%{${toFG theme.diff-add}%}''${count#0  }$ZSH_THEME_AHEAD_PROMPT%{$reset_color%}" ;;
-                *"  0") # behind upstream
-                  p="%{${toFG theme.diff-change}%}''${count%  0}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
+                "0${"\t"}"*) # ahead of upstream
+                  p="%{${toFG theme.diff-add}%}''${count#0${"\t"}}$ZSH_THEME_AHEAD_PROMPT%{$reset_color%}" ;;
+                *"${"\t"}0") # behind upstream
+                  p="%{${toFG theme.diff-change}%}''${count%${"\t"}0}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
                 *)      # diverged from upstream
-                  p="%{${toFG theme.diff-remove}%}''${count#*  }''${ZSH_THEME_AHEAD_PROMPT/ /}''${count%  *}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
+                  p="%{${toFG theme.diff-remove}%}''${count#*${"\t"}}''${ZSH_THEME_AHEAD_PROMPT/ /}''${count%${"\t"}*}$ZSH_THEME_BEHIND_PROMPT%{$reset_color%}" ;;
                 esac
                 if [[ -n "$count" && -n "$name" ]]; then
                   __git_ps1_upstream_name=$(git rev-parse \

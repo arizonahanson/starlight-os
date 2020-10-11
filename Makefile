@@ -21,6 +21,7 @@ expire:
 rebuild: copy
 	@echo "starting rebuild..."
 	@sudo nixos-rebuild switch
+	@cp -rn /etc/skel/. /home/starlight/
 
 .PHONY: update
 update: upgrade
@@ -29,6 +30,7 @@ upgrade: copy
 	@echo -e "Updating system..."
 	@sudo nixos-rebuild --upgrade switch
 	@nix-env -u
+	@cp -rn /etc/skel/. /home/starlight/
 
 .PHONY: drop
 drop:
