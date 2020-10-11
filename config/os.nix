@@ -90,6 +90,32 @@
             ${os-cmd}/bin/os upgrade
           '';
         };
+        timers.os-reboot = {
+          description = "StarlightOS Reboot Timer";
+          wantedBy = [ "timers.target" ];
+          timerConfig = {
+            OnCalendar = "*-*-* 4:00:00";
+          };
+        };
+        services.os-reboot = {
+          description = "StarlightOS Reboot Service";
+          restartIfChanged = false;
+          unitConfig.X-StopOnRemoval = false;
+          serviceConfig = {
+            Type = "oneshot";
+            LimitNICE = "+1";
+          };
+          path = with pkgs; [
+            systemd
+          ];
+          script = ''
+            booted="$(readlink /run/booted-system/{initrd,kernel,kernel-modules})"
+            built="$(readlink /nix/var/nix/profiles/system/{initrd,kernel,kernel-modules})"
+            if [ ! "$booted" = "$built" ]; then
+              /run/current-system/sw/bin/shutdown -r +1
+            fi
+          '';
+        };
       };
       environment.systemPackages = with pkgs; [
         (os-cmd)
