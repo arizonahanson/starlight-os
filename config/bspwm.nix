@@ -13,10 +13,11 @@ with lib;
         configFile = "/etc/bspwmrc";
       };
     };
-    environment.etc.bspwmrc = let
-      cfg = config.starlight;
-      toRGB = num: elemAt (attrValues cfg.palette) num;
-    in
+    environment.etc.bspwmrc =
+      let
+        cfg = config.starlight;
+        toRGB = num: elemAt (attrValues cfg.palette) num;
+      in
       {
         mode = "0645";
         text = ''

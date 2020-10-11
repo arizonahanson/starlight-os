@@ -6,10 +6,11 @@ with lib;
   config = lib.mkIf config.starlight.desktop {
     environment = {
       systemPackages = with pkgs; [ polybar ];
-      etc."polybar.conf" = let
-        cfg = config.starlight;
-        toRGB = num: elemAt (attrValues cfg.palette) num;
-      in
+      etc."polybar.conf" =
+        let
+          cfg = config.starlight;
+          toRGB = num: elemAt (attrValues cfg.palette) num;
+        in
         {
           text = ''
             [colors]

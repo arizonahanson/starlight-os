@@ -80,121 +80,123 @@ with lib;
   };
   config = lib.mkIf config.starlight.desktop {
     environment = {
-      etc = let
-        cfg = config.starlight;
-        palette = config.starlight.palette;
-        theme = config.starlight.theme;
-        toRGB = num: elemAt (attrValues palette) num;
-      in {
-        "X11/Xresources" = {
-          text = ''
-            ! Xcursor
-            Xcursor.theme: Bibata_Oil
-            Xcursor.size:  ${toString config.starlight.pointerSize}
+      etc =
+        let
+          cfg = config.starlight;
+          palette = config.starlight.palette;
+          theme = config.starlight.theme;
+          toRGB = num: elemAt (attrValues palette) num;
+        in
+        {
+          "X11/Xresources" = {
+            text = ''
+              ! Xcursor
+              Xcursor.theme: Bibata_Oil
+              Xcursor.size:  ${toString config.starlight.pointerSize}
 
-            ! XFT
-            Xft.antialias: 1
-            Xft.autohint: 0
-            Xft.dpi: 96
-            Xft.hinting: 1
-            Xft.hintstyle: hintslight
-            Xft.lcdfilter: lcddefault
-            Xft.rgba: rgb
+              ! XFT
+              Xft.antialias: 1
+              Xft.autohint: 0
+              Xft.dpi: 96
+              Xft.hinting: 1
+              Xft.hintstyle: hintslight
+              Xft.lcdfilter: lcddefault
+              Xft.rgba: rgb
 
-            ! ROFI
-            rofi.font:              ${cfg.fonts.uiFont} ${toString cfg.fonts.fontSize}
-            rofi.modi:              window,run,drun,combi
-            rofi.width:             38
-            rofi.lines:             5
-            rofi.columns:           1
-            ! "border width"
-            rofi.bw:                2
-            rofi.location:          0
-            rofi.padding:           12
-            rofi.yoffset:           0
-            rofi.xoffset:           0
-            rofi.fixed-num-lines:   true
-            rofi.terminal:          termite
-            rofi.run-shell-command:  {terminal} -e '{cmd}'
-            ! "margin between rows"
-            rofi.line-margin:       2
-            ! "separator style (none, dash, solid)"
-            rofi.separator-style:   none
-            rofi.hide-scrollbar:    true
-            rofi.fullscreen:        false
-            rofi.fake-transparency: false
-            ! "scrolling method. (0: Page, 1: Centered)"
-            rofi.scroll-method:     1
-            ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
-            rofi.color-normal: ${toRGB theme.bg},${toRGB theme.bg-alt},${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.fg}
-            rofi.color-urgent: ${toRGB theme.bg},${toRGB theme.info},${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.info}
-            rofi.color-active: ${toRGB theme.bg},${toRGB theme.fg-alt},${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.fg}
-            rofi.color-window: ${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.bg}
-            rofi.display-drun: 
-            rofi.display-run: 
-            rofi.display-window: 
-            rofi.display-ssh: 
-            rofi.display-combi: 
-            rofi.combi-modi: window,run,drun
-            rofi.monitor: -1
-            rofi.icon-theme: Starlight
-            rofi.show-icons: true
+              ! ROFI
+              rofi.font:              ${cfg.fonts.uiFont} ${toString cfg.fonts.fontSize}
+              rofi.modi:              window,run,drun,combi
+              rofi.width:             38
+              rofi.lines:             5
+              rofi.columns:           1
+              ! "border width"
+              rofi.bw:                2
+              rofi.location:          0
+              rofi.padding:           12
+              rofi.yoffset:           0
+              rofi.xoffset:           0
+              rofi.fixed-num-lines:   true
+              rofi.terminal:          termite
+              rofi.run-shell-command:  {terminal} -e '{cmd}'
+              ! "margin between rows"
+              rofi.line-margin:       2
+              ! "separator style (none, dash, solid)"
+              rofi.separator-style:   none
+              rofi.hide-scrollbar:    true
+              rofi.fullscreen:        false
+              rofi.fake-transparency: false
+              ! "scrolling method. (0: Page, 1: Centered)"
+              rofi.scroll-method:     1
+              ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
+              rofi.color-normal: ${toRGB theme.bg},${toRGB theme.bg-alt},${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.fg}
+              rofi.color-urgent: ${toRGB theme.bg},${toRGB theme.info},${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.info}
+              rofi.color-active: ${toRGB theme.bg},${toRGB theme.fg-alt},${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.fg}
+              rofi.color-window: ${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.bg}
+              rofi.display-drun: 
+              rofi.display-run: 
+              rofi.display-window: 
+              rofi.display-ssh: 
+              rofi.display-combi: 
+              rofi.combi-modi: window,run,drun
+              rofi.monitor: -1
+              rofi.icon-theme: Starlight
+              rofi.show-icons: true
 
-            *.foreground:   ${toRGB theme.fg}
-            *.background:   ${toRGB theme.bg}
-            *.cursorColor:  ${palette.cursor}
-            *.color0:       ${palette.color00}
-            *.color8:       ${palette.color08}
-            ! red
-            *.color1:       ${palette.color01}
-            *.color9:       ${palette.color09}
-            ! green
-            *.color2:       ${palette.color02}
-            *.color10:      ${palette.color10}
-            ! yellow
-            *.color3:       ${palette.color03}
-            *.color11:      ${palette.color11}
-            ! blue
-            *.color4:       ${palette.color04}
-            *.color12:      ${palette.color12}
-            ! magenta
-            *.color5:       ${palette.color05}
-            *.color13:      ${palette.color13}
-            ! cyan
-            *.color6:       ${palette.color06}
-            *.color14:      ${palette.color14}
-            ! white
-            *.color7:       ${palette.color07}
-            *.color15:      ${palette.color15}
-          '';
+              *.foreground:   ${toRGB theme.fg}
+              *.background:   ${toRGB theme.bg}
+              *.cursorColor:  ${palette.cursor}
+              *.color0:       ${palette.color00}
+              *.color8:       ${palette.color08}
+              ! red
+              *.color1:       ${palette.color01}
+              *.color9:       ${palette.color09}
+              ! green
+              *.color2:       ${palette.color02}
+              *.color10:      ${palette.color10}
+              ! yellow
+              *.color3:       ${palette.color03}
+              *.color11:      ${palette.color11}
+              ! blue
+              *.color4:       ${palette.color04}
+              *.color12:      ${palette.color12}
+              ! magenta
+              *.color5:       ${palette.color05}
+              *.color13:      ${palette.color13}
+              ! cyan
+              *.color6:       ${palette.color06}
+              *.color14:      ${palette.color14}
+              ! white
+              *.color7:       ${palette.color07}
+              *.color15:      ${palette.color15}
+            '';
+          };
+          "zathurarc" = {
+            text = ''
+              set font "${cfg.fonts.terminalFont} normal 10"
+              set default-bg "${toRGB theme.bg}"
+              set default-fg "${toRGB theme.fg}"
+              set inputbar-bg "${toRGB theme.bg}"
+              set inputbar-fg "${toRGB theme.fg}"
+              set notification-bg "${toRGB theme.bg}"
+              set notification-fg "${toRGB theme.fg}"
+              set notification-error-bg "${toRGB theme.bg}"
+              set notification-error-fg "${toRGB theme.error}"
+              set notification-warning-bg "${toRGB theme.bg}"
+              set notification-warning-fg "${toRGB theme.warning}"
+              set statusbar-bg "${toRGB theme.bg}"
+              set statusbar-fg "${toRGB theme.fg}"
+              set completion-bg "${toRGB theme.bg}"
+              set completion-fg "${toRGB theme.fg}"
+              set completion-group-bg "${toRGB theme.bg-alt}"
+              set completion-group-fg "${toRGB theme.fg}"
+              set completion-highlight-bg "${toRGB theme.bg}"
+              set completion-highlight-fg "${toRGB theme.select}"
+              set highlight-color "${toRGB theme.match}"
+              set highlight-active-color "${toRGB theme.select}"
+              set sandbox "none"
+            '';
+          };
         };
-        "zathurarc" = {
-          text = ''
-            set font "${cfg.fonts.terminalFont} normal 10"
-            set default-bg "${toRGB theme.bg}"
-            set default-fg "${toRGB theme.fg}"
-            set inputbar-bg "${toRGB theme.bg}"
-            set inputbar-fg "${toRGB theme.fg}"
-            set notification-bg "${toRGB theme.bg}"
-            set notification-fg "${toRGB theme.fg}"
-            set notification-error-bg "${toRGB theme.bg}"
-            set notification-error-fg "${toRGB theme.error}"
-            set notification-warning-bg "${toRGB theme.bg}"
-            set notification-warning-fg "${toRGB theme.warning}"
-            set statusbar-bg "${toRGB theme.bg}"
-            set statusbar-fg "${toRGB theme.fg}"
-            set completion-bg "${toRGB theme.bg}"
-            set completion-fg "${toRGB theme.fg}"
-            set completion-group-bg "${toRGB theme.bg-alt}"
-            set completion-group-fg "${toRGB theme.fg}"
-            set completion-highlight-bg "${toRGB theme.bg}"
-            set completion-highlight-fg "${toRGB theme.select}"
-            set highlight-color "${toRGB theme.match}"
-            set highlight-active-color "${toRGB theme.select}"
-            set sandbox "none"
-          '';
-        };
-      };
       variables = {
         BROWSER = "google-chrome-stable";
         CM_DIR = "/run/cache";
@@ -206,52 +208,52 @@ with lib;
       systemPackages =
         let
           cliprofi = (
-            with import <nixpkgs> {}; writeShellScriptBin "cliprofi" ''
+            with import <nixpkgs> { }; writeShellScriptBin "cliprofi" ''
               ${rofi-unwrapped}/bin/rofi -p  -dmenu -normal-window $@
             ''
-            );
+          );
           reload-desktop = (
-            with import <nixpkgs> {}; writeShellScriptBin "reload-desktop" ''
+            with import <nixpkgs> { }; writeShellScriptBin "reload-desktop" ''
               ${procps}/bin/pkill -USR1 -x sxhkd
               ${procps}/bin/pkill -TERM -x picom
               ${procps}/bin/pkill -TERM -x polybar
               ${bspwm}/bin/bspc wm -r
               say 'Reloaded desktop' 'Desktop components have been reloaded'
             ''
-            );
+          );
           flatpak-alt = (
-            with import <nixpkgs> {}; writeShellScriptBin "flatpak" ''
+            with import <nixpkgs> { }; writeShellScriptBin "flatpak" ''
               ${flatpak}/bin/flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
               ${flatpak}/bin/flatpak "$@"
             ''
-            );
+          );
           say = (
-            with import <nixpkgs> {}; writeShellScriptBin "say" ''
+            with import <nixpkgs> { }; writeShellScriptBin "say" ''
               ${libnotify}/bin/notify-send -i info "$@"
             ''
-            );
+          );
         in
-          with pkgs; [
-            sxhkd
-            rofi-unwrapped
-            libnotify
-            feh
-            imagemagick
-            clipmenu
-            networkmanagerapplet
-            xorg.xkill
-            xdo
-            xsel
-            numlockx
-            qt5ct
-            libsForQt5.qtstyleplugins
-            zathura
-            google-chrome
-            (cliprofi)
-            (reload-desktop)
-            (flatpak-alt)
-            (say)
-          ];
+        with pkgs; [
+          sxhkd
+          rofi-unwrapped
+          libnotify
+          feh
+          imagemagick
+          clipmenu
+          networkmanagerapplet
+          xorg.xkill
+          xdo
+          xsel
+          numlockx
+          qt5ct
+          libsForQt5.qtstyleplugins
+          zathura
+          google-chrome
+          (cliprofi)
+          (reload-desktop)
+          (flatpak-alt)
+          (say)
+        ];
     };
     hardware.opengl.driSupport32Bit = true;
     i18n.inputMethod = {
@@ -320,13 +322,13 @@ with lib;
           '';
           defaultSession = "starlight";
           session = [{
-              manage = "desktop";
-              name = "starlight";
-              start = ''
-                ${pkgs.sxhkd}/bin/sxhkd -c /etc/sxhkdrc &
-                ${pkgs.bspwm}/bin/bspwm -c /etc/bspwmrc &
-                ${pkgs.mate.mate-session-manager}/bin/mate-session
-              '';
+            manage = "desktop";
+            name = "starlight";
+            start = ''
+              ${pkgs.sxhkd}/bin/sxhkd -c /etc/sxhkdrc &
+              ${pkgs.bspwm}/bin/bspwm -c /etc/bspwmrc &
+              ${pkgs.mate.mate-session-manager}/bin/mate-session
+            '';
           }];
         };
         layout = "us";

@@ -13,10 +13,11 @@ with lib;
     };
   };
 
-  config = let
-    cfg = config.starlight;
-    toRGB = num: elemAt (attrValues cfg.palette) num;
-  in
+  config =
+    let
+      cfg = config.starlight;
+      toRGB = num: elemAt (attrValues cfg.palette) num;
+    in
     mkMerge [
       (
         mkIf cfg.touchscreen.enable {

@@ -4,14 +4,15 @@
   environment.systemPackages = with pkgs; [
     tmux
     (
-      with import <nixpkgs> {}; writeShellScriptBin "tmux-session" ''
+      with import <nixpkgs> { }; writeShellScriptBin "tmux-session" ''
         ${tmux}/bin/tmux -2 new-session -A -s "$1"
       ''
     )
   ];
-  environment.etc."tmux.conf" = let
-    theme = config.starlight.theme;
-  in
+  environment.etc."tmux.conf" =
+    let
+      theme = config.starlight.theme;
+    in
     {
       text = ''
         set -g default-terminal "screen-256color"

@@ -4,18 +4,19 @@ with lib;
 
 {
   config = lib.mkIf config.starlight.desktop {
-    environment = let
-      term = (
-        pkgs.termite.override {
-          configFile = "/etc/termite.conf";
-        }
-      );
-    in
+    environment =
+      let
+        term = (
+          pkgs.termite.override {
+            configFile = "/etc/termite.conf";
+          }
+        );
+      in
       {
         systemPackages = with pkgs; [
           (term)
           (
-            with import <nixpkgs> {}; writeShellScriptBin "terminal" ''
+            with import <nixpkgs> { }; writeShellScriptBin "terminal" ''
               CLASS_NAME="terminal"
               # does term with CLASS_NAME exist?
               if xdo id -N "$CLASS_NAME">/dev/null; then
@@ -35,12 +36,13 @@ with lib;
         variables = {
           TERMINAL = "${term}/bin/termite";
         };
-        etc."termite.conf" = let
-          cfg = config.starlight;
-          palette = config.starlight.palette;
-          theme = config.starlight.theme;
-          toRGB = num: elemAt (attrValues palette) num;
-        in
+        etc."termite.conf" =
+          let
+            cfg = config.starlight;
+            palette = config.starlight.palette;
+            theme = config.starlight.theme;
+            toRGB = num: elemAt (attrValues palette) num;
+          in
           {
             text = ''
               [options]
