@@ -22,11 +22,6 @@ in
       w3m
       iftop
     ];
-    programs.gnupg.agent = {
-      enable = true;
-      enableSSHSupport = !cfg.desktop;
-      pinentryFlavor = if cfg.desktop then "gnome3" else "curses";
-    };
     services = {
       sshguard = {
         enable = true;
