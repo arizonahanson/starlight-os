@@ -24,8 +24,8 @@ in
     ];
     programs.gnupg.agent = {
       enable = true;
-      enableSSHSupport = true;
-      pinentryFlavor = "curses";
+      enableSSHSupport = !cfg.desktop;
+      pinentryFlavor = if cfg.desktop then "gnome3" else "curses";
     };
     services = {
       sshguard = {
