@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 with lib;
-
 let
   cfg = config.starlight;
 in
@@ -23,10 +22,14 @@ in
       w3m
       iftop
     ];
+    programs.gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
     services = {
       sshguard = {
         enable = true;
-        detection_time = 86400;
+        detection_time = 3600;
       };
     };
   };
