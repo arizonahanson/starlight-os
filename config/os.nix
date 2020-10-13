@@ -56,7 +56,7 @@
           wantedBy = [ "timers.target" ];
           timerConfig = {
             OnStartupSec = "5min";
-            OnUnitActiveSec = "1day";
+            OnUnitActiveSec = "23hours";
           };
         };
         services.os-upgrade = {
