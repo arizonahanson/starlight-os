@@ -15,11 +15,15 @@
     in
     {
       text = ''
+        set -g history-limit 50000
+        set -g display-time 4000
+        set -g focus-events on
+        setw -g aggressive-resize on
         set -g default-terminal "screen-256color"
         set -g set-titles on
         set -g set-titles-string "#W"
         set -g monitor-activity on
-        set -g escape-time 0
+        set -s escape-time 0
         set -g status "on"
         set -g status-keys "vi"
         set -g status-left-length "100"
