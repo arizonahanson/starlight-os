@@ -198,7 +198,8 @@ with lib;
           };
         };
       variables = {
-        BROWSER = "google-chrome-stable";
+        #BROWSER = "google-chrome-stable";
+        BROWSER = "chrome-fix";
         CM_DIR = "/run/cache";
         CM_LAUNCHER = "cliprofi";
         SSH_AUTH_SOCK = "/run/user/$UID/keyring/ssh";
@@ -232,6 +233,12 @@ with lib;
               ${libnotify}/bin/notify-send -i info "$@"
             ''
           );
+          chrome-fix = (
+            with import <nixpkgs> { }; writeShellScriptBin "chrome-fix" ''
+              export LD_PRELOAD="/nix/store/m8yinyy36w4aph1f30bd8cljjw9wrs7r-libxkbcommon-0.10.0/lib/libxkbcommon.so.0"
+              google-chrome-stable $@
+            ''
+          );
         in
         with pkgs; [
           sxhkd
@@ -253,6 +260,7 @@ with lib;
           (reload-desktop)
           (flatpak-alt)
           (say)
+          (chrome-fix)
         ];
     };
     hardware.opengl.driSupport32Bit = true;
