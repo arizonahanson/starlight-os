@@ -235,7 +235,7 @@ with lib;
           );
           chrome-fix = (
             with import <nixpkgs> { }; writeShellScriptBin "chrome-fix" ''
-              export LD_PRELOAD="/nix/store/m8yinyy36w4aph1f30bd8cljjw9wrs7r-libxkbcommon-0.10.0/lib/libxkbcommon.so.0"
+              export LD_PRELOAD="${libxkbcommon}/lib/libxkbcommon.so.0"
               google-chrome-stable $@
             ''
           );
