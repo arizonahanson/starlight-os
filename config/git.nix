@@ -121,7 +121,7 @@
               [web]
                 browser = "chrome"
               [browser "chrome"]
-                path = "chrome-fix"
+                path = "google-chrome-stable"
               ${git-config}
             '';
           } else {

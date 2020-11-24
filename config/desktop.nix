@@ -198,8 +198,7 @@ with lib;
           };
         };
       variables = {
-        #BROWSER = "google-chrome-stable";
-        BROWSER = "chrome-fix";
+        BROWSER = "google-chrome-stable";
         CM_DIR = "/run/cache";
         CM_LAUNCHER = "cliprofi";
         SSH_AUTH_SOCK = "/run/user/$UID/keyring/ssh";
@@ -233,12 +232,6 @@ with lib;
               ${libnotify}/bin/notify-send -i info "$@"
             ''
           );
-          chrome-fix = (
-            with import <nixpkgs> { }; writeShellScriptBin "chrome-fix" ''
-              export LD_PRELOAD="${libxkbcommon}/lib/libxkbcommon.so.0"
-              google-chrome-stable $@
-            ''
-          );
         in
         with pkgs; [
           sxhkd
@@ -260,7 +253,6 @@ with lib;
           (reload-desktop)
           (flatpak-alt)
           (say)
-          (chrome-fix)
         ];
     };
     hardware.opengl.driSupport32Bit = true;
