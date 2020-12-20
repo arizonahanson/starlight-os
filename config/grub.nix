@@ -6,7 +6,7 @@ with lib;
   options.starlight = {
     efi = mkOption {
       type = types.bool;
-      default = false;
+      default = true;
       description = ''
         If enabled, will boot uefi mode
       '';

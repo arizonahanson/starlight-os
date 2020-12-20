@@ -5,7 +5,7 @@
 
   starlight = {
     hostname = "myhost";
-    # efi = false;
+    # efi = true;
     # localTime = false;
     # logo = " ";
     # desktop = true;
