@@ -41,10 +41,11 @@
           echo -e "\n\e[${toANSI theme.path}m\e[0m Deduplicating system..."
           sudo duperemove -Ardhv --hash=xxhash $(ls -d */nix) | grep "net change"
           sync
+          echo -e "\n\e[${toANSI theme.path}m\e[0m Discarding unused blocks..."
+          sudo btrfs balance start -dusage=0 $mntpnt
           popd >/dev/null
           sudo umount $mntpnt || exit 1
           rmdir $mntpnt || exit 1
-          echo -e "\n\e[${toANSI theme.path}m\e[0m Discarding unused blocks..."
           sudo fstrim -av
         ''
       );
