@@ -42,7 +42,8 @@
           sudo duperemove -Ardhv --hash=xxhash $(ls -d */nix) | grep "net change"
           sync
           echo -e "\n\e[${toANSI theme.path}m\e[0m Discarding unused blocks..."
-          sudo btrfs balance start -dusage=0 $mntpnt
+          sudo btrfs balance start -dusage=0 $mntpnt >/dev/null
+          sudo btrfs balance start -dusage=20 $mntpnt
           popd >/dev/null
           sudo umount $mntpnt || exit 1
           rmdir $mntpnt || exit 1
