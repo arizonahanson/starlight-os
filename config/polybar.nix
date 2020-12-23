@@ -79,7 +79,7 @@ with lib;
 
             [module/clock]
             type = custom/script
-            exec = date '+ %a %b %_d %_H:%M ' | sed 's/  / /g'
+            exec = date '+ %a %_d %b %_H:%M ' | sed 's/  / /g'
             interval = 30
             format-foreground = ''${colors.foreground}
             label-font = 1
