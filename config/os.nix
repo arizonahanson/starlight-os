@@ -127,6 +127,8 @@
             systemd
             utillinux
             xz.bin
+            btrfs-progs
+            duperemove
           ];
           environment = config.nix.envVars //
             {
