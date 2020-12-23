@@ -101,7 +101,7 @@
           description = "StarlightOS Compress Timer";
           wantedBy = [ "timers.target" ];
           timerConfig = {
-            OnCalendar = "13w";
+            OnCalendar = "quarterly";
             AccuracySec = "1d";
             Persistent = true;
           };
