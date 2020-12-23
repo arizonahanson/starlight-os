@@ -272,6 +272,8 @@ with lib;
         # zprofile (once, before zshrc)
         loginShellInit = ''
           eval `dircolors -b /etc/dircolors`
+          mkdir -p "$XDG_CACHE_HOME"
+          mkdir -p "$XDG_CONFIG_HOME"
         '';
         ohMyZsh = {
           enable = true;
