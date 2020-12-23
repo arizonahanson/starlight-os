@@ -93,8 +93,7 @@
             if [ ! "$booted" = "$latest" ]; then
               shutdown -r +10
             else
-              ${os-cmd}/bin/os expire
-              ${os-cmd}/bin/os upgrade
+              ${os-cmd}/bin/os upgrade && ${os-cmd}/bin/os expire
             fi
           '';
         };
