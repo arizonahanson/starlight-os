@@ -6,7 +6,6 @@
     ./grub.nix
     ./base.nix
     ./locale.nix
-    ./server.nix
     ./desktop.nix
     ./docker.nix
   ];

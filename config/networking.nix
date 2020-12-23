@@ -29,6 +29,10 @@ with lib;
       openssh = {
         enable = true;
       };
+      sshguard = {
+        enable = true;
+        detection_time = 3600;
+      };
       resolved = {
         enable = true;
         fallbackDns = [ "8.8.8.8" "2001:4860:4860::8844" ];

@@ -118,6 +118,7 @@ with lib;
         gcc
         gnumake
         gnupg
+        iftop
         ncdu
         nox
         pciutils
@@ -128,6 +129,7 @@ with lib;
         units
         unrar
         unzip
+        w3m
         zip
       ] ++ optional config.starlight.efi gptfdisk;
     };
