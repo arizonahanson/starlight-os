@@ -55,7 +55,7 @@ with lib;
           clipmenu
         # clear clipboard history
         super + shift + Insert
-          clipdel -d '.*'
+          clipdel -d '^.*'
 
         # reload keybindings
         super + shift + BackSpace
