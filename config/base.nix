@@ -119,6 +119,7 @@ with lib;
         gnumake
         gnupg
         iftop
+        ipset
         ncdu
         nox
         pciutils
