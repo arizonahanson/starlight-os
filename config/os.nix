@@ -58,7 +58,7 @@
           wantedBy = [ "timers.target" ];
           timerConfig = {
             OnStartupSec = "5min";
-            OnUnitActiveSec = "23hours";
+            OnUnitActiveSec = "1day";
           };
         };
         services.os-upgrade = {
@@ -79,6 +79,7 @@
             gnutar
             gzip
             sudo
+            systemd
             utillinux
             xz.bin
           ];
@@ -88,33 +89,13 @@
               HOME = "/root";
             } // config.networking.proxy.envVars;
           script = ''
-            ${os-cmd}/bin/os expire
-            ${os-cmd}/bin/os upgrade
-          '';
-        };
-        timers.os-reboot = {
-          description = "StarlightOS Reboot Timer";
-          wantedBy = [ "timers.target" ];
-          timerConfig = {
-            OnCalendar = "*-*-* 4:00:00";
-          };
-        };
-        services.os-reboot = {
-          description = "StarlightOS Reboot Service";
-          restartIfChanged = false;
-          unitConfig.X-StopOnRemoval = false;
-          serviceConfig = {
-            Type = "oneshot";
-            LimitNICE = "+1";
-          };
-          path = with pkgs; [
-            systemd
-          ];
-          script = ''
             booted="$(readlink /run/booted-system/{initrd,kernel,kernel-modules})"
-            built="$(readlink /nix/var/nix/profiles/system/{initrd,kernel,kernel-modules})"
-            if [ ! "$booted" = "$built" ]; then
-              /run/current-system/sw/bin/shutdown -r +1
+            latest="$(readlink /nix/var/nix/profiles/system/{initrd,kernel,kernel-modules})"
+            if [ ! "$booted" = "$latest" ]; then
+              shutdown -r +1
+            else
+              ${os-cmd}/bin/os expire
+              ${os-cmd}/bin/os upgrade
             fi
           '';
         };
