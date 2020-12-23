@@ -268,6 +268,10 @@ with lib;
       '';
     };
     services = {
+      avahi = {
+        enable = true;
+        nssmdns = true;
+      };
       picom = let cfg = config.starlight; in
         {
           enable = true;
