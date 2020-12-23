@@ -57,7 +57,7 @@
           description = "StarlightOS Upgrade Timer";
           wantedBy = [ "timers.target" ];
           timerConfig = {
-            OnStartupSec = "5min";
+            OnStartupSec = "10min";
             OnCalendar = "*-*-* 04:00:00";
           };
         };
