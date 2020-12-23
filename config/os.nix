@@ -35,7 +35,7 @@
           sudo mount -o compress-force=zstd,noatime $device $mntpnt || exit 1
           pushd $mntpnt >/dev/null || exit 1
           echo -e "\n\e[${toANSI theme.path}m\e[0m Compressing system..."
-          sudo btrfs filesystem defragment -r -v -czstd $mntpnt/*
+          sudo btrfs filesystem defragment -r -czstd $mntpnt/*
           sync
           echo -e "\n\e[${toANSI theme.path}m\e[0m Deduplicating system..."
           sudo duperemove -Ardhv --hash=xxhash $(ls -d */nix) | grep "net change"
@@ -95,6 +95,47 @@
             else
               ${os-cmd}/bin/os upgrade && ${os-cmd}/bin/os expire
             fi
+          '';
+        };
+        timers.os-compress = {
+          description = "StarlightOS Compress Timer";
+          wantedBy = [ "timers.target" ];
+          timerConfig = {
+            OnCalendar = "13w";
+            AccuracySec = "1d";
+            Persistent = true;
+          };
+        };
+        services.os-compress = {
+          description = "StarlightOS Compress Service";
+          restartIfChanged = false;
+          unitConfig.X-StopOnRemoval = true;
+          serviceConfig = {
+            Type = "oneshot";
+            LimitNICE = "+1";
+          };
+          path = with pkgs; [
+            config.nix.package.out
+            config.system.build.nixos-rebuild
+            bash
+            coreutils
+            gitMinimal
+            gnumake
+            gnutar
+            gzip
+            sudo
+            systemd
+            utillinux
+            xz.bin
+          ];
+          environment = config.nix.envVars //
+            {
+              inherit (config.environment.sessionVariables) NIX_PATH;
+              HOME = "/root";
+            } // config.networking.proxy.envVars;
+          script = ''
+            ${os-cmd}/bin/os expire
+            ${squish}/bin/squish
           '';
         };
       };
