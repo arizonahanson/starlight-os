@@ -64,7 +64,7 @@
         services.os-upgrade = {
           description = "StarlightOS Upgrade Service";
           restartIfChanged = false;
-          unitConfig.X-StopOnRemoval = false;
+          unitConfig.X-StopOnRemoval = true;
           serviceConfig = {
             Type = "oneshot";
             LimitNICE = "+1";
