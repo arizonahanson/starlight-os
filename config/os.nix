@@ -92,7 +92,7 @@
             booted="$(readlink /run/booted-system/{initrd,kernel,kernel-modules})"
             latest="$(readlink /nix/var/nix/profiles/system/{initrd,kernel,kernel-modules})"
             if [ ! "$booted" = "$latest" ]; then
-              shutdown -r +1
+              shutdown -r +10
             else
               ${os-cmd}/bin/os expire
               ${os-cmd}/bin/os upgrade
