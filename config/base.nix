@@ -75,8 +75,8 @@ with lib;
     systemd = {
       tmpfiles.rules = [
         "d /run/cache/ 1771 - users"
-        "d /var/config/ 1771 - users 8w"
-        "e /var/tmp/ - - - 2w"
+        "d /var/config/ 1771 - users 13w"
+        "e /var/tmp/ - - - 4w"
       ];
     };
     security.pam.makeHomeDir.skelDirectory = "/etc/skel";
