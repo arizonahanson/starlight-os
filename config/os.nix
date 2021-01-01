@@ -115,20 +115,10 @@
             LimitNICE = "+1";
           };
           path = with pkgs; [
-            config.nix.package.out
-            config.system.build.nixos-rebuild
-            bash
-            coreutils
-            gitMinimal
-            gnumake
-            gnutar
-            gzip
             sudo
-            systemd
-            utillinux
-            xz.bin
             btrfs-progs
             duperemove
+            utillinux
           ];
           environment = config.nix.envVars //
             {
@@ -136,7 +126,6 @@
               HOME = "/root";
             } // config.networking.proxy.envVars;
           script = ''
-            ${os-cmd}/bin/os expire
             ${squish}/bin/squish
           '';
         };
