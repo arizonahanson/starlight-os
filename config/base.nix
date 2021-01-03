@@ -130,6 +130,7 @@ with lib;
         units
         unrar
         unzip
+        usbutils
         w3m
         zip
       ] ++ optional config.starlight.efi gptfdisk;
