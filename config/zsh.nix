@@ -544,7 +544,7 @@ with lib;
                 # NOTE: this next case statement requires TABS in the strings!
                 case "$count" in
                 "") # no upstream
-                  p="%{${toFG theme.error}%}$ZSH_THEME_NOUPSTREAM_PROMPT%{$reset_color%}" ;;
+                  p="%{${toFG theme.error}%}$ZSH_THEME_NOUPSTREAM_PROMPT%{$reset_color%} " ;;
                 "0${"\t"}0") # equal to upstream
                   p="" ;;
                 "0${"\t"}"*) # ahead of upstream
