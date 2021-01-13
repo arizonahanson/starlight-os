@@ -22,8 +22,8 @@
                 let g:ale_fix_on_save=1
                 let g:ale_hover_to_preview=1
                 let g:ale_lint_delay=400
-                let g:ale_sign_error=' '
-                let g:ale_sign_warning=' '
+                let g:ale_sign_error=' '
+                let g:ale_sign_warning=' '
                 let g:ale_sign_info=' '
                 let g:foldchar='╍'
                 let g:gitgutter_override_sign_column_highlight=0
@@ -176,8 +176,9 @@
                 highlight User3 ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.currentBranch} cterm=NONE
                 highlight User4 ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.fg-alt} cterm=NONE
                 highlight User5 ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.number} cterm=NONE
+                highlight User6 ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.type} cterm=NONE
                 "--- multiple windows
-                set statusline=%<\ %f\ %1*%r%*%2*%(%m\ %)%*%=%3*%{FugitiveHead()}%*\ %4*%l,%c%V%*\ %5*%B\ %*
+                set statusline=%<\ %f\ %6*%y\ %1*%(%r\ %)%*%2*%(%m\ %)%*%=%3*%{FugitiveHead()}%*\ %4*%l,%c%V%*\ %5*%B\ %*
                 set hidden
                 set switchbuf=useopen,usetab,newtab
                 "--- multiple tab pages
