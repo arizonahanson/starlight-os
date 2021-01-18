@@ -14,8 +14,8 @@ with lib;
           src = fetchFromGitHub {
             owner = "themix-project";
             repo = "oomox";
-            rev = "1.12.5.3";
-            sha256 = "0xz2j6x8zf44bjsq2h1b5105h35z8mbrh8b97i5z5j0zb8k5zhj2";
+            rev = "1.13.3";
+            sha256 = "0krhvd73gm8znfr088l9d5195y6c7bsabdpf7fjdivjcrjv1a9qz";
             fetchSubmodules = true;
           };
           dontBuild = true;
@@ -34,7 +34,7 @@ with lib;
             popd
             # gtk theme
             mkdir -p $out/share/themes/Starlight
-            pushd plugins/theme_oomox/gtk-theme
+            pushd plugins/theme_oomox
             patchShebangs .
             echo "
             BG=${toRGB cfg.theme.bg}
