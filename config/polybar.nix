@@ -25,7 +25,7 @@ with lib;
             [bar/default]
             monitor = ''${env:MONITOR:VGA-1}
             width = 100%
-            height = 38
+            height = 32
             offset-x = 0
             offset-y = 0
             ;radius = 8.0
