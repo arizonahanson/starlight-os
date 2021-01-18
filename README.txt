@@ -65,13 +65,12 @@ key-bindings:
   super + shift + f:
     full-screen window
 
+  super + ctrl + f:
+    monocle mode toggle
+
   super + t:
     tile window
 
   super + a:
     anchor window (pseudo-tile)
-
-  super + m:
-    monocle mode toggle
-
 
