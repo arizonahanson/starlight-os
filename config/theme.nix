@@ -53,7 +53,7 @@ with lib;
             ROUNDNESS=8
             SPACING=8
             GRADIENT=0.6
-            GTK3_GENERATE_DARK=False
+            GTK3_GENERATE_DARK=True
             CARET1_FG=${removePrefix "#" cfg.palette.cursor}
             CARET2_FG=${toRGB cfg.theme.bg-alt}
             CARET_SIZE=0.08
@@ -61,7 +61,7 @@ with lib;
             BTN_OUTLINE_WIDTH=${toString cfg.borderWidth}
             BTN_OUTLINE_OFFSET=-${toString cfg.borderWidth}
             " > /build/source/starlight.colors
-            HOME=/build/source ./change_color.sh -o Starlight -t $out/share/themes /build/source/starlight.colors
+            HOME=/build/source ./change_color.sh -o Starlight -m all -t $out/share/themes /build/source/starlight.colors
             echo ".termite {
               padding: ${toString ((toPx cfg.fonts.fontSize) / 2)}px;
             }" >> $out/share/themes/Starlight/gtk-3.20/gtk.css
