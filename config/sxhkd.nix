@@ -38,7 +38,7 @@ with lib;
         super + ctrl  + f
           bspc desktop -l next
         # anchored/tiled toggle
-        super + {t,a}
+        super + {_,shift + }t
           bspc node -t {_,pseudo_}tiled
         # floating/fullscreen toggle
         super + {_,shift + }f
