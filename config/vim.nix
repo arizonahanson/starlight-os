@@ -4,7 +4,13 @@
   environment =
     let
       system_vim = (
-        pkgs.vim_configurable.customize {
+        (pkgs.vim_configurable.override {
+          guiSupport = "no";
+          pythonSupport = false;
+          luaSupport = false;
+          rubySupport = false;
+          netbeansSupport = false;
+        }).customize {
           name = "vim";
           vimrcConfig =
             let
