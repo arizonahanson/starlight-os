@@ -13,8 +13,6 @@ with lib;
         # terminal
         super + Return
           terminal &
-        super + z
-          zathura
 
         # switch, move window
         super + {_,shift + }{Left,Down,Up,Right}
@@ -37,7 +35,7 @@ with lib;
           mate-session-save --{logout,shutdown}-dialog
 
         # monocle toggle
-        super + m
+        super + ctrl  + f
           bspc desktop -l next
         # anchored/tiled toggle
         super + {t,a}
