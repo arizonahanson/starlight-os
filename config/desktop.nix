@@ -91,7 +91,7 @@ with lib;
           "X11/Xresources" = {
             text = ''
               ! Xcursor
-              Xcursor.theme: Bibata_Oil
+              Xcursor.theme: Bibata_Ice
               Xcursor.size:  ${toString config.starlight.pointerSize}
 
               ! XFT
@@ -202,7 +202,7 @@ with lib;
         CM_DIR = "/run/cache";
         CM_LAUNCHER = "cliprofi";
         SSH_AUTH_SOCK = "/run/user/$UID/keyring/ssh";
-        XCURSOR_THEME = "Bibata_Oil";
+        XCURSOR_THEME = "Bibata_Ice";
         QT_QPA_PLATFORMTHEME = "gtk2";
       };
       systemPackages =
