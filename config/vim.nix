@@ -82,7 +82,7 @@
                 highlight Comment ctermbg=NONE ctermfg=${toString cfg.theme.bg-alt} cterm=NONE
                 highlight CursorLine ctermbg=NONE ctermfg=NONE cterm=NONE
                 highlight Visual ctermbg=${toString cfg.theme.bg-alt} cterm=NONE
-                highlight StatusLine ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.fg} cterm=NONE
+                highlight StatusLine ctermbg=${toString cfg.theme.bg-alt} ctermfg=fg cterm=NONE
                 highlight StatusLineNC ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.fg-alt} cterm=NONE
                 highlight WildMenu ctermbg=${toString cfg.theme.bg-alt} ctermfg=${toString cfg.theme.select} cterm=NONE
                 highlight PmenuThumb ctermfg=${toString cfg.theme.fg-alt}
