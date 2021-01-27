@@ -36,4 +36,3 @@ fi
 mkdir /mnt/home || exit 1
 mount -o compress-force=zstd,noatime,space_cache,subvol=home $SYS /mnt/home || exit 1
 swapon -o discard=once $SWAP || exit 1
-
