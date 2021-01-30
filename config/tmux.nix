@@ -60,6 +60,9 @@
 
         # clock
         set-window-option -g clock-mode-colour colour${toString theme.accent}
+        bind '"' split-window -c "#{pane_current_path}"
+        bind % split-window -h -c "#{pane_current_path}"
+        bind c new-window -c "#{pane_current_path}"
       '';
     };
 }
