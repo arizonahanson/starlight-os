@@ -118,6 +118,13 @@ with lib;
           color 15 (white)
         '';
       };
+      gtk = mkOption {
+        type = types.str;
+        default = "#111111";
+        description = ''
+          GTK Background color
+        '';
+      };
       cursor = mkOption {
         type = types.str;
         default = "#5c5c5c";
@@ -416,7 +423,7 @@ with lib;
       };
       colorIndex = num: colorMap.${toString num};
       colorSort = a: b: lessThan (colorIndex theme.${a}) (colorIndex theme.${b});
-      toANSI = num: if num <= 7 then "00;3${toString num}" else "01;3${toString (num - 8)}";
+      toANSI = num: "38;5;${toString num}";
       paletteScript = (
         with import <nixpkgs> { }; writeShellScriptBin "palette" ''
           for bold in 0 1; do

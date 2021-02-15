@@ -37,17 +37,17 @@ with lib;
             pushd plugins/theme_oomox
             patchShebangs .
             echo "
-            BG=${toRGB cfg.theme.bg}
+            BG=${removePrefix "#" cfg.palette.gtk}
             FG=${toRGB cfg.theme.fg}
             HDR_BG=${toRGB cfg.theme.bg}
             HDR_FG=${toRGB cfg.theme.fg}
             SEL_BG=${toRGB cfg.theme.accent}
             SEL_FG=${toRGB cfg.theme.bg}
-            TXT_BG=${toRGB cfg.theme.bg-alt}
+            TXT_BG=${toRGB cfg.theme.bg}
             TXT_FG=${toRGB cfg.theme.fg}
-            BTN_BG=${toRGB cfg.theme.bg-alt}
+            BTN_BG=${toRGB cfg.theme.bg}
             BTN_FG=${toRGB cfg.theme.fg}
-            HDR_BTN_BG=${toRGB cfg.theme.bg-alt}
+            HDR_BTN_BG=${toRGB cfg.theme.bg}
             HDR_BTN_FG=${toRGB cfg.theme.fg}
             WM_BORDER_WIDTH=0
             ROUNDNESS=8
