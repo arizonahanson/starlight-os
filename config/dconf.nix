@@ -100,7 +100,7 @@ with lib;
 
           [org/mate/desktop/peripherals/mouse]
           double-click=600
-          cursor-theme='Bibata_Ice'
+          cursor-theme='Bibata_Oil'
           cursor-size=${toString cfg.pointerSize}
 
           [org/mate/desktop/session]
