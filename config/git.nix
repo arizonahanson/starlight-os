@@ -17,86 +17,6 @@
           withLibsecret = true;
         }
       );
-      git-config = ''
-        [core]
-          autocrlf = false
-          filemode = true
-        [diff]
-          algorithm = minimal
-          colorMoved = blocks
-          colorMovedWS = allow-indentation-change
-          tool = vimdiff3
-        [difftool]
-          prompt = true
-        [fetch]
-          prune = true
-          pruneTags = true
-        [help]
-          autocorrect = 30
-          format = html
-          htmlpath = "https://git-scm.com/docs"
-        [merge]
-          conflictstyle = diff3
-          tool = vimdiff
-        [mergetool]
-          keepBackup = false
-          prompt = false
-        [pack]
-          threads = 2
-        [pull]
-          ff = only
-        [push]
-          default = current
-          followTags = true
-        [color]
-          ui = auto
-        [color "grep"]
-          filename = ${toString theme.path}
-          linenumber = ${toString theme.bg-alt}
-          match = ${toString theme.match}
-          separator = ${toString theme.fg-alt}
-        [color "diff"]
-          commit = ${toString theme.fg-alt}
-          frag = ${toString theme.fg-alt}
-          meta = ${toString theme.bg-alt}
-          new = ${toString theme.diff-add}
-          newMoved = ${toString theme.diff-add-moved}
-          old = ${toString theme.diff-remove}
-          oldMoved = ${toString theme.diff-remove-moved}
-        [color "branch"]
-          current = ${toString theme.currentBranch}
-          local = ${toString theme.localBranch}
-          remote = ${toString theme.remoteBranch}
-        [color "decorate"]
-          HEAD = ${toString theme.localBranch}
-          branch = ${toString theme.currentBranch}
-          remoteBranch = ${toString theme.remoteBranch}
-          stash = ${toString theme.localBranch}
-          tag = ${toString theme.remoteBranch}
-        [color "remote"]
-          hint = ${toString theme.fg-alt}
-          success = ${toString theme.info}
-          warning = ${toString theme.warning}
-          error = ${toString theme.error}
-        [color "status"]
-          header = ${toString theme.bg-alt}
-          added = ${toString theme.staged}
-          changed = ${toString theme.diff-change}
-          untracked = ${toString theme.diff-remove}
-          branch = ${toString theme.currentBranch}
-          localBranch = ${toString theme.currentBranch}
-          remoteBranch = ${toString theme.remoteBranch}
-        [tig "color"]
-          cursor = ${toString theme.select} default
-          date = ${toString theme.bg-alt} default
-          graph-commit = ${toString theme.fg-alt} default
-          line-number = ${toString theme.bg-alt} default
-          main-tracked = ${toString theme.currentBranch} default
-          search-result = ${toString theme.match} default
-          status = ${toString theme.info} default
-          title-blur = ${toString theme.bg-alt} default
-          title-focus = ${toString theme.fg} ${toString theme.bg-alt}
-      '';
       git-all = (
         with import <nixpkgs> { }; writeShellScriptBin "git-all" ''
           echo
@@ -111,7 +31,7 @@
       );
     in
     {
-      systemPackages = [ (git-minimal) (git-all) pkgs.tig ];
+      systemPackages = [ (git-minimal) (git-all) ];
       etc.gitconfig =
         if config.services.xserver.enable then
           {
@@ -122,13 +42,11 @@
                 browser = "chrome"
               [browser "chrome"]
                 path = "google-chrome-stable"
-              ${git-config}
             '';
           } else {
           text = ''
             [web]
               browser = "w3m"
-            ${git-config}
           '';
         };
     };
