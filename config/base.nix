@@ -88,6 +88,7 @@ with lib;
       };
       systemPackages = with pkgs; [
         coreutils
+        busybox
         binutils
         compsize
         duperemove
