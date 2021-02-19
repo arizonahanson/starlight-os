@@ -28,8 +28,8 @@ with lib;
               else
                 # create new term with CLASS_NAME
                 # create new tmux session, or attach if exists
-                ${term}/bin/termite
-                #-e "tmux-session '${config.starlight.logo}'" --class="$CLASS_NAME"
+                ${term}/bin/termite --class="$CLASS_NAME"
+                #-e "tmux-session '${config.starlight.logo}'"
               fi
             ''
           )
