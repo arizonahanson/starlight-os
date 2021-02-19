@@ -301,12 +301,12 @@ with lib;
             zle-keymap-select () {
               if [ ! "$TERM" = "linux" ]; then
                 if [ $KEYMAP = vicmd ]; then
-                  echo -ne "\e[${toString cfg.commandCursor} q"
+                  echo -ne "\e[1 q"
                 else
                   if [[ $ZLE_STATE == *insert* ]]; then
-                    echo -ne "\e[${toString cfg.insertCursor} q"
+                    echo -ne "\e[5 q"
                   else
-                    echo -ne "\e[${toString cfg.replaceCursor} q"
+                    echo -ne "\e[3 q"
                   fi
                 fi
               fi
@@ -867,7 +867,7 @@ with lib;
 
             precmd() {
               if [ ! "$TERM" = "linux" ]; then
-                echo -ne "\e[${toString cfg.insertCursor} q"
+                echo -ne "\e[5 q"
               fi
               PROMPT='%(?.${toFG theme.fg-alt}.${toFG theme.error})%(!.$ZSH_THEME_PROMPT_ROOT.$ZSH_THEME_PROMPT)%{$reset_color%} '
               RPROMPT=" $(git_prompt_info)${toFG theme.path}$(get_pwd)$(host_info)%{$reset_color%}"

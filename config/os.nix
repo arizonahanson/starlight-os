@@ -52,7 +52,7 @@
     in
     {
       systemd = {
-        timers.os-upgrade = {
+        /*timers.os-upgrade = {
           description = "StarlightOS Upgrade Timer";
           wantedBy = [ "timers.target" ];
           timerConfig = {
@@ -128,7 +128,7 @@
           script = ''
             ${squish}/bin/squish
           '';
-        };
+        };*/
       };
       environment.systemPackages = with pkgs; [
         (os-cmd)

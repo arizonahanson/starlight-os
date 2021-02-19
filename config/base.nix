@@ -18,27 +18,6 @@ with lib;
         If enabled, will use local time (dual boot)
       '';
     };
-    insertCursor = mkOption {
-      type = types.int;
-      default = 5;
-      description = ''
-        cursor code for insert mode
-      '';
-    };
-    replaceCursor = mkOption {
-      type = types.int;
-      default = 3;
-      description = ''
-        cursor code for replace mode
-      '';
-    };
-    commandCursor = mkOption {
-      type = types.int;
-      default = 1;
-      description = ''
-        cursor code for command mode
-      '';
-    };
   };
   config = {
     nix.autoOptimiseStore = true;
@@ -108,31 +87,17 @@ with lib;
         XDG_CONFIG_HOME = "/var/config/$UID";
       };
       systemPackages = with pkgs; [
-        ag
-        bc
+        coreutils
         binutils
-        calc
         compsize
         duperemove
-        fzf
-        gcc
-        gnumake
-        gnupg
         iftop
         ipset
         ncdu
-        nox
         pciutils
         psmisc
-        shellcheck
-        stow
-        tree
-        units
         unrar
-        unzip
         usbutils
-        w3m
-        zip
       ] ++ optional config.starlight.efi gptfdisk;
     };
     # This value determines the NixOS release with which your system is to be
