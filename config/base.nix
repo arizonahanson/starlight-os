@@ -7,7 +7,7 @@ with lib;
     ./networking.nix
     ./zsh.nix
     ./git.nix
-    ./vim.nix
+    ./editorconfig.nix
   ];
   options.starlight = {
     localTime = mkOption {
