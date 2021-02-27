@@ -7,7 +7,6 @@ with lib;
     ./networking.nix
     ./zsh.nix
     ./git.nix
-    ./tmux.nix
     ./vim.nix
   ];
   options.starlight = {

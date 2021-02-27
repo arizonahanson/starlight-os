@@ -6,7 +6,6 @@ WARNING!!! The partition script in this repository could ERASE ALL OF YOUR DATA!
 principles:
  * tiled operation - like vim, tmux
  * minimal clicks & keystrokes
- * heavy tmux, zsh, fzf, vim & git integration
  * atomic upgrades/rollback
  * optimized for virtualbox & hardware
  * no post-configuration required
