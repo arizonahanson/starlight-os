@@ -50,7 +50,7 @@ with lib;
             bindkey '^w' vi-forward-word
           fi
         '';*/
-        variables = {
+        /*variables = {
           FZF_TMUX = "1";
           FZF_DEFAULT_COMMAND = "ag -f -g '' --hidden --depth 16 --ignore dosdevices";
           FZF_CTRL_T_COMMAND = "ag -f -g '' --hidden --depth 16 --ignore dosdevices";
@@ -60,7 +60,7 @@ with lib;
           # shorter delay on cmd-mode
           KEYTIMEOUT = "1";
           LESS = "-erFX";
-        };
+        };*/
       };
       programs.zsh = {
         enable = true;
