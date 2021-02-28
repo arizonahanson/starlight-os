@@ -21,7 +21,7 @@ with lib;
           umask 077
         '';
         # zshrc (start)
-        interactiveShellInit = ''
+        /*interactiveShellInit = ''
           if [ ! -n "$ZSH" ]; then
             # keep zcompdump in tmpfs
             autoload -U compinit && compinit -d "$XDG_CACHE_HOME/zcompdump"
@@ -49,7 +49,7 @@ with lib;
             # complete word
             bindkey '^w' vi-forward-word
           fi
-        '';
+        '';*/
         variables = {
           FZF_TMUX = "1";
           FZF_DEFAULT_COMMAND = "ag -f -g '' --hidden --depth 16 --ignore dosdevices";
