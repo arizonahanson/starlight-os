@@ -65,11 +65,6 @@ with lib;
       programs.zsh = {
         enable = true;
         enableGlobalCompInit = false;
-        autosuggestions = {
-          enable = true;
-          strategy = "match_prev_cmd";
-          highlightStyle = "fg=${toString theme.bg-alt}";
-        };
         # zprofile (once, before zshrc)
         loginShellInit = ''
           mkdir -p "$XDG_CACHE_HOME"
@@ -665,7 +660,7 @@ with lib;
               PS2="%{$reset_color%}${toFG theme.warning}$ZSH_THEME_PROMPT2 %{$reset_color%}"
             }
 
-          '';*/
+          '';
         shellAliases = with pkgs; {
           l = "ls -hF";
           la = "ls -AhF";
@@ -677,7 +672,7 @@ with lib;
           ":q" = "exit";
           fawk = "awk -F: '{print $1}' | sort -u";
         };
-        /*syntaxHighlighting = {
+        syntaxHighlighting = {
           enable = true;
           highlighters = [ "main" "brackets" "cursor" "root" "line" ];
         };*/
