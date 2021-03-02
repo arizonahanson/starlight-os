@@ -91,6 +91,7 @@ with lib;
         binutils
         compsize
         duperemove
+        gnumake
         iftop
         ipset
         ncdu
