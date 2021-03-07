@@ -20,9 +20,9 @@
           echo -e "Fetching configuration..."
           mkdir -p "/run/cache/$UID" || exit 1
           gitdir="$(mktemp -d -p "/run/cache/$UID" os-XXXX)"
-          git clone -q --depth 1 https://github.com/isaacwhanson/starlight-os.git "$gitdir" || exit 1
+          ${git}/bin/git clone -q --depth 1 https://github.com/isaacwhanson/starlight-os.git "$gitdir" || exit 1
           pushd $gitdir >/dev/null || exit 1
-          make $1
+          ${gnumake}/bin/make $1
           popd >/dev/null
           rm "$gitdir" -rf
         ''

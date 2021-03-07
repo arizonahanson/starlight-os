@@ -76,19 +76,12 @@ with lib;
       pinentryFlavor = if config.starlight.desktop then "gnome3" else "curses";
     };
     environment = {
-      etc."skel/.config/nixpkgs/config.nix" = {
-        text = ''
-          { allowUnfree = true; }
-        '';
-      };
       variables = {
         XDG_CACHE_HOME = "/run/cache/$UID";
         XDG_CONFIG_HOME = "/var/config/$UID";
       };
       systemPackages = with pkgs; [
         coreutils
-        busybox
-        binutils
         compsize
         duperemove
         gnumake
@@ -97,7 +90,6 @@ with lib;
         ncdu
         pciutils
         psmisc
-        unrar
         usbutils
       ] ++ optional config.starlight.efi gptfdisk;
     };
