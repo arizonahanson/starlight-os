@@ -60,8 +60,8 @@ with lib;
             OUTLINE_WIDTH=${toString cfg.borderWidth}
             BTN_OUTLINE_WIDTH=${toString cfg.borderWidth}
             BTN_OUTLINE_OFFSET=-${toString cfg.borderWidth}
-            " > /build/source/starlight.colors
-            HOME=/build/source ./change_color.sh -o Starlight -m all -t $out/share/themes /build/source/starlight.colors
+            " > $out/starlight.colors
+            HOME=$out ./change_color.sh -o Starlight -m all -t $out/share/themes $out/starlight.colors
             echo ".termite {
               padding: ${toString ((toPx cfg.fonts.fontSize) / 2)}px;
             }" >> $out/share/themes/Starlight/gtk-3.20/gtk.css
