@@ -8,126 +8,126 @@ with lib;
     palette = {
       color00 = mkOption {
         type = types.str;
-        default = "#0b0b0b";
+        default = "#070707";
         description = ''
           color 0 (black)
         '';
       };
       color01 = mkOption {
         type = types.str;
-        default = "#fb9fb1";
+        default = "#c97e8d";
         description = ''
           color 1 (red)
         '';
       };
       color02 = mkOption {
         type = types.str;
-        default = "#8dc878";
+        default = "#70a05e";
         description = ''
           color 2 (green)
         '';
       };
       color03 = mkOption {
         type = types.str;
-        default = "#b37e44";
+        default = "#835823";
         description = ''
           color 3 (amber)
         '';
       };
       color04 = mkOption {
         type = types.str;
-        default = "#80bff4";
+        default = "#6598c3";
         description = ''
           color 4 (blue)
         '';
       };
       color05 = mkOption {
         type = types.str;
-        default = "#e1a3ee";
+        default = "#b481be";
         description = ''
           color 5 (magenta)
         '';
       };
       color06 = mkOption {
         type = types.str;
-        default = "#0fcfc0";
+        default = "#09a599";
         description = ''
           color 6 (cyan)
         '';
       };
       color07 = mkOption {
         type = types.str;
-        default = "#898989";
+        default = "#929292";
         description = ''
           color 7 (medium gray)
         '';
       };
       color08 = mkOption {
         type = types.str;
-        default = "#323232";
+        default = "#343434";
         description = ''
           color 8 (dark gray)
         '';
       };
       color09 = mkOption {
         type = types.str;
-        default = "#f0a88b";
+        default = "#c0856e";
         description = ''
           color 9 (orange)
         '';
       };
       color10 = mkOption {
         type = types.str;
-        default = "#56ce9b";
+        default = "#43a47b";
         description = ''
           color 10 (aquamarine)
         '';
       };
       color11 = mkOption {
         type = types.str;
-        default = "#d9b36c";
+        default = "#ae8f55";
         description = ''
           color 11 (yellow)
         '';
       };
       color12 = mkOption {
         type = types.str;
-        default = "#b9b0f9";
+        default = "#948cc7";
         description = ''
           color 12 (violet)
         '';
       };
       color13 = mkOption {
         type = types.str;
-        default = "#f79cd4";
+        default = "#c67caa";
         description = ''
           color 13 (rose)
         '';
       };
       color14 = mkOption {
         type = types.str;
-        default = "#39cadf";
+        default = "#2ca1b2";
         description = ''
           color 14 (azure)
         '';
       };
       color15 = mkOption {
         type = types.str;
-        default = "#b9b9b9";
+        default = "#c6c6c6";
         description = ''
           color 15 (white)
         '';
       };
       gtk = mkOption {
         type = types.str;
-        default = "#111111";
+        default = "#0b0b0b";
         description = ''
           GTK Background color
         '';
       };
       cursor = mkOption {
         type = types.str;
-        default = "#5c5c5c";
+        default = "#616161";
         description = ''
           Cursor color
         '';
