@@ -56,7 +56,7 @@
           description = "StarlightOS Upgrade Timer";
           wantedBy = [ "timers.target" ];
           timerConfig = {
-            OnStartupSec = "10min";
+            OnStartupSec = "1h";
             OnCalendar = "*-*-* 04:00:00";
           };
         };
@@ -91,7 +91,7 @@
             booted="$(readlink /run/booted-system/{initrd,kernel,kernel-modules})"
             latest="$(readlink /nix/var/nix/profiles/system/{initrd,kernel,kernel-modules})"
             if [ ! "$booted" = "$latest" ]; then
-              shutdown -r +10
+              shutdown -r +30
             else
               ${os-cmd}/bin/os upgrade && ${os-cmd}/bin/os expire
             fi
