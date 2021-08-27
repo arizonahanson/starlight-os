@@ -62,8 +62,8 @@ with lib;
             wm-restack = bspwm
             override-redirect = false
 
-            scroll-up = bspwm-desknext
-            scroll-down = bspwm-deskprev
+            scroll-up = bspwm-deskprev
+            scroll-down = bspwm-desknext
 
             cursor-click = default
             cursor-scroll = default
