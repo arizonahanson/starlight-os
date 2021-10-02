@@ -20,12 +20,8 @@ with lib;
         environment.systemPackages = with pkgs; [
           playerctl
           sound-theme-freedesktop
-          #jack2
-          #a2jmidid
           patchage
-          fluidsynth
-          soundfont-fluid
-          #alsaLib
+          alsaUtils
         ];
         security.rtkit.enable = true;
         services.pipewire = {
