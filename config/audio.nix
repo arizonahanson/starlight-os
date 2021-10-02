@@ -3,58 +3,6 @@
 with lib;
 
 {
-  options.starlight.proaudio = {
-    enable = mkOption {
-      type = types.bool;
-      default = false;
-      description = ''
-        If enabled, will use jack proaudio setup
-      '';
-    };
-    device = mkOption {
-      type = types.str;
-      default = "none";
-      description = ''
-        ALSA device
-      '';
-    };
-    capture = mkOption {
-      type = types.str;
-      default = "none";
-      description = ''
-        ALSA capture device
-      '';
-    };
-    playback = mkOption {
-      type = types.str;
-      default = "none";
-      description = ''
-        ALSA playback device
-      '';
-    };
-    rate = mkOption {
-      type = types.int;
-      default = 44100;
-      description = ''
-        sample rate (44100)
-      '';
-    };
-    periods = mkOption {
-      type = types.int;
-      default = 2;
-      description = ''
-        number of periods (2)
-      '';
-    };
-    frames = mkOption {
-      type = types.int;
-      default = 1024;
-      description = ''
-        frames (1024)
-      '';
-    };
-  };
-
   config = mkMerge [
     (
       mkIf config.starlight.desktop {
@@ -72,12 +20,13 @@ with lib;
         environment.systemPackages = with pkgs; [
           playerctl
           sound-theme-freedesktop
+          #jack2
+          #a2jmidid
+          patchage
+          fluidsynth
+          soundfont-fluid
+          #alsaLib
         ];
-      }
-    )
-    (
-      mkIf config.starlight.proaudio.enable {
-        # proaudio extension enabled!
         security.rtkit.enable = true;
         services.pipewire = {
           enable = true;
@@ -89,8 +38,6 @@ with lib;
         };
         #boot = {
         #  kernelModules = [ "snd-seq" "snd-rawmidi" ];
-        #  kernel.sysctl = { "vm.swappiness" = 10; "fs.inotify.max_user_watches" = 524288; };
-        #  kernelParams = [ "threadirq" ];
         #  postBootCommands = ''
         #    echo 2048 > /sys/class/rtc/rtc0/max_user_freq
         #    echo 2048 > /proc/sys/dev/hpet/max-user-freq
@@ -99,8 +46,6 @@ with lib;
         #  '';
         #};
         #powerManagement.cpuFreqGovernor = "performance";
-        #fileSystems."/" = { options = [ "noatime" ]; };
-        #fileSystems."/home" = { options = [ "noatime" ]; };
         #security.pam.loginLimits = [
         #  { domain = "@audio"; item = "memlock"; type = "-"; value = "unlimited"; }
         #  { domain = "@audio"; item = "rtprio"; type = "-"; value = "99"; }
@@ -159,14 +104,6 @@ with lib;
         /*programs.zsh.shellAliases = with pkgs; {
           fluidsynth = "${fluidsynth}/bin/fluidsynth ${soundfont-fluid}/share/soundfonts/FluidR3_GM2-2.sf2";
           };*/
-        environment.systemPackages = with pkgs; [
-          #jack2
-          #a2jmidid
-          patchage
-          #fluidsynth
-          #soundfont-fluid
-          #alsaLib
-        ];
       }
     )
   ];

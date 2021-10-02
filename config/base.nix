@@ -23,16 +23,18 @@ with lib;
     nixpkgs.config.allowUnfree = true;
     boot = {
       tmpOnTmpfs = true;
-      kernelParams = [ "quiet" ];
+      kernelParams = [ "quiet" "threadirq" ];
       consoleLogLevel = 0;
       kernel.sysctl = {
         "vm.max_map_count" = 262144;
+        "vm.swappiness" = 10;
+        "fs.inotify.max_user_watches" = 524288;
       };
     };
     time.hardwareClockInLocalTime = config.starlight.localTime;
     fileSystems = {
-      "/".options = [ "compress-force=zstd" ];
-      "/home".options = [ "compress-force=zstd" ];
+      "/".options = [ "compress-force=zstd" "noatime" ];
+      "/home".options = [ "compress-force=zstd" "noatime" ];
     };
     # default user account
     users = {
