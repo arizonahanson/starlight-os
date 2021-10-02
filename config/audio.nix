@@ -11,6 +11,8 @@ with lib;
           sound-theme-freedesktop
           patchage
           alsaUtils
+          fluidsynth
+          soundfont-fluid
         ];
         security.rtkit.enable = true;
         services.pipewire = {
@@ -29,9 +31,9 @@ with lib;
           DSSI_PATH = "/nix/var/nix/profiles/default/lib/dssi:~/.nix-profile/lib/dssi:~/.dssi";
         };
         powerManagement.cpuFreqGovernor = "performance";
-        /*programs.zsh.shellAliases = with pkgs; {
-          fluidsynth = "${fluidsynth}/bin/fluidsynth ${soundfont-fluid}/share/soundfonts/FluidR3_GM2-2.sf2";
-          };*/
+        programs.zsh.shellAliases = with pkgs; {
+          fluid = "${fluidsynth}/bin/fluidsynth ${soundfont-fluid}/share/soundfonts/FluidR3_GM2-2.sf2";
+        };
       }
     )
   ];
