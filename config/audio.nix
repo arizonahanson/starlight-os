@@ -22,11 +22,11 @@ with lib;
           media-session.enable = true;
         };
         environment.variables = {
-          VST_PATH = "/nix/var/nix/profiles/default/lib/vst:/var/run/current-system/sw/lib/vst:~/.vst";
-          LXVST_PATH = "/nix/var/nix/profiles/default/lib/lxvst:/var/run/current-system/sw/lib/lxvst:~/.lxvst";
-          LADSPA_PATH = "/nix/var/nix/profiles/default/lib/ladspa:/var/run/current-system/sw/lib/ladspa:~/.ladspa";
-          LV2_PATH = "/nix/var/nix/profiles/default/lib/lv2:/var/run/current-system/sw/lib/lv2:~/.lv2";
-          DSSI_PATH = "/nix/var/nix/profiles/default/lib/dssi:/var/run/current-system/sw/lib/dssi:~/.dssi";
+          VST_PATH = "/nix/var/nix/profiles/default/lib/vst:~/.nix-profile/lib/vst:~/.vst";
+          LXVST_PATH = "/nix/var/nix/profiles/default/lib/lxvst:~/.nix-profile/lib/lxvst:~/.lxvst";
+          LADSPA_PATH = "/nix/var/nix/profiles/default/lib/ladspa:~/.nix-profile/lib/ladspa:~/.ladspa";
+          LV2_PATH = "/nix/var/nix/profiles/default/lib/lv2:~/.nix-profile/lib/lv2:~/.lv2";
+          DSSI_PATH = "/nix/var/nix/profiles/default/lib/dssi:~/.nix-profile/lib/dssi:~/.dssi";
         };
         powerManagement.cpuFreqGovernor = "performance";
         /*programs.zsh.shellAliases = with pkgs; {
