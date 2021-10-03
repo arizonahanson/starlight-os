@@ -93,6 +93,7 @@ with lib;
         pciutils
         psmisc
         usbutils
+        vim
       ] ++ optional config.starlight.efi gptfdisk;
     };
     # This value determines the NixOS release with which your system is to be
