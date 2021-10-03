@@ -87,9 +87,6 @@ with lib;
         compsize
         duperemove
         gnumake
-        iftop
-        ipset
-        ncdu
         pciutils
         psmisc
         usbutils
