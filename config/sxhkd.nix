@@ -61,13 +61,13 @@ with lib;
 
         # music controls
         XF86AudioRaiseVolume
-          pactl set-sink-volume 1 '+10%'
+          ponymix increase 10
 
         XF86AudioLowerVolume
-          pactl set-sink-volume 1 '-10%'
+          ponymix decrease 10
 
         XF86AudioMute
-          pactl set-sink-mute 1 toggle
+          ponymix toggle
 
         XF86AudioPrev
           playerctl previous

@@ -13,6 +13,7 @@ with lib;
           alsaUtils
           fluidsynth
           soundfont-fluid
+          ponymix
         ];
         security.rtkit.enable = true;
         services.pipewire = {
