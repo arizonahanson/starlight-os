@@ -7,8 +7,7 @@
     hostname = "myhost";
     # efi = true;
     # localTime = false;
-    # logo = " ";
-    # desktop = true;
+    # desktop = false;
     # docker = false;
     # touchscreen = false;
   };
