@@ -11,6 +11,7 @@ with lib;
     ./zsh.nix
     ./git.nix
     ./editorconfig.nix
+    ./docker.nix
   ];
   options.starlight = {
     localTime = mkOption {

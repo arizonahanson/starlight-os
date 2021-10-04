@@ -4,7 +4,6 @@
   imports = [
     ./base.nix
     ./desktop.nix
-    ./docker.nix
   ];
   config =
     let

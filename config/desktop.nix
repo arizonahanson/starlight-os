@@ -10,9 +10,9 @@ with lib;
     ./theme.nix
     ./audio.nix
     ./terminal.nix
-    ./touchscreen.nix
     ./colors.nix
     ./fonts.nix
+    ./touchscreen.nix
   ];
   options.starlight = {
     desktop = mkOption {

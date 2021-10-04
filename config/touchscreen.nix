@@ -3,12 +3,12 @@
 with lib;
 
 {
-  options.starlight.touchscreen = {
-    enable = mkOption {
+  options.starlight = {
+    touchscreen = mkOption {
       type = types.bool;
       default = false;
       description = ''
-        If enabled, will use touchscreen setup
+        If true, will enable touchscreen setup
       '';
     };
   };
@@ -20,7 +20,7 @@ with lib;
     in
     mkMerge [
       (
-        mkIf cfg.touchscreen.enable {
+        mkIf cfg.touchscreen {
           # touchscreen extension enabled!
           users.users.starlight.extraGroups = [ "input" ];
           environment = {
@@ -29,6 +29,7 @@ with lib;
               xinput_calibrator
             ];
             etc = {
+              # TODO: theme currently broken
               "onboard/starlight.theme" = {
                 text = ''
                   <?xml version="1.0" ?>

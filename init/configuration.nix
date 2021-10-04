@@ -10,5 +10,6 @@
     # logo = " ";
     # desktop = true;
     # docker = false;
+    # touchscreen = false;
   };
 }
