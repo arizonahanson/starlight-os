@@ -28,7 +28,7 @@ btrfs subvolume create home || exit 1
 cd ~ || exit 1
 umount /mnt || exit 1
 
-mount -o compress-force=zstd,noatime,space_cache,subvol=system $SYS /mnt || exit 1
+mount -o compress-force=zstd,space_cache,subvol=system $SYS /mnt || exit 1
 if [ -d /sys/firmware/efi ]; then
   mkdir -p /mnt/boot || exit 1
   mount /dev/sda1 /mnt/boot || exit 1

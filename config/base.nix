@@ -37,7 +37,7 @@ with lib;
     };
     time.hardwareClockInLocalTime = config.starlight.localTime;
     fileSystems = {
-      "/".options = [ "compress-force=zstd" "noatime" ];
+      "/".options = [ "compress-force=zstd" ];
       "/home".options = [ "compress-force=zstd" "noatime" ];
     };
     # default user account
