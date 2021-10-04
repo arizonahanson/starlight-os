@@ -62,8 +62,8 @@ with lib;
             wm-restack = bspwm
             override-redirect = false
 
-            scroll-up = bspwm-deskprev
-            scroll-down = bspwm-desknext
+            scroll-up = #bspwm.prev
+            scroll-down = #bspwm.next
 
             cursor-click = default
             cursor-scroll = default
@@ -124,8 +124,10 @@ with lib;
 
             label-floating = "  "
             label-pseudotiled = "  "
+            label-monocle = "  "
             label-floating-foreground = ''${colors.foreground-alt}
             label-pseudotiled-foreground = ''${colors.foreground-alt}
+            label-monocle-foreground = ''${colors.foreground-alt}
 
             [module/temperature]
             type = internal/temperature
