@@ -4,6 +4,9 @@ with lib;
 
 {
   imports = [
+    ./hardware-configuration.nix
+    ./grub.nix
+    ./locale.nix
     ./networking.nix
     ./zsh.nix
     ./git.nix

@@ -2,10 +2,7 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
-    ./grub.nix
     ./base.nix
-    ./locale.nix
     ./desktop.nix
     ./docker.nix
   ];
