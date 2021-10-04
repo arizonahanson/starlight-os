@@ -88,12 +88,9 @@ with lib;
       };
       systemPackages = with pkgs; [
         coreutils
-        compsize
         duperemove
         gnumake
-        pciutils
         psmisc
-        usbutils
         vim
       ] ++ optional config.starlight.efi gptfdisk;
     };
