@@ -169,7 +169,7 @@ with lib;
           [org/mate/marco/general]
           theme='Starlight'
         ''
-        + optionalString config.starlight.touchscreen.enable ''
+        + optionalString config.starlight.touchscreen ''
           [org/gnome/desktop/a11y/applications]
           screen-keyboard-enabled=true
 
