@@ -27,7 +27,7 @@ with lib;
     nixpkgs.config.allowUnfree = true;
     boot = {
       tmpOnTmpfs = true;
-      kernelParams = [ "quiet" "threadirq" ];
+      kernelParams = [ "quiet" "threadirqs" ];
       consoleLogLevel = 0;
       kernel.sysctl = {
         "vm.max_map_count" = 262144;
