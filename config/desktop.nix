@@ -247,7 +247,6 @@ with lib;
           numlockx
           qt5ct
           libsForQt5.qtstyleplugins
-          zathura
           google-chrome
           (cliprofi)
           (reload-desktop)
