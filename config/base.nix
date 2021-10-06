@@ -90,6 +90,7 @@ with lib;
         coreutils
         duperemove
         gnumake
+        gcc
         psmisc
         vim
       ] ++ optional config.starlight.efi gptfdisk;
