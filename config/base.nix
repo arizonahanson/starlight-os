@@ -60,6 +60,7 @@ with lib;
       tmpfiles.rules = [
         "d /run/cache/ 1771 - users"
         "d /var/config/ 1771 - users 13w"
+        "d /var/state/ 1771 - users 13w"
         "e /var/tmp/ - - - 4w"
       ];
     };
@@ -85,6 +86,7 @@ with lib;
       variables = {
         XDG_CACHE_HOME = "/run/cache/$UID";
         XDG_CONFIG_HOME = "/var/config/$UID";
+        XDG_STATE_HOME = "/var/state/$UID";
       };
       systemPackages = with pkgs; [
         coreutils

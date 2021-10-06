@@ -22,6 +22,7 @@ with lib;
       loginShellInit = ''
         mkdir -p "$XDG_CACHE_HOME"
         mkdir -p "$XDG_CONFIG_HOME"
+        mkdir -p "$XDG_STATE_HOME"
       '';
     };
   };
