@@ -12,7 +12,7 @@ with lib;
         XDG_CURRENT_DESKTOP = "MATE";
       };
       systemPackages = with pkgs; [
-        gnome3.dconf-editor
+        gnome.dconf-editor
       ];
       mate.excludePackages = with pkgs.mate; [
         engrampa
