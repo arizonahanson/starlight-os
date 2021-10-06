@@ -27,7 +27,7 @@ with lib;
                 done
               else
                 # create new term with CLASS_NAME
-                ${term}/bin/termite --class="$CLASS_NAME" -e azsh
+                ${term}/bin/termite --class="$CLASS_NAME"
               fi
             ''
           )

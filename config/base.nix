@@ -93,7 +93,6 @@ with lib;
         gcc
         psmisc
         vim
-        (import (fetchTarball "https://github.com/arizonahanson/starlight-env/archive/main.tar.gz") { inherit config pkgs; })
       ] ++ optional config.starlight.efi gptfdisk;
     };
     # This value determines the NixOS release with which your system is to be
