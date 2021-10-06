@@ -59,8 +59,8 @@ with lib;
     systemd = {
       tmpfiles.rules = [
         "d /run/cache/ 1771 - users"
-        "d /var/config/ 1771 - users 13w"
-        "d /var/state/ 1771 - users 13w"
+        "d /var/config/ 1771 - users 26w"
+        "d /var/state/ 1771 - users 4w"
         "e /var/tmp/ - - - 4w"
       ];
     };
