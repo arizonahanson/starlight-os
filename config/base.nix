@@ -23,7 +23,12 @@ with lib;
     };
   };
   config = {
-    nix.autoOptimiseStore = true;
+    nix = {
+      autoOptimiseStore = true;
+      #extraOptions = ''
+      #  preallocate-contents = false
+      #'';
+    };
     nixpkgs.config.allowUnfree = true;
     boot = {
       tmpOnTmpfs = true;

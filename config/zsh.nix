@@ -8,6 +8,7 @@ with lib;
       etc."skel/.zshrc" = {
         text = ''
           # zshrc skeleton file
+          export PATH="$HOME/.local/bin:$PATH"
         '';
       };
       # in set-environment (earliest sh)
