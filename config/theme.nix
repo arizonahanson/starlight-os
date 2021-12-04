@@ -14,8 +14,8 @@ with lib;
           src = fetchFromGitHub {
             owner = "themix-project";
             repo = "oomox";
-            rev = "1.13.3";
-            sha256 = "0krhvd73gm8znfr088l9d5195y6c7bsabdpf7fjdivjcrjv1a9qz";
+            rev = "1.14";
+            sha256 = "0zk2q0z0n64kl6my60vkq11gp4mc442jxqcwbi4kl108242izpjv";
             fetchSubmodules = true;
           };
           dontBuild = true;
@@ -49,10 +49,11 @@ with lib;
             BTN_FG=${toRGB cfg.theme.fg}
             HDR_BTN_BG=${toRGB cfg.theme.bg}
             HDR_BTN_FG=${toRGB cfg.theme.fg}
+            ACCENT_BG=${toRGB cfg.theme.select}
             WM_BORDER_WIDTH=0
-            ROUNDNESS=8
             SPACING=8
             GRADIENT=0.6
+            ROUNDNESS=8
             GTK3_GENERATE_DARK=True
             CARET1_FG=${removePrefix "#" cfg.palette.cursor}
             CARET2_FG=${toRGB cfg.theme.bg-alt}

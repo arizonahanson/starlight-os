@@ -168,7 +168,7 @@ with lib;
       };
       accent = mkOption {
         type = types.int;
-        default = 3;
+        default = 12;
         description = ''
           color number for accent
           default: 3
