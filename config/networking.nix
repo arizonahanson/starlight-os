@@ -20,10 +20,7 @@ with lib;
         dns = "systemd-resolved";
       };
       timeServers = [
-        "time3.google.com"
-        "time4.google.com"
-        "time2.google.com"
-        "time1.google.com"
+        "time.nist.gov"
       ];
     };
     services = {
