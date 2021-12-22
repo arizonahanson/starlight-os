@@ -29,7 +29,9 @@ with lib;
       };
       sshguard = {
         enable = true;
-        detection_time = 3600;
+        blocktime = 3600; # hour initial block
+        detection_time = 28800; # 8 hour memory
+        blacklist_threshold = 100; # 10 strikes
       };
       resolved = {
         enable = true;
