@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-if ! sudo nix-channel --list | grep 'nixos-21.05' >/dev/null; then
+if ! sudo nix-channel --list | grep 'nixos-21.11' >/dev/null; then
   echo 'adding channel...'
   sudo nix-channel --remove nixos
-  sudo nix-channel --add https://nixos.org/channels/nixos-21.05 nixos || exit 1
+  sudo nix-channel --add https://nixos.org/channels/nixos-21.11 nixos || exit 1
   sudo nix-channel --update nixos
 fi
