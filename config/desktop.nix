@@ -165,10 +165,10 @@ with lib;
                   normal-background:           var(background);
                   urgent-background:           var(background);
                   active-foreground:           var(accent);
-                  normal-foreground:           var(foreground);
+                  normal-foreground:           var(lightbg);
                   urgent-foreground:           var(warning);
                   selected-active-foreground:  var(accent);
-                  selected-normal-foreground:  var(select);
+                  selected-normal-foreground:  var(foreground);
                   selected-urgent-foreground:  var(warning);
                   selected-active-background:  var(lightbg);
                   selected-urgent-background:  var(lightbg);
@@ -177,12 +177,12 @@ with lib;
                   background-color:            var(background);
                   border-color:                var(accent);
                   spacing:                     2;
-                  alternate-active-background: var(background);
-                  alternate-normal-background: var(background);
-                  alternate-urgent-background: var(background);
-                  alternate-active-foreground: var(accent);
-                  alternate-normal-foreground: var(foreground);
-                  alternate-urgent-foreground: var(warning);
+                  alternate-active-background: var(active-background);
+                  alternate-normal-background: var(normal-background);
+                  alternate-urgent-background: var(urgent-background);
+                  alternate-active-foreground: var(active-foreground);
+                  alternate-normal-foreground: var(normal-foreground);
+                  alternate-urgent-foreground: var(urgent-foreground);
               }
               element {
                   padding: 2px ;
@@ -227,13 +227,13 @@ with lib;
                   text-color:       var(alternate-active-foreground);
               }
               element-text {
-                  background-color: rgba ( 0, 0, 0, 0 % );
+                  background-color: var(background);
                   cursor:           inherit;
                   highlight:        inherit;
                   text-color:       inherit;
               }
               element-icon {
-                  background-color: rgba ( 0, 0, 0, 0 % );
+                  background-color: var(background);
                   size:             1.0000em ;
                   cursor:           inherit;
                   text-color:       inherit;
@@ -263,13 +263,6 @@ with lib;
                   fixed-height: 0;
                   border:       2px dash 0px 0px ;
               }
-              scrollbar {
-                  width:        4px ;
-                  padding:      0;
-                  handle-width: 8px ;
-                  border:       0;
-                  handle-color: var(normal-foreground);
-              }
               sidebar {
                   border-color: var(separatorcolor);
                   border:       2px dash 0px 0px ;
@@ -283,44 +276,31 @@ with lib;
                   background-color: var(selected-normal-background);
                   text-color:       var(selected-normal-foreground);
               }
-              num-filtered-rows {
-                  expand:     false;
-                  text-color: rgba ( 128, 128, 128, 100 % );
-              }
-              num-rows {
-                  expand:     false;
-                  text-color: rgba ( 128, 128, 128, 100 % );
-              }
-              textbox-num-sep {
-                  expand:     false;
-                  str:        "/";
-                  text-color: rgba ( 128, 128, 128, 100 % );
-              }
               inputbar {
                   padding:    1px ;
                   spacing:    0px ;
                   text-color: var(normal-foreground);
-                  children:   [ prompt,textbox-prompt-colon,entry,num-filtered-rows,textbox-num-sep,num-rows,case-indicator ];
+                  children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
               }
               case-indicator {
                   spacing:    0;
                   text-color: var(normal-foreground);
               }
               entry {
-                  text-color:        var(normal-foreground);
+                  text-color:        var(lightfg);
                   cursor:            text;
                   spacing:           0;
-                  placeholder-color: rgba ( 128, 128, 128, 100 % );
+                  placeholder-color: var(lightbg);
                   placeholder:       "Type to filter";
               }
               prompt {
                   spacing:    0;
-                  text-color: var(normal-foreground);
+                  text-color: var(lightbg);
               }
               textbox-prompt-colon {
                   margin:     0px 0.3000em 0.0000em 0.0000em ;
                   expand:     false;
-                  str:        ":";
+                  str:        " ";
                   text-color: inherit;
               }
             '';
