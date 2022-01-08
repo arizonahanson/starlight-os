@@ -154,34 +154,35 @@ with lib;
                 }
               }
               * {
-                  red:                         ${palette.color01};
-                  selected-active-foreground:  var(background);
-                  lightfg:                     var(foreground);
-                  separatorcolor:              var(foreground);
-                  urgent-foreground:           var(red);
-                  alternate-urgent-background: var(lightbg);
-                  lightbg:                     var(background);
-                  background-color:            ${toRGB theme.bg};
-                  border-color:                var(foreground);
-                  normal-background:           var(background);
-                  selected-urgent-background:  var(red);
-                  alternate-active-background: var(lightbg);
-                  spacing:                     2;
-                  blue:                        ${palette.color04};
-                  alternate-normal-foreground: var(foreground);
-                  urgent-background:           var(background);
-                  selected-normal-foreground:  var(lightbg);
-                  active-foreground:           var(blue);
+                  warning:                     ${toRGB theme.warning};
+                  accent:                      ${toRGB theme.accent};
+                  select:                      ${toRGB theme.select};
                   background:                  ${toRGB theme.bg};
-                  selected-active-background:  var(blue);
-                  active-background:           var(background);
-                  selected-normal-background:  var(lightfg);
-                  alternate-normal-background: var(lightbg);
                   foreground:                  ${toRGB theme.fg};
-                  selected-urgent-foreground:  var(background);
+                  lightbg:                     ${toRGB theme.bg-alt};
+                  lightfg:                     ${toRGB theme.fg-alt};
+                  active-background:           var(background);
+                  normal-background:           var(background);
+                  urgent-background:           var(background);
+                  active-foreground:           var(accent);
                   normal-foreground:           var(foreground);
-                  alternate-urgent-foreground: var(red);
-                  alternate-active-foreground: var(blue);
+                  urgent-foreground:           var(warning);
+                  selected-active-foreground:  var(accent);
+                  selected-normal-foreground:  var(select);
+                  selected-urgent-foreground:  var(warning);
+                  selected-active-background:  var(lightbg);
+                  selected-urgent-background:  var(lightbg);
+                  selected-normal-background:  var(lightbg);
+                  separatorcolor:              var(background);
+                  background-color:            var(background);
+                  border-color:                var(accent);
+                  spacing:                     2;
+                  alternate-active-background: var(background);
+                  alternate-normal-background: var(background);
+                  alternate-urgent-background: var(background);
+                  alternate-active-foreground: var(accent);
+                  alternate-normal-foreground: var(foreground);
+                  alternate-urgent-foreground: var(warning);
               }
               element {
                   padding: 2px ;
@@ -256,7 +257,7 @@ with lib;
               }
               listview {
                   padding:      2px 0px 0px ;
-                  scrollbar:    true;
+                  scrollbar:    false;
                   border-color: var(separatorcolor);
                   spacing:      2px ;
                   fixed-height: 0;
