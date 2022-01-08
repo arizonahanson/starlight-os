@@ -88,33 +88,6 @@ with lib;
           toRGB = num: elemAt (attrValues palette) num;
         in
         {
-          "rofi.rasi" = {
-            text = ''
-              configuration {
-                modi: "window,run,drun,combi";
-                font: "${cfg.fonts.uiFont} ${toString cfg.fonts.fontSize}";
-                terminal: "termite";
-                run-shell-command: "{terminal} -e '{cmd}'";
-                combi-modi: "window,run,drun";
-                /* window-format: "{w}    {c}   {t}";*/
-                /* theme: ;*/
-                /* cache-dir: ;*/
-                display-drun: "";
-                display-run: "";
-                display-window: "";
-                display-ssh: "";
-                display-combi: "";
-                timeout {
-                    action: "kb-cancel";
-                    delay:  0;
-                }
-                filebrowser {
-                    directories-first: true;
-                    sorting-method:    "name";
-                }
-              }
-            '';
-          };
           "X11/Xresources" = {
             text = ''
               ! Xcursor
@@ -129,13 +102,6 @@ with lib;
               Xft.hintstyle: hintslight
               Xft.lcdfilter: lcddefault
               Xft.rgba: rgb
-
-              ! ROFI
-              ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
-              rofi.color-normal: ${toRGB theme.bg},${toRGB theme.bg-alt},${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.fg}
-              rofi.color-urgent: ${toRGB theme.bg},${toRGB theme.info},${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.info}
-              rofi.color-active: ${toRGB theme.bg},${toRGB theme.fg-alt},${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.fg}
-              rofi.color-window: ${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.bg}
 
               *.foreground:   ${toRGB theme.fg}
               *.background:   ${toRGB theme.bg}
@@ -163,6 +129,199 @@ with lib;
               ! white
               *.color7:       ${palette.color07}
               *.color15:      ${palette.color15}
+            '';
+          };
+          "rofi.rasi" = {
+            text = ''
+              configuration {
+                modi: "window,run,drun,combi";
+                font: "${cfg.fonts.uiFont} ${toString cfg.fonts.fontSize}";
+                terminal: "termite";
+                run-shell-command: "{terminal} -e '{cmd}'";
+                combi-modi: "window,run,drun";
+                display-drun: "";
+                display-run: "";
+                display-window: "";
+                display-ssh: "";
+                display-combi: "";
+                timeout {
+                    action: "kb-cancel";
+                    delay:  0;
+                }
+                filebrowser {
+                    directories-first: true;
+                    sorting-method:    "name";
+                }
+              }
+              * {
+                  red:                         ${palette.color01};
+                  selected-active-foreground:  var(background);
+                  lightfg:                     var(foreground);
+                  separatorcolor:              var(foreground);
+                  urgent-foreground:           var(red);
+                  alternate-urgent-background: var(lightbg);
+                  lightbg:                     var(background);
+                  background-color:            ${toRGB theme.bg};
+                  border-color:                var(foreground);
+                  normal-background:           var(background);
+                  selected-urgent-background:  var(red);
+                  alternate-active-background: var(lightbg);
+                  spacing:                     2;
+                  blue:                        ${palette.color04};
+                  alternate-normal-foreground: var(foreground);
+                  urgent-background:           var(background);
+                  selected-normal-foreground:  var(lightbg);
+                  active-foreground:           var(blue);
+                  background:                  ${toRGB theme.bg};
+                  selected-active-background:  var(blue);
+                  active-background:           var(background);
+                  selected-normal-background:  var(lightfg);
+                  alternate-normal-background: var(lightbg);
+                  foreground:                  ${toRGB theme.fg};
+                  selected-urgent-foreground:  var(background);
+                  normal-foreground:           var(foreground);
+                  alternate-urgent-foreground: var(red);
+                  alternate-active-foreground: var(blue);
+              }
+              element {
+                  padding: 2px ;
+                  cursor:  pointer;
+                  spacing: 5px ;
+                  border:  0;
+              }
+              element normal.normal {
+                  background-color: var(normal-background);
+                  text-color:       var(normal-foreground);
+              }
+              element normal.urgent {
+                  background-color: var(urgent-background);
+                  text-color:       var(urgent-foreground);
+              }
+              element normal.active {
+                  background-color: var(active-background);
+                  text-color:       var(active-foreground);
+              }
+              element selected.normal {
+                  background-color: var(selected-normal-background);
+                  text-color:       var(selected-normal-foreground);
+              }
+              element selected.urgent {
+                  background-color: var(selected-urgent-background);
+                  text-color:       var(selected-urgent-foreground);
+              }
+              element selected.active {
+                  background-color: var(selected-active-background);
+                  text-color:       var(selected-active-foreground);
+              }
+              element alternate.normal {
+                  background-color: var(alternate-normal-background);
+                  text-color:       var(alternate-normal-foreground);
+              }
+              element alternate.urgent {
+                  background-color: var(alternate-urgent-background);
+                  text-color:       var(alternate-urgent-foreground);
+              }
+              element alternate.active {
+                  background-color: var(alternate-active-background);
+                  text-color:       var(alternate-active-foreground);
+              }
+              element-text {
+                  background-color: rgba ( 0, 0, 0, 0 % );
+                  cursor:           inherit;
+                  highlight:        inherit;
+                  text-color:       inherit;
+              }
+              element-icon {
+                  background-color: rgba ( 0, 0, 0, 0 % );
+                  size:             1.0000em ;
+                  cursor:           inherit;
+                  text-color:       inherit;
+              }
+              window {
+                  padding:          5;
+                  background-color: var(background);
+                  border:           1;
+              }
+              mainbox {
+                  padding: 0;
+                  border:  0;
+              }
+              message {
+                  padding:      1px ;
+                  border-color: var(separatorcolor);
+                  border:       2px dash 0px 0px ;
+              }
+              textbox {
+                  text-color: var(foreground);
+              }
+              listview {
+                  padding:      2px 0px 0px ;
+                  scrollbar:    true;
+                  border-color: var(separatorcolor);
+                  spacing:      2px ;
+                  fixed-height: 0;
+                  border:       2px dash 0px 0px ;
+              }
+              scrollbar {
+                  width:        4px ;
+                  padding:      0;
+                  handle-width: 8px ;
+                  border:       0;
+                  handle-color: var(normal-foreground);
+              }
+              sidebar {
+                  border-color: var(separatorcolor);
+                  border:       2px dash 0px 0px ;
+              }
+              button {
+                  cursor:     pointer;
+                  spacing:    0;
+                  text-color: var(normal-foreground);
+              }
+              button selected {
+                  background-color: var(selected-normal-background);
+                  text-color:       var(selected-normal-foreground);
+              }
+              num-filtered-rows {
+                  expand:     false;
+                  text-color: rgba ( 128, 128, 128, 100 % );
+              }
+              num-rows {
+                  expand:     false;
+                  text-color: rgba ( 128, 128, 128, 100 % );
+              }
+              textbox-num-sep {
+                  expand:     false;
+                  str:        "/";
+                  text-color: rgba ( 128, 128, 128, 100 % );
+              }
+              inputbar {
+                  padding:    1px ;
+                  spacing:    0px ;
+                  text-color: var(normal-foreground);
+                  children:   [ prompt,textbox-prompt-colon,entry,num-filtered-rows,textbox-num-sep,num-rows,case-indicator ];
+              }
+              case-indicator {
+                  spacing:    0;
+                  text-color: var(normal-foreground);
+              }
+              entry {
+                  text-color:        var(normal-foreground);
+                  cursor:            text;
+                  spacing:           0;
+                  placeholder-color: rgba ( 128, 128, 128, 100 % );
+                  placeholder:       "Type to filter";
+              }
+              prompt {
+                  spacing:    0;
+                  text-color: var(normal-foreground);
+              }
+              textbox-prompt-colon {
+                  margin:     0px 0.3000em 0.0000em 0.0000em ;
+                  expand:     false;
+                  str:        ":";
+                  text-color: inherit;
+              }
             '';
           };
           "zathurarc" = {
