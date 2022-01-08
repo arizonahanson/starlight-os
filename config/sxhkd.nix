@@ -9,7 +9,7 @@ with lib;
       text = ''
         # rofi applications menu
         super + space
-          rofi -show combi -normal-window
+          rofi -config /etc/rofi.rasi -show combi -normal-window
 
         # terminal
         super + Return

@@ -88,6 +88,33 @@ with lib;
           toRGB = num: elemAt (attrValues palette) num;
         in
         {
+          "rofi.rasi" = {
+            text = ''
+              configuration {
+                modi: "window,run,drun,combi";
+                font: "${cfg.fonts.uiFont} ${toString cfg.fonts.fontSize}";
+                terminal: "termite";
+                run-shell-command: "{terminal} -e '{cmd}'";
+                combi-modi: "window,run,drun";
+                /* window-format: "{w}    {c}   {t}";*/
+                /* theme: ;*/
+                /* cache-dir: ;*/
+                display-drun: "";
+                display-run: "";
+                display-window: "";
+                display-ssh: "";
+                display-combi: "";
+                timeout {
+                    action: "kb-cancel";
+                    delay:  0;
+                }
+                filebrowser {
+                    directories-first: true;
+                    sorting-method:    "name";
+                }
+              }
+            '';
+          };
           "X11/Xresources" = {
             text = ''
               ! Xcursor
@@ -104,43 +131,11 @@ with lib;
               Xft.rgba: rgb
 
               ! ROFI
-              rofi.font:              ${cfg.fonts.uiFont} ${toString cfg.fonts.fontSize}
-              rofi.modi:              window,run,drun,combi
-              rofi.width:             38
-              rofi.lines:             5
-              rofi.columns:           1
-              ! "border width"
-              rofi.bw:                2
-              rofi.location:          0
-              rofi.padding:           12
-              rofi.yoffset:           0
-              rofi.xoffset:           0
-              rofi.fixed-num-lines:   true
-              rofi.terminal:          termite
-              rofi.run-shell-command:  {terminal} -e '{cmd}'
-              ! "margin between rows"
-              rofi.line-margin:       2
-              ! "separator style (none, dash, solid)"
-              rofi.separator-style:   none
-              rofi.hide-scrollbar:    true
-              rofi.fullscreen:        false
-              rofi.fake-transparency: false
-              ! "scrolling method. (0: Page, 1: Centered)"
-              rofi.scroll-method:     1
               ! State:           'bg',   'fg',   'bgalt','hlbg', 'hlfg'
               rofi.color-normal: ${toRGB theme.bg},${toRGB theme.bg-alt},${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.fg}
               rofi.color-urgent: ${toRGB theme.bg},${toRGB theme.info},${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.info}
               rofi.color-active: ${toRGB theme.bg},${toRGB theme.fg-alt},${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.fg}
               rofi.color-window: ${toRGB theme.bg},${toRGB theme.bg},${toRGB theme.bg}
-              rofi.display-drun: 
-              rofi.display-run: 
-              rofi.display-window: 
-              rofi.display-ssh: 
-              rofi.display-combi: 
-              rofi.combi-modi: window,run,drun
-              rofi.monitor: -1
-              rofi.icon-theme: Starlight
-              rofi.show-icons: true
 
               *.foreground:   ${toRGB theme.fg}
               *.background:   ${toRGB theme.bg}
@@ -209,7 +204,7 @@ with lib;
         let
           cliprofi = (
             with import <nixpkgs> { }; writeShellScriptBin "cliprofi" ''
-              ${rofi-unwrapped}/bin/rofi -p  -dmenu -normal-window $@
+              ${rofi-unwrapped}/bin/rofi -config /etc/rofi.rasi -p  -dmenu -normal-window $@
             ''
           );
           reload-desktop = (
