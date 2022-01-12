@@ -15,9 +15,11 @@ with lib;
     users.users.starlight.extraGroups = [ "networkmanager" ];
     networking = {
       hostName = (config.starlight.hostname);
+      firewall.logRefusedConnections = false;
       networkmanager = {
         enable = true;
         dns = "systemd-resolved";
+        dhcp = "dhclient";
       };
       timeServers = [
         "time.nist.gov"
@@ -35,8 +37,7 @@ with lib;
       };
       resolved = {
         enable = true;
-        llmnr = "false";
-        dnssec = "false";
+        llmnr = "resolve";
         fallbackDns = [
           "1.0.0.1"
           "1.1.1.1"
