@@ -136,57 +136,61 @@ with lib;
               configuration {
                 modi: "window,run,drun,combi";
                 font: "${cfg.fonts.uiFont} ${toString cfg.fonts.fontSize}";
+                location: 0;
+                yoffset: 0;
+                xoffset: 0;
+                fixed-num-lines: true;
+                show-icons: true;
                 terminal: "termite";
                 run-shell-command: "{terminal} -e '{cmd}'";
+                icon-theme: "Starlight";
                 combi-modi: "window,run,drun";
-                display-drun: "";
-                display-run: "";
+                scroll-method: 1;
+              /*  window-format: "{w}    {c}   {t}";*/
+              /*  window-thumbnail: false;*/
+              /*  drun-use-desktop-cache: false;*/
+              /*  drun-reload-desktop-cache: false;*/
                 display-window: "";
+                display-run: "";
                 display-ssh: "";
+                display-drun: "";
                 display-combi: "";
-                timeout {
-                    action: "kb-cancel";
-                    delay:  0;
-                }
-                filebrowser {
-                    directories-first: true;
-                    sorting-method:    "name";
-                }
               }
               * {
-                  warning:                     ${toRGB theme.warning};
+                  spacing:                     2;
                   accent:                      ${toRGB theme.accent};
-                  select:                      ${toRGB theme.select};
+                  warning:                     ${toRGB theme.warning};
                   background:                  ${toRGB theme.bg};
                   foreground:                  ${toRGB theme.fg};
-                  lightbg:                     ${toRGB theme.bg-alt};
+                  background-color:            var(background);
+                  border-color:                ${toRGB theme.accent};
                   lightfg:                     ${toRGB theme.fg-alt};
-                  active-background:           var(background);
+                  lightbg:                     ${toRGB theme.bg-alt};
+                  separatorcolor:              var(lightbg);
                   normal-background:           var(background);
+                  active-background:           var(background);
                   urgent-background:           var(background);
+                  normal-foreground:           ${toRGB theme.bg-alt};
                   active-foreground:           var(accent);
-                  normal-foreground:           var(lightbg);
                   urgent-foreground:           var(warning);
-                  selected-active-foreground:  var(accent);
-                  selected-normal-foreground:  var(foreground);
-                  selected-urgent-foreground:  var(warning);
+                  alternate-normal-background: var(normal-background);
+                  alternate-active-background: var(active-background);
+                  alternate-urgent-background: var(urgent-background);
+                  alternate-normal-foreground: var(normal-foreground);
+                  alternate-active-foreground: var(active-foreground);
+                  alternate-urgent-foreground: var(urgent-foreground);
+                  selected-normal-background:  var(lightbg);
                   selected-active-background:  var(lightbg);
                   selected-urgent-background:  var(lightbg);
-                  selected-normal-background:  var(lightbg);
-                  separatorcolor:              var(background);
-                  background-color:            var(background);
-                  border-color:                var(accent);
-                  spacing:                     2;
-                  alternate-active-background: var(active-background);
-                  alternate-normal-background: var(normal-background);
-                  alternate-urgent-background: var(urgent-background);
-                  alternate-active-foreground: var(active-foreground);
-                  alternate-normal-foreground: var(normal-foreground);
-                  alternate-urgent-foreground: var(urgent-foreground);
+                  selected-normal-foreground:  var(foreground);
+                  selected-active-foreground:  var(active-foreground);
+                  selected-urgent-foreground:  var(urgent-foreground);
+              }
+              window {
+                  width: 64ch;
               }
               element {
-                  padding: 2px ;
-                  cursor:  pointer;
+                  padding: 1px ;
                   spacing: 5px ;
                   border:  0;
               }
@@ -227,21 +231,19 @@ with lib;
                   text-color:       var(alternate-active-foreground);
               }
               element-text {
-                  background-color: var(background);
-                  cursor:           inherit;
+                  background-color: rgba ( 0, 0, 0, 0 % );
                   highlight:        inherit;
                   text-color:       inherit;
               }
               element-icon {
-                  background-color: var(background);
+                  background-color: rgba ( 0, 0, 0, 0 % );
                   size:             1.0000em ;
-                  cursor:           inherit;
                   text-color:       inherit;
               }
               window {
-                  padding:          5;
+                  padding:          12;
                   background-color: var(background);
-                  border:           1;
+                  border:           2;
               }
               mainbox {
                   padding: 0;
@@ -250,7 +252,7 @@ with lib;
               message {
                   padding:      1px ;
                   border-color: var(separatorcolor);
-                  border:       2px dash 0px 0px ;
+                  border:       0px ;
               }
               textbox {
                   text-color: var(foreground);
@@ -261,14 +263,20 @@ with lib;
                   border-color: var(separatorcolor);
                   spacing:      2px ;
                   fixed-height: 0;
-                  border:       2px dash 0px 0px ;
+                  border:       0px ;
+              }
+              scrollbar {
+                  width:        4px ;
+                  padding:      0;
+                  handle-width: 8px ;
+                  border:       0;
+                  handle-color: var(normal-foreground);
               }
               sidebar {
                   border-color: var(separatorcolor);
                   border:       2px dash 0px 0px ;
               }
               button {
-                  cursor:     pointer;
                   spacing:    0;
                   text-color: var(normal-foreground);
               }
@@ -287,21 +295,23 @@ with lib;
                   text-color: var(normal-foreground);
               }
               entry {
-                  text-color:        var(lightfg);
-                  cursor:            text;
+                  text-color:        var(normal-foreground);
                   spacing:           0;
-                  placeholder-color: var(lightbg);
-                  placeholder:       "Type to filter";
+                  placeholder-color: var(normal-foreground);
+                  placeholder:       "";
               }
               prompt {
                   spacing:    0;
-                  text-color: var(lightbg);
+                  text-color: var(normal-foreground);
               }
               textbox-prompt-colon {
                   margin:     0px 0.3000em 0.0000em 0.0000em ;
                   expand:     false;
                   str:        " ";
                   text-color: inherit;
+              }
+              mode-switcher {
+                  border: 0px ;
               }
             '';
           };
