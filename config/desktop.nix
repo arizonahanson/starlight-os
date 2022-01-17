@@ -146,10 +146,8 @@ with lib;
                 icon-theme: "Starlight";
                 combi-modi: "window,run,drun";
                 scroll-method: 1;
-              /*  window-format: "{w}    {c}   {t}";*/
-              /*  window-thumbnail: false;*/
-              /*  drun-use-desktop-cache: false;*/
-              /*  drun-reload-desktop-cache: false;*/
+                window-format: "{w} {c} ⋆ {t}";
+                drun-use-desktop-cache: false;
                 display-window: "";
                 display-run: "";
                 display-ssh: "";
