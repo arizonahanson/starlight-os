@@ -67,7 +67,6 @@
             config.nix.package.out
             config.system.build.nixos-rebuild
             bash
-            (lowPrio toybox)
             coreutils
             gitMinimal
             gnumake

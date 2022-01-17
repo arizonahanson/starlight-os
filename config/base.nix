@@ -91,7 +91,6 @@ with lib;
         XDG_STATE_HOME = "/var/state/$UID";
       };
       systemPackages = with pkgs; [
-        (lowPrio toybox)
         coreutils
         duperemove
         gnumake
