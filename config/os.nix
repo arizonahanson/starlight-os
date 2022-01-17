@@ -12,10 +12,10 @@
       os-cmd = (
         with import <nixpkgs> { }; writeShellScriptBin "os" ''
           cmd="$1"
-          renice 19 -p $$ >/dev/null
+          renice -n 19 -p $$ >/dev/null
           echo -e "Fetching configuration..."
           mkdir -p "/run/cache/$UID" || exit 1
-          gitdir="$(mktemp -d -p "/run/cache/$UID" os-XXXX)"
+          gitdir="$(mktemp -d -p "/run/cache/$UID" os-XXXXXX)"
           ${git}/bin/git clone -q --depth 1 https://github.com/arizonahanson/starlight-os.git "$gitdir" || exit 1
           pushd $gitdir >/dev/null || exit 1
           ${gnumake}/bin/make $1
@@ -27,7 +27,7 @@
         with import <nixpkgs> { }; writeShellScriptBin "squish" ''
           device="$(findmnt -nvo SOURCE /)"
           mkdir -p "/run/cache/$UID" || exit 1
-          mntpnt="$(mktemp -d -p "/run/cache/$UID" squish-XXXX)"
+          mntpnt="$(mktemp -d -p "/run/cache/$UID" squish-XXXXXX)"
           sudo mount -o compress-force=zstd,noatime $device $mntpnt || exit 1
           pushd $mntpnt >/dev/null || exit 1
           echo -e "\n\e[${toANSI theme.path}m\e[0m Compressing system..."
@@ -67,6 +67,7 @@
             config.nix.package.out
             config.system.build.nixos-rebuild
             bash
+            (lowPrio toybox)
             coreutils
             gitMinimal
             gnumake
