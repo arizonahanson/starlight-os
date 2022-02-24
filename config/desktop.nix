@@ -91,7 +91,7 @@ with lib;
           "X11/Xresources" = {
             text = ''
               ! Xcursor
-              Xcursor.theme: Bibata_Oil
+              Xcursor.theme: Bibata-Modern-Ice
               Xcursor.size:  ${toString config.starlight.pointerSize}
 
               ! XFT
