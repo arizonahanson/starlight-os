@@ -12,30 +12,6 @@ with lib;
         (default 18)
       '';
     };
-    serifFont = mkOption {
-      type = types.str;
-      default = "Noto Serif";
-      description = ''
-        serif font
-        (default 'Noto Serif')
-      '';
-    };
-    sansFont = mkOption {
-      type = types.str;
-      default = "Noto Sans";
-      description = ''
-        sans font
-        (default 'Noto Sans')
-      '';
-    };
-    monoFont = mkOption {
-      type = types.str;
-      default = "Roboto Mono";
-      description = ''
-        monospace font
-        (default 'Roboto Mono')
-      '';
-    };
     uiFont = mkOption {
       type = types.str;
       default = "Share Tech";
@@ -139,8 +115,7 @@ with lib;
               <alias binding="same">
                 <family>sans-serif</family>
                 <prefer>
-                  <family>${cfg.fonts.sansFont}</family>
-                  <family>Latin Modern</family>
+                  <family>Latin Modern Sans</family>
                   <family>Latin Modern Math</family>
                   <family>Font Awesome 5 Free Solid</family>
                   <family>DejaVu Sans</family>
@@ -149,8 +124,7 @@ with lib;
               <alias binding="same">
                 <family>serif</family>
                 <prefer>
-                  <family>${cfg.fonts.serifFont}</family>
-                  <family>Latin Modern</family>
+                  <family>Latin Modern Roman</family>
                   <family>Latin Modern Math</family>
                   <family>Font Awesome 5 Free Solid</family>
                   <family>DejaVu Serif</family>

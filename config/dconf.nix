@@ -82,7 +82,7 @@ with lib;
           font-name='${cfg.fonts.uiFont} 16'
           gtk-im-module='ibus'
           cursor-blink-time=1000
-          monospace-font-name='${cfg.fonts.monoFont} 16'
+          monospace-font-name='${cfg.fonts.terminalFont} 16'
           accessibility=true
           gtk-theme='Starlight'
           icon-theme='Starlight'
