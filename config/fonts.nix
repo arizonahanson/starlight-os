@@ -61,7 +61,8 @@ with lib;
         meslo-lg
         google-fonts
         font-awesome_5
-        stix-two
+        lmodern
+        lmmath
       ];
       fontconfig = let cfg = config.starlight; in
         {
@@ -139,7 +140,8 @@ with lib;
                 <family>sans-serif</family>
                 <prefer>
                   <family>${cfg.fonts.sansFont}</family>
-                  <family>STIX Two Math</family>
+                  <family>Latin Modern</family>
+                  <family>Latin Modern Math</family>
                   <family>Font Awesome 5 Free Solid</family>
                   <family>DejaVu Sans</family>
                 </prefer>
@@ -148,7 +150,8 @@ with lib;
                 <family>serif</family>
                 <prefer>
                   <family>${cfg.fonts.serifFont}</family>
-                  <family>STIX Two Math</family>
+                  <family>Latin Modern</family>
+                  <family>Latin Modern Math</family>
                   <family>Font Awesome 5 Free Solid</family>
                   <family>DejaVu Serif</family>
                 </prefer>
@@ -156,7 +159,8 @@ with lib;
               <alias binding="same">
                 <family>monospace</family>
                 <prefer>
-                  <family>STIX Two Math</family>
+                  <family>Latin Modern Mono</family>
+                  <family>Latin Modern Math</family>
                   <family>Font Awesome 5 Free Solid</family>
                   <family>DejaVu Sans Mono</family>
                 </prefer>
