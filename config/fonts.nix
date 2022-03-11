@@ -116,6 +116,7 @@ with lib;
                 <family>sans-serif</family>
                 <prefer>
                   <family>Latin Modern Sans</family>
+                  <family>Latin Modern Roman</family>
                   <family>Latin Modern Math</family>
                   <family>Font Awesome 5 Free Solid</family>
                   <family>DejaVu Sans</family>
@@ -134,6 +135,7 @@ with lib;
                 <family>monospace</family>
                 <prefer>
                   <family>Latin Modern Mono</family>
+                  <family>Latin Modern Roman</family>
                   <family>Latin Modern Math</family>
                   <family>Font Awesome 5 Free Solid</family>
                   <family>DejaVu Sans Mono</family>
