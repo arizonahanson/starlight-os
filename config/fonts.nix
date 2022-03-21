@@ -39,6 +39,7 @@ with lib;
         font-awesome_5
         lmodern
         lmmath
+        stix-two
       ];
       fontconfig = let cfg = config.starlight; in
         {
@@ -117,6 +118,7 @@ with lib;
                 <prefer>
                   <family>Latin Modern Sans</family>
                   <family>Latin Modern Roman</family>
+                  <family>STIX Two Math</family>
                   <family>Latin Modern Math</family>
                   <family>Font Awesome 5 Free Solid</family>
                   <family>DejaVu Sans</family>
@@ -126,6 +128,7 @@ with lib;
                 <family>serif</family>
                 <prefer>
                   <family>Latin Modern Roman</family>
+                  <family>STIX Two Math</family>
                   <family>Latin Modern Math</family>
                   <family>Font Awesome 5 Free Solid</family>
                   <family>DejaVu Serif</family>
@@ -136,6 +139,7 @@ with lib;
                 <prefer>
                   <family>Latin Modern Mono</family>
                   <family>Latin Modern Roman</family>
+                  <family>STIX Two Math</family>
                   <family>Latin Modern Math</family>
                   <family>Font Awesome 5 Free Solid</family>
                   <family>DejaVu Sans Mono</family>
