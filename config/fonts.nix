@@ -116,32 +116,30 @@ with lib;
               <alias binding="same">
                 <family>sans-serif</family>
                 <prefer>
-                  <family>Latin Modern Sans</family>
-                  <family>Latin Modern Roman</family>
                   <family>STIX Two Math</family>
                   <family>Latin Modern Math</family>
                   <family>Font Awesome 5 Free Solid</family>
+                  <family>Latin Modern Sans</family>
                   <family>DejaVu Sans</family>
                 </prefer>
               </alias>
               <alias binding="same">
                 <family>serif</family>
                 <prefer>
-                  <family>Latin Modern Roman</family>
                   <family>STIX Two Math</family>
                   <family>Latin Modern Math</family>
                   <family>Font Awesome 5 Free Solid</family>
+                  <family>Latin Modern Roman</family>
                   <family>DejaVu Serif</family>
                 </prefer>
               </alias>
               <alias binding="same">
                 <family>monospace</family>
                 <prefer>
-                  <family>Latin Modern Mono</family>
-                  <family>Latin Modern Roman</family>
                   <family>STIX Two Math</family>
                   <family>Latin Modern Math</family>
                   <family>Font Awesome 5 Free Solid</family>
+                  <family>Latin Modern Mono</family>
                   <family>DejaVu Sans Mono</family>
                 </prefer>
               </alias>
