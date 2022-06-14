@@ -19,7 +19,7 @@ with lib;
       networkmanager = {
         enable = true;
         dns = "systemd-resolved";
-        dhcp = "dhclient";
+        dhcp = "internal";
       };
       timeServers = [
         "time.nist.gov"

@@ -22,7 +22,6 @@ with lib;
           alsa.support32Bit = true;
           pulse.enable = true;
           jack.enable = true;
-          media-session.enable = true;
         };
         environment.variables = {
           VST_PATH = "/nix/var/nix/profiles/default/lib/vst:~/.nix-profile/lib/vst:~/.vst";
