@@ -14,18 +14,18 @@ with lib;
     };
     uiFont = mkOption {
       type = types.str;
-      default = "Share Tech";
+      default = "DejaVu Sans";
       description = ''
         ui font
-        (default 'Share Tech')
+        (default 'DejaVu Sans')
       '';
     };
     terminalFont = mkOption {
       type = types.str;
-      default = "Share Tech Mono";
+      default = "JetBrains Mono";
       description = ''
         terminal font
-        (default 'Share Tech Mono')
+        (default 'JetBrains Mono')
       '';
     };
   };
@@ -35,11 +35,11 @@ with lib;
       fonts = with pkgs; [
         corefonts
         meslo-lg
-        google-fonts
         font-awesome_5
         lmodern
         lmmath
         stix-two
+        jetbrains-mono
       ];
       fontconfig = let cfg = config.starlight; in
         {
@@ -95,7 +95,7 @@ with lib;
                 </default>
               </alias>
               <alias>
-                <family>Share Tech Mono</family>
+                <family>JetBrains Mono</family>
                 <default>
                   <family>monospace</family>
                 </default>
