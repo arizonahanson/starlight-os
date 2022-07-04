@@ -45,7 +45,7 @@ with lib;
             module-margin-left = 0
             module-margin-right = 1
 
-            font-0 = ${cfg.fonts.uiFont}:size=16;4
+            font-0 = ${cfg.fonts.uiFont}:size=16;3
             font-1 = Font Awesome 5 Free Solid:size=14;3
             font-2 = Noto Emoji:size=14;4
             font-3 = DejaVu Sans:size=14;2

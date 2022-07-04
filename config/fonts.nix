@@ -14,10 +14,10 @@ with lib;
     };
     uiFont = mkOption {
       type = types.str;
-      default = "DejaVu Sans";
+      default = "Latin Modern Sans";
       description = ''
         ui font
-        (default 'DejaVu Sans')
+        (default 'Latin Modern Sans')
       '';
     };
     terminalFont = mkOption {
