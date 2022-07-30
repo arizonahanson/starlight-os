@@ -12,10 +12,11 @@
     let
       os-config = (
         with import <nixpkgs> { }; writeShellScriptBin "os-config" ''
-          git clone -q --depth 1 https://github.com/arizonahanson/starlight-os.git ~/starlight-os || exit 1
-          cd ~/starlight-os || exit 1
-          bash scripts/partition
-          bash scripts/config
+          set -ex
+          git clone -q --depth 1 https://github.com/arizonahanson/starlight-os.git /tmp/starlight-os || exit 1
+          cd /tmp/starlight-os || exit 1
+          bash scripts/partition || exit 1
+          bash scripts/config || exit 1
           echo "Edit the file '/mnt/etc/nixos/configuration.nix' then run 'os-install'."
         ''
       );
