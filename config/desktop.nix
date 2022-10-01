@@ -341,7 +341,7 @@ with lib;
           };
         };
       variables = {
-        BROWSER = "google-chrome-stable";
+        BROWSER = "firefox";
         CM_DIR = "/run/cache";
         CM_LAUNCHER = "cliprofi";
         SSH_AUTH_SOCK = "/run/user/$UID/keyring/ssh";
@@ -390,7 +390,7 @@ with lib;
           numlockx
           qt5ct
           libsForQt5.qtstyleplugins
-          google-chrome
+          firefox
           (cliprofi)
           (reload-desktop)
           (flatpak-alt)

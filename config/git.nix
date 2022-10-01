@@ -24,9 +24,9 @@
               [credential]
                 helper = ${git-minimal}/bin/git-credential-libsecret
               [web]
-                browser = "chrome"
-              [browser "chrome"]
-                path = "google-chrome-stable"
+                browser = "firefox"
+              [browser "firefox"]
+                path = "firefox"
             '';
           } else {
           text = ''
