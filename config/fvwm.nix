@@ -268,8 +268,8 @@ with lib;
           #      14 - FvwmIconMan Iconified Button
           ###########
           Colorset 0   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 1   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 2   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
+          Colorset 1   fg ${toRGB cfg.theme.bg-alt}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
+          Colorset 2   fg ${toRGB cfg.theme.fg-alt}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
           Colorset 3   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg-alt}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
           Colorset 4   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg-alt}, hi ${cfg.palette.cursor}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
           Colorset 5   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
@@ -484,12 +484,12 @@ with lib;
           #   2 - Close on single click, Destory on double click.
           #   4 - Maximize (right/middle button will only maximize vertical/horizontal)
           #   6 - Iconify (minimize)
-          Mouse 1 1 A Menu MenuWindowOps Delete
-          Mouse 1 2 A Close
-          Mouse 1 4 A Maximize 100 100
-          Mouse 2 4 A Maximize 0 100
-          Mouse 3 4 A Maximize 100 0
-          Mouse 1 6 A Iconify
+          Mouse 1 7 A Menu MenuWindowOps Delete
+          Mouse 1 1 A Close
+          Mouse 1 3 A Maximize 100 100
+          Mouse 2 3 A Maximize 0 100
+          Mouse 3 3 A Maximize 100 0
+          Mouse 1 5 A Iconify
 
           #   TitleBar: Click to Raise, Move, Double Click to Maximize
           #             Mouse Wheel Up/Down to WindowShade On/Off
@@ -532,17 +532,17 @@ with lib;
                           53x47@3 47x47@3 -- Flat
           ButtonStyle All Inactive Vector 5 47x47@3 57x53@3 53x53@3 53x47@3 \
                           47x47@3 -- Flat
-          AddButtonStyle 1 Active Vector 5 45x45@3 55x45@3 55x55@3 45x55@3 45x45@3
-          AddButtonStyle 2 Active Vector 4 35x35@3 65x65@3 65x35@4 35x65@3
-          AddButtonStyle 4 Active Vector 8 30x70@3 30x30@3 70x30@3 70x70@3 30x70@3 \
+          AddButtonStyle 7 Active Vector 5 45x45@3 55x45@3 55x55@3 45x55@3 45x45@3
+          AddButtonStyle 1 Active Vector 4 35x35@3 65x65@3 65x35@4 35x65@3
+          AddButtonStyle 3 Active Vector 8 30x70@3 30x30@3 70x30@3 70x70@3 30x70@3 \
                            30x50@4 50x50@3 50x70@3
-          AddButtonStyle 4 ToggledActiveUp Vector 8 30x70@3 30x30@3 70x30@3 70x70@3 \
+          AddButtonStyle 3 ToggledActiveUp Vector 8 30x70@3 30x30@3 70x30@3 70x70@3 \
                            30x70@3 50x30@4 50x50@3 70x50@3
-          AddButtonStyle 6 Active Vector 5 35x60@3 65x60@3 65x50@3 35x50@3 35x60@3
+          AddButtonStyle 5 Active Vector 5 35x60@3 65x60@3 65x50@3 35x50@3 35x60@3
           ButtonStyle All - Clear
-          ButtonStyle 1 - MwmDecorMenu
-          ButtonStyle 4 - MwmDecorMax
-          ButtonStyle 6 - MwmDecorMin
+          ButtonStyle 7 - MwmDecorMenu
+          ButtonStyle 3 - MwmDecorMax
+          ButtonStyle 5 - MwmDecorMin
 
           ############
           # 7: Modules
