@@ -18,17 +18,8 @@ with lib;
           (
             with import <nixpkgs> { }; writeShellScriptBin "terminal" ''
               CLASS_NAME="terminal"
-              # does term with CLASS_NAME exist?
-              if xdo id -N "$CLASS_NAME">/dev/null; then
-                # focus, move to current desktop the existing term with CLASS_NAME
-                for NODE_ID in $(xdo id -N $CLASS_NAME); do
-                  bspc node $NODE_ID -d focused -m focused
-                  bspc node -f $NODE_ID
-                done
-              else
-                # create new term with CLASS_NAME
-                ${term}/bin/termite --class="$CLASS_NAME"
-              fi
+              # create new term with CLASS_NAME
+              ${term}/bin/termite --class="$CLASS_NAME"
             ''
           )
         ];

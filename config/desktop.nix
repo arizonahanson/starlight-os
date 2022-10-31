@@ -4,9 +4,9 @@ with lib;
 
 {
   imports = [
-    ./bspwm.nix
     ./mate.nix
-    ./polybar.nix
+    #./polybar.nix
+    ./fvwm.nix
     ./theme.nix
     ./audio.nix
     ./terminal.nix
@@ -49,7 +49,7 @@ with lib;
       type = types.int;
       default = 2;
       description = ''
-        bspwm border radius
+        window border radius
         (default 2)
       '';
     };
@@ -357,10 +357,8 @@ with lib;
           );
           reload-desktop = (
             with import <nixpkgs> { }; writeShellScriptBin "reload-desktop" ''
-              ${procps}/bin/pkill -USR1 -x sxhkd
+              ${procps}/bin/pkill -USR1 -x fvwm
               ${procps}/bin/pkill -TERM -x picom
-              ${procps}/bin/pkill -TERM -x polybar
-              ${bspwm}/bin/bspc wm -r
               say 'Reloaded desktop' 'Desktop components have been reloaded'
             ''
           );
@@ -469,8 +467,7 @@ with lib;
             manage = "desktop";
             name = "starlight";
             start = ''
-              ${pkgs.sxhkd}/bin/sxhkd -c /etc/sxhkdrc &
-              ${pkgs.bspwm}/bin/bspwm -c /etc/bspwmrc &
+              ${pkgs.fvwm2}/bin/fvwm -f /etc/fvwm2rc
               ${pkgs.mate.mate-session-manager}/bin/mate-session
             '';
           }];
