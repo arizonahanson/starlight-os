@@ -358,7 +358,6 @@ with lib;
           reload-desktop = (
             with import <nixpkgs> { }; writeShellScriptBin "reload-desktop" ''
               ${procps}/bin/pkill -USR1 -x fvwm
-              ${procps}/bin/pkill -TERM -x picom
               say 'Reloaded desktop' 'Desktop components have been reloaded'
             ''
           );
@@ -380,6 +379,7 @@ with lib;
           libnotify
           feh
           imagemagick
+          xorg.xwd
           clipmenu
           networkmanagerapplet
           xorg.xkill
@@ -412,34 +412,34 @@ with lib;
         enable = true;
         nssmdns = true;
       };
-      picom = let cfg = config.starlight; in
+      /*picom = let cfg = config.starlight; in
         {
-          enable = true;
-          backend = "glx";
-          fade = false;
-          opacityRules = [
-            "${toString cfg.terminalOpacity}:class_g = 'Gcr-prompter'"
-            "${toString cfg.terminalOpacity}:class_g = 'Mate-session'"
-            "${toString cfg.terminalOpacity}:class_g = 'Rofi'"
-            "${toString cfg.terminalOpacity}:class_g = 'Ssh-askpass'"
-            "${toString cfg.terminalOpacity}:class_g = 'terminal'"
-          ];
-          settings = {
-            detect-client-opacity = true;
-            detect-rounded-corners = true;
-            mark-ovredir-focused = true;
-            mark-wmwin-focused = true;
-            shadow-radius = cfg.shadowRadius;
-            use-ewmh-active-win = true;
-          };
-          shadow = true;
-          shadowExclude = [
-            "name = 'Polybar tray window'"
-            "_GTK_FRAME_EXTENTS@:c"
-          ];
-          shadowOffsets = [ (cfg.shadowRadius * -1) (cfg.shadowRadius / -2) ];
-          shadowOpacity = cfg.shadowOpacity * 0.01;
+        enable = true;
+        backend = "glx";
+        fade = false;
+        opacityRules = [
+        "${toString cfg.terminalOpacity}:class_g = 'Gcr-prompter'"
+        "${toString cfg.terminalOpacity}:class_g = 'Mate-session'"
+        "${toString cfg.terminalOpacity}:class_g = 'Rofi'"
+        "${toString cfg.terminalOpacity}:class_g = 'Ssh-askpass'"
+        "${toString cfg.terminalOpacity}:class_g = 'terminal'"
+        ];
+        settings = {
+        detect-client-opacity = true;
+        detect-rounded-corners = true;
+        mark-ovredir-focused = true;
+        mark-wmwin-focused = true;
+        shadow-radius = cfg.shadowRadius;
+        use-ewmh-active-win = true;
         };
+        shadow = true;
+        shadowExclude = [
+        "name = 'Polybar tray window'"
+        "_GTK_FRAME_EXTENTS@:c"
+        ];
+        shadowOffsets = [ (cfg.shadowRadius * -1) (cfg.shadowRadius / -2) ];
+        shadowOpacity = cfg.shadowOpacity * 0.01;
+        };*/
       flatpak = {
         enable = true;
       };
@@ -467,6 +467,9 @@ with lib;
             manage = "desktop";
             name = "starlight";
             start = ''
+              if [ -e "/etc/X11/Xresources" ]; then
+                xrdb /etc/X11/Xresources
+              fi
               ${pkgs.fvwm2}/bin/fvwm -f /etc/fvwm2rc
               ${pkgs.mate.mate-session-manager}/bin/mate-session
             '';

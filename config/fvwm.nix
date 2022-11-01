@@ -46,7 +46,7 @@ with lib;
           #
           # The following is used in various menus and also sets the terminal
           # that FvwmConsole uses. Change this to your terminal of choice
-          InfoStoreAdd terminal terminal
+          InfoStoreAdd terminal xterm
 
           ###########
           # 1: Functions
@@ -90,6 +90,25 @@ with lib;
           + I Raise
           + M $0
 
+          DestroyFunc Thumbnail
+          AddToFunc Thumbnail
+          + I ThisWindow (Shaded) WindowShade toggle
+          + I Schedule 800 Raise
+          + I Raise
+          + I Piperead "xwd -silent -id $[w.id] > $[HOME]/.fvwm/icon.tmp.$[w.id].xwd"
+          + I ThisWindow (Iconifiable, !Iconic) PipeRead "nice -19 convert -resize 256x256 \
+              -frame 1x1 -mattecolor black -quality 0 xwd:$[HOME]/.fvwm/icon.tmp.$[w.id].xwd \
+              png:$[HOME]/.fvwm/icon.tmp.$[w.id].png; rm $[HOME]/.fvwm/icon.tmp.$[w.id].xwd"
+          + I Iconify
+          + I ThisWindow WindowStyle IconOverride, Icon $[HOME]/.fvwm/icon.tmp.$[w.id].png, StaysOnBottom
+
+          DestroyFunc DeThumbnail
+          AddToFunc DeThumbnail
+          + I DestroyWindowStyle
+          + I Exec rm -f $[HOME]/.fvwm/icon.tmp.$[w.id].*
+          + I Iconify off
+          + I All (CurrentPage, Iconic) PlaceAgain Icon
+
           DestroyFunc MoveToCurrent
           AddToFunc MoveToCurrent
           + I ThisWindow MoveToPage
@@ -128,10 +147,10 @@ with lib;
           # This function is run from FvwmIconMan when the button is clicked.
           DestroyFunc IconManClick
           AddToFunc   IconManClick
-          + I ThisWindow (Raised, !Shaded, !Iconic, CurrentPage) Iconify
+          + I ThisWindow (Raised, !Shaded, !Iconic, CurrentPage) Thumbnail
           + I TestRc (Match) Break
           + I ThisWindow WindowShade off
-          + I ThisWindow Iconify off
+          + I ThisWindow Thumbnail off
           + I ThisWindow Raise
           + I ThisWindow (AcceptsFocus) FlipFocus
 
@@ -187,26 +206,28 @@ with lib;
           #
           # Set EdgeScroll 0 0 and/or EdgeResistance -1 to disable.
           EdgeScroll 100 100
-          EdgeResistance 450
+          EdgeResistance 300
           EdgeThickness 1
-          Style * EdgeMoveDelay 350, EdgeMoveResistance 350
+          Style * EdgeMoveDelay 200, EdgeMoveResistance 200
 
           # EwmhBaseStruts [left] [right] [top] [bottom]
           # Reserves space along the edge(s) of the Screen that will not
           # be covered when maximizing or placing windows.
-          EwmhBaseStruts 0 0 0 0
+          EwmhBaseStruts 0 0 32 0
 
           # This sets the ClickTime and MoveThreshold used to determine
           # Double Clicks, Hold and Move for the mouse.
           ClickTime 250
           MoveThreshold 3
 
+          HideGeometryWindow
+
           # Sets the focus style to SloppyFocus and a mouse click
           # in a window will Raise it.
           Style * SloppyFocus, MouseFocusClickRaises
 
           # Default Font
-          DefaultFont "xft:${cfg.fonts.uiFont}:size=12:antialias=True"
+          DefaultFont "xft:${cfg.fonts.uiFont}:size=16:antialias=True"
 
           # Window Placement
           Style * MinOverlapPlacement, GrabFocusOff, !UsePPosition
@@ -221,7 +242,7 @@ with lib;
           Style * !FPGrabFocusTransient, FPReleaseFocusTransient
 
           # WindowShade
-          Style * WindowShadeScrolls, WindowShadeSteps 4
+          Style * WindowShadeScrolls, WindowShadeSteps 1
 
           # Ignore Numlock and other modifiers for bindings
           # See http://fvwm.org/documentation/faq/#why-do-numlock-capslock-and-scrolllock-interfere-with-clicktofocus-andor-my-mouse-bindings
@@ -234,7 +255,7 @@ with lib;
 
           # Disable Icons from appearing on desktop.
           # Comment this out or use Style * Icon to get the icons back.
-          #Style * !Icon
+          Style * Icon, IconBox 32 32 -32 -32, IconFill left top, IconGrid 32 32
 
           # Window Specific Styles
           Style RightPanel !Title, !Borders, !Handles, Sticky, \
@@ -267,21 +288,21 @@ with lib;
           #      13 - FvwmPager Active Page
           #      14 - FvwmIconMan Iconified Button
           ###########
-          Colorset 0   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 1   fg ${toRGB cfg.theme.bg-alt}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 2   fg ${toRGB cfg.theme.fg-alt}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 3   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg-alt}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
-          Colorset 4   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg-alt}, hi ${cfg.palette.cursor}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
-          Colorset 5   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 6   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg}, hi ${toRGB cfg.theme.bg-alt}, sh ${toRGB cfg.theme.fg-alt}, Plain, NoShape
-          Colorset 7   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 8   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 9   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 10  fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 11  fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 12  fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 13  fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 14  fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
+          Colorset 0   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
+          Colorset 1   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
+          Colorset 2   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
+          Colorset 3   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
+          Colorset 4   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
+          Colorset 5   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
+          Colorset 6   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg-alt}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
+          Colorset 7   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
+          Colorset 8   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
+          Colorset 9   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
+          Colorset 10   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
+          Colorset 11   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
+          Colorset 12   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
+          Colorset 13   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
+          Colorset 14   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
 
           #######
           # 4: Menus
@@ -300,7 +321,7 @@ with lib;
           AddToMenu   MenuFvwmRoot "Fvwm" Title
           + "&Programs%icons/programs.png%" Popup MenuPrograms
           + "XDG &Menu%icons/apps.png%" Popup XDGMenu
-          + "&XTerm%icons/terminal.png%" Exec exec $[infostore.terminal]
+          + "&Terminal%icons/terminal.png%" Exec exec terminal
           + "" Nop
           + "Fvwm&Console%icons/terminal.png%" Module FvwmConsole -terminal $[infostore.terminal]
           + "&Wallpapers%icons/wallpaper.png%" Popup BGMenu
@@ -344,7 +365,7 @@ with lib;
           AddToMenu   MenuWindowOps
           + "Move"      Move
           + "Resize"    Resize
-          + "Iconify"   Iconify
+          + "Iconify"   Thumbnail
           + "Maximize"  Maximize
           + "Shade"     WindowShade
           + "Stick"     Stick
@@ -356,7 +377,7 @@ with lib;
           AddToMenu   MenuWindowOpsLong
           + "Move"                Move
           + "Resize"              Resize
-          + "(De)Iconify"         Iconify
+          + "(De)Iconify"         Thumbnail
           + "(Un)Maximize"        Maximize
           + "(Un)Shade"           WindowShade
           + "(Un)Sticky"    Stick
@@ -377,7 +398,7 @@ with lib;
 
           DestroyMenu MenuIconOps
           AddToMenu   MenuIconOps
-          + "(De)Iconify"         Iconify
+          + "(De)Iconify"         Thumbnail
           + "(Un)Maximize"        Maximize
           + "(Un)Shade"           WindowShade
           + "(Un)Sticky"    Stick
@@ -489,7 +510,7 @@ with lib;
           Mouse 1 3 A Maximize 100 100
           Mouse 2 3 A Maximize 0 100
           Mouse 3 3 A Maximize 100 0
-          Mouse 1 5 A Iconify
+          Mouse 1 5 A Thumbnail
 
           #   TitleBar: Click to Raise, Move, Double Click to Maximize
           #             Mouse Wheel Up/Down to WindowShade On/Off
@@ -505,7 +526,7 @@ with lib;
           Mouse 1  R    A Menu MenuFvwmRoot
           Mouse 2  R    A WindowList
           Mouse 3  R    A Menu MenuWindowOpsLong
-          Mouse 1  I    A RaiseMoveX Move "Iconify off"
+          Mouse 1  I    A RaiseMoveX Move "DeThumbnail"
           Mouse 3  T    A Menu MenuWindowOps
           Mouse 3 I    A Menu MenuIconOps
 
@@ -519,7 +540,7 @@ with lib;
           #   4 - Maximize
           #   6 - Minimize
           ###########
-          TitleStyle Centered Height 32 -- Flat
+          TitleStyle LeftJustified Height 32 -- Flat
           ButtonStyle All ActiveUp Vector 5 15x15@4 15x85@3 85x85@3 85x15@3 \
                           15x15@3 -- Flat
           ButtonStyle All ToggledActiveUp Vector 5 15x15@4 15x85@3 85x85@3 \
@@ -554,7 +575,7 @@ with lib;
           # a window. One use is getting the class/resource/name of a window.
           DestroyModuleConfig FvwmIdent:*
           *FvwmIdent: Colorset 10
-          *FvwmIdent: Font "xft:Sans:size=10:antialias=True"
+          *FvwmIdent: Font "xft:${cfg.fonts.uiFont}:size=12:antialias=True"
 
           # FvwmBanner
           #
@@ -617,17 +638,17 @@ with lib;
           #
           # This module displays the location of the windows on the various Pages
           # and Desks. This is setup to show only the Pages on the current Desk.
-          DestroyModuleConfig FvwmPager:*
-          *FvwmPager: Colorset * 10
-          *FvwmPager: HilightColorset * 13
-          *FvwmPager: BalloonColorset * 10
-          *FvwmPager: WindowColorsets 10 11
-          *FvwmPager: Font None
-          *FvwmPager: Balloons All
-          *FvwmPager: BalloonFont "xft:Sans:Bold:size=8:antialias=True"
-          *FvwmPager: BallonYOffset +2
-          *FvwmPager: Window3dBorders
-          *FvwmPager: MiniIcons
+          #DestroyModuleConfig FvwmPager:*
+          #*FvwmPager: Colorset * 10
+          #*FvwmPager: HilightColorset * 13
+          #*FvwmPager: BalloonColorset * 10
+          #*FvwmPager: WindowColorsets 10 11
+          #*FvwmPager: Font None
+          #*FvwmPager: Balloons All
+          #*FvwmPager: BalloonFont "xft:Sans:Bold:size=8:antialias=True"
+          #*FvwmPager: BallonYOffset +2
+          #*FvwmPager: Window3dBorders
+          #*FvwmPager: MiniIcons
 
           # FvwmIconMan
           #

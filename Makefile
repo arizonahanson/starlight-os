@@ -14,7 +14,7 @@ copy:
 
 .PHONY: expire
 expire:
-	@nix-collect-garbage --delete-older-than 2w
+	@nix-collect-garbage --delete-older-than 14d
 	@nix-env --delete-generations 14d
 
 .PHONY: rebuild
