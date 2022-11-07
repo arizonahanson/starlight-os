@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-if ! sudo nix-channel --list | grep 'nixos-22.05' >/dev/null; then
+VERSION="nixos-22.05"
+
+if ! sudo nix-channel --list | grep "${VERSION}" >/dev/null; then
   echo 'adding channel...'
   sudo nix-channel --remove nixos
-  sudo nix-channel --add https://nixos.org/channels/nixos-22.05 nixos || exit 1
+  sudo nix-channel --add "https://nixos.org/channels/${VERSION}" nixos || exit 1
   sudo nix-channel --update nixos
 fi
