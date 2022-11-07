@@ -288,21 +288,21 @@ with lib;
           #      13 - FvwmPager Active Page
           #      14 - FvwmIconMan Iconified Button
           ###########
-          Colorset 0   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
-          Colorset 1   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
-          Colorset 2   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 3   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
-          Colorset 4   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 5   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
+          Colorset 0   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
+          Colorset 1   fg ${toRGB cfg.theme.fg-alt}, bg ${toRGB cfg.theme.bg-alt}, hi ${toRGB cfg.theme.bg-alt}, sh ${toRGB cfg.theme.fg-alt}, Plain, NoShape
+          Colorset 2   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
+          Colorset 3   fg ${toRGB cfg.theme.fg-alt}, bg ${toRGB cfg.theme.bg-alt}, hi ${toRGB cfg.theme.bg-alt}, sh ${toRGB cfg.theme.fg-alt}, Plain, NoShape
+          Colorset 4   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
+          Colorset 5   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
           Colorset 6   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg-alt}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
-          Colorset 7   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
-          Colorset 8   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 9   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
-          Colorset 10   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
-          Colorset 11   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg-alt}, Plain, NoShape
-          Colorset 12   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
-          Colorset 13   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
-          Colorset 14   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.fg-alt}, hi ${toRGB cfg.theme.fg}, sh ${toRGB cfg.theme.bg}, Plain, NoShape
+          Colorset 7   fg ${toRGB cfg.theme.fg-alt}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
+          Colorset 8   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
+          Colorset 9   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
+          Colorset 10   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
+          Colorset 11   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg-alt}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
+          Colorset 12   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg-alt}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
+          Colorset 13   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg-alt}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
+          Colorset 14   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
 
           #######
           # 4: Menus

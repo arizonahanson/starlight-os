@@ -7,7 +7,7 @@ with lib;
     ./mate.nix
     #./polybar.nix
     ./fvwm.nix
-    ./theme.nix
+    #./theme.nix
     ./audio.nix
     ./terminal.nix
     ./colors.nix

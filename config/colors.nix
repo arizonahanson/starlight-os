@@ -8,21 +8,21 @@ with lib;
     palette = {
       color00 = mkOption {
         type = types.str;
-        default = "#070707";
+        default = "#524836";
         description = ''
           color 0 (black)
         '';
       };
       color01 = mkOption {
         type = types.str;
-        default = "#d08292";
+        default = "#88555b";
         description = ''
           color 1 (red)
         '';
       };
       color02 = mkOption {
         type = types.str;
-        default = "#73a561";
+        default = "#456d41";
         description = ''
           color 2 (green)
         '';
@@ -36,84 +36,84 @@ with lib;
       };
       color04 = mkOption {
         type = types.str;
-        default = "#689eca";
+        default = "#496586";
         description = ''
           color 4 (blue)
         '';
       };
       color05 = mkOption {
         type = types.str;
-        default = "#bb86c5";
+        default = "#7d567f";
         description = ''
           color 5 (magenta)
         '';
       };
       color06 = mkOption {
         type = types.str;
-        default = "#01ab9e";
+        default = "#026f6a";
         description = ''
           color 6 (cyan)
         '';
       };
       color07 = mkOption {
         type = types.str;
-        default = "#989898";
+        default = "#b8b4b0";
         description = ''
           color 7 (medium gray)
         '';
       };
       color08 = mkOption {
         type = types.str;
-        default = "#404040";
+        default = "#837c72";
         description = ''
           color 8 (dark gray)
         '';
       };
       color09 = mkOption {
         type = types.str;
-        default = "#c78a72";
+        default = "#815b46";
         description = ''
           color 9 (orange)
         '';
       };
       color10 = mkOption {
         type = types.str;
-        default = "#44aa7f";
+        default = "#256f56";
         description = ''
           color 10 (aquamarine)
         '';
       };
       color11 = mkOption {
         type = types.str;
-        default = "#b49457";
+        default = "#736135";
         description = ''
           color 11 (yellow)
         '';
       };
       color12 = mkOption {
         type = types.str;
-        default = "#9991cf";
+        default = "#685d87";
         description = ''
           color 12 (violet)
         '';
       };
       color13 = mkOption {
         type = types.str;
-        default = "#cd80b0";
+        default = "#875370";
         description = ''
           color 13 (rose)
         '';
       };
       color14 = mkOption {
         type = types.str;
-        default = "#2ba7b9";
+        default = "#226c7b";
         description = ''
           color 14 (azure)
         '';
       };
       color15 = mkOption {
         type = types.str;
-        default = "#b9b9b9";
+        default = "#f1f1e9";
         description = ''
           color 15 (white)
         '';
@@ -127,7 +127,7 @@ with lib;
       };
       cursor = mkOption {
         type = types.str;
-        default = "#5b5b5b";
+        default = "#444444";
         description = ''
           Cursor color
         '';
@@ -136,34 +136,34 @@ with lib;
     theme = {
       bg = mkOption {
         type = types.int;
-        default = 0;
+        default = 15;
         description = ''
           color number for background
-          default: 0
+          default: 15
         '';
       };
       fg = mkOption {
         type = types.int;
-        default = 15;
+        default = 0;
         description = ''
           color number for foreground
-          default: 15
+          default: 0
         '';
       };
       bg-alt = mkOption {
         type = types.int;
-        default = 8;
+        default = 7;
         description = ''
           color number for background-alt
-          default: 8
+          default: 7
         '';
       };
       fg-alt = mkOption {
         type = types.int;
-        default = 7;
+        default = 8;
         description = ''
           color number for foreground-alt
-          default: 7
+          default: 8
         '';
       };
       accent = mkOption {
@@ -171,7 +171,7 @@ with lib;
         default = 12;
         description = ''
           color number for accent
-          default: 3
+          default: 12
         '';
       };
       error = mkOption {
@@ -216,7 +216,7 @@ with lib;
       };
       substitution = mkOption {
         type = types.int;
-        default = 7;
+        default = 8;
         description = ''
           color number for substitutions
           default: 7
