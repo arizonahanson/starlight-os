@@ -120,14 +120,14 @@ with lib;
       };
       gtk = mkOption {
         type = types.str;
-        default = "#0b0b0b";
+        default = "#aaaa99";
         description = ''
           GTK Background color
         '';
       };
       cursor = mkOption {
         type = types.str;
-        default = "#444444";
+        default = "#aaaa99";
         description = ''
           Cursor color
         '';
