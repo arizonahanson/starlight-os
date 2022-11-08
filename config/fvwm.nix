@@ -290,9 +290,9 @@ with lib;
           ###########
           Colorset 0   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
           Colorset 1   fg ${toRGB cfg.theme.fg-alt}, bg ${toRGB cfg.theme.bg-alt}, hi ${toRGB cfg.theme.bg-alt}, sh ${toRGB cfg.theme.fg-alt}, Plain, NoShape
-          Colorset 2   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
+          Colorset 2   fg ${toRGB cfg.theme.bg}, bg ${toRGB cfg.theme.accent}, hi ${toRGB cfg.theme.bg-alt}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
           Colorset 3   fg ${toRGB cfg.theme.fg-alt}, bg ${toRGB cfg.theme.bg-alt}, hi ${toRGB cfg.theme.bg-alt}, sh ${toRGB cfg.theme.fg-alt}, Plain, NoShape
-          Colorset 4   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
+          Colorset 4   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.accent}, hi ${toRGB cfg.theme.fg-alt}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
           Colorset 5   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
           Colorset 6   fg ${toRGB cfg.theme.fg}, bg ${toRGB cfg.theme.bg-alt}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
           Colorset 7   fg ${toRGB cfg.theme.fg-alt}, bg ${toRGB cfg.theme.bg}, hi ${toRGB cfg.theme.bg}, sh ${toRGB cfg.theme.fg}, Plain, NoShape
