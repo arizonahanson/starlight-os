@@ -8,7 +8,7 @@ with lib;
     palette = {
       color00 = mkOption {
         type = types.str;
-        default = "#524836";
+        default = "#1a1a1a";
         description = ''
           color 0 (black)
         '';
@@ -29,7 +29,7 @@ with lib;
       };
       color03 = mkOption {
         type = types.str;
-        default = "#9e7040";
+        default = "#736135";
         description = ''
           color 3 (amber)
         '';
@@ -57,14 +57,14 @@ with lib;
       };
       color07 = mkOption {
         type = types.str;
-        default = "#b8b4b0";
+        default = "#a8a4a0";
         description = ''
           color 7 (medium gray)
         '';
       };
       color08 = mkOption {
         type = types.str;
-        default = "#837c72";
+        default = "#534c42";
         description = ''
           color 8 (dark gray)
         '';
@@ -85,7 +85,7 @@ with lib;
       };
       color11 = mkOption {
         type = types.str;
-        default = "#736135";
+        default = "#9e7040";
         description = ''
           color 11 (yellow)
         '';
@@ -113,7 +113,7 @@ with lib;
       };
       color15 = mkOption {
         type = types.str;
-        default = "#f1f1e9";
+        default = "#c1c1bc";
         description = ''
           color 15 (white)
         '';
@@ -136,34 +136,34 @@ with lib;
     theme = {
       bg = mkOption {
         type = types.int;
-        default = 15;
+        default = 0;
         description = ''
           color number for background
-          default: 15
+          default: 0
         '';
       };
       fg = mkOption {
         type = types.int;
-        default = 0;
+        default = 15;
         description = ''
           color number for foreground
-          default: 0
+          default: 15
         '';
       };
       bg-alt = mkOption {
         type = types.int;
-        default = 7;
+        default = 8;
         description = ''
           color number for background-alt
-          default: 7
+          default: 8
         '';
       };
       fg-alt = mkOption {
         type = types.int;
-        default = 8;
+        default = 7;
         description = ''
           color number for foreground-alt
-          default: 8
+          default: 7
         '';
       };
       accent = mkOption {
@@ -216,7 +216,7 @@ with lib;
       };
       substitution = mkOption {
         type = types.int;
-        default = 8;
+        default = 7;
         description = ''
           color number for substitutions
           default: 7
